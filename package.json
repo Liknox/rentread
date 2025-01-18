@@ -9,7 +9,8 @@
 		"preview": "vite preview",
 		"lint": "biome check ./src",
 		"lint:apply": "biome check --fix --unsafe ./src",
-		"format": "biome format ./src --write"
+		"format": "biome format ./src --write",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"react": "^18.3.1",
@@ -26,6 +27,7 @@
 		"eslint": "^8.57.0",
 		"eslint-plugin-react-hooks": "^4.6.2",
 		"eslint-plugin-react-refresh": "^0.4.7",
+		"husky": "^9.1.7",
 		"typescript": "^5.2.2",
 		"vite": "^5.3.4",
 		"vite-tsconfig-paths": "^5.1.4"
