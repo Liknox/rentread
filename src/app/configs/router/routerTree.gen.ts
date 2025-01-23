@@ -13,6 +13,7 @@
 import { Route as R404Import } from "./../../../pages/__404"
 import { Route as layoutRoute } from "./../../../pages/layout"
 import { Route as IndexImport } from "./../../../pages/index"
+import { Route as BookImport } from "../../../pages/book"
 
 // Create/Update Routes
 
@@ -29,6 +30,12 @@ const IndexRoute = IndexImport.update({
    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
 
+const BookRoute = BookImport.update({
+   path: "/book/$bookId",
+   getParentRoute: () => layoutRoute,
+   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module "@tanstack/react-router" {
@@ -41,11 +48,15 @@ declare module "@tanstack/react-router" {
          preLoaderRoute: typeof string
          parentRoute: typeof layoutRoute
       }
+      "/book/$bookId": {
+         preLoaderRoute: typeof string
+         parentRoute: typeof layoutRoute
+      }
    }
 }
 
 // Create and export the route tree
 
-export const routeTree = layoutRoute.addChildren([IndexRoute, R404Route])
+export const routeTree = layoutRoute.addChildren([IndexRoute, BookRoute, R404Route])
 
 /* prettier-ignore-end */
