@@ -17,42 +17,42 @@ import { Route as BookImport } from "../../../pages/book"
 
 // Create/Update Routes
 
-const R404Route = R404Import.update({
-   id: "/__404",
-   path: "/*",
-   getParentRoute: () => layoutRoute,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+const IndexRoute = IndexImport.update({
+	path: "/",
+	getParentRoute: () => layoutRoute,
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
 
-const IndexRoute = IndexImport.update({
-   path: "/",
-   getParentRoute: () => layoutRoute,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+const R404Route = R404Import.update({
+	id: "/__404",
+	path: "/*",
+	getParentRoute: () => layoutRoute,
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
 
 const BookRoute = BookImport.update({
-   path: "/book/$bookId",
-   getParentRoute: () => layoutRoute,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	path: "/book/$bookId",
+	getParentRoute: () => layoutRoute,
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module "@tanstack/react-router" {
-   interface FileRoutesByPath {
-      "/": {
-         preLoaderRoute: typeof string
-         parentRoute: typeof layoutRoute
-      }
-      "/__404": {
-         preLoaderRoute: typeof string
-         parentRoute: typeof layoutRoute
-      }
-      "/book/$bookId": {
-         preLoaderRoute: typeof string
-         parentRoute: typeof layoutRoute
-      }
-   }
+	interface FileRoutesByPath {
+		"/": {
+			preLoaderRoute: typeof string
+			parentRoute: typeof layoutRoute
+		}
+		"/__404": {
+			preLoaderRoute: typeof string
+			parentRoute: typeof layoutRoute
+		}
+		"/book/$bookId": {
+			preLoaderRoute: typeof string
+			parentRoute: typeof layoutRoute
+		}
+	}
 }
 
 // Create and export the route tree
