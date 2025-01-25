@@ -10,7 +10,7 @@ Happy to see you interested in this project.
    that's not being run on changing directories in your setup.
 3. Install dependencies: `npm i`
 4. Now, to the meat of it: you would like to start an app localy and also browse it around on your mobile device. So you
-   -  Run `npm run dev` - this will first build the project locally, and then displays it in the browser locally.
+   - Run `npm run dev` - this will first build the project locally, and then displays it in the browser locally.
 
 ```
    ┌──────────────────────────────────────────────────┐
