@@ -1,4 +1,4 @@
-import { useTitle } from "@shared/dom"
+import { useTitle } from "@shared/lib/dom"
 import { createFileRoute } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/")({
