@@ -15,7 +15,7 @@ Happy to see you interested in this project.
 ```
    ┌──────────────────────────────────────────────────┐
    │                                                  │
-   │   VITE v5.4.11  ready in * ms                    │
+   │   VITE v5.4.14  ready in * ms                    │
    │                                                  │
    │   - Local:            http://localhost:3000      │
    │   - Network:          http://172.50.0.41:3000    │
