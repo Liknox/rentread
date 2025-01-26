@@ -1,4 +1,4 @@
-import { Author } from "@shared/api/types"
+import type { Author } from "@shared/api/types"
 
 export const HEMINGWAY: Author = {
    id: 1,

@@ -1,7 +1,7 @@
 import * as authors from "./authors"
 import * as publishers from "./publishers"
 import * as categories from "./categories"
-import { AbstractBook } from "@shared/api/types"
+import type { AbstractBook } from "@shared/api/types"
 
 /* eslint-disable max-len */
 export const FIGHT_CLUB_2014: AbstractBook = {

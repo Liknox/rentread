@@ -1,4 +1,4 @@
-import { Category } from "@shared/api/types"
+import type { Category } from "@shared/api/types"
 
 // FIXME: Later, instead of icons, use links to images.
 // FIXME: Add more specific works.

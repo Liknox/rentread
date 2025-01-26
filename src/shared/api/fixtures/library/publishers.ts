@@ -1,4 +1,4 @@
-import { Publisher } from "@shared/api/types"
+import type { Publisher } from "@shared/api/types"
 
 export const PENGUINS: Publisher = {
    id: 1,
