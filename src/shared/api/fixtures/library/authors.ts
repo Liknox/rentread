@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Author = any
+export type Author = any
 
 export const HEMINGWAY: Author = {
    id: 1,

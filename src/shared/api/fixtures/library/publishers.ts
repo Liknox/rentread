@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Publisher = {
+export type Publisher = {
    id: number
    name: string
    city: string
