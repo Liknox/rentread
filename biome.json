@@ -1,55 +1,55 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.6.0/schema.json",
-	"files": { "ignore": ["node_modules", "dist"] },
-	"organizeImports": { "enabled": true },
-	"formatter": {
-		"enabled": true,
-		"ignore": [
-			".cache",
-			".temp",
-			"build",
-			"dist",
-			"*.log",
-			".env",
-			".env.dev",
-			".env.local",
-			".idea/",
-			".vscode/",
-			"node_modules",
-			"src/ignoredFile.js",
-			"**/ignoredFolder/**"
-		],
-		"lineWidth": 120,
-		"indentStyle": "space",
-		"formatWithErrors": false,
-		"indentWidth": 3,
-		"lineEnding": "crlf"
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true,
-			"suspicious": {
-				"noAssignInExpressions": "off",
-				"noConfusingVoidType": "off"
-			}
-		}
-	},
-	"javascript": {
-		"formatter": {
-			"arrowParentheses": "asNeeded",
-			"jsxQuoteStyle": "double",
-			"quoteStyle": "double",
-			"semicolons": "asNeeded",
-			"quoteProperties": "asNeeded",
-			"bracketSpacing": true,
-			"bracketSameLine": true
-		}
-	},
-	"overrides": [
-		{
-			"include": ["tests/**"],
-			"linter": { "rules": { "suspicious": { "noDoubleEquals": "off" } } }
-		}
-	]
+   "$schema": "https://biomejs.dev/schemas/1.6.0/schema.json",
+   "files": { "ignore": ["node_modules", "dist"] },
+   "organizeImports": { "enabled": true },
+   "formatter": {
+      "enabled": true,
+      "ignore": [
+         ".cache",
+         ".temp",
+         "build",
+         "dist",
+         "*.log",
+         ".env",
+         ".env.dev",
+         ".env.local",
+         ".idea/",
+         ".vscode/",
+         "node_modules",
+         "src/ignoredFile.js",
+         "**/ignoredFolder/**"
+      ],
+      "lineWidth": 120,
+      "indentStyle": "space",
+      "formatWithErrors": false,
+      "indentWidth": 3,
+      "lineEnding": "crlf"
+   },
+   "linter": {
+      "enabled": true,
+      "rules": {
+         "recommended": true,
+         "suspicious": {
+            "noAssignInExpressions": "off",
+            "noConfusingVoidType": "off"
+         }
+      }
+   },
+   "javascript": {
+      "formatter": {
+         "arrowParentheses": "asNeeded",
+         "jsxQuoteStyle": "double",
+         "quoteStyle": "double",
+         "semicolons": "asNeeded",
+         "quoteProperties": "asNeeded",
+         "bracketSpacing": true,
+         "bracketSameLine": true
+      }
+   },
+   "overrides": [
+      {
+         "include": ["tests/**"],
+         "linter": { "rules": { "suspicious": { "noDoubleEquals": "off" } } }
+      }
+   ]
 }
