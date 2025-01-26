@@ -1,5 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Author = any
+export type Author = {
+   id: number
+   dateOfBirth?: string
+   firstName: string
+   middleName?: string
+   lastName: string
+   avatar?: { style: { color: string } }
+}
 
 export const HEMINGWAY: Author = {
    id: 1,
