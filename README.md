@@ -2,7 +2,7 @@
 
 Rentread book service client (demo-only!)
 
-<img alt="favicon" src="https://raw.githubusercontent.com/Liknox/personal-page/refs/heads/master/public/favicon.ico" height=40 align="right" />
+<img alt="favicon" src="https://raw.githubusercontent.com/Liknox/rentread/refs/heads/master/public/favicon.ico?token=GHSAT0AAAAAACZU6JNBX2SUOSQBXZHNUBMSZ4WWXMQ" height=40 align="right" />
 
 - [Architecture design guidelines](https://feature-sliced.design/)
 - [Contributing guide](CONTRIBUTING.md)
