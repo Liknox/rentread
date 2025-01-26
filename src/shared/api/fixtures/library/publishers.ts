@@ -1,5 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Publisher = any
+type Publisher = {
+   id: number
+   name: string
+   city: string
+}
 
 export const PENGUINS: Publisher = {
    id: 1,
