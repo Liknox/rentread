@@ -1,34 +1,31 @@
-# React + TypeScript + Vite
+# [Rentread](https://github.com/liknox/rentread)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Rentread book service client (demo-only!)
 
-Currently, two official plugins are available:
+<img alt="favicon" src="https://raw.githubusercontent.com/Liknox/personal-page/refs/heads/master/public/favicon.ico" height=40 align="right" />
 
--  [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses
-   [Babel](https://babeljs.io/) for Fast Refresh
--  [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast
-   Refresh
+- [Architecture design guidelines](https://feature-sliced.design/)
+- [Contributing guide](CONTRIBUTING.md)
 
-## Expanding the ESLint configuration
+## Technology stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **UI**: `react`, `antd`, `tailwindcss`
+- **Data model**: `effector`
+- **Lang**: `typescript`
+- **Data fetching**: `miragejs`, `faker`
+- **Routing**: `tanstack-router`
+- **Lint**: `eslint`, `prettier`, `biomejs`
+- **Deployment**: `vercel`
+- **Architecture**: `feature-sliced`, `module-based-approach`
 
--  Configure the top-level `parserOptions` property like this:
+<br />
 
-```js
-export default {
-	// other rules...
-	parserOptions: {
-		ecmaVersion: "latest",
-		sourceType: "module",
-		project: ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
-		tsconfigRootDir: __dirname,
-	},
-}
-```
-
--  Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or
-   `plugin:@typescript-eslint/strict-type-checked`
--  Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
--  Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` &
-   `plugin:react/jsx-runtime` to the `extends` list
+<div align="center">
+<img title="react" alt="react" height=48 src="https://cdn.auth0.com/blog/react-js/react.png"/>
+<img title="typescript" alt="typescript" height=48 src="https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png"/>
+<img title="antdesign" alt="antdesign" height=48 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
+<img title="eslint" alt="eslint" height=48 src="https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg"/>
+<img title="prettier" alt="prettier" height=48 src="https://prettier.io/icon.png"/>
+<img title="biomejs" alt="prettier" height=48 src="https://biomejs.gallerycdn.vsassets.io/extensions/biomejs/biome/2024.3.70509/1709788159437/Microsoft.VisualStudio.Services.Icons.Default"/>
+<img title="feature-sliced" alt="feature-sliced" height=48 src="https://avatars.githubusercontent.com/u/60469024?s=200&v=4"/>
+</div>
