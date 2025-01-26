@@ -1,12 +1,4 @@
-export type Category = {
-   id: number
-   name: string
-   slug: string
-   description: string
-   cover?: {
-      style: { color: string }
-   }
-}
+import { Category } from "@shared/api/types"
 
 // FIXME: Later, instead of icons, use links to images.
 // FIXME: Add more specific works.

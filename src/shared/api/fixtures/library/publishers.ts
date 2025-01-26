@@ -1,9 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Publisher = {
-   id: number
-   name: string
-   city: string
-}
+import { Publisher } from "@shared/api/types"
 
 export const PENGUINS: Publisher = {
    id: 1,

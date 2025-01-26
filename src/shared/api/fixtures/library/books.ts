@@ -1,17 +1,7 @@
 import * as authors from "./authors"
 import * as publishers from "./publishers"
 import * as categories from "./categories"
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AbstractBook = {
-   id: number
-   name: string
-   description: string
-   authors: authors.Author[]
-   publicationYear: number
-   publishingHouse: publishers.Publisher
-   category: categories.Category
-}
+import { AbstractBook } from "@shared/api/types"
 
 /* eslint-disable max-len */
 export const FIGHT_CLUB_2014: AbstractBook = {
