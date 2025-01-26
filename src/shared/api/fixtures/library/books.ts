@@ -1,7 +1,7 @@
-import * as authors from "./authors"
-import * as publishers from "./publishers"
-import * as categories from "./categories"
 import type { AbstractBook } from "@shared/api/types"
+import * as authors from "./authors"
+import * as categories from "./categories"
+import * as publishers from "./publishers"
 
 /* eslint-disable max-len */
 export const FIGHT_CLUB_2014: AbstractBook = {
@@ -57,7 +57,8 @@ export const CHOKE_2015: AbstractBook = {
 export const THE_OLD_MAN_AND_THE_SEA_1952: AbstractBook = {
    id: 6,
    name: "The Old Man and the Sea",
-   description: `This novella tells the story of Santiago, an elderly Cuban fisherman who has gone 84 days without catching a fish. Determined to prove his skill and strength, he sets out far into the Gulf Stream and hooks a massive marlin. The story follows his exhausting battle with the fish, symbolizing a larger struggle between man and nature. Themes of perseverance, isolation, and the human condition are explored in this timeless narrative, ultimately earning Hemingway the Pulitzer Prize for Fiction.`,
+   description:
+      "This novella tells the story of Santiago, an elderly Cuban fisherman who has gone 84 days without catching a fish. Determined to prove his skill and strength, he sets out far into the Gulf Stream and hooks a massive marlin. The story follows his exhausting battle with the fish, symbolizing a larger struggle between man and nature. Themes of perseverance, isolation, and the human condition are explored in this timeless narrative, ultimately earning Hemingway the Pulitzer Prize for Fiction.",
    authors: [authors.HEMINGWAY],
    publicationYear: 1952,
    publishingHouse: publishers.MACMILLAN,
@@ -77,7 +78,8 @@ export const FAREWELL_TO_ARMS_1929: AbstractBook = {
 export const FOR_WHOM_THE_BELL_TOLLS_1940: AbstractBook = {
    id: 1,
    name: "For Whom the Bell Tolls",
-   description: `Taking place during the Spanish Civil War, this novel focuses on Robert Jordan, an American explosives expert working with a band of guerilla fighters. Assigned to blow up a bridge that will aid enemy forces, Robert struggles with his sense of duty, his romantic feelings for a fellow fighter named Maria, and the broader implications of war. Hemingway explores themes of sacrifice, loyalty, and the emotional toll of war, making this one of his most powerful anti-war novels.`,
+   description:
+      "Taking place during the Spanish Civil War, this novel focuses on Robert Jordan, an American explosives expert working with a band of guerilla fighters. Assigned to blow up a bridge that will aid enemy forces, Robert struggles with his sense of duty, his romantic feelings for a fellow fighter named Maria, and the broader implications of war. Hemingway explores themes of sacrifice, loyalty, and the emotional toll of war, making this one of his most powerful anti-war novels.",
    authors: [authors.HEMINGWAY],
    publicationYear: 1940,
    publishingHouse: publishers.PENGUINS,
@@ -237,7 +239,8 @@ export const RISKING_SKIN_2021: AbstractBook = {
 export const REFACTORING_2008: AbstractBook = {
    id: 4,
    name: "Refactoring: Improving the Design of Existing Code",
-   description: `Refactoring is a disciplined approach to improving the structural integrity and performance of existing programs. Developed through the efforts of experts in object-oriented programming, this book defines the principles and best practices for refactoring, providing clarity on when and how to delve into code for improvement. Each step in refactoring is straightforward: moving a field from one class to another, extracting a code fragment into its own method, or even shifting code across class hierarchies. While each individual step may seem simple, the cumulative effect of these small changes can dramatically improve a project or even prevent the decay of poorly designed software. Martin Fowler, along with his co-authors, sheds light on the refactoring process, explaining where and when to start the in-depth study of code. The core of the book includes a comprehensive list of over 70 refactoring methods, detailing their motivation and techniques, with practical examples primarily in Java. These methods enable step-by-step code modifications, minimizing risks associated with project development.`,
+   description:
+      "Refactoring is a disciplined approach to improving the structural integrity and performance of existing programs. Developed through the efforts of experts in object-oriented programming, this book defines the principles and best practices for refactoring, providing clarity on when and how to delve into code for improvement. Each step in refactoring is straightforward: moving a field from one class to another, extracting a code fragment into its own method, or even shifting code across class hierarchies. While each individual step may seem simple, the cumulative effect of these small changes can dramatically improve a project or even prevent the decay of poorly designed software. Martin Fowler, along with his co-authors, sheds light on the refactoring process, explaining where and when to start the in-depth study of code. The core of the book includes a comprehensive list of over 70 refactoring methods, detailing their motivation and techniques, with practical examples primarily in Java. These methods enable step-by-step code modifications, minimizing risks associated with project development.",
    authors: [authors.MARTIN_FAULER],
    publicationYear: 2008,
    publishingHouse: publishers.SPRINGER,
