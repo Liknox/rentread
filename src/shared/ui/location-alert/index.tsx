@@ -1,0 +1,12 @@
+import { Alert } from "antd"
+
+export const LocationAlert = () => (
+   <Alert
+      className="text-center"
+      message="This is only a demo version of the service client. No real transactions or operations are being conducted!"
+      type="info"
+      closable={{
+         closeIcon: <div>Close</div>,
+      }}
+   />
+)
