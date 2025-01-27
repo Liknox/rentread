@@ -1,4 +1,4 @@
-import { Outlet, createRootRoute } from "@tanstack/react-router"
+import { Outlet } from "@tanstack/react-router"
 import { Layout as AntLayout } from "antd"
 
 import { Footer } from "widgets/footer"
@@ -20,6 +20,4 @@ const Layout = () => {
    )
 }
 
-export const Route = createRootRoute({
-   component: Layout,
-})
+export default Layout

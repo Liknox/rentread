@@ -1,9 +1,4 @@
 import { useTitle } from "@shared/lib/dom"
-import { createFileRoute } from "@tanstack/react-router"
-
-export const Route = createFileRoute("/")({
-   component: Index,
-})
 
 function Index() {
    useTitle("Rentread - books-renting service")
@@ -13,3 +8,5 @@ function Index() {
       </div>
    )
 }
+
+export default Index
