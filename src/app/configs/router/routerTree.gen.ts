@@ -10,10 +10,10 @@
 
 import { R404Import } from "./../../../pages/router"
 import { BookImport } from "./../../../pages/router"
-import { IndexImport } from "./../../../pages/router"
+import { InitialImport } from "./../../../pages/router"
 import { LayoutImport } from "./../../../pages/router"
 
-const IndexRoute = IndexImport.update({
+const InitialRoute = InitialImport.update({
    path: "/",
    getParentRoute: () => LayoutImport,
    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -49,6 +49,6 @@ declare module "@tanstack/react-router" {
    }
 }
 
-export const routeTree = LayoutImport.addChildren([IndexRoute, BookRoute, R404Route])
+export const routeTree = LayoutImport.addChildren([InitialRoute, BookRoute, R404Route])
 
 /* prettier-ignore-end */
