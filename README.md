@@ -2,7 +2,7 @@
 
 Rentread book service client (demo-only!)
 
-<img alt="favicon" src="./public/favicon.ico" height=40 align="right" />
+<img alt="favicon" src="public/favicon.ico" height=40 align="right" />
 
 - [Architecture design guidelines](https://feature-sliced.design/)
 - [Contributing guide](CONTRIBUTING.md)
