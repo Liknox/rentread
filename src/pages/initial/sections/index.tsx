@@ -1,15 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from "react"
 import { Typography, Layout } from "antd"
+import Banner from "./banner"
 
 const SectionWrapper: FC<any> = ({ title, children }) => (
-   <section>
-      {title && <Typography.Title level={2}>{title}</Typography.Title>}
+   <section className="mb-20">
+      {title && (
+         <Typography.Title level={2} className="pb-8 mt-5 text-center">
+            {title}
+         </Typography.Title>
+      )}
       {children}
    </section>
 )
 
-const sections: any[] = []
+const sections: any[] = [
+   {
+      id: 1,
+      Section: Banner,
+   },
+]
 
 const Sections = () => (
    <Layout.Content>
