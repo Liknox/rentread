@@ -5,9 +5,11 @@ export default {
       extend: {
          colors: {
             primary: "var(--color-primary)",
+            lightPrimary: "var(--color-light-primary)",
             dark: "var(--color-dark)",
             accent: "var(--color-accent)",
             gray: "var(--color-gray)",
+            white: "var(--color-white)",
          },
       },
    },
