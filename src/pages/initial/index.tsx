@@ -1,12 +1,9 @@
 import { useTitle } from "@shared/lib/dom"
+import { Sections } from "./sections"
 
 function Index() {
    useTitle("Rentread - books-renting service")
-   return (
-      <div className="p-2">
-         <h3>Welcome Home!</h3>
-      </div>
-   )
+   return <Sections />
 }
 
 export default Index
