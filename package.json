@@ -4,7 +4,7 @@
    "version": "1.0.0",
    "type": "module",
    "scripts": {
-      "dev": "vite --open --config ./configs/build/vite.config.ts --port 3000 --host",
+      "dev": "vite --config ./configs/build/vite.config.ts --port 3000 --host",
       "build": "tsc && vite build --config ./configs/build/vite.config.ts",
       "preview": "vite preview --config ./configs/build/vite.config.ts",
       "lint": "biome check ./src",
