@@ -26,3 +26,5 @@ export const BUSINESS: Category = {
    description: "biographies, management, investments, marketing",
    cover: { style: { color: "#94a7b0" } },
 }
+
+export const getAll = () => [IMAGINATIVE, NOT_IMAGINATIVE, BUSINESS]
