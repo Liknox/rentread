@@ -19,6 +19,11 @@ const sections: any[] = [
       id: 1,
       Section: Banner,
    },
+   {
+      id: 2,
+      title: "Book Categories",
+      Section: Banner,
+   },
 ]
 
 const Sections = () => (
