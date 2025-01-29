@@ -5,7 +5,7 @@ import imgBanner1 from "./assets/b1.jpg"
 const Banner = () => (
    <Carousel
       autoplay
-      autoplaySpeed={5000}
+      autoplaySpeed={4000}
       // arrows
       // nextArrow={<ArrowRightOutlined />}
       // prevArrow={<ArrowLeftOutlined />}
