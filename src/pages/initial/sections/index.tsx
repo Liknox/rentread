@@ -1,9 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC } from "react"
+import { FC, ReactNode } from "react"
 import { Typography, Layout } from "antd"
 import Banner from "./banner"
+import type { SectionsRepresentation } from "@shared/api"
 
-const SectionWrapper: FC<any> = ({ title, children }) => (
+type SectionWrapperTypes = {
+   title?: string
+   children: ReactNode
+}
+
+const SectionWrapper: FC<SectionWrapperTypes> = ({ title, children }) => (
    <section className="mb-20">
       {title && (
          <Typography.Title level={2} className="pb-8 mt-5 text-center">
@@ -14,7 +20,7 @@ const SectionWrapper: FC<any> = ({ title, children }) => (
    </section>
 )
 
-const sections: any[] = [
+const sections: SectionsRepresentation = [
    {
       id: 1,
       Section: Banner,

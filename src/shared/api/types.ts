@@ -1,3 +1,5 @@
+import { FC } from "react"
+
 export type AbstractBook = {
    id: number
    name: string
@@ -14,7 +16,7 @@ export type Author = {
    firstName: string
    middleName?: string
    lastName: string
-   avatar?: CoverAvatar
+   avatar?: { style: { color: string } }
 }
 
 export type Publisher = {
@@ -28,7 +30,11 @@ export type Category = {
    name: string
    slug: string
    description: string
-   cover?: CoverAvatar
+   cover?: { style: { color: string } }
 }
 
-type CoverAvatar = { style: { color: string } }
+export type SectionsRepresentation = {
+   id: number
+   title?: string
+   Section: FC
+}[]
