@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, ReactNode } from "react"
 import { Typography, Layout } from "antd"
 import Banner from "./banner"
