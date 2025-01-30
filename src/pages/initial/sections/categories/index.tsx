@@ -18,7 +18,7 @@ const Categories = () => {
          {categoriesQuery.map(cat => (
             <Col
                key={cat.id}
-               className="hover:opacity-80 relative h-[292px] !important p-10 overflow-hidden text-center cursor-pointer bg-[var(--color-accent)] rounded-[10px] transition duration-200"
+               className="hover:opacity-80 hover:scale-[1.01] transition-[0.25s] relative h-[292px] !important p-10 overflow-hidden text-center cursor-pointer bg-[var(--color-accent)] rounded-[10px]"
                span={7}
                // FIXME: hardcoded param!
                onClick={() => router.navigate({ to: `/catalog?cat=${cat.id}` })}
