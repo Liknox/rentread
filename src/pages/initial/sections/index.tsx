@@ -1,6 +1,6 @@
-import { SectionsRepresentation } from "@shared/api"
+import type { SectionsRepresentation } from "@shared/api"
 import { Layout, Typography } from "antd"
-import { FC, ReactNode } from "react"
+import type { FC, ReactNode } from "react"
 import { Authors } from "./authors"
 import { Banner } from "./banner"
 import { Categories } from "./categories"
