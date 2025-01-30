@@ -1,5 +1,5 @@
-import { Col, Row, Typography } from "antd"
 import { fakeApi } from "@shared/api"
+import { Col, Row, Typography } from "antd"
 
 import imgOrwell from "./assets/orwell.jpg"
 

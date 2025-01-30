@@ -1,5 +1,5 @@
-import { Carousel, Typography } from "antd"
 import { Link } from "@tanstack/react-router"
+import { Carousel, Typography } from "antd"
 import imgBanner1 from "./assets/b1.jpg"
 
 const Banner = () => (

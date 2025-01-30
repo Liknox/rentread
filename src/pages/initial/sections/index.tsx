@@ -1,9 +1,9 @@
+import { SectionsRepresentation } from "@shared/api"
+import { Layout, Typography } from "antd"
 import { FC, ReactNode } from "react"
-import { Typography, Layout } from "antd"
+import { Authors } from "./authors"
 import { Banner } from "./banner"
 import { Categories } from "./categories"
-import { Authors } from "./authors"
-import type { SectionsRepresentation } from "@shared/api"
 
 type SectionWrapperTypes = {
    title?: string
