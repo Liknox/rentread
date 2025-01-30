@@ -6,6 +6,7 @@ const Banner = () => (
    <Carousel
       autoplay
       autoplaySpeed={4000}
+      // FIXME: add controls
       // arrows
       // nextArrow={<ArrowRightOutlined />}
       // prevArrow={<ArrowLeftOutlined />}
@@ -47,4 +48,4 @@ const Banner = () => (
    </Carousel>
 )
 
-export default Banner
+export { Banner }

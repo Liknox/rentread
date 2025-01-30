@@ -1,7 +1,8 @@
 import { FC, ReactNode } from "react"
 import { Typography, Layout } from "antd"
-import Banner from "./banner"
+import { Banner } from "./banner"
 import { Categories } from "./categories"
+import { Authors } from "./authors"
 import type { SectionsRepresentation } from "@shared/api"
 
 type SectionWrapperTypes = {
@@ -29,6 +30,11 @@ const sections: SectionsRepresentation = [
       id: 2,
       title: "Book Categories",
       Section: Categories,
+   },
+   {
+      id: 3,
+      title: "Popular Authors",
+      Section: Authors,
    },
 ]
 
