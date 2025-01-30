@@ -95,3 +95,7 @@ export const GEORGE_MARTIN: Author = {
    middleName: "R.R.",
    lastName: "Martin",
 }
+
+export const getShortname = (entity: Author) => `${entity.firstName} ${entity.lastName}`
+
+export const getPopular = () => [HEMINGWAY, PALAHNIUK, TALEB, NEIL_GAIMAN, ORWELL]
