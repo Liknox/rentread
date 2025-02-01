@@ -1,3 +1,4 @@
+// cSpell: disable
 import type { Publisher } from "@shared/api/types"
 
 export const PENGUINS: Publisher = {

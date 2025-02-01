@@ -1,3 +1,4 @@
+// cSpell: disable
 import type { Category } from "@shared/api/types"
 
 // FIXME: Later, instead of icons, use links to images.

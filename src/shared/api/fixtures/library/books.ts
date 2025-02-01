@@ -1,3 +1,4 @@
+// cSpell: disable
 import type { AbstractBook } from "@shared/api/types"
 import * as authors from "./authors"
 import * as categories from "./categories"

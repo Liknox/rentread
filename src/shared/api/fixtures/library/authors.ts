@@ -1,3 +1,4 @@
+// cSpell: disable
 import type { Author } from "@shared/api/types"
 
 export const HEMINGWAY: Author = {
