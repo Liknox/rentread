@@ -337,16 +337,16 @@ export const GOT__FEAST_FOR_CROWS_2012: AbstractBook = {
    category: categories.IMAGINATIVE,
 }
 
-export const toString = (entity: AbstractBook) => {
+export const getBookString = (entity: AbstractBook) => {
    const author = entity.authors.map(authors.getShortname).join(", ")
-   const publisher = publishers.toString(entity.publishingHouse)
+   const publisher = publishers.getNameString(entity.publishingHouse)
    const book = `${entity.name}, ${entity.publicationYear}`
 
    return `${author} — ${book} (${publisher})`
 }
 
 export const getPrice = (book: AbstractBook) => {
-   const fullTitle = toString(book)
+   const fullTitle = getBookString(book)
    const pseudoFactor = fullTitle.length % 3
    const factor = pseudoFactor + 2
 

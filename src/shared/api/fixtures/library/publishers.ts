@@ -60,4 +60,4 @@ export const SPRINGER: Publisher = {
    city: "Berlin",
 }
 
-export const toString = (entity: Publisher) => entity.name
+export const getNameString = (entity: Publisher) => entity.name
