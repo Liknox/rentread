@@ -1,1 +1,1 @@
-export { LocationAlert } from "./location-alert"
+export { DemoAlert } from "./location-alert"

@@ -1,6 +1,6 @@
 import { Alert } from "antd"
 
-export const LocationAlert = () => (
+export const DemoAlert = () => (
    <Alert
       className="text-center"
       message="This is only a demo version of the service client. No real transactions or operations are being conducted!"

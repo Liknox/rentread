@@ -5,14 +5,14 @@ import { Footer } from "widgets/footer"
 import { Header } from "widgets/header"
 
 import { useResetScrollAtEveryPage } from "@pages/hooks"
-import { LocationAlert } from "@shared/ui/location-alert"
+import { DemoAlert } from "@shared/ui/location-alert"
 
 const Layout = () => {
    useResetScrollAtEveryPage()
 
    return (
       <AntLayout>
-         <LocationAlert />
+         <DemoAlert />
          <Header />
          <Outlet />
          <Footer />

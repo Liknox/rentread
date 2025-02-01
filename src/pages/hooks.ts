@@ -4,14 +4,14 @@ import { useEffect, useRef } from "react"
 import { dom } from "@shared/lib"
 
 /**
- * @hook Логіка скидання скролінгу на кожній сторінці
+ * @hook Logic for resetting scroll position at every page
  */
 export const useResetScrollAtEveryPage = () => {
    const router = useRouter()
    const prevPath = useRef<string>()
 
    useEffect(() => {
-      // Скролимо наверх, тільки якщо змінилась сторінка, але не параметри
+      // scroll to top, if pages changes, not params
 
       // @ts-expect-error this will cause an error
       const unsubscribe = router.subscribe(({ location }) => {
