@@ -15,18 +15,11 @@
 
 .ant-layout {
    background: #ffffff;
+}
 
-   &-content {
-      // display: inline-flex;
-      // flex-direction: column;
-      // flex-grow: 1;
-      // height: 100%;
-      // FIXME: resolve later
-      // 100vh - Header - Alert - Footer
-      min-height: calc(100vh - 64px - 70px - 40px);
-      // min-height: 86vh;
-      padding: 40px 10%;
-   }
+.ant-layout-content {
+   min-height: calc(100vh - 64px - 70px - 40px);
+   padding: 40px 10%;
 }
 
 .ant-steps-horizontal:not(.ant-steps-label-vertical) .ant-steps-item-description {
@@ -41,11 +34,6 @@
    white-space: unset;
 }
 
-// .ant-select-selector,
-// .ant-btn {
-//     border-radius: 5px !important;
-// }
-
 .rc-virtual-list-scrollbar-thumb {
    background-color: #acb6c4 !important;
 }
@@ -58,16 +46,10 @@
    background: transparent;
 }
 
-// .ant-typography + .ant-typography {
-//     margin: 0;
-// }
-
-.ant-anchor {
-   &,
-   &-link-title {
-      font-size: inherit;
-      color: inherit;
-   }
+.ant-anchor,
+.ant-anchor-link-title {
+   font-size: inherit;
+   color: inherit;
 }
 
 .ant-slider-mark-text {
