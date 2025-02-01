@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Col, Row } from "antd"
 import { BookCard } from "entities/book"
-import { AbstractBook, fakeApi } from "shared/api"
+import { type AbstractBook, fakeApi } from "shared/api"
 
 const Books = () => {
    const booksQuery = fakeApi.library.books.getPopular()
