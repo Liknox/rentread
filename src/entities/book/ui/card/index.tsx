@@ -1,8 +1,8 @@
-import { Card } from "antd"
 import { BookFilled } from "@ant-design/icons"
 import { Link } from "@tanstack/react-router"
-import type { CSSProperties, ReactNode } from "react"
+import { Card } from "antd"
 import cn from "classnames"
+import type { CSSProperties, ReactNode } from "react"
 
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"

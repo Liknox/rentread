@@ -3,8 +3,8 @@ import { Layout, Typography } from "antd"
 import type { FC, ReactNode } from "react"
 import { Authors } from "./authors"
 import { Banner } from "./banner"
-import { Categories } from "./categories"
 import { Books } from "./book"
+import { Categories } from "./categories"
 
 type SectionWrapperTypes = {
    title?: string
