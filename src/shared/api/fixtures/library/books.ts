@@ -353,4 +353,4 @@ export const getPrice = (book: AbstractBook) => {
    return (factor * 50) / 10
 }
 
-export const getPopular = () => [FIGHT_CLUB_2014, N1984_2013, BRAVE_NEW_WORLD_2017, WITCHER_GE_2020]
+export const getPopular = () => [REFACTORING_2008, FIGHT_CLUB_2014, CLEAN_CODE_2019, WITCHER_GE_2020]
