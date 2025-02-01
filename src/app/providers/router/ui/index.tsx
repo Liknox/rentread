@@ -1,6 +1,7 @@
-import { routeTree } from "@app/configs/router"
 import { RouterProvider, createRouter } from "@tanstack/react-router"
 import { Suspense } from "react"
+
+import { routeTree } from "@app/configs/router"
 
 const router = createRouter({
    routeTree,
