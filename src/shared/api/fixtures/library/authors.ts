@@ -49,7 +49,7 @@ export const SCHREIER: Author = {
 
 export const NEIL_GAIMAN: Author = {
    id: 7,
-   firstName: "Neil Gaiman",
+   firstName: "Neil",
    lastName: "Gaiman",
    avatar: { style: { color: "#a994b0" } },
 }
