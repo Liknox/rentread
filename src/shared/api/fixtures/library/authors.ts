@@ -44,8 +44,8 @@ export const BOB_MARTIN: Author = {
 export const SCHREIER: Author = {
    id: 6,
    dateOfBirth: "1987-05-10T00:00:00",
-   firstName: "Джейсон",
-   lastName: "Шрейер",
+   firstName: "Jason",
+   lastName: "Schreier",
 }
 
 export const NEIL_GAIMAN: Author = {
