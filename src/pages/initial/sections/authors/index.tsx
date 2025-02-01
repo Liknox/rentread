@@ -4,11 +4,11 @@ import { Col, Row, Typography } from "antd"
 import imgOrwell from "./assets/orwell.jpg"
 
 const srcAuthorsMap: Record<number, string> = {
-   7: imgOrwell,
    2: imgOrwell,
    3: imgOrwell,
+   7: imgOrwell,
    10: imgOrwell,
-   1: imgOrwell,
+   13: imgOrwell,
 }
 
 const Authors = () => {
@@ -19,7 +19,7 @@ const Authors = () => {
          {authorsQuery.map(author => (
             <Col
                key={author.id}
-               className="transition-[0.25s] hover:opacity-80 hover:scale-[1.02] relative h-[180px] !important p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full "
+               className="transition-[0.25s] hover:opacity-80 hover:scale-[1.02] relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
                span={3}
                // FIXME: hardcoded param!
                // onClick={() => history.push(`/catalog?authors=${au.id}`)}
