@@ -62,8 +62,8 @@ export const TERRY_PRATCHETT: Author = {
 
 export const MARTIN_FAULER: Author = {
    id: 9,
-   firstName: "Мартин",
-   lastName: "Фаулер",
+   firstName: "Martin",
+   lastName: "Fauler",
 }
 
 export const ORWELL: Author = {
