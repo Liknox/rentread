@@ -19,7 +19,7 @@ const Authors = () => {
          {authorsQuery.map(author => (
             <Col
                key={author.id}
-               className="transition-[0.25s] hover:opacity-80 hover:scale-[1.02] relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
+               className="transition-[0.25s] hover:opacity-80 relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
                span={3}
                // FIXME: hardcoded param!
                // onClick={() => history.push(`/catalog?authors=${au.id}`)}
