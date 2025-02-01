@@ -4,6 +4,7 @@ import type { FC, ReactNode } from "react"
 import { Authors } from "./authors"
 import { Banner } from "./banner"
 import { Categories } from "./categories"
+import { Books } from "./book"
 
 type SectionWrapperTypes = {
    title?: string
@@ -35,6 +36,11 @@ const sections: SectionsRepresentation = [
       id: 3,
       title: "Popular Authors",
       Section: Authors,
+   },
+   {
+      id: 4,
+      title: "Popular Authors",
+      Section: Books,
    },
 ]
 
