@@ -336,3 +336,21 @@ export const GOT__FEAST_FOR_CROWS_2012: AbstractBook = {
    publishingHouse: publishers.PENGUINS,
    category: categories.IMAGINATIVE,
 }
+
+export const toString = (entity: AbstractBook) => {
+   const author = entity.authors.map(authors.getShortname).join(", ")
+   const publisher = publishers.toString(entity.publishingHouse)
+   const book = `${entity.name}, ${entity.publicationYear}`
+
+   return `${author} — ${book} (${publisher})`
+}
+
+export const getPrice = (book: AbstractBook) => {
+   const fullTitle = toString(book)
+   const pseudoFactor = fullTitle.length % 3
+   const factor = pseudoFactor + 2
+
+   return (factor * 50) / 10
+}
+
+export const getPopular = () => [FIGHT_CLUB_2014, N1984_2013, BRAVE_NEW_WORLD_2017, WITCHER_GE_2020]

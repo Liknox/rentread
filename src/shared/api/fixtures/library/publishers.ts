@@ -59,3 +59,5 @@ export const SPRINGER: Publisher = {
    name: "Springer Nature",
    city: "Berlin",
 }
+
+export const toString = (entity: Publisher) => entity.name
