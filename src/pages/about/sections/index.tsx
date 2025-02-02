@@ -9,7 +9,7 @@ type Props = PropsWithChildren<{
    theme?: "normal" | "alt"
 }>
 
-const HomeSection = (props: Props) => {
+const AboutSection = (props: Props) => {
    const { id, children, className, style, innerClassName, theme = "normal" } = props
 
    return (
@@ -26,4 +26,4 @@ const HomeSection = (props: Props) => {
    )
 }
 
-export default HomeSection
+export default AboutSection
