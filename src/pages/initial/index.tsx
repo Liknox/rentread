@@ -2,7 +2,7 @@ import { useTitle } from "@shared/lib/dom"
 import { Sections } from "./sections"
 
 function Index() {
-   useTitle("Rentread - books-renting service")
+   useTitle("RentRead - Rent Books Service")
    return <Sections />
 }
 
