@@ -1,11 +1,11 @@
-import { Button, Layout } from "antd"
-import { useRouter } from "@tanstack/react-router"
 import { useTitle } from "@shared/lib/dom"
+import { useRouter } from "@tanstack/react-router"
+import { Button, Layout } from "antd"
 
 import Section from "./section"
 
-import bg_hero from "./assets/bg_hero.jpg"
 import bg_books from "./assets/bg_books.png"
+import bg_hero from "./assets/bg_hero.jpg"
 import bg_laptop from "./assets/bg_laptop.jpg"
 
 function About() {
