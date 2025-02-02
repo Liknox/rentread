@@ -17,9 +17,9 @@ const AboutSection = (props: Props) => {
          id={id}
          style={style}
          className={cn(
-            "flex items-center h-screen py-10 px-[10%] text-xl", // Base styles
-            theme === "alt" ? "bg-gray-100" : "bg-white", // Conditional background color
-            className, // Additional custom classes
+            "flex items-center h-screen py-10 px-[10%] text-xl",
+            theme === "alt" ? "bg-gray-100" : "bg-white",
+            className,
          )}>
          <div className={cn("w-1/2", innerClassName)}>{children}</div>
       </section>
