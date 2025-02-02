@@ -1,5 +1,5 @@
-import { CSSProperties, PropsWithChildren } from "react"
 import cn from "classnames"
+import type { CSSProperties, PropsWithChildren } from "react"
 
 type Props = PropsWithChildren<{
    id?: string
