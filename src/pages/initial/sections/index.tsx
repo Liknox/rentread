@@ -1,4 +1,4 @@
-import type { SectionsRepresentation } from "@shared/api"
+import type { SectionsDisplay } from "@shared/api"
 import { Layout, Typography } from "antd"
 import type { FC, ReactNode } from "react"
 
@@ -23,7 +23,7 @@ const SectionWrapper: FC<SectionWrapperTypes> = ({ title, children }) => (
    </section>
 )
 
-const sections: SectionsRepresentation = [
+const sections: SectionsDisplay = [
    {
       id: 1,
       Section: Banner,

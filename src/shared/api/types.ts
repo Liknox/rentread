@@ -33,7 +33,7 @@ export type Category = {
    cover?: { style: { color: string } }
 }
 
-export type SectionsRepresentation = {
+export type SectionsDisplay = {
    id: number
    title?: string
    Section: FC
