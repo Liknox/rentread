@@ -20,6 +20,17 @@ ul {
    list-style: none;
 }
 
+li {
+   margin-top: 0.5rem;
+   margin-bottom: 0.5rem;
+}
+
+h2 {
+   font-size: 1.875rem /* 30px */;
+   line-height: 2.25rem;
+   font-weight: 700;
+}
+
 html {
    scroll-behavior: smooth;
 }

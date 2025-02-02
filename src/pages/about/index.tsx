@@ -63,14 +63,14 @@ const BenefitsSection = () => (
 const FeaturesSection = () => (
    <Section id="features" style={{ backgroundImage: `url(${bg_laptop})` }}>
       <h2 className="text-3xl font-bold">Features</h2>
-      <ul>
-         <li className="my-2">Convenient database search</li>
-         <li className="my-2">Database of all books available to the service</li>
-         <li className="my-2">Rental and payment mechanisms</li>
-         <li className="my-2">Internal logic for calculating interest</li>
-         <li className="my-2">Rating system</li>
-         <li className="my-2">Notification system for events</li>
-         <li className="my-2">Mechanisms for conducting secure transactions</li>
+      <ul className="mt-4">
+         <li>Convenient database search</li>
+         <li>Database of all books available to the service</li>
+         <li>Rental and payment mechanisms</li>
+         <li>Internal logic for calculating interest</li>
+         <li>Rating system</li>
+         <li>Notification system for events</li>
+         <li>Mechanisms for conducting secure transactions</li>
       </ul>
    </Section>
 )
