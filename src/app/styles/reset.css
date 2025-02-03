@@ -66,6 +66,7 @@ input[type="text"],
 input[type="password"],
 input[type="number"],
 textarea {
+   appearance: none;
    -webkit-appearance: none;
 }
 ol,
@@ -175,6 +176,7 @@ button,
 html [type="button"],
 [type="reset"],
 [type="submit"] {
+   appearance: button;
    -webkit-appearance: button;
 }
 button::-moz-focus-inner,
@@ -193,6 +195,7 @@ input[type="date"],
 input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
+   appearance: listbox;
    -webkit-appearance: listbox;
 }
 textarea {
@@ -225,6 +228,7 @@ progress {
 }
 [type="search"] {
    outline-offset: -2px;
+   appearance: none;
    -webkit-appearance: none;
 }
 [type="search"]::-webkit-search-cancel-button,
