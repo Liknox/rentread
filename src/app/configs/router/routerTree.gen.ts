@@ -61,7 +61,11 @@ declare module "@tanstack/react-router" {
          preLoaderRoute: typeof string
          parentRoute: typeof LayoutImport
       }
-      "/__404": {
+      "/about": {
+         preLoaderRoute: typeof string
+         parentRoute: typeof LayoutImport
+      }
+      "/catalog": {
          preLoaderRoute: typeof string
          parentRoute: typeof LayoutImport
       }
@@ -69,11 +73,7 @@ declare module "@tanstack/react-router" {
          preLoaderRoute: typeof string
          parentRoute: typeof LayoutImport
       }
-      "/about": {
-         preLoaderRoute: typeof string
-         parentRoute: typeof LayoutImport
-      }
-      "/catalog": {
+      "/__404": {
          preLoaderRoute: typeof string
          parentRoute: typeof LayoutImport
       }
