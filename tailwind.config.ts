@@ -12,6 +12,9 @@ export default {
             darkGray: "var(--color-dark-gray)",
             white: "var(--color-white)",
          },
+         boxShadow: {
+            "inset": "0 4px 8px var(--color-shadow)"
+         }
       },
    },
    plugins: [],
