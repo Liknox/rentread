@@ -392,3 +392,22 @@ export const getAll = () =>
       GOT__STORM_OF_SWORDS_2018,
       GOT__FEAST_FOR_CROWS_2012,
    ].sort((a, b) => a.id - b.id)
+
+export const getShortname = (entity: AbstractBook) => {
+   const author = entity.authors.map(authors.getShortname).join(", ")
+   const book = `${entity.name}`
+
+   return `${author} — ${book}`
+}
+
+export const getPopularity = (book: AbstractBook) => {
+   if (isPopular(book)) return 5
+   const fullTitle = getBookString(book)
+   const pseudoFactor = fullTitle.length % 5
+   return pseudoFactor
+}
+
+export const isPopular = (book: AbstractBook) =>
+   getPopular()
+      .map(it => it.id)
+      .includes(book.id)
