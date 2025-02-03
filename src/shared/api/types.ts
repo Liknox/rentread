@@ -38,3 +38,15 @@ export type SectionsDisplay = {
    title?: string
    Section: FC
 }[]
+
+export type BannerScreen = {
+   id: number
+   title: string
+   subtitle: string
+   description: string
+   info: string
+   link: boolean
+   linkHref: string
+   img: string
+   imgAlt: string
+}

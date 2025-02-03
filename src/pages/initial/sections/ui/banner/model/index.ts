@@ -1,6 +1,7 @@
+import { BannerScreen } from "@shared/api"
 import imgBanner1 from "../assets/b1.jpg"
 
-export const bannerScreen = [
+export const bannerScreen: BannerScreen[] = [
    {
       id: 1,
       title: "Book Meetup #4",
