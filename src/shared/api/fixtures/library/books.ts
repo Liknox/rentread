@@ -393,6 +393,96 @@ export const getAll = () =>
       GOT__FEAST_FOR_CROWS_2012,
    ].sort((a, b) => a.id - b.id)
 
+const SORTING_TYPE = {
+   1: "POPULARITY" as const,
+   2: "PRICE" as const,
+   3: "TIME" as const,
+   4: "NOVELTY" as const,
+}
+
+type GetListParams = {
+   filters: {
+      search?: string
+      authors?: number[]
+      publishers?: number[]
+      categories?: number[]
+      prices?: {
+         from: number
+         to: number
+      }
+      tariff?: number
+      existsOnly?: boolean
+      // !!! FIXME: Horrible code! Never show this to backenders!
+      getRentInfoBy?: (book: AbstractBook) => {
+         duration: number
+         status: "OUT_STOCK" | "RENTABLE" | "RESERVABLE" | "OWN"
+      }
+   }
+   orderby?: number
+}
+
+export const getList = (params: GetListParams) => {
+   const { filters, orderby } = params
+   const books = getAll()
+   // FIXME: refine search
+   // FIXME: simplify format
+   const filtered = books
+      .filter(book => {
+         if (!filters.search) return true
+         return new RegExp(filters.search, "i").test(getBookString(book))
+      })
+      .filter(book => {
+         if (!filters.publishers?.length) return true
+         return filters.publishers.includes(book.publishingHouse.id)
+      })
+      .filter(book => {
+         if (!filters.authors?.length) return true
+         return book.authors.some(a => filters.authors?.includes(a.id))
+      })
+      .filter(book => {
+         if (!filters.categories?.length) return true
+         return filters.categories?.includes(book.category.id)
+      })
+      .filter(book => {
+         const price = getPrice(book)
+         if (!filters.prices) return true
+         return filters.prices.from <= price && price <= filters.prices.to
+      })
+      .filter(book => {
+         if (!filters.tariff || !filters.getRentInfoBy) return true
+         const { duration } = filters.getRentInfoBy(book)
+         return filters.tariff <= duration
+      })
+      .filter(book => {
+         if (!filters.existsOnly || !filters.getRentInfoBy) return true
+         const { status } = filters.getRentInfoBy(book)
+         return status === "RENTABLE" || status === "OWN"
+      })
+   // .filter((book) => {
+   //     if (!filters.exclude) return true;
+   //     return !filters.exclude.includes(book.id);
+   // });
+
+   if (!orderby) return filtered
+
+   const sorting = SORTING_TYPE[orderby as keyof typeof SORTING_TYPE]
+
+   switch (sorting) {
+      case "NOVELTY":
+         return filtered.sort((a, b) => b.id - a.id)
+      case "POPULARITY":
+         return filtered.sort((a, b) => getPopularity(b) - getPopularity(a))
+      case "PRICE":
+         return filtered.sort((a, b) => getPrice(a) - getPrice(b))
+      case "TIME":
+         if (filters.getRentInfoBy === undefined) return filtered
+
+         return filtered.sort((a, b) => filters.getRentInfoBy!(b).duration - filters.getRentInfoBy!(a).duration)
+      default:
+         return filtered
+   }
+}
+
 export const getShortname = (entity: AbstractBook) => {
    const author = entity.authors.map(authors.getShortname).join(", ")
    const book = `${entity.name}`
