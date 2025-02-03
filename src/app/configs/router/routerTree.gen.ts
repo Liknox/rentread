@@ -82,6 +82,13 @@ declare module "@tanstack/react-router" {
    }
 }
 
-export const routeTree = LayoutImport.addChildren([InitialRoute, BookRoute, AboutRoute, CatalogRoute, R404Route, DebugRoute])
+export const routeTree = LayoutImport.addChildren([
+   InitialRoute,
+   BookRoute,
+   AboutRoute,
+   CatalogRoute,
+   R404Route,
+   DebugRoute,
+])
 
 /* prettier-ignore-end */
