@@ -72,7 +72,7 @@ const Header = () => {
       <>
          <Layout.Header className="relative flex justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset">
             <Link
-               className="flex flex-grow items-center transition duration-250 hover:opacity-70 active:opacity-50"
+               className="flex flex-grow items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
                to="/"
                onClick={() => {
                   console.debug("[DEBUG] reachGoal: BACK_HOME")
