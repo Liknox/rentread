@@ -22,9 +22,14 @@ const InitialRoute = InitialImport.update({
    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
 
-const R404Route = R404Import.update({
-   id: "/__404",
-   path: "/*",
+const AboutRoute = AboutImport.update({
+   path: "/about",
+   getParentRoute: () => LayoutImport,
+   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+} as any)
+
+const CatalogRoute = CatalogImport.update({
+   path: "/catalog",
    getParentRoute: () => LayoutImport,
    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
@@ -41,14 +46,9 @@ const DebugRoute = DebugImport.update({
    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
 
-const AboutRoute = AboutImport.update({
-   path: "/about",
-   getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
-
-const CatalogRoute = CatalogImport.update({
-   path: "/catalog",
+const R404Route = R404Import.update({
+   id: "/__404",
+   path: "/*",
    getParentRoute: () => LayoutImport,
    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
@@ -84,9 +84,9 @@ declare module "@tanstack/react-router" {
 
 export const routeTree = LayoutImport.addChildren([
    InitialRoute,
-   BookRoute,
    AboutRoute,
    CatalogRoute,
+   BookRoute,
    R404Route,
    DebugRoute,
 ])
