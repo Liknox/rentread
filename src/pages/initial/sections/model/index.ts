@@ -1,5 +1,5 @@
-import { SectionsDisplay } from "@shared/api";
-import { Banner, Authors, Books, Categories } from "../ui";
+import { SectionsDisplay } from "@shared/api"
+import { Banner, Authors, Books, Categories } from "../ui"
 
 export const sections: SectionsDisplay = [
    {
