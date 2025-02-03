@@ -1,7 +1,7 @@
 import { useTitle } from "@shared/lib/dom"
 import { Layout } from "antd"
 
-import { SectionsDisplay } from "@shared/api"
+import type { SectionsDisplay } from "@shared/api"
 
 import HeroSection from "./sections/hero"
 import BenefitsSection from "./sections/benefits"
