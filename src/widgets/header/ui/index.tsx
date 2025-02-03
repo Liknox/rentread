@@ -83,7 +83,7 @@ const Header = () => {
             <div className="flex flex-grow-[2] items-center mr-[2%]">
                <Search />
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center gap-3">
                {/* <Wallet.AddFunds.Popover className="mr-[10px]" /> */}
                {/* TODO: add amount-label later */}
                {actions.map(({ id, label, Icon, url, disabled }) => (
