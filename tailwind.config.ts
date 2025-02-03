@@ -9,6 +9,7 @@ export default {
             dark: "var(--color-dark)",
             accent: "var(--color-accent)",
             gray: "var(--color-gray)",
+            darkGray: "var(--color-dark-gray)",
             white: "var(--color-white)",
          },
       },
