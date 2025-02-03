@@ -51,9 +51,8 @@ const actions = [
 
 type ActionId = (typeof actions)[number]["id"]
 
-// const NOT_AVAILABLE = "So far, this function is not available";
+const NOT_AVAILABLE = "So far, this function is not available"
 
-// eslint-disable-next-line max-lines-per-function
 const Header = () => {
    // const orderTotal = orderModel.cart.useOrderBooks().length
    // const favTotal = viewerModel.useFavBooks().length
@@ -93,8 +92,7 @@ const Header = () => {
                      className={cn("flex flex-col mx-[10px] leading-[16px]", {
                         "pointer-events-none opacity-50": disabled,
                      })}
-                     // title={disabled ? NOT_AVAILABLE : ""}
-                  >
+                     title={disabled ? NOT_AVAILABLE : ""}>
                      {/* for centering badge */}
                      <span className="text-center">
                         <Badge count={count[id]} style={{ backgroundColor: "#108ee9" }}>
