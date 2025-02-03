@@ -14,6 +14,7 @@ import { BookImport } from "./../../../pages/router"
 import { InitialImport } from "./../../../pages/router"
 import { DebugImport } from "./../../../pages/router"
 import { AboutImport } from "./../../../pages/router"
+import { CatalogImport } from "./../../../pages/router"
 
 const InitialRoute = InitialImport.update({
    path: "/",
@@ -46,6 +47,12 @@ const AboutRoute = AboutImport.update({
    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
 
+const CatalogRoute = CatalogImport.update({
+   path: "/catalog",
+   getParentRoute: () => LayoutImport,
+   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+} as any)
+
 declare module "@tanstack/react-router" {
    interface FileRoutesByPath {
       "/": {
@@ -64,6 +71,10 @@ declare module "@tanstack/react-router" {
          preLoaderRoute: typeof string
          parentRoute: typeof LayoutImport
       }
+      "/catalog": {
+         preLoaderRoute: typeof string
+         parentRoute: typeof LayoutImport
+      }
       "/debug": {
          preLoaderRoute: typeof string
          parentRoute: typeof LayoutImport
@@ -71,6 +82,6 @@ declare module "@tanstack/react-router" {
    }
 }
 
-export const routeTree = LayoutImport.addChildren([InitialRoute, BookRoute, AboutRoute, R404Route, DebugRoute])
+export const routeTree = LayoutImport.addChildren([InitialRoute, BookRoute, AboutRoute, CatalogRoute, R404Route, DebugRoute])
 
 /* prettier-ignore-end */

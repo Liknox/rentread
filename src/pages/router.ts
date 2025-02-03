@@ -7,7 +7,8 @@ const Book = lazy(() => import("./book"))
 const Initial = lazy(() => import("./initial"))
 const About = lazy(() => import("./about"))
 const NotFound = lazy(() => import("./__404"))
-const DebugPage = lazy(() => import("./debug"))
+const Catalog = lazy(() => import("./catalog"))
+const Debug = lazy(() => import("./debug"))
 
 export const LayoutImport = createRootRoute({
    component: Layout,
@@ -25,10 +26,14 @@ export const AboutImport = createFileRoute("/about")({
    component: About,
 })
 
+export const CatalogImport = createFileRoute("/catalog")({
+   component: Catalog,
+})
+
 export const R404Import = createFileRoute("/__404")({
    component: NotFound,
 })
 
 export const DebugImport = createFileRoute("/debug")({
-   component: DebugPage,
+   component: Debug,
 })
