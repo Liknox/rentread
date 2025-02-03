@@ -1,5 +1,5 @@
 import type { SectionsDisplay } from "@shared/api"
-import { Banner, Authors, Books, Categories } from "../ui"
+import { Authors, Banner, Books, Categories } from "../ui"
 
 export const sections: SectionsDisplay = [
    {

@@ -1,11 +1,10 @@
+import type { SectionsDisplay } from "@shared/api"
 import { useTitle } from "@shared/lib/dom"
 import { Layout } from "antd"
 
-import type { SectionsDisplay } from "@shared/api"
-
-import HeroSection from "./sections/hero"
 import BenefitsSection from "./sections/benefits"
 import FeaturesSection from "./sections/features"
+import HeroSection from "./sections/hero"
 import SocialSection from "./sections/socials"
 
 function About() {
