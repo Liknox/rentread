@@ -8,7 +8,7 @@ import { HeartOutlined, ShoppingCartOutlined, UserOutlined, FolderOpenOutlined, 
 // import { viewerModel } from "entities/viewer"
 // import { orderModel } from "entities/order"
 // import { ReactComponent as Logo } from "./logo.svg"
-// import Search from "./search"
+import Search from "./search"
 import { Link } from "@tanstack/react-router"
 
 const actions = [
@@ -80,9 +80,9 @@ const Header = () => {
                {/* <Logo width={24} /> */}
                <h1 className="pb-1 pl-[10px] text-[20px]">Rentread</h1>
             </Link>
-            {/* <div className="flex flex-grow-[2] items-center mr-[2%]">
+            <div className="flex flex-grow-[2] items-center mr-[2%]">
                <Search />
-            </div> */}
+            </div>
             <div className="flex items-center">
                {/* <Wallet.AddFunds.Popover className="mr-[10px]" /> */}
                {/* TODO: add amount-label later */}
