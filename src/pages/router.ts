@@ -9,6 +9,7 @@ const About = lazy(() => import("./about"))
 const NotFound = lazy(() => import("./__404"))
 const Catalog = lazy(() => import("./catalog"))
 const Debug = lazy(() => import("./debug"))
+const Profile = lazy(() => import("./profile"))
 
 export const LayoutImport = createRootRoute({
    component: Layout,
@@ -36,4 +37,8 @@ export const R404Import = createFileRoute("/__404")({
 
 export const DebugImport = createFileRoute("/debug")({
    component: Debug,
+})
+
+export const ProfileImport = createFileRoute("/profile")({
+   component: Profile,
 })
