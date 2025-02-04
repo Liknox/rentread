@@ -1,9 +1,9 @@
 import { useTitle } from "@shared/lib/dom"
 import { Sections } from "./sections"
 
-function Index() {
+function IndexPage() {
    useTitle("RentRead - Rent Books Service")
    return <Sections />
 }
 
-export default Index
+export default IndexPage

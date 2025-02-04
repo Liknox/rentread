@@ -7,7 +7,7 @@ import FeaturesSection from "./sections/features"
 import HeroSection from "./sections/hero"
 import SocialSection from "./sections/socials"
 
-function About() {
+function AboutPage() {
    useTitle("About us - RentRead")
    return (
       <>
@@ -43,4 +43,4 @@ const sections: SectionsDisplay = [
    },
 ]
 
-export default About
+export default AboutPage

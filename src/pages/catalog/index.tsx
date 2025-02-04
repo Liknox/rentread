@@ -1,5 +1,5 @@
-function Catalog() {
+function CatalogPage() {
    return <div>Catalog page</div>
 }
 
-export default Catalog
+export default CatalogPage
