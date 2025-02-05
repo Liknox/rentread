@@ -54,3 +54,7 @@ html {
 ::-webkit-scrollbar-corner {
    background-color: #ffffff;
 }
+
+[aria-label="authors-checkbox"] label {
+   width: 100%;
+}
