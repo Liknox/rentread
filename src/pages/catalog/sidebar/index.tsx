@@ -5,7 +5,7 @@ import { fakeApi } from "@shared/api"
 function Sidebar() {
    return (
       <Layout.Sider width={400}>
-         <div className="p-5 shadow-inset">
+         <div className="p-5 shadow-insetDark">
             <Typography.Title level={4} className="text-center">
                Filters
             </Typography.Title>
