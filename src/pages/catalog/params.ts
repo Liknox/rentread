@@ -7,6 +7,7 @@ interface SearchParams {
    cat?: string | number
    // @ts-expect-error this will cause an error
    existsOnly?: boolean | undefined
+   tarrif?: string
    [key: string]: string | number | undefined
 }
 
