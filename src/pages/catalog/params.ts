@@ -59,3 +59,30 @@ export const useFilterByPublisher = () => {
 
    return { publishers, setPublishers }
 }
+
+/** @query Filter: by category */
+export const useFilterByCategory = () => {
+   const search = useSearch({ strict: false }) as SearchParams
+   const router = useRouter()
+   const categories =
+      String(search.cat)
+         ?.split("_")
+         .map(item => (item ? Number(item) : null))
+         .filter((item): item is number => item !== null) || []
+
+   const setCategories = (value: number[]) => {
+      const newSearch: SearchParams = { ...search }
+
+      if (value.length > 0) {
+         newSearch.cat = value.length === 1 ? value[0] : value.join("_")
+      } else {
+         delete newSearch.cat
+      }
+
+      console.log(newSearch)
+
+      router.navigate({ to: location.pathname, search: newSearch })
+   }
+
+   return { categories, setCategories }
+}
