@@ -3,6 +3,7 @@ import { useRouter, useSearch } from "@tanstack/react-router"
 interface SearchParams {
    authors?: string | number
    pub?: string | number
+   cat?: string | number
    [key: string]: string | number | undefined
 }
 
