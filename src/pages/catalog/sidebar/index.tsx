@@ -10,6 +10,7 @@ function Sidebar() {
                Filters
             </Typography.Title>
             <AuthorSection />
+            <PublisherSection />
          </div>
       </Layout.Sider>
    )
@@ -17,7 +18,6 @@ function Sidebar() {
 
 const AuthorSection = () => {
    const params = catalogParams.useFilterByAuthor()
-   // Some options could be disabled
    const options = fakeApi.library.authors.getAll().map(a => ({
       label: fakeApi.library.authors.getShortname(a),
       value: a.id,
@@ -30,7 +30,27 @@ const AuthorSection = () => {
             options={options}
             value={params.authors}
             onChange={params.setAuthors}
-            aria-label="authors-checkbox"
+            aria-label="checkboxes-group"
+         />
+      </section>
+   )
+}
+
+const PublisherSection = () => {
+   const params = catalogParams.useFilterByPublisher()
+   const options = fakeApi.library.publishers.getAll().map(a => ({
+      label: `${a.name} (${a.city})`,
+      value: a.id,
+   }))
+
+   return (
+      <section className="p-3">
+         <Divider plain>Publishers</Divider>
+         <Checkbox.Group
+            options={options}
+            value={params.publishers || []}
+            onChange={params.setPublishers}
+            aria-label="checkboxes-group"
          />
       </section>
    )
