@@ -9,11 +9,25 @@ function Sidebar() {
             <Typography.Title level={4} className="text-center">
                Filters
             </Typography.Title>
+            <ExistsOnlySection />
             <CategorySection />
             <AuthorSection />
             <PublisherSection />
          </div>
       </Layout.Sider>
+   )
+}
+
+const ExistsOnlySection = () => {
+   const params = catalogParams.useExistsOnly()
+
+   return (
+      <section className="p-3">
+         <Divider plain>General</Divider>
+         <Checkbox defaultChecked={params.existsOnly} onChange={e => params.setExistsOnly(e.target.checked)}>
+            Only in stock
+         </Checkbox>
+      </section>
    )
 }
 
