@@ -9,6 +9,7 @@ function Sidebar() {
             <Typography.Title level={4} className="text-center">
                Filters
             </Typography.Title>
+            <CategorySection />
             <AuthorSection />
             <PublisherSection />
          </div>
@@ -50,6 +51,27 @@ const PublisherSection = () => {
             options={options}
             value={params.publishers || []}
             onChange={params.setPublishers}
+            aria-label="checkboxes-group"
+         />
+      </section>
+   )
+}
+
+const CategorySection = () => {
+   const params = catalogParams.useFilterByCategory()
+   // Some options could be disabled
+   const options = fakeApi.library.categories.getAll().map(a => ({
+      label: a.name,
+      value: a.id,
+   }))
+
+   return (
+      <section className="p-3">
+         <Divider plain>Categories</Divider>
+         <Checkbox.Group
+            options={options}
+            value={params.categories || []}
+            onChange={params.setCategories}
             aria-label="checkboxes-group"
          />
       </section>
