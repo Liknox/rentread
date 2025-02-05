@@ -55,6 +55,6 @@ html {
    background-color: #ffffff;
 }
 
-[aria-label="authors-checkbox"] label {
+[aria-label="checkboxes-group"] label {
    width: 100%;
 }
