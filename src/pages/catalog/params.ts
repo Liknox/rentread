@@ -1,4 +1,5 @@
 import { useRouter, useSearch } from "@tanstack/react-router"
+import { useRef } from "react"
 
 interface SearchParams {
    authors?: string | number
@@ -115,4 +116,32 @@ export const useExistsOnly = () => {
       router.navigate({ to: location.pathname, search: newSearch })
    }
    return { existsOnly, setExistsOnly }
+}
+
+export const useTariff = () => {
+   const search = useSearch({ strict: false }) as SearchParams
+   const router = useRouter()
+   // FIXME: type
+   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+   const tariff = Number(search.tariff) || TARIFFS.T7
+
+   // Debounce update
+   const setTariff = (tariff: number) => {
+      if (timerRef.current) {
+         clearTimeout(timerRef.current)
+      }
+      timerRef.current = setTimeout(() => {
+         const newSearch: SearchParams = { ...search }
+
+         if (tariff !== TARIFFS.T7) {
+            newSearch.tariff = tariff
+         } else {
+            delete newSearch.tariff
+         }
+
+         router.navigate({ to: location.pathname, search: newSearch })
+      }, 300)
+   }
+
+   return { tariff, setTariff }
 }
