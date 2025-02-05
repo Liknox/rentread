@@ -87,3 +87,24 @@ export const useFilterByCategory = () => {
 
    return { categories, setCategories }
 }
+
+export const useExistsOnly = () => {
+   const search = useSearch({ strict: false }) as SearchParams
+   const router = useRouter()
+
+   const DEFAULT_EXISTS_ONLY = false
+   const existsOnly = Boolean(search.existsOnly) || DEFAULT_EXISTS_ONLY
+
+   const setExistsOnly = (value: boolean) => {
+      const newSearch: SearchParams = { ...search }
+
+      if (value) {
+         newSearch.existsOnly = true
+      } else {
+         delete newSearch.existsOnly
+      }
+
+      router.navigate({ to: location.pathname, search: newSearch })
+   }
+   return { existsOnly, setExistsOnly }
+}
