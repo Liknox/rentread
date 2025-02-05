@@ -9,6 +9,12 @@ interface SearchParams {
    [key: string]: string | number | undefined
 }
 
+export const TARIFFS = {
+   T7: 7,
+   T14: 14,
+   T30: 30,
+}
+
 /** @query Filter: by author */
 export const useFilterByAuthor = () => {
    const search = useSearch({ strict: false }) as SearchParams
