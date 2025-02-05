@@ -4,6 +4,8 @@ interface SearchParams {
    authors?: string | number
    pub?: string | number
    cat?: string | number
+   // @ts-expect-error this will cause an error
+   existsOnly?: boolean | undefined
    [key: string]: string | number | undefined
 }
 
