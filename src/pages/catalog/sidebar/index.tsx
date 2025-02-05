@@ -1,4 +1,4 @@
-import { Typography, Layout, Divider, Checkbox } from "antd"
+import { Typography, Layout, Divider, Checkbox, Slider } from "antd"
 import * as catalogParams from "../params"
 import { fakeApi } from "@shared/api"
 
@@ -10,6 +10,7 @@ function Sidebar() {
                Filters
             </Typography.Title>
             <ExistsOnlySection />
+            <TimeSection />
             <CategorySection />
             <AuthorSection />
             <PublisherSection />
@@ -27,6 +28,35 @@ const ExistsOnlySection = () => {
          <Checkbox defaultChecked={params.existsOnly} onChange={e => params.setExistsOnly(e.target.checked)}>
             Only in stock
          </Checkbox>
+      </section>
+   )
+}
+
+const { TARIFFS } = catalogParams
+
+/* FIXME: replace to datepicker later */
+// FIXME: hardcode by query-params?
+const TimeSection = () => {
+   const params = catalogParams.useTariff()
+
+   return (
+      <section className="p-3">
+         <Divider plain>Term of rent</Divider>
+         <Slider
+            // range
+            // FIXME: hardcoded
+            marks={{
+               [TARIFFS.T7]: `${TARIFFS.T7}+ дн`,
+               [TARIFFS.T14]: `${TARIFFS.T14}+ дн`,
+               [TARIFFS.T30]: `${TARIFFS.T30}+ дн`,
+            }}
+            defaultValue={params.tariff}
+            onChange={(value: number) => params.setTariff(value)}
+            min={TARIFFS.T7}
+            max={TARIFFS.T30}
+            step={null}
+            // tipFormatter={(value) => value && Object.values(TARIFFS)[value - 1]}
+         />
       </section>
    )
 }
