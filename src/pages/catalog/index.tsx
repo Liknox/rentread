@@ -1,4 +1,5 @@
 import { Layout, Typography } from "antd"
+import Sidebar from "./sidebar"
 
 function CatalogPage() {
    return (
@@ -8,7 +9,7 @@ function CatalogPage() {
          </Typography.Title>
          <Layout className="mt-16">
             {/* <Content /> */}
-            {/* <Sidebar /> */}
+            <Sidebar />
          </Layout>
       </Layout.Content>
    )
