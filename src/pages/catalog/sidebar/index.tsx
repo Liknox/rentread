@@ -9,7 +9,7 @@ function Sidebar() {
             <Typography.Title level={4} className="text-center">
                Filters
             </Typography.Title>
-            {/* <AuthorSection /> */}
+            <AuthorSection />
          </div>
       </Layout.Sider>
    )
