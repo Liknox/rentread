@@ -62,3 +62,16 @@ export const SPRINGER: Publisher = {
 }
 
 export const getNameString = (entity: Publisher) => entity.name
+
+export const getAll = () => [
+   PENGUINS,
+   COLLINS,
+   MACMILLAN,
+   SIMON_SHUSTER,
+   HACHETTE,
+   SCHOLASTIC,
+   BLOOMSBURY,
+   OXFORD,
+   WILEY,
+   SPRINGER,
+]
