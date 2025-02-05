@@ -5,6 +5,7 @@ interface SearchParams {
    [key: string]: string | number | undefined
 }
 
+/** @query Filter: by author */
 export const useFilterByAuthor = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
