@@ -1,6 +1,7 @@
-import { Typography, Layout, Divider, Checkbox, Slider } from "antd"
+import { Checkbox, Divider, Layout, Slider, Typography } from "antd"
 import * as catalogParams from "../params"
 import { fakeApi } from "@shared/api"
+import { PRICES, TARIFFS } from "@app/configs/constants"
 
 function Sidebar() {
    return (
@@ -32,8 +33,6 @@ const ExistsOnlySection = () => {
       </section>
    )
 }
-
-const { TARIFFS, PRICES } = catalogParams
 
 /* FIXME: replace to datepicker later */
 // FIXME: hardcode by query-params?
@@ -76,8 +75,8 @@ const PriceSection = () => {
             }}
             defaultValue={[params.from, params.to]}
             step={50}
-            min={catalogParams.PRICES.MIN}
-            max={catalogParams.PRICES.MAX}
+            min={PRICES.MIN}
+            max={PRICES.MAX}
             onChange={([from, to]) => params.setPrice(from, to)}
          />
       </section>

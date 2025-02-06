@@ -1,3 +1,4 @@
+import { PRICES, TARIFFS } from "@app/configs/constants"
 import { useRouter, useSearch } from "@tanstack/react-router"
 import { useRef } from "react"
 
@@ -9,18 +10,6 @@ interface SearchParams {
    existsOnly?: boolean | undefined
    tarrif?: string
    [key: string]: string | number | undefined
-}
-
-export const TARIFFS = {
-   T7: 7,
-   T14: 14,
-   T30: 30,
-}
-
-// FIXME: move to entities / config / constants?
-export const PRICES = {
-   MIN: 50,
-   MAX: 1000,
 }
 
 /** @query Filter: by author */
