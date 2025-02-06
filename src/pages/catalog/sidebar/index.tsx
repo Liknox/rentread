@@ -70,11 +70,11 @@ const PriceSection = () => {
          <Slider
             range
             marks={{
-               [PRICES.MIN]: `${PRICES.MIN} р`,
-               [PRICES.MAX]: `${PRICES.MAX} р`,
+               [PRICES.MIN]: `${PRICES.MIN} $`,
+               [PRICES.MAX]: `${PRICES.MAX} $`,
             }}
             defaultValue={[params.from, params.to]}
-            step={50}
+            step={5}
             min={PRICES.MIN}
             max={PRICES.MAX}
             onChange={([from, to]) => params.setPrice(from, to)}
