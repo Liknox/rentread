@@ -5,6 +5,6 @@ export const TARIFFS = {
 }
 
 export const PRICES = {
-   MIN: 50,
-   MAX: 1000,
+   MIN: 0,
+   MAX: 50,
 }
