@@ -1,7 +1,7 @@
+import { PRICES, TARIFFS } from "@app/configs/constants"
+import { fakeApi } from "@shared/api"
 import { Checkbox, Divider, Layout, Slider, Typography } from "antd"
 import * as catalogParams from "../params"
-import { fakeApi } from "@shared/api"
-import { PRICES, TARIFFS } from "@app/configs/constants"
 
 function Sidebar() {
    return (
