@@ -393,6 +393,10 @@ export const getAll = () =>
       GOT__FEAST_FOR_CROWS_2012,
    ].sort((a, b) => a.id - b.id)
 
+export const getById = (bookId: number) => {
+   return getAll().find(b => b.id === bookId)
+}
+
 const SORTING_TYPE = {
    1: "POPULARITY" as const,
    2: "PRICE" as const,
