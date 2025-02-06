@@ -152,3 +152,35 @@ export const useTariff = () => {
 
    return { tariff, setTariff }
 }
+
+export const usePrices = () => {
+   const search = useSearch({ strict: false }) as SearchParams
+   const router = useRouter()
+
+   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+   const from = Number(search.pf) || PRICES.MIN
+   const to = Number(search.pt) || PRICES.MAX
+
+   // Debounce update
+   const setPrice = (from: number, to: number) => {
+      if (timerRef.current) {
+         clearTimeout(timerRef.current)
+      }
+      timerRef.current = setTimeout(() => {
+         const newSearch: SearchParams = { ...search }
+
+         if (from !== PRICES.MIN || to !== PRICES.MAX) {
+            newSearch.pf = from
+            newSearch.pt = to
+         } else {
+            delete newSearch.pf
+            delete newSearch.pt
+         }
+
+         router.navigate({ to: location.pathname, search: newSearch })
+      }, 300)
+   }
+
+   return { from, to, setPrice }
+}
