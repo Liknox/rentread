@@ -18,11 +18,12 @@ interface SearchParams {
 export const useFilterByAuthor = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
-   const authors =
-      String(search.authors)
-         ?.split("_")
-         .map(item => (item ? Number(item) : null))
-         .filter((item): item is number => item !== null) || []
+   const authors = search.authors
+      ? String(search.authors)
+           ?.split("_")
+           .map(item => (item ? Number(item) : null))
+           .filter((item): item is number => item !== null) || []
+      : []
 
    const setAuthors = (value: number[]) => {
       const newSearch: SearchParams = { ...search }
@@ -43,11 +44,12 @@ export const useFilterByAuthor = () => {
 export const useFilterByPublisher = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
-   const publishers =
-      String(search.pub)
-         ?.split("_")
-         .map(item => (item ? Number(item) : null))
-         .filter((item): item is number => item !== null) || []
+   const publishers = search.pub
+      ? String(search.pub)
+           ?.split("_")
+           .map(item => (item ? Number(item) : null))
+           .filter((item): item is number => item !== null) || []
+      : []
 
    const setPublishers = (value: number[]) => {
       const newSearch: SearchParams = { ...search }
@@ -68,11 +70,12 @@ export const useFilterByPublisher = () => {
 export const useFilterByCategory = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
-   const categories =
-      String(search.cat)
-         ?.split("_")
-         .map(item => (item ? Number(item) : null))
-         .filter((item): item is number => item !== null) || []
+   const categories = search.cat
+      ? String(search.cat)
+           ?.split("_")
+           .map(item => (item ? Number(item) : null))
+           .filter((item): item is number => item !== null) || []
+      : []
 
    const setCategories = (value: number[]) => {
       const newSearch: SearchParams = { ...search }
@@ -134,7 +137,7 @@ export const useTariff = () => {
          }
 
          router.navigate({ to: location.pathname, search: newSearch })
-      }, 300)
+      }, 500)
    }
 
    return { tariff, setTariff }
@@ -167,7 +170,7 @@ export const usePrices = () => {
          }
 
          router.navigate({ to: location.pathname, search: newSearch })
-      }, 300)
+      }, 500)
    }
 
    return { from, to, setPrice }
