@@ -10,6 +10,13 @@ export type AbstractBook = {
    category: Category
 }
 
+export type Book = {
+   id: number
+   abstractBook: AbstractBook
+   // costPerDay: number;
+   availableBefore: string
+}
+
 export type Author = {
    id: number
    dateOfBirth?: string
