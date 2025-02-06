@@ -11,6 +11,7 @@ interface SearchParams {
    tarrif?: string
    from?: string
    to?: string
+   sorting?: string
    [key: string]: string | number | undefined
 }
 
