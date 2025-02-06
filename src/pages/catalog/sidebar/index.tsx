@@ -10,6 +10,7 @@ function Sidebar() {
                Filters
             </Typography.Title>
             <ExistsOnlySection />
+            <PriceSection />
             <TimeSection />
             <CategorySection />
             <AuthorSection />
@@ -32,7 +33,7 @@ const ExistsOnlySection = () => {
    )
 }
 
-const { TARIFFS } = catalogParams
+const { TARIFFS, PRICES } = catalogParams
 
 /* FIXME: replace to datepicker later */
 // FIXME: hardcode by query-params?
@@ -56,6 +57,28 @@ const TimeSection = () => {
             max={TARIFFS.T30}
             step={null}
             // tipFormatter={(value) => value && Object.values(TARIFFS)[value - 1]}
+         />
+      </section>
+   )
+}
+
+const PriceSection = () => {
+   const params = catalogParams.usePrices()
+
+   return (
+      <section className="p-3">
+         <Divider plain>Rent Price</Divider>
+         <Slider
+            range
+            marks={{
+               [PRICES.MIN]: `${PRICES.MIN} р`,
+               [PRICES.MAX]: `${PRICES.MAX} р`,
+            }}
+            defaultValue={[params.from, params.to]}
+            step={50}
+            min={catalogParams.PRICES.MIN}
+            max={catalogParams.PRICES.MAX}
+            onChange={([from, to]) => params.setPrice(from, to)}
          />
       </section>
    )
