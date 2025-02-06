@@ -28,7 +28,7 @@ export const useFilterByAuthor = () => {
       if (value.length > 0) {
          newSearch.authors = value.length === 1 ? value[0] : value.join("_")
       } else {
-         delete newSearch.authors
+         newSearch.authors = undefined
       }
 
       router.navigate({ to: location.pathname, search: newSearch })
@@ -53,7 +53,7 @@ export const useFilterByPublisher = () => {
       if (value.length > 0) {
          newSearch.pub = value.length === 1 ? value[0] : value.join("_")
       } else {
-         delete newSearch.pub
+         newSearch.pub = undefined
       }
 
       router.navigate({ to: location.pathname, search: newSearch })
@@ -78,7 +78,7 @@ export const useFilterByCategory = () => {
       if (value.length > 0) {
          newSearch.cat = value.length === 1 ? value[0] : value.join("_")
       } else {
-         delete newSearch.cat
+         newSearch.cat = undefined
       }
 
       router.navigate({ to: location.pathname, search: newSearch })
@@ -100,7 +100,7 @@ export const useExistsOnly = () => {
       if (value) {
          newSearch.existsOnly = true
       } else {
-         delete newSearch.existsOnly
+         newSearch.existsOnly = undefined
       }
 
       router.navigate({ to: location.pathname, search: newSearch })
@@ -126,7 +126,7 @@ export const useTariff = () => {
          if (tariff !== TARIFFS.T7) {
             newSearch.tariff = tariff
          } else {
-            delete newSearch.tariff
+            newSearch.tariff = undefined
          }
 
          router.navigate({ to: location.pathname, search: newSearch })
@@ -157,8 +157,8 @@ export const usePrices = () => {
             newSearch.pf = from
             newSearch.pt = to
          } else {
-            delete newSearch.pf
-            delete newSearch.pt
+            newSearch.pf = undefined
+            newSearch.pt = undefined
          }
 
          router.navigate({ to: location.pathname, search: newSearch })
