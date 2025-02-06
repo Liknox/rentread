@@ -175,3 +175,33 @@ export const usePrices = () => {
 
    return { from, to, setPrice }
 }
+
+const DEFAULT_SORTING = 4
+export const SORTINGS = {
+   1: "by popularity",
+   2: "by price",
+   3: "by time",
+   4: "by novelty",
+}
+
+export const useSorting = () => {
+   const search = useSearch({ strict: false }) as SearchParams
+   const router = useRouter()
+
+   const sorting = Number(search.sort) || DEFAULT_SORTING
+
+   // FIXME: Update after delay
+   const setSorting = (value: number) => {
+      const newSearch: SearchParams = { ...search }
+
+      if (value !== DEFAULT_SORTING) {
+         newSearch.sort = value
+      } else {
+         newSearch.sort = undefined
+      }
+
+      router.navigate({ to: location.pathname, search: newSearch })
+   }
+
+   return { sorting, setSorting }
+}
