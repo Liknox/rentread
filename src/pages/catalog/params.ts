@@ -9,6 +9,8 @@ interface SearchParams {
    // @ts-expect-error this will cause an error
    existsOnly?: boolean | undefined
    tarrif?: string
+   from?: string
+   to?: string
    [key: string]: string | number | undefined
 }
 
@@ -87,6 +89,7 @@ export const useFilterByCategory = () => {
    return { categories, setCategories }
 }
 
+/** @query Filter: by existence */
 export const useExistsOnly = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
@@ -108,6 +111,7 @@ export const useExistsOnly = () => {
    return { existsOnly, setExistsOnly }
 }
 
+/** @query Filter: by terms of rent */
 export const useTariff = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
@@ -136,6 +140,7 @@ export const useTariff = () => {
    return { tariff, setTariff }
 }
 
+/** @query Filter: by prices */
 export const usePrices = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
