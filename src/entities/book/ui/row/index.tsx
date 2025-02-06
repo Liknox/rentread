@@ -73,7 +73,7 @@ const BookRow = (props: Props) => {
                {data.publicationYear}, {data.publishingHouse.name}
             </span>
 
-            {!isSmall && <span className="text-[1.4rem] font-medium">{price} ₽</span>}
+            {!isSmall && <span className="text-[1.4rem] font-medium">{price} $</span>}
          </Col>
          <Col span={spanActions}>{actions}</Col>
       </Row>
