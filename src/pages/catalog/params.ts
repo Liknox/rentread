@@ -42,8 +42,6 @@ export const useFilterByAuthor = () => {
          delete newSearch.authors
       }
 
-      console.log(newSearch)
-
       router.navigate({ to: location.pathname, search: newSearch })
    }
 
@@ -69,8 +67,6 @@ export const useFilterByPublisher = () => {
          delete newSearch.pub
       }
 
-      console.log(newSearch)
-
       router.navigate({ to: location.pathname, search: newSearch })
    }
 
@@ -95,8 +91,6 @@ export const useFilterByCategory = () => {
       } else {
          delete newSearch.cat
       }
-
-      console.log(newSearch)
 
       router.navigate({ to: location.pathname, search: newSearch })
    }
