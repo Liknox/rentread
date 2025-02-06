@@ -17,6 +17,12 @@ export const TARIFFS = {
    T30: 30,
 }
 
+// FIXME: move to entities / config / constants?
+export const PRICES = {
+   MIN: 50,
+   MAX: 1000,
+}
+
 /** @query Filter: by author */
 export const useFilterByAuthor = () => {
    const search = useSearch({ strict: false }) as SearchParams
