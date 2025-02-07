@@ -21,7 +21,9 @@ import { books } from "../library"
 const dates = [
    dayjs().add(14, "days").toISOString(),
    dayjs().add(28, "days").toISOString(),
-   dayjs().add(52, "days").toISOString(),
+   dayjs()
+      .add(52, "days")
+      .toISOString(),
    // "2021-06-10T00:24:35.354Z",
    // "2021-07-17T00:24:35.354Z",
    // "2021-08-28T00:24:35.354Z",
