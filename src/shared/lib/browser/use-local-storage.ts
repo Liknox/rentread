@@ -38,3 +38,13 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
    return [storedValue, setValue] as const
 }
 
+export function initLSItem<T>(key: string, initialValue: T) {
+   const keyLS = `${PREFIX}:${key}`
+   const item = window.localStorage.getItem(keyLS)
+   const value: T = item ? JSON.parse(item) : initialValue
+   const setValue = (nextValue: T) => {
+      window.localStorage.setItem(keyLS, JSON.stringify(nextValue))
+   }
+
+   return { value, setValue }
+}
