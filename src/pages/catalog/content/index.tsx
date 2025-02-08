@@ -5,6 +5,8 @@ import { orderLib } from "entities/order"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 
+import { Fav } from "features/fav"
+
 const ribbonPropsTypes = {
    RESERVABLE: {
       text: "May rent",
@@ -97,8 +99,8 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
                size="large"
                actions={
                   <>
-                     {/* <Fav.Actions.AddBook bookId={data.id} />
-                     {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
+                     <Fav.Actions.AddBook bookId={data.id} />
+                     {/* {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
                      {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
                      <TariffRadio __byDuration={rent.duration} /> */}
                   </>
