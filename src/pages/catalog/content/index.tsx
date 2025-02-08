@@ -1,6 +1,9 @@
 import { AbstractBook, fakeApi } from "@shared/api"
 import { Layout, Row, Empty, Col, Badge } from "antd"
 import { BookRowCard } from "entities/book"
+import * as catalogParams from "../params"
+import { headerParams } from "widgets/header"
+import { orderLib } from "entities/order"
 
 const ribbonPropsTypes = {
    RESERVABLE: {
@@ -20,8 +23,36 @@ const ribbonPropsTypes = {
    },
 }
 
+const useFilters = () => {
+   const params = headerParams.useSearchParam()
+   const { authors } = catalogParams.useFilterByAuthor()
+   const { publishers } = catalogParams.useFilterByPublisher()
+   const { categories } = catalogParams.useFilterByCategory()
+   const prices = catalogParams.usePrices()
+   const { tariff } = catalogParams.useTariff()
+   const { existsOnly } = catalogParams.useExistsOnly()
+
+   return {
+      authors,
+      publishers,
+      categories,
+      prices,
+      search: params.search,
+      tariff,
+      existsOnly,
+      // !!! FIXME: simplify!!!
+      getRentInfoBy: (b: AbstractBook) => orderLib.getRentInfo(b.id),
+      // exclude: viewerABooksIds,
+      // exclude: [],
+   }
+}
+
 function CatalogContent() {
-   const booksQuery = fakeApi.library.books.getAll()
+   const filters = useFilters()
+   const obParam = catalogParams.useSorting()
+
+   // const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
+   const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
 
    return (
       <Layout>
