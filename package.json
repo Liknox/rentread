@@ -17,8 +17,9 @@
       "@tanstack/react-router": "^1.97.14",
       "antd": "^5.23.2",
       "dayjs": "^1.11.13",
-      "effector": "^23.2.3",
+      "effector": "^23.3.0",
       "effector-react": "^23.3.0",
+      "faker": "^5.5.3",
       "react": "^18.3.1",
       "react-dom": "^18.3.1"
    },
@@ -29,6 +30,7 @@
       "@biomejs/biome": "1.9.4",
       "@tanstack/router-devtools": "^1.97.14",
       "@tanstack/router-plugin": "^1.97.14",
+      "@types/faker": "^5.5.9",
       "@types/node": "^22.10.7",
       "@types/react": "^18.3.3",
       "@types/react-dom": "^18.3.0",
