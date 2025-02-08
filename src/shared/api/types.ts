@@ -1,5 +1,26 @@
 import type { FC } from "react"
 
+export type Order = {
+   id: number
+   bookId: number
+   userId: number
+   startAt: string
+   deliveredAt: string
+   endAt: string
+   costs: number
+   status: "WAITING_TRANSFER" | "RENTED" | "CLOSED"
+}
+
+export type Reservation = {
+   id: number
+   aBookId: number
+   userId: number
+   //     +1-2 days for selection, but we can't plan for 7 or 30 days in advance—the person chooses.
+   // Basically, we put them 'in line' for the book without much specificity.
+   reservedAt: string
+   status: "PENDING" | "REJECTED" | "RESOLVED"
+}
+
 export type AbstractBook = {
    id: number
    name: string
