@@ -1,6 +1,4 @@
 @import "./vars.css";
-@import "./reset.css";
-@import "./normalize-antd.css";
 @import "./normalize.css";
 
 @tailwind base;
