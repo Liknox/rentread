@@ -1,9 +1,9 @@
 import { AbstractBook, fakeApi } from "@shared/api"
-import { Layout, Row, Empty, Col, Badge } from "antd"
+import { Badge, Col, Empty, Layout, Row } from "antd"
 import { BookRowCard } from "entities/book"
-import * as catalogParams from "../params"
-import { headerParams } from "widgets/header"
 import { orderLib } from "entities/order"
+import { headerParams } from "widgets/header"
+import * as catalogParams from "../params"
 
 const ribbonPropsTypes = {
    RESERVABLE: {

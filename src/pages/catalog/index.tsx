@@ -1,6 +1,6 @@
 import { Layout, Typography } from "antd"
-import Sidebar from "./sidebar"
 import CatalogContent from "./content"
+import Sidebar from "./sidebar"
 
 function CatalogPage() {
    return (
