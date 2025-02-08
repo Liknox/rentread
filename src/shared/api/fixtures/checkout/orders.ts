@@ -1,4 +1,4 @@
-import { Order } from "@shared/api/types"
+import type { Order } from "@shared/api/types"
 import { browser } from "@shared/lib"
 import dayjs from "dayjs"
 

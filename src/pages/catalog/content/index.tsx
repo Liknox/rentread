@@ -1,4 +1,4 @@
-import { AbstractBook, fakeApi } from "@shared/api"
+import { type AbstractBook, fakeApi } from "@shared/api"
 import { Badge, Col, Empty, Layout, Row } from "antd"
 import { BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
