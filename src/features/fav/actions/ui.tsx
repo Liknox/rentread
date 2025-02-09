@@ -10,14 +10,12 @@ type Props = {
 
 const useToggleBook = (bookId: number) => {
    const { isBookFav } = viewerModel.useBookFavStatus(bookId)
-
    const book = bookModel.useBook(bookId)
 
    const handleToggle = () => {
       const action = isBookFav ? "Removed from Favorites" : "Added to Favorites"
 
-      // @ts-expect-error 123
-      alert.info(`${book.name}`, <a href="/profile#fav">{action}</a>, <HeartOutlined />)
+      alert.info(`${book?.name}`, <a href="/profile#fav">{action}</a>, <HeartOutlined />)
       viewerModel.events.toggleBook(bookId)
    }
 
