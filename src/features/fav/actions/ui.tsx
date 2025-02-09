@@ -29,7 +29,7 @@ export const AddBook = ({ bookId }: Props) => {
 
    const Icon = isBookFav ? HeartFilled : HeartOutlined
    return (
-      <Button block icon={<Icon />} onClick={handleToggle}>
+      <Button className="rounded-sm" block icon={<Icon />} onClick={handleToggle}>
          {isBookFav ? "Remove from Favorites" : "Add to Favorites"}
       </Button>
    )

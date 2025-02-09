@@ -29,7 +29,7 @@ export const AddBook = (props: Props) => {
 
    const Icon = isBookInCart ? ShoppingFilled : ShoppingOutlined
    return (
-      <Button type="primary" icon={<Icon />} onClick={handleToggle} block disabled={disabled}>
+      <Button className="rounded-sm" type="primary" icon={<Icon />} onClick={handleToggle} block disabled={disabled}>
          {isBookInCart ? "Remove from cart" : "Add to cart"}
       </Button>
    )
