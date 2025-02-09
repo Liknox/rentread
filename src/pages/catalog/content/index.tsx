@@ -6,6 +6,7 @@ import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 
 import { Fav } from "features/fav"
+import { Cart } from "features/cart"
 
 const ribbonPropsTypes = {
    RESERVABLE: {
@@ -98,8 +99,8 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
                actions={
                   <>
                      <Fav.Actions.AddBook bookId={data.id} />
-                     {/* {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
-                     {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
+                     {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
+                     {/*  {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
                      <TariffRadio __byDuration={rent.duration} /> */}
                   </>
                }
