@@ -1,5 +1,6 @@
 import faker from "faker"
 
+import { browser } from "shared/lib"
 import type { User } from "../../types"
 import { USERS_UBOOKS } from "./user-books"
 import * as roles from "./roles"
@@ -121,3 +122,30 @@ const LIST = [
    OWNER_10,
    OWNER_11,
 ]
+
+const usersLS = browser.initLSItem("api/users", LIST)
+
+export const getAll = () => usersLS.value
+
+export const getById = (userId: number) => {
+   return getAll().find(u => u.id === userId)
+}
+
+// FIXME For sync
+export const getViewer = () => {
+   return getById(__VIEWER.id)!
+}
+
+export const __updateUser = (user: User) => {
+   const prevList = getAll()
+   const userIdx = prevList.findIndex(u => u.id === user.id)
+   const nextList = [...prevList]
+   nextList[userIdx] = user
+
+   LIST[userIdx] = user
+   usersLS.setValue(nextList)
+}
+
+export const getByIds = (userIds: number[]) => {
+   return userIds.map(id => getById(id)!)
+}
