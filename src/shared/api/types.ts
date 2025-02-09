@@ -1,5 +1,27 @@
 import type { FC } from "react"
 
+export type User = {
+   id: number
+   books: number[]
+   // chats: Chat[]
+   // closedOrders: Order[];
+   // openedOrders: Order[];
+   // reservations: Reservation[];
+   closedOrders: number[]
+   openedOrders: number[]
+   reservations: number[]
+   favABooks: number[]
+   email: string
+   emailVerified: boolean
+   firstName: string
+   middleName?: string
+   lastName: string
+   roles: Role[]
+   statusBan: boolean
+   wallet?: Wallet
+   registeredAt: string
+}
+
 export type Order = {
    id: number
    bookId: number
@@ -29,6 +51,18 @@ export type AbstractBook = {
    publicationYear: number
    publishingHouse: Publisher
    category: Category
+}
+
+export type Role = {
+   id: number
+   name: string
+}
+
+export type Wallet = {
+   // id: number;
+   moneyCount: number
+   // transactions: Transaction[];
+   // userId: number;
 }
 
 export type Book = {
