@@ -53,7 +53,6 @@ function CatalogContent() {
    const filters = useFilters()
    const obParam = catalogParams.useSorting()
 
-   // const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
    const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
 
    return (
@@ -94,8 +93,7 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
             style={ribbon.isVisible ? undefined : { display: "none" }}>
             <BookRowCard
                data={data}
-               asSecondary={false}
-               // asSecondary={rent.status === "RESERVABLE"}
+               asSecondary={rent.status === "RESERVABLE"}
                size="large"
                actions={
                   <>
