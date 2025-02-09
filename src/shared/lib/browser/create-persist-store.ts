@@ -1,8 +1,8 @@
 import { createStore } from "effector"
-import type { Store } from "effector"
+import type { StoreWritable } from "effector"
 import { initLSItem } from "./use-local-storage"
 
-export function createPersistStore<T>(initialState: T, { name }: { name: string }): Store<T> {
+export function createPersistStore<T>(initialState: T, { name }: { name: string }): StoreWritable<T> {
    const lsItem = initLSItem<T>(name, initialState)
    const persistedState = lsItem.value
 
