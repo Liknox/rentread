@@ -87,3 +87,7 @@ html {
 [aria-label="checkboxes-group"] label {
    width: 100%;
 }
+
+.ant-btn-primary {
+   background-color: var(--color-light-primary) !important;
+}
