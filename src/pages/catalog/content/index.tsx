@@ -7,6 +7,7 @@ import * as catalogParams from "../params"
 
 import { Fav } from "features/fav"
 import { Cart } from "features/cart"
+import { Reserve } from "features/reserve"
 
 const ribbonPropsTypes = {
    RESERVABLE: {
@@ -100,8 +101,8 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
                   <>
                      <Fav.Actions.AddBook bookId={data.id} />
                      {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
-                     {/*  {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
-                     <TariffRadio __byDuration={rent.duration} /> */}
+                     {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
+                     {/* <TariffRadio __byDuration={rent.duration} /> */}
                   </>
                }
             />
