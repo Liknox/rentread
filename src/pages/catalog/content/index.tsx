@@ -8,6 +8,7 @@ import * as catalogParams from "../params"
 import { Fav } from "features/fav"
 import { Cart } from "features/cart"
 import { Reserve } from "features/reserve"
+import { TariffRadio } from "entities/tariff"
 
 const ribbonPropsTypes = {
    RESERVABLE: {
@@ -76,7 +77,7 @@ function CatalogContent() {
 const BookItem = ({ data }: { data: AbstractBook }) => {
    // const vtParam = catalogParams.useViewType()
    // const rent = orderLib.getRentInfo(data.id)
-   const rent = { status: "RENTABLE" }
+   const rent = { status: "RENTABLE", duration: 5 }
    // const viewerNrml = viewerModel.useViewerNormalized();
    // const hasUserBook = viewerABooksIds.includes(data.id);
    // if (rent.status === "OUT_STOCK") return null;
@@ -102,7 +103,7 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
                      <Fav.Actions.AddBook bookId={data.id} />
                      {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
                      {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
-                     {/* <TariffRadio __byDuration={rent.duration} /> */}
+                     <TariffRadio __byDuration={rent.duration} />
                   </>
                }
             />
