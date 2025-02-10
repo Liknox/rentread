@@ -11,7 +11,7 @@ import { Reserve } from "features/reserve"
 
 const ribbonPropsTypes = {
    RESERVABLE: {
-      text: "May rent",
+      text: "Can be reserved",
       color: "gray",
       isVisible: true,
    },
