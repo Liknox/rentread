@@ -12,7 +12,7 @@ import { TariffRadio } from "entities/tariff"
 
 const ribbonPropsTypes = {
    RESERVABLE: {
-      text: "Can be reserved",
+      text: "Not Available",
       color: "gray",
       isVisible: true,
    },
@@ -76,14 +76,11 @@ function CatalogContent() {
 
 const BookItem = ({ data }: { data: AbstractBook }) => {
    // const vtParam = catalogParams.useViewType()
-   // const rent = orderLib.getRentInfo(data.id)
-   const rent = { status: "RENTABLE", duration: 5 }
+   const rent = orderLib.getRentInfo(data.id)
    // const viewerNrml = viewerModel.useViewerNormalized();
    // const hasUserBook = viewerABooksIds.includes(data.id);
    // if (rent.status === "OUT_STOCK") return null;
 
-   // FIXME: type
-   // @ts-expect-error this will cause an error
    const ribbon = ribbonPropsTypes[rent.status]
    // const span = vtParam.isGrid ? 8 : 24
    const span = 24
