@@ -397,6 +397,10 @@ export const getById = (bookId: number) => {
    return getAll().find(b => b.id === bookId)
 }
 
+export const getByIds = (bookIds: number[]) => {
+   return bookIds.map(id => getById(id)!)
+}
+
 const SORTING_TYPE = {
    1: "POPULARITY" as const,
    2: "PRICE" as const,
