@@ -75,15 +75,14 @@ function CatalogContent() {
 }
 
 const BookItem = ({ data }: { data: AbstractBook }) => {
-   // const vtParam = catalogParams.useViewType()
+   const vtParam = catalogParams.useViewType()
    const rent = orderLib.getRentInfo(data.id)
    // const viewerNrml = viewerModel.useViewerNormalized();
    // const hasUserBook = viewerABooksIds.includes(data.id);
    // if (rent.status === "OUT_STOCK") return null;
 
    const ribbon = ribbonPropsTypes[rent.status]
-   // const span = vtParam.isGrid ? 8 : 24
-   const span = 24
+   const span = vtParam.isGrid ? 8 : 24
 
    return (
       <Col span={span}>

@@ -206,3 +206,35 @@ export const useSorting = () => {
 
    return { sorting, setSorting }
 }
+
+export const VIEW_TYPE = {
+   grid: "grid" as const,
+   list: "list" as const,
+}
+
+type ViewTypeValue = (typeof VIEW_TYPE)[keyof typeof VIEW_TYPE]
+
+export const defaultViewType = VIEW_TYPE.list
+
+export const useViewType = () => {
+   const search = useSearch({ strict: false }) as SearchParams
+   const router = useRouter()
+   const viewType = search.vt || defaultViewType
+
+   const isGrid = viewType === "grid"
+   const isList = viewType === "list"
+
+   const setViewType = (value: ViewTypeValue) => {
+      const newSearch: SearchParams = { ...search }
+
+      if (value !== defaultViewType) {
+         newSearch.vt = value
+      } else {
+         newSearch.vt = undefined
+      }
+
+      router.navigate({ to: location.pathname, search: newSearch })
+   }
+
+   return { viewType: viewType as ViewTypeValue, setViewType, isGrid, isList }
+}
