@@ -1,5 +1,6 @@
 import { type AbstractBook, fakeApi } from "@shared/api"
-import { Badge, Col, Empty, Layout, Row } from "antd"
+import { Badge, Col, Empty, Layout, Row, Radio } from "antd"
+import { BarsOutlined, AppstoreOutlined } from "@ant-design/icons"
 import { BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
 import { headerParams } from "widgets/header"
@@ -9,6 +10,11 @@ import { Fav } from "features/fav"
 import { Cart } from "features/cart"
 import { Reserve } from "features/reserve"
 import { TariffRadio } from "entities/tariff"
+
+const viewTypes = [
+   { key: "grid", Icon: AppstoreOutlined },
+   { key: "list", Icon: BarsOutlined },
+]
 
 const ribbonPropsTypes = {
    RESERVABLE: {
@@ -57,9 +63,26 @@ function CatalogContent() {
    const obParam = catalogParams.useSorting()
 
    const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
+   const vtParam = catalogParams.useViewType()
 
    return (
       <Layout>
+         <section className="flex mr-10 mb-2 text-xl">
+            <Radio.Group
+               value={vtParam.viewType}
+               onChange={e => {
+                  // eslint-disable-next-line no-console
+                  console.debug("[DEBUG] reachGoal: CHANGE_CATALOG_VIEWTYPE")
+                  vtParam.setViewType(e.target.value)
+               }}
+               buttonStyle="solid">
+               {viewTypes.map(vt => (
+                  <Radio.Button key={vt.key} value={vt.key} className="h-[30px] text-gray">
+                     <vt.Icon style={{ fontSize: 20 }} />
+                  </Radio.Button>
+               ))}
+            </Radio.Group>
+         </section>
          <section className="mr-10">
             <Row justify="start" gutter={[20, 20]}>
                {booksQuery.map(b => (
