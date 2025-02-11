@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { notification } from "antd"
-import { IconType } from "antd/es/notification/interface"
-import { ReactNode } from "react"
+import type { IconType } from "antd/es/notification/interface"
+import type { ReactNode } from "react"
 
 /**
  * NOTE: Moved to a separate module for:
