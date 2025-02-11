@@ -8,6 +8,7 @@ export default {
             lightPrimary: "var(--color-light-primary)",
             dark: "var(--color-dark)",
             accent: "var(--color-accent)",
+            lightGray: "var(--color-light-gray)",
             gray: "var(--color-gray)",
             darkGray: "var(--color-dark-gray)",
             white: "var(--color-white)",
