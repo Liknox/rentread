@@ -4,7 +4,7 @@ import cn from "classnames"
 
 // !!! FIXME:
 // import { Wallet } from "features/wallet"
-// import { viewerModel } from "entities/viewer"
+import { viewerModel } from "entities/viewer"
 import { orderModel } from "entities/order"
 // import { ReactComponent as Logo } from "./logo.svg"
 import { Link } from "@tanstack/react-router"
@@ -54,14 +54,13 @@ const NOT_AVAILABLE = "So far, this function is not available"
 
 const Header = () => {
    const orderTotal = orderModel.cart.useOrderBooks().length
-   // const favTotal = viewerModel.useFavBooks().length
+   const favTotal = viewerModel.useFavBooks().length
 
    const count: Record<ActionId, number> = {
       cart: orderTotal,
       catalog: 0,
       orders: 0,
-      fav: 1, // FIXME
-      // fav: favTotal,
+      fav: favTotal,
       profile: 0,
    }
 

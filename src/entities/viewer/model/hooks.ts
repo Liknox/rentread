@@ -1,5 +1,6 @@
-import { useStoreMap } from "effector-react"
+import { useStoreMap, useUnit } from "effector-react"
 import { fav } from "./stores"
+import { bookModel } from "entities/book"
 
 export const useBookFavStatus = (bookId: number) => {
    const isBookFav = useStoreMap({
@@ -9,4 +10,10 @@ export const useBookFavStatus = (bookId: number) => {
    })
 
    return { isBookFav }
+}
+
+export const useFavBooks = () => {
+   const books = bookModel.useBooks()
+   const favIds = useUnit(fav.$store)
+   return books.filter(b => favIds.includes(b.id))
 }
