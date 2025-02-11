@@ -16,7 +16,13 @@ const useToggleBook = (bookId: number) => {
 
    const handleToggle = () => {
       const action = isBookReserved ? "Reservation canceled" : "Successfully reserved"
-      alert.info(`${book?.name}`, <a href="/profile#reserved">{action}</a>, <ClockCircleOutlined />)
+      alert.info(
+         `${book?.name}`,
+         <a href="/profile#reserved" className="text-primary">
+            {action}
+         </a>,
+         <ClockCircleOutlined />,
+      )
       orderModel.reservation.events.toggleBook(bookId)
    }
 

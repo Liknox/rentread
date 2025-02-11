@@ -15,7 +15,13 @@ const useToggleBook = (bookId: number) => {
    const handleToggle = () => {
       const action = isBookFav ? "Removed from Favorites" : "Added to Favorites"
 
-      alert.info(`${book?.name}`, <a href="/profile#fav">{action}</a>, <HeartOutlined />)
+      alert.info(
+         `${book?.name}`,
+         <a href="/profile#fav" className="text-primary">
+            {action}
+         </a>,
+         <HeartOutlined />,
+      )
       viewerModel.events.toggleBook(bookId)
    }
 
