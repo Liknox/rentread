@@ -3,6 +3,7 @@ import { alert } from "@shared/lib"
 import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
+import { CSSProperties } from "react"
 
 type Props = {
    bookId: number
@@ -39,4 +40,14 @@ export const AddBook = (props: Props) => {
          {isBookInCart ? "Remove from cart" : "Add to cart"}
       </Button>
    )
+}
+
+export const AddBookMini = (props: Props) => {
+   const { handleToggle, isBookInCart } = useToggleBook(props)
+   const { disabled } = props
+
+   const Icon = isBookInCart ? ShoppingFilled : ShoppingOutlined
+   const disabledStyles: CSSProperties = disabled ? { opacity: 0.25, cursor: "not-allowed" } : {}
+
+   return <Icon style={{ fontSize: 20, ...disabledStyles }} onClick={handleToggle} disabled={disabled} />
 }
