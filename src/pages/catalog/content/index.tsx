@@ -11,6 +11,8 @@ import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 
+const { SORTINGS } = catalogParams
+
 const viewTypes = [
    { key: "grid", Icon: AppstoreOutlined },
    { key: "list", Icon: BarsOutlined },
@@ -68,10 +70,26 @@ function CatalogContent() {
    return (
       <Layout>
          <section className="flex mr-10 mb-2 text-xl">
+            <Row className="grow mr-5">
+               <b className="mr-5">Sort by:</b>
+               <ul className="flex grow justify-between">
+                  {Object.entries(SORTINGS).map(([sId, sName]) => (
+                     <li
+                        key={sId}
+                        className="select-none  transition-all duration-250 cursor-pointer"
+                        onClick={() => obParam.setSorting(Number(sId))}
+                        // FIXME: rewrite with tailwind classes
+                        style={obParam.sorting === Number(sId) ? { color: "var(--color-primary)" } : {}}
+                     >
+                        {sName}
+                     </li>
+                  ))}
+               </ul>
+            </Row>
             <Radio.Group
                value={vtParam.viewType}
                onChange={e => {
-                  console.debug("[DEBUG] reachGoal: CHANGE_CATALOG_VIEWTYPE")
+                  console.debug("[DEBUG] reachGoal: CHANGE_CATALOG_VIEW_TYPE")
                   vtParam.setViewType(e.target.value)
                }}
                buttonStyle="solid">
