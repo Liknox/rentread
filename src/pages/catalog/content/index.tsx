@@ -1,6 +1,6 @@
 import { AppstoreOutlined, BarsOutlined } from "@ant-design/icons"
 import { type AbstractBook, fakeApi } from "@shared/api"
-import { Badge, Col, Empty, Layout, Radio, Row } from "antd"
+import { Badge, Col, Empty, Layout, Radio, Row, Typography } from "antd"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
 import { headerParams } from "widgets/header"
@@ -113,7 +113,14 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
             text={ribbon.text}
             color={ribbon.color}
             style={ribbon.isVisible ? undefined : { display: "none" }}>
-            {vtParam.isGrid && <BookCard data={data} />}
+            {vtParam.isGrid && (
+               <BookCard data={data} asSecondary={rent.status === "RESERVABLE"} actions={[]}>
+                  <br />
+                  <Typography.Text type="secondary">
+                     {rent.status === "RENTABLE" && <span>For rent up to {Math.min(30, rent.duration)} days</span>}
+                  </Typography.Text>
+               </BookCard>
+            )}
             {vtParam.isList && (
                <BookRowCard
                   data={data}
