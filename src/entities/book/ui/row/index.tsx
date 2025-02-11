@@ -67,7 +67,13 @@ const BookRow = (props: Props) => {
             <BookFilled className="bg-accent" style={styleIcon[size]} />
          </Col>
          <Col className="flex flex-col justify-center" style={styleDetails[size]} span={spanDetails}>
-            {titleAsLink ? <Link to={`/book/${data.id}`}>{title}</Link> : <span>{title}</span>}
+            {titleAsLink ? (
+               <Link className="text-primary" to={`/book/${data.id}`}>
+                  {title}
+               </Link>
+            ) : (
+               <span>{title}</span>
+            )}
 
             <span className="text-darkGray">
                {data.publicationYear}, {data.publishingHouse.name}
