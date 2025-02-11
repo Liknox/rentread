@@ -1,7 +1,7 @@
 import { AppstoreOutlined, BarsOutlined } from "@ant-design/icons"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { Badge, Col, Empty, Layout, Radio, Row } from "antd"
-import { BookRowCard } from "entities/book"
+import { BookCard, BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
@@ -113,6 +113,7 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
             text={ribbon.text}
             color={ribbon.color}
             style={ribbon.isVisible ? undefined : { display: "none" }}>
+            {vtParam.isGrid && <BookCard data={data} />}
             {vtParam.isList && (
                <BookRowCard
                   data={data}
