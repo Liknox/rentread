@@ -4,7 +4,6 @@ import * as authors from "./authors"
 import * as categories from "./categories"
 import * as publishers from "./publishers"
 
-/* eslint-disable max-len */
 export const FIGHT_CLUB_2014: AbstractBook = {
    id: 8,
    name: "Fight Club",

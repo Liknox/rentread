@@ -71,7 +71,6 @@ function CatalogContent() {
             <Radio.Group
                value={vtParam.viewType}
                onChange={e => {
-                  // eslint-disable-next-line no-console
                   console.debug("[DEBUG] reachGoal: CHANGE_CATALOG_VIEWTYPE")
                   vtParam.setViewType(e.target.value)
                }}
