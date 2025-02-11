@@ -3,7 +3,7 @@ import { alert } from "@shared/lib"
 import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
-import { CSSProperties } from "react"
+import type { CSSProperties } from "react"
 
 type Props = {
    bookId: number
