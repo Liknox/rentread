@@ -39,3 +39,10 @@ export const ReserveBook = ({ bookId }: Props) => {
       </Button>
    )
 }
+
+export const ReserveBookMini = ({ bookId }: Props) => {
+   const { handleToggle, isBookReserved } = useToggleBook(bookId)
+
+   const Icon = isBookReserved ? ClockCircleFilled : ClockCircleOutlined
+   return <Icon style={{ fontSize: 20 }} onClick={handleToggle} />
+}

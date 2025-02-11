@@ -49,5 +49,6 @@ export const AddBookMini = (props: Props) => {
    const Icon = isBookInCart ? ShoppingFilled : ShoppingOutlined
    const disabledStyles: CSSProperties = disabled ? { opacity: 0.25, cursor: "not-allowed" } : {}
 
+   // FIXME: ref style > to tailwind
    return <Icon style={{ fontSize: 20, ...disabledStyles }} onClick={handleToggle} disabled={disabled} />
 }
