@@ -38,3 +38,10 @@ export const AddBook = ({ bookId }: Props) => {
       </Button>
    )
 }
+
+export const AddBookMini = ({ bookId }: Props) => {
+   const { handleToggle, isBookFav } = useToggleBook(bookId)
+
+   const Icon = isBookFav ? HeartFilled : HeartOutlined
+   return <Icon className="text-[20px]" onClick={handleToggle} />
+}

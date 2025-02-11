@@ -114,7 +114,10 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
             color={ribbon.color}
             style={ribbon.isVisible ? undefined : { display: "none" }}>
             {vtParam.isGrid && (
-               <BookCard data={data} asSecondary={rent.status === "RESERVABLE"} actions={[]}>
+               <BookCard
+                  data={data}
+                  asSecondary={rent.status === "RESERVABLE"}
+                  actions={[<Fav.Actions.AddBookMini key="fav" bookId={data.id} />]}>
                   <br />
                   <Typography.Text type="secondary">
                      {rent.status === "RENTABLE" && <span>For rent up to {Math.min(30, rent.duration)} days</span>}
