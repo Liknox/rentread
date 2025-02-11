@@ -113,19 +113,21 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
             text={ribbon.text}
             color={ribbon.color}
             style={ribbon.isVisible ? undefined : { display: "none" }}>
-            <BookRowCard
-               data={data}
-               asSecondary={rent.status === "RESERVABLE"}
-               size="large"
-               actions={
-                  <>
-                     <Fav.Actions.AddBook bookId={data.id} />
-                     {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
-                     {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
-                     {rent.status !== "RESERVABLE" && <TariffRadio __byDuration={rent.duration} />}
-                  </>
-               }
-            />
+            {vtParam.isList && (
+               <BookRowCard
+                  data={data}
+                  asSecondary={rent.status === "RESERVABLE"}
+                  size="large"
+                  actions={
+                     <>
+                        <Fav.Actions.AddBook bookId={data.id} />
+                        {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
+                        {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
+                        {rent.status !== "RESERVABLE" && <TariffRadio __byDuration={rent.duration} />}
+                     </>
+                  }
+               />
+            )}
          </Badge.Ribbon>
       </Col>
    )
