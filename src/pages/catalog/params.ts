@@ -119,7 +119,6 @@ export const useExistsOnly = () => {
 export const useTariff = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
-   // FIXME: type
    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
    const tariff = Number(search.tariff) || TARIFFS.T7
 

@@ -17,7 +17,6 @@ const getRentStats = (userBooks: Book[]) => {
    })
 }
 
-// eslint-disable-next-line max-lines-per-function
 export const getRentInfo = (aBookId: number) => {
    const userBooks = fakeApi.users.userBooks.getUserBooksByABook(aBookId)
    // CASE: No copies
