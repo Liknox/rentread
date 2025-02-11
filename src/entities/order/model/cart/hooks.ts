@@ -1,6 +1,6 @@
 import { useStoreMap, useUnit } from "effector-react"
-import { $books } from "./store"
 import { bookModel } from "entities/book"
+import { $books } from "./store"
 
 export const useBookStatus = (bookId: number) => {
    const isBookInCart = useStoreMap({

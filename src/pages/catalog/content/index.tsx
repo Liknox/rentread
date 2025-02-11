@@ -1,15 +1,15 @@
+import { AppstoreOutlined, BarsOutlined } from "@ant-design/icons"
 import { type AbstractBook, fakeApi } from "@shared/api"
-import { Badge, Col, Empty, Layout, Row, Radio } from "antd"
-import { BarsOutlined, AppstoreOutlined } from "@ant-design/icons"
+import { Badge, Col, Empty, Layout, Radio, Row } from "antd"
 import { BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 
-import { Fav } from "features/fav"
-import { Cart } from "features/cart"
-import { Reserve } from "features/reserve"
 import { TariffRadio } from "entities/tariff"
+import { Cart } from "features/cart"
+import { Fav } from "features/fav"
+import { Reserve } from "features/reserve"
 
 const viewTypes = [
    { key: "grid", Icon: AppstoreOutlined },

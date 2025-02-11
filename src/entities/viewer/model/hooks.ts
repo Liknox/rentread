@@ -1,6 +1,6 @@
 import { useStoreMap, useUnit } from "effector-react"
-import { fav } from "./stores"
 import { bookModel } from "entities/book"
+import { fav } from "./stores"
 
 export const useBookFavStatus = (bookId: number) => {
    const isBookFav = useStoreMap({

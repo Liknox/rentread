@@ -1,7 +1,7 @@
-import { Button } from "antd"
-import { HeartOutlined, HeartFilled } from "@ant-design/icons"
-import { bookModel } from "entities/book"
+import { HeartFilled, HeartOutlined } from "@ant-design/icons"
 import { alert } from "@shared/lib"
+import { Button } from "antd"
+import { bookModel } from "entities/book"
 import { viewerModel } from "entities/viewer"
 
 type Props = {

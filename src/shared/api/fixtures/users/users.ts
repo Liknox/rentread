@@ -2,8 +2,8 @@ import faker from "faker"
 
 import { browser } from "shared/lib"
 import type { User } from "../../types"
-import { USERS_UBOOKS } from "./user-books"
 import * as roles from "./roles"
+import { USERS_UBOOKS } from "./user-books"
 
 const createUser = (userId: number): User => {
    const firstName = faker.name.firstName()

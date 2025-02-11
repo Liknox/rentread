@@ -1,4 +1,4 @@
-import { AbstractBook, Book, fakeApi, Order, Reservation, User } from "@shared/api"
+import { AbstractBook, Book, Order, Reservation, User, fakeApi } from "@shared/api"
 
 /* Tsss... Don't show this to anybody! */
 export const getUserNormalized = (user: User) => {

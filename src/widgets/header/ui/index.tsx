@@ -2,12 +2,12 @@ import { FolderOpenOutlined, HeartOutlined, MenuOutlined, ShoppingCartOutlined, 
 import { Badge, Layout } from "antd"
 import cn from "classnames"
 
+// import { ReactComponent as Logo } from "./logo.svg"
+import { Link } from "@tanstack/react-router"
+import { orderModel } from "entities/order"
 // !!! FIXME:
 // import { Wallet } from "features/wallet"
 import { viewerModel } from "entities/viewer"
-import { orderModel } from "entities/order"
-// import { ReactComponent as Logo } from "./logo.svg"
-import { Link } from "@tanstack/react-router"
 import Search from "./search"
 
 const actions = [

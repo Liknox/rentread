@@ -1,6 +1,6 @@
-import { Button } from "antd"
-import { ClockCircleOutlined, ClockCircleFilled } from "@ant-design/icons"
+import { ClockCircleFilled, ClockCircleOutlined } from "@ant-design/icons"
 import { alert } from "@shared/lib"
+import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
 

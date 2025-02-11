@@ -1,7 +1,7 @@
-import { Button } from "antd"
-import { ShoppingOutlined, ShoppingFilled } from "@ant-design/icons"
-import { bookModel } from "entities/book"
+import { ShoppingFilled, ShoppingOutlined } from "@ant-design/icons"
 import { alert } from "@shared/lib"
+import { Button } from "antd"
+import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
 
 type Props = {
