@@ -5,7 +5,7 @@ import cn from "classnames"
 // !!! FIXME:
 // import { Wallet } from "features/wallet"
 // import { viewerModel } from "entities/viewer"
-// import { orderModel } from "entities/order"
+import { orderModel } from "entities/order"
 // import { ReactComponent as Logo } from "./logo.svg"
 import { Link } from "@tanstack/react-router"
 import Search from "./search"
@@ -53,12 +53,11 @@ type ActionId = (typeof actions)[number]["id"]
 const NOT_AVAILABLE = "So far, this function is not available"
 
 const Header = () => {
-   // const orderTotal = orderModel.cart.useOrderBooks().length
+   const orderTotal = orderModel.cart.useOrderBooks().length
    // const favTotal = viewerModel.useFavBooks().length
 
    const count: Record<ActionId, number> = {
-      cart: 1, // FIXME
-      // cart: orderTotal,
+      cart: orderTotal,
       catalog: 0,
       orders: 0,
       fav: 1, // FIXME

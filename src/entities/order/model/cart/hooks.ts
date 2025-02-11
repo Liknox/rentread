@@ -1,5 +1,6 @@
-import { useStoreMap } from "effector-react"
+import { useStoreMap, useUnit } from "effector-react"
 import { $books } from "./store"
+import { bookModel } from "entities/book"
 
 export const useBookStatus = (bookId: number) => {
    const isBookInCart = useStoreMap({
@@ -9,4 +10,10 @@ export const useBookStatus = (bookId: number) => {
    })
 
    return { isBookInCart }
+}
+
+export const useOrderBooks = () => {
+   const books = bookModel.useBooks()
+   const orderIds = useUnit($books)
+   return books.filter(b => orderIds.includes(b.id))
 }
