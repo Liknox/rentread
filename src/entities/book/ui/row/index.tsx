@@ -85,7 +85,7 @@ const BookRow = (props: Props) => {
 }
 
 export const BookRowCard = (props: Props) => (
-   <Card hoverable className="cursor-default">
+   <Card hoverable className="cursor-default shadow-[0_1px_2px_var(--color-shadow)]">
       <BookRow {...props} />
    </Card>
 )

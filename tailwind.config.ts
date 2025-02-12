@@ -14,9 +14,9 @@ export default {
             white: "var(--color-white)",
          },
          boxShadow: {
-            "inset": "0 4px 8px var(--color-shadow)",
-            "insetDark": "0 4px 14px var(--color-shadow)"
-         }
+            inset: "0 4px 8px var(--color-shadow)",
+            insetDark: "0 4px 14px var(--color-shadow)",
+         },
       },
    },
    plugins: [],

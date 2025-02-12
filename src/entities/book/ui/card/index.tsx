@@ -51,7 +51,7 @@ const BookCard = (props: Props) => {
          styles={{ body: bodyStyle[size] }}
          cover={<BookFilled style={imgStyle[size]} />}
          className={cn(
-            "relative cursor-default rounded-lg shadow-md",
+            "relative cursor-default rounded-lg shadow-[2px_2px_22px_var(--color-shadow)]",
             {
                "grayscale opacity-50": asSecondary,
                // "p-6": size === "default",
