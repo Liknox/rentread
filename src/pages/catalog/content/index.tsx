@@ -95,7 +95,7 @@ function CatalogContent() {
                buttonStyle="solid">
                {viewTypes.map(vt => (
                   <Radio.Button key={vt.key} value={vt.key} className="h-[30px] text-lightGray">
-                     <vt.Icon style={{ fontSize: 20 }} />
+                     <vt.Icon className="text-[20px] pt-1" />
                   </Radio.Button>
                ))}
             </Radio.Group>

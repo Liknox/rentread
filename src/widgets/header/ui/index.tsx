@@ -93,7 +93,7 @@ const Header = () => {
                      {/* for centering badge */}
                      <span className="text-center">
                         <Badge count={count[id]} style={{ backgroundColor: "#108ee9" }}>
-                           <Icon style={{ fontSize: 24 }} />
+                           <Icon className="text-[24px]" />
                         </Badge>
                      </span>
                      <span>{label}</span>

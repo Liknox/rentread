@@ -25,7 +25,7 @@ const TariffRadio = (props: Props) => {
             value={value}
             buttonStyle="solid"
             onChange={e => onChange?.(e.target.value)}
-            style={{ marginTop: 12 }}
+            className="mt-3"
             disabled={disabled || Boolean(__byDuration)}>
             {TARIFFS.map(t => (
                <Radio.Button key={t} value={getTValue(t)}>
