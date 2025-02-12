@@ -54,7 +54,7 @@ const BookCard = (props: Props) => {
             "relative cursor-default rounded-lg shadow-md",
             {
                "grayscale opacity-50": asSecondary,
-               "p-6": size === "default",
+               // "p-6": size === "default",
                // "p-4": size === "small",
                "p-2": size === "mini",
             },
