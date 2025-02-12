@@ -71,8 +71,8 @@ function CatalogContent() {
       <Layout>
          <section className="flex mr-10 mb-2 text-xl">
             <Row className="grow mr-5">
-               <b className="mr-5">Sort by:</b>
-               <ul className="flex grow justify-between">
+               <b className="mr-5 text-xl">Sort by:</b>
+               <ul className="flex grow justify-start gap-3 items-center">
                   {Object.entries(SORTINGS).map(([sId, sName]) => (
                      <li
                         key={sId}

@@ -66,7 +66,7 @@ const BookRow = (props: Props) => {
          </Col>
          <Col className="flex flex-col justify-center" style={styleDetails[size]} span={spanDetails}>
             {titleAsLink ? (
-               <Link className="text-primary" to={`/book/${data.id}`}>
+               <Link className="text-primary w-[95%]" to={`/book/${data.id}`}>
                   {title}
                </Link>
             ) : (
@@ -83,19 +83,6 @@ const BookRow = (props: Props) => {
       </Row>
    )
 }
-
-// const Actions = ({ title }: { title: string }) => (
-//     <>
-//         <Button
-//             type="default"
-//             icon={<HeartOutlined />}
-//             onClick={() => alert.success("Добавлено в избранное", title)}
-//             block
-//         >
-//             Add to favorites
-//         </Button>
-//     </>
-// );
 
 export const BookRowCard = (props: Props) => (
    <Card hoverable className="cursor-default">
