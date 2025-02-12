@@ -16,7 +16,7 @@ const Banner = () => {
             <div className="text-center relative h-80" key={banner.id}>
                <Typography.Text className="absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white">
                   <h3 className="!text-white">{banner.title}</h3>
-                  <p>{banner.subtitle}</p>
+                  <p className="w-[85%] m-[auto]">{banner.subtitle}</p>
                   <p>{banner.description}</p>
                   {banner.link ? (
                      <Link to={banner.linkHref} className="text-lightPrimary">
