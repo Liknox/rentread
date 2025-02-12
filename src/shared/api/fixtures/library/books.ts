@@ -347,7 +347,7 @@ export const getBookString = (entity: AbstractBook) => {
 
 export const getPrice = (book: AbstractBook) => {
    const fullTitle = getBookString(book)
-   const pseudoFactor = fullTitle.length % 3
+   const pseudoFactor = fullTitle.length % 4
    const factor = pseudoFactor + 2
 
    return (factor * 50) / 10
