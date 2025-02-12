@@ -1,8 +1,10 @@
 import { Layout, Typography } from "antd"
 import CatalogContent from "./content"
 import Sidebar from "./sidebar"
+import { useTitle } from "@shared/lib/dom"
 
 function CatalogPage() {
+   useTitle("Books Catalog - RentRead")
    return (
       <Layout.Content>
          <Typography.Title className="text-center mt-10" level={2}>

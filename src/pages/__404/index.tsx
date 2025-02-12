@@ -1,4 +1,7 @@
+import { useTitle } from "@shared/lib/dom"
+
 function NotFoundPage() {
+   useTitle("Not Found - RentRead")
    return (
       <div className="p-2">
          <h3>Not Found page</h3>
