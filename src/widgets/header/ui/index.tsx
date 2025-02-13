@@ -5,8 +5,7 @@ import cn from "classnames"
 // import { ReactComponent as Logo } from "./logo.svg"
 import { Link } from "@tanstack/react-router"
 import { orderModel } from "entities/order"
-// !!! FIXME:
-// import { Wallet } from "features/wallet"
+import { Wallet } from "features/wallet"
 import { viewerModel } from "entities/viewer"
 import Search from "./search"
 
@@ -80,8 +79,7 @@ const Header = () => {
                <Search />
             </div>
             <div className="flex items-center gap-3">
-               {/* <Wallet.AddFunds.Popover className="mr-[10px]" /> */}
-               {/* TODO: add amount-label later */}
+               <Wallet.AddFunds.Popover />
                {actions.map(({ id, label, Icon, url, disabled }) => (
                   <Link
                      key={label}
