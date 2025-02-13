@@ -3,6 +3,7 @@ import { bookModel } from "entities/book"
 import { fav } from "./stores"
 import { browser } from "@shared/lib"
 import { useState } from "react"
+import { fakeApi } from "@shared/api"
 
 export const useBookFavStatus = (bookId: number) => {
    const isBookFav = useStoreMap({
@@ -18,6 +19,10 @@ export const useFavBooks = () => {
    const books = bookModel.useBooks()
    const favIds = useUnit(fav.$store)
    return books.filter(b => favIds.includes(b.id))
+}
+
+export const useViewer = () => {
+   return fakeApi.users.users.getViewer()
 }
 
 const WALLET_MONEY = 40
