@@ -1,5 +1,6 @@
 import type { AbstractBook, Book, Order, Reservation, User } from "@shared/api"
 import { fakeApi } from "@shared/api"
+import dayjs from "dayjs"
 
 /* Tsss... Don't show this to anybody! */
 export const getUserNormalized = (user: User) => {
@@ -22,5 +23,17 @@ export const getUserNormalized = (user: User) => {
       closedPrices,
       reserved,
       reservedBooks,
+   }
+}
+
+export const getUserStat = (user: User) => {
+   const un = getUserNormalized(user)
+
+   // If we consider that the price of a book decreases on average by 4 times compared to the original.
+   const saved = un.closedPrices.reduce((a, b) => a + b, 0) * (4 - 1)
+
+   return {
+      saved: `~ ${saved} $`,
+      registered: dayjs(user.registeredAt).format("D MMM YYYY"),
    }
 }
