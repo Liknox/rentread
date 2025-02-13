@@ -83,7 +83,7 @@ const HeaderSearch = () => {
          // FIXME: refine later
          options={mapToOptions(search.query)}
          // FIXME: refine later
-         className="w-[90%] items-center"
+         className="w-full items-center"
          onSelect={search.handleSelect}
          onSearch={search.handleAutocomplete}
          notFoundContent={search.tooltip}>
