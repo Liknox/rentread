@@ -20,7 +20,7 @@ export const useFavBooks = () => {
    return books.filter(b => favIds.includes(b.id))
 }
 
-const WALLET_MONEY = 300
+const WALLET_MONEY = 40
 
 export const useViewerWallet = () => {
    // const wallet = useViewer().wallet;
