@@ -1,7 +1,7 @@
+import { useTitle } from "@shared/lib/dom"
 import { Layout, Typography } from "antd"
 import CatalogContent from "./content"
 import Sidebar from "./sidebar"
-import { useTitle } from "@shared/lib/dom"
 
 function CatalogPage() {
    useTitle("Books Catalog - RentRead")

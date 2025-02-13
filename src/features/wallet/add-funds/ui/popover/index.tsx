@@ -1,7 +1,7 @@
-import { Popover, Button } from "antd"
+import { Button, Popover } from "antd"
 import type { PopoverProps } from "antd"
 import { viewerModel } from "entities/viewer"
-import { CSSProperties } from "react"
+import type { CSSProperties } from "react"
 import AddFundsForm from "../form"
 
 type Props = {

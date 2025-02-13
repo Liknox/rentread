@@ -1,9 +1,9 @@
+import { fakeApi } from "@shared/api"
+import { browser } from "@shared/lib"
 import { useStoreMap, useUnit } from "effector-react"
 import { bookModel } from "entities/book"
-import { fav } from "./stores"
-import { browser } from "@shared/lib"
 import { useState } from "react"
-import { fakeApi } from "@shared/api"
+import { fav } from "./stores"
 
 export const useBookFavStatus = (bookId: number) => {
    const isBookFav = useStoreMap({

@@ -1,5 +1,5 @@
-import type { ReactNode } from "react"
 import { Col } from "antd"
+import type { ReactNode } from "react"
 
 export type TileItem = {
    label: ReactNode

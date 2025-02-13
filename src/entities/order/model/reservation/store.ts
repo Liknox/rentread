@@ -1,7 +1,7 @@
 import { viewerLib } from "entities/viewer"
-import { browser } from "shared/lib"
 // FIXME: temp! @hardcoded
 import { fakeApi } from "shared/api"
+import { browser } from "shared/lib"
 import * as events from "./events"
 
 // FIXME: fetch later by API

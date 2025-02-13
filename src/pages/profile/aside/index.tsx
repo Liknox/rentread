@@ -1,9 +1,9 @@
+import { CheckCircleOutlined, ClockCircleOutlined, UserOutlined } from "@ant-design/icons"
 import Tile from "@shared/ui/tile"
-import { Typography, Avatar, Layout, Divider } from "antd"
-import { Wallet } from "features/wallet"
-import { UserOutlined, CheckCircleOutlined, ClockCircleOutlined } from "@ant-design/icons"
-import * as lib from "../lib"
+import { Avatar, Divider, Layout, Typography } from "antd"
 import { viewerModel } from "entities/viewer"
+import { Wallet } from "features/wallet"
+import * as lib from "../lib"
 
 export const Aside = () => {
    const viewer = viewerModel.useViewer()
