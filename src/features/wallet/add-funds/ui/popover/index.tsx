@@ -1,5 +1,6 @@
 import { Popover, Button } from "antd"
 import type { PopoverProps } from "antd"
+import { viewerModel } from "entities/viewer"
 import { CSSProperties } from "react"
 
 // import { viewerModel } from "entities/viewer"
@@ -12,7 +13,7 @@ type Props = {
 }
 
 const AddFundsPopover = ({ className, placement = "bottom", buttonStyle }: Props) => {
-   //  const viewer = viewerModel.useViewerWallet();
+   const viewer = viewerModel.useViewerWallet()
 
    return (
       <Popover
@@ -22,8 +23,7 @@ const AddFundsPopover = ({ className, placement = "bottom", buttonStyle }: Props
          content={null}
          placement={placement}>
          <Button shape="round" type="dashed" style={buttonStyle}>
-            {/* {viewer.wallet} $ */}
-            123 $
+            {viewer.wallet} $
          </Button>
       </Popover>
    )
