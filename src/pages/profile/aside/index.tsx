@@ -10,8 +10,8 @@ export const Aside = () => {
 
    /* FIXME: move to entitites */
    return (
-      <Layout.Sider className="" width={400}>
-         <div className="p-10 text-center shadow-inset">
+      <Layout.Sider width={400}>
+         <div className="p-10 text-center shadow-insetDark rounded-md">
             <section className="flex flex-col items-center">
                <Avatar size={128} icon={<UserOutlined />} />
                <Typography.Title level={3} style={{ marginTop: 10 }}>
