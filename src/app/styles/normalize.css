@@ -93,3 +93,9 @@ html {
    background-color: var(--color-primary) !important;
    border-color: var(--color-primary) !important;
 }
+.ant-anchor-link-title {
+   color: var(--color-light-gray) !important;
+}
+.ant-anchor-link-title-active {
+   color: var(--color-primary) !important;
+}
