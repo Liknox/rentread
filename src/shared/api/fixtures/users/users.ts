@@ -93,7 +93,7 @@ const __VIEWER: User = {
    favABooks: [25],
    roles: [roles.USER],
    statusBan: false,
-   registeredAt: "2021-05-02T00:00:00.354Z",
+   registeredAt: "2023-04-04T00:00:00.354Z",
    wallet: {
       moneyCount: 300,
    },
