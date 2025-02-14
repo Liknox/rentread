@@ -6,12 +6,12 @@ export const getStats = (viewer: User) => {
 
    return [
       {
-         key: "registered",
+         id: "registered",
          label: "Service user since",
          value: stat.registered,
       },
       {
-         key: "saved",
+         id: "saved",
          label: "Saved",
          value: stat.saved,
       },
