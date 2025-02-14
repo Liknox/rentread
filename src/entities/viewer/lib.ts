@@ -37,3 +37,26 @@ export const getUserStat = (user: User) => {
       registered: dayjs(user.registeredAt).format("D MMM YYYY"),
    }
 }
+
+export const getOrderInfo = (order: Order) => {
+   const { status, deliveredAt, endAt } = order
+
+   if (status === "WAITING_TRANSFER") {
+      const diff = dayjs(deliveredAt).diff(dayjs(), "days")
+      return `Will be delivered in ${diff} days`
+   }
+   if (status === "RENTED") {
+      const diff = dayjs(endAt).diff(dayjs(), "days")
+      return `Remaining: ${diff} days`
+   }
+
+   return ""
+}
+
+export const getReservationInfo = (reservation: Reservation) => {
+   const queryIdx = fakeApi.checkout.reservations.getUserIdx(reservation.userId, reservation.aBookId)
+   const awaitTime = queryIdx * 7
+   const couldBeRent = queryIdx === 0
+
+   return { queryIdx, awaitTime, couldBeRent }
+}
