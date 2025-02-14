@@ -15,7 +15,7 @@ const TileGroup = (props: Props) => {
    return (
       <Row justify="space-between" gutter={[0, 20]} className={className}>
          {data.map(datum => (
-            <Tile key={String(datum.label)} {...datum} span={itemSpan} />
+            <Tile key={datum.id} {...datum} span={itemSpan} />
          ))}
       </Row>
    )

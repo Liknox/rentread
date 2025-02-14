@@ -2,6 +2,7 @@ import { Col } from "antd"
 import type { ReactNode } from "react"
 
 export type TileItem = {
+   id: string
    label: ReactNode
    value: ReactNode
 }
@@ -11,9 +12,7 @@ export type TileProps = TileItem & {
 }
 
 const TileView = (props: TileProps) => {
-   const { label, value, className, span } = props
-
-   console.log(className)
+   const { label, value, span } = props
 
    return (
       <Col
