@@ -2,8 +2,8 @@ import { Layout } from "antd"
 
 import { useTitle } from "@shared/lib/dom"
 import { Aside } from "./aside"
-import { Sidebar } from "./sidebar"
 import { Content } from "./content"
+import { Sidebar } from "./sidebar"
 
 function ProfilePage() {
    useTitle("Profile - RentRead")

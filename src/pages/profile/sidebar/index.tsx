@@ -1,5 +1,5 @@
-import { Layout, Anchor } from "antd"
 import { topics } from "@app/configs/constants"
+import { Anchor, Layout } from "antd"
 
 export const Sidebar = () => {
    return (

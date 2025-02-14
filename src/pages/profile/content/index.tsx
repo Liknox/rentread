@@ -1,12 +1,12 @@
-import { TOPIC_CLOSED, TOPIC_OPENED, TOPIC_RESERVED, TOPIC_FAV } from "@app/configs/constants"
+import { CheckCircleOutlined, ClockCircleOutlined, HeartOutlined, ShoppingOutlined } from "@ant-design/icons"
+import { TOPIC_CLOSED, TOPIC_FAV, TOPIC_OPENED, TOPIC_RESERVED } from "@app/configs/constants"
+import { useRouter } from "@tanstack/react-router"
 import { Layout } from "antd"
 import { viewerLib, viewerModel } from "entities/viewer"
-import { CheckCircleOutlined, ClockCircleOutlined, ShoppingOutlined, HeartOutlined } from "@ant-design/icons"
-import { Section } from "./section"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
-import { useRouter } from "@tanstack/react-router"
 import { useEffect } from "react"
+import { Section } from "./section"
 
 export const Content = () => {
    const viewerNrml = viewerModel.useViewerNormalized()

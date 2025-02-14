@@ -1,10 +1,10 @@
-import { Typography, Row, Col, Empty, Badge } from "antd"
-import { CheckCircleOutlined } from "@ant-design/icons"
-import { type CSSProperties, type ReactNode } from "react"
+import type { CheckCircleOutlined } from "@ant-design/icons"
+import { Badge, Col, Empty, Row, Typography } from "antd"
 import cn from "classnames"
+import type { CSSProperties, ReactNode } from "react"
 
 import { BookCard } from "entities/book"
-import type { Book, AbstractBook } from "shared/api"
+import type { AbstractBook, Book } from "shared/api"
 
 type Props<T> = {
    id: string
