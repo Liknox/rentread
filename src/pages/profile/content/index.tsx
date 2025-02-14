@@ -62,7 +62,7 @@ export const Content = () => {
                }
                return (
                   <span>
-                     Waiting time: ~ <b>{reserve.awaitTime + " " + "days"}</b>
+                     Waiting time: ~ <b>{`${reserve.awaitTime} ${reserve.awaitTime > 1 ? "days" : "day"}`}</b>
                   </span>
                )
             }}
