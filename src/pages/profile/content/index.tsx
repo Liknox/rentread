@@ -15,6 +15,15 @@ export const Content = () => {
    const router = useRouter()
    const currentAnchor = router.state.location.hash
 
+   useEffect(() => {
+      setTimeout(() => {
+         const element = document.getElementById(currentAnchor)
+         if (element) {
+            element.scrollIntoView({ behavior: "smooth" })
+         }
+      }, 100)
+   }, [currentAnchor])
+
    return (
       <Layout className="mx-5">
          <Section
