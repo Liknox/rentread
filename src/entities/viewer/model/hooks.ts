@@ -3,6 +3,7 @@ import { browser } from "@shared/lib"
 import { useStoreMap, useUnit } from "effector-react"
 import { bookModel } from "entities/book"
 import { useState } from "react"
+import * as lib from "../lib"
 import { fav } from "./stores"
 
 export const useBookFavStatus = (bookId: number) => {
@@ -23,6 +24,12 @@ export const useFavBooks = () => {
 
 export const useViewer = () => {
    return fakeApi.users.users.getViewer()
+}
+
+export const useViewerNormalized = () => {
+   const viewer = useViewer()
+
+   return lib.getUserNormalized(viewer)
 }
 
 const WALLET_MONEY = 40
