@@ -47,7 +47,7 @@ export const getOrderInfo = (order: Order) => {
    }
    if (status === "RENTED") {
       const diff = dayjs(endAt).diff(dayjs(), "days")
-      return `Remaining: ${diff} days`
+      return `remained: ${diff} ${diff === 1 ? "day" : "days"}`
    }
 
    return ""
