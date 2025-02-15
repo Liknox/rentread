@@ -36,6 +36,7 @@ function BookPage() {
          <Typography.Title level={2}>{fakeApi.library.books.getBookString(book)}</Typography.Title>
          <Row className="mt-8 mb-20">
             <Card book={book} />
+            <Checkout book={book} />
          </Row>
          <Row>{/* <Recommendations book={book} /> */}</Row>
       </Layout.Content>
@@ -95,6 +96,66 @@ const Card = ({ book }: BookProps) => {
       </Col>
    )
 }
+
+const Checkout = ({ book }: BookProps) => {
+   const rent = orderLib.getRentInfo(book.id)
+   const style = rent.status !== "RENTABLE" ? { opacity: 0.5 } : {}
+   const price = `${fakeApi.library.books.getPrice(book)} $`
+   console.debug("BOOK RENT", book.id, rent)
+
+   return (
+      <Col span={7} offset={1} style={style}>
+         <article className="flex flex-col justify-between min-h-[300px] p-7 shadow-insetDark">
+            <div>
+               <h3 className="text-[40px] font-medium mt-2">
+                  {rent.status === "RENTABLE" && price}
+                  {rent.status === "RESERVABLE" && "You can reserve"}
+                  {rent.status === "OUT_STOCK" && "Out of stock"}
+               </h3>
+               {/* FIXME: inline style */}
+               <Row style={{ marginTop: 20 }}>
+                  {rent.status === "RENTABLE" && (
+                     <ul className="text-darkGray">
+                        <li className="mt-2">
+                           <InboxOutlined /> Delivery by courier service within 2 days.
+                        </li>
+                        <li className="mt-2">
+                           <HistoryOutlined /> For rent until {/* FIXME: hardcoded, use entities/tariffs */}
+                           {Math.min(30, rent.duration)}
+                           {rent.duration === 1 ? "day" : "days"}
+                        </li>
+                     </ul>
+                  )}
+                  {rent.status === "RESERVABLE" && (
+                     <>
+                        <p>At the moment, all copies of this book are taken.</p>
+                        <p>
+                           You can place a reservation on it to rent it once it becomes available and your turn comes.
+                        </p>
+                     </>
+                  )}
+                  {rent.status === "OUT_STOCK" && (
+                     <>
+                        <p>At the moment, there are no copies of this book from users in the service.</p>
+                        <p>
+                           You can place a reservation on it to rent it once it becomes available and your turn comes,
+                           or add it to your favorites.
+                        </p>
+                     </>
+                  )}
+               </Row>
+            </div>
+            <div className="mt-5">
+               <Fav.Actions.AddBook bookId={book.id} />
+               {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={book.id} />}
+               {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={book.id} />}
+               {rent.status === "OUT_STOCK" && <Reserve.Actions.ReserveBook bookId={book.id} />}
+               {/* FIXME: display tarrif rent buttons */}
+               {false && <TariffRadio onChange={e => alert.info(String(e))} withTitle={false} disabled />}
+            </div>
+         </article>
+      </Col>
+   )
 }
 
 export default BookPage
