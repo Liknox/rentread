@@ -58,24 +58,22 @@ const Card = ({ book }: BookProps) => {
       <Col span={16}>
          <div className="flex">
             <div className="w-[450px]">
-               <Carousel>
+               <Carousel autoplay autoplaySpeed={3000}>
                   <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
                      <BookFilled style={{ marginTop: 150 }} />
                   </div>
                   <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
-                     <BookFilled style={{ marginTop: 150, color: "darkslategray" }} />
+                     <BookFilled style={{ marginTop: 150, color: "royalblue" }} />
                   </div>
-                  {/*
-                     <div className={styles.cardGalleryItem}>
-                        <Typography.Title level={3}>IMG-2</Typography.Title>
-                     </div>
-                     <div className={styles.cardGalleryItem}>
-                        <Typography.Title level={3}>IMG-3</Typography.Title>
-                     </div>
-                     <div className={styles.cardGalleryItem}>
-                        <Typography.Title level={3}>IMG-4</Typography.Title>
-                     </div> 
-                  */}
+                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
+                     <BookFilled style={{ marginTop: 150, color: "goldenrod" }} />
+                  </div>
+                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
+                     <BookFilled style={{ marginTop: 150, color: "red" }} />
+                  </div>
+                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
+                     <BookFilled style={{ marginTop: 150, color: "limegreen" }} />
+                  </div>
                </Carousel>
             </div>
             <div className="mt-10 ml-10">
@@ -148,6 +146,7 @@ const Checkout = ({ book }: BookProps) => {
                   )}
                </Row>
             </div>
+            {/* FIXME: action button style */}
             <div className="mt-5">
                <Fav.Actions.AddBook bookId={book.id} />
                {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={book.id} />}
