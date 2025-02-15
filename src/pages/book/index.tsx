@@ -1,14 +1,14 @@
-import { AbstractBook, fakeApi } from "@shared/api"
+import { BookFilled, HistoryOutlined, InboxOutlined } from "@ant-design/icons"
+import { type AbstractBook, fakeApi } from "@shared/api"
+import { alert } from "@shared/lib"
 import { Link, useMatch } from "@tanstack/react-router"
 import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Typography } from "antd"
-import { HistoryOutlined, InboxOutlined, BookFilled } from "@ant-design/icons"
-import { orderLib } from "entities/order"
-import { Cart } from "features/cart"
-import { Reserve } from "features/reserve"
-import { TariffRadio } from "entities/tariff"
-import { Fav } from "features/fav"
-import { alert } from "@shared/lib"
 import { BookCard } from "entities/book"
+import { orderLib } from "entities/order"
+import { TariffRadio } from "entities/tariff"
+import { Cart } from "features/cart"
+import { Fav } from "features/fav"
+import { Reserve } from "features/reserve"
 
 function BookPage() {
    const { params } = useMatch({ from: "/book/$bookId" }) as { params: { bookId: string } }

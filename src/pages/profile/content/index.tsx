@@ -1,5 +1,5 @@
 import { CheckCircleOutlined, ClockCircleOutlined, HeartOutlined, ShoppingOutlined } from "@ant-design/icons"
-import { TOPIC_HISTORY, TOPIC_FAV, TOPIC_OPENED, TOPIC_RESERVED } from "@app/configs/constants"
+import { TOPIC_FAV, TOPIC_HISTORY, TOPIC_OPENED, TOPIC_RESERVED } from "@app/configs/constants"
 import { useRouter } from "@tanstack/react-router"
 import { Layout } from "antd"
 import { viewerLib, viewerModel } from "entities/viewer"

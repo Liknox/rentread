@@ -1,10 +1,10 @@
 import { Layout } from "antd"
 
 import { useTitle } from "@shared/lib/dom"
+import { useState } from "react"
 import { Aside } from "./aside"
 import { Content } from "./content"
 import { Sidebar } from "./sidebar"
-import { useState } from "react"
 
 function ProfilePage() {
    useTitle("Profile - RentRead")
