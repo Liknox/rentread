@@ -90,12 +90,12 @@ const __VIEWER: User = {
    // FIXME: hardcoded
    reservations: [2, 7],
    // FIXME: hardcoded
-   favABooks: [19],
+   favABooks: [6, 27],
    roles: [roles.USER],
    statusBan: false,
    registeredAt: "2023-04-04T00:00:00.354Z",
    wallet: {
-      moneyCount: 300,
+      moneyCount: 40,
    },
 }
 
