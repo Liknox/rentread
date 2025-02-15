@@ -26,9 +26,64 @@ function BookPage() {
          </Link>
          <Typography.Title level={2}>{fakeApi.library.books.getBookString(book)}</Typography.Title>
          <Row className="mt-8 mb-20">
+            <Card book={book} />
          </Row>
          <Row>{/* <Recommendations book={book} /> */}</Row>
       </Layout.Content>
+   )
+}
+
+type BookProps = {
+   book: AbstractBook
+}
+
+const Card = ({ book }: BookProps) => {
+   const { authors, publicationYear, publishingHouse } = book
+   const author = authors.map(fakeApi.library.authors.getShortname).join(", ")
+
+   return (
+      <Col span={16}>
+         <div className="flex">
+            <div className="w-[450px]">
+               <Carousel>
+                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
+                     <BookFilled style={{ marginTop: 150 }} />
+                  </div>
+                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
+                     <BookFilled style={{ marginTop: 150, color: "darkslategray" }} />
+                  </div>
+                  {/*
+                     <div className={styles.cardGalleryItem}>
+                        <Typography.Title level={3}>IMG-2</Typography.Title>
+                     </div>
+                     <div className={styles.cardGalleryItem}>
+                        <Typography.Title level={3}>IMG-3</Typography.Title>
+                     </div>
+                     <div className={styles.cardGalleryItem}>
+                        <Typography.Title level={3}>IMG-4</Typography.Title>
+                     </div> 
+                  */}
+               </Carousel>
+            </div>
+            <div className="mt-10 ml-10">
+               <Descriptions
+                  title={<span className="text-[20px]">About the book</span>}
+                  column={1}
+                  contentStyle={{ fontSize: 16 }}>
+                  <Descriptions.Item label={<span className="text-dark text-[16px] font-medium">Author</span>}>
+                     {author}
+                  </Descriptions.Item>
+                  <Descriptions.Item label={<span className="text-dark text-[16px] font-medium">Year</span>}>
+                     {publicationYear}
+                  </Descriptions.Item>
+                  <Descriptions.Item label={<span className="text-dark text-[16px] font-medium">Publisher</span>}>
+                     {publishingHouse.name} ({publishingHouse.city})
+                  </Descriptions.Item>
+               </Descriptions>
+               <p className="mt-5">{book.description}</p>
+            </div>
+         </div>
+      </Col>
    )
 }
 }
