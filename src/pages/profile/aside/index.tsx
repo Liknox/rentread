@@ -8,7 +8,7 @@ import * as lib from "../lib"
 export const Aside = () => {
    const viewer = viewerModel.useViewer()
 
-   /* FIXME: move to entitites */
+   /* FIXME: move to entities */
    return (
       <Layout.Sider width={400}>
          <div className="p-10 text-center shadow-insetDark rounded-md">
