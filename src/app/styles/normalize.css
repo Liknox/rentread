@@ -99,3 +99,6 @@ html {
 .ant-anchor-link-title-active {
    color: var(--color-primary) !important;
 }
+.slick-dots.slick-dots-bottom {
+   filter: invert(100%) opacity(50%);
+}
