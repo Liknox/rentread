@@ -8,6 +8,7 @@ import { Reserve } from "features/reserve"
 import { TariffRadio } from "entities/tariff"
 import { Fav } from "features/fav"
 import { alert } from "@shared/lib"
+import { BookCard } from "entities/book"
 
 function BookPage() {
    const { params } = useMatch({ from: "/book/$bookId" }) as { params: { bookId: string } }
@@ -38,7 +39,9 @@ function BookPage() {
             <Card book={book} />
             <Checkout book={book} />
          </Row>
-         <Row>{/* <Recommendations book={book} /> */}</Row>
+         <Row>
+            <Recommendations book={book} />
+         </Row>
       </Layout.Content>
    )
 }
@@ -154,6 +157,27 @@ const Checkout = ({ book }: BookProps) => {
                {false && <TariffRadio onChange={e => alert.info(String(e))} withTitle={false} disabled />}
             </div>
          </article>
+      </Col>
+   )
+}
+
+const Recommendations = ({ book }: BookProps) => {
+   const booksQuery = fakeApi.library.books
+      .getList({ filters: { authors: book.authors.map(a => a.id) } })
+      .filter(b => b.id !== book.id)
+
+   if (!booksQuery.length) return null
+
+   return (
+      <Col span={16}>
+         <h1 className="text-[20px] font-medium">By the same author</h1>
+         <Row className="pb-5 mt-5 overflow-auto" wrap={false} gutter={[20, 0]}>
+            {booksQuery.map(b => (
+               <Col key={b.id} span={8}>
+                  <BookCard data={b} size="small" />
+               </Col>
+            ))}
+         </Row>
       </Col>
    )
 }
