@@ -94,7 +94,7 @@ html {
    border-color: var(--color-primary) !important;
 }
 .ant-anchor-link-title {
-   color: var(--color-light-gray) !important;
+   color: var(--color-anchor-gray) !important;
 }
 .ant-anchor-link-title-active {
    color: var(--color-primary) !important;
