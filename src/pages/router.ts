@@ -8,6 +8,7 @@ const Book = lazy(() => import("./book"))
 const About = lazy(() => import("./about"))
 const Catalog = lazy(() => import("./catalog"))
 const Profile = lazy(() => import("./profile"))
+const Order = lazy(() => import("./order"))
 const NotFound = lazy(() => import("./__404"))
 const Debug = lazy(() => import("./debug"))
 
@@ -33,6 +34,10 @@ export const CatalogImport = createFileRoute("/catalog")({
 
 export const ProfileImport = createFileRoute("/profile")({
    component: Profile,
+})
+
+export const OrderImport = createFileRoute("/order")({
+   component: Order,
 })
 
 export const R404Import = createFileRoute("/__404")({
