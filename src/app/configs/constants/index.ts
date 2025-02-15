@@ -9,7 +9,7 @@ export const PRICES = {
    MAX: 50,
 }
 
-/** profile topics */
+/** profile topics/anchors */
 export const TOPIC_OPENED = {
    id: "opened",
    title: "Rented",
@@ -24,8 +24,8 @@ export const TOPIC_RESERVED = {
    description: "Added to a rent queue",
 }
 
-export const TOPIC_CLOSED = {
-   id: "closed",
+export const TOPIC_HISTORY = {
+   id: "history",
    title: "History",
    fullTitle: "Rent history",
    description: "Recent orders books",
@@ -39,4 +39,4 @@ export const TOPIC_FAV = {
 }
 
 // prettier-ignore
-export const topics = [TOPIC_OPENED, TOPIC_RESERVED, TOPIC_FAV, TOPIC_CLOSED]
+export const topics = [TOPIC_OPENED, TOPIC_RESERVED, TOPIC_FAV, TOPIC_HISTORY]

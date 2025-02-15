@@ -1,5 +1,5 @@
 import { CheckCircleOutlined, ClockCircleOutlined, HeartOutlined, ShoppingOutlined } from "@ant-design/icons"
-import { TOPIC_CLOSED, TOPIC_FAV, TOPIC_OPENED, TOPIC_RESERVED } from "@app/configs/constants"
+import { TOPIC_HISTORY, TOPIC_FAV, TOPIC_OPENED, TOPIC_RESERVED } from "@app/configs/constants"
 import { useRouter } from "@tanstack/react-router"
 import { Layout } from "antd"
 import { viewerLib, viewerModel } from "entities/viewer"
@@ -83,12 +83,12 @@ export const Content = () => {
             renderBookActions={b => [<Fav.Actions.AddBookMini key="fav" bookId={b.id} />]}
          />
          <Section
-            id={TOPIC_CLOSED.id}
-            title={TOPIC_CLOSED.fullTitle}
-            description={TOPIC_CLOSED.description}
+            id={TOPIC_HISTORY.id}
+            title={TOPIC_HISTORY.fullTitle}
+            description={TOPIC_HISTORY.description}
             books={viewerNrml.closedBooks}
             Icon={CheckCircleOutlined}
-            active={TOPIC_CLOSED.id === currentAnchor}
+            active={TOPIC_HISTORY.id === currentAnchor}
          />
       </Layout>
    )
