@@ -21,7 +21,7 @@ export const Content = () => {
          if (element) {
             element.scrollIntoView({ behavior: "smooth" })
          }
-      }, 100)
+      }, 20)
    }, [currentAnchor])
 
    return (
@@ -32,6 +32,7 @@ export const Content = () => {
             description={TOPIC_OPENED.description}
             books={viewerNrml.openedBooks.slice().reverse()}
             Icon={ShoppingOutlined}
+            active={TOPIC_OPENED.id === currentAnchor}
             renderBookDetails={(_, idx) => {
                const order = viewerNrml.opened[idx]
                return viewerLib.getOrderInfo(order)
@@ -43,6 +44,7 @@ export const Content = () => {
             description={TOPIC_RESERVED.description}
             books={viewerNrml.reservedBooks}
             Icon={ClockCircleOutlined}
+            active={TOPIC_RESERVED.id === currentAnchor}
             getRibbonProps={(_, idx) => {
                const reserve = viewerLib.getReservationInfo(viewerNrml.reserved[idx])
 
@@ -77,6 +79,7 @@ export const Content = () => {
             description={TOPIC_FAV.description}
             books={favBooks}
             Icon={HeartOutlined}
+            active={TOPIC_FAV.id === currentAnchor}
             renderBookActions={b => [<Fav.Actions.AddBookMini key="fav" bookId={b.id} />]}
          />
          <Section
@@ -85,6 +88,7 @@ export const Content = () => {
             description={TOPIC_CLOSED.description}
             books={viewerNrml.closedBooks}
             Icon={CheckCircleOutlined}
+            active={TOPIC_CLOSED.id === currentAnchor}
          />
       </Layout>
    )
