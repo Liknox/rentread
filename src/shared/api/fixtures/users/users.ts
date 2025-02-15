@@ -90,7 +90,7 @@ const __VIEWER: User = {
    // FIXME: hardcoded
    reservations: [2, 7],
    // FIXME: hardcoded
-   favABooks: [25],
+   favABooks: [19],
    roles: [roles.USER],
    statusBan: false,
    registeredAt: "2023-04-04T00:00:00.354Z",
