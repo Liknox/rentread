@@ -11,6 +11,7 @@ import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 
 function BookPage() {
+   // FIXME: add skeleton template
    const { params } = useMatch({ from: "/book/$bookId" }) as { params: { bookId: string } }
 
    const bookId = Number(params?.bookId)

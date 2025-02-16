@@ -18,6 +18,7 @@ const viewTypes = [
    { key: "list", Icon: BarsOutlined },
 ]
 
+// FIXME: extract to constants
 const ribbonPropsTypes = {
    RESERVABLE: {
       text: "Not Available",
@@ -61,6 +62,7 @@ const useFilters = () => {
 }
 
 function CatalogContent() {
+   // FIXME: add skeleton template
    const filters = useFilters()
    const obParam = catalogParams.useSorting()
 
