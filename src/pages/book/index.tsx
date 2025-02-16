@@ -59,7 +59,7 @@ const Card = ({ book }: BookProps) => {
       <Col span={16}>
          <div className="flex">
             <div className="w-[450px]">
-               <Carousel autoplay autoplaySpeed={3000}>
+               <Carousel autoplay autoplaySpeed={3000} className="dark-slick-dots">
                   <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
                      <BookFilled style={{ marginTop: 150 }} />
                   </div>
