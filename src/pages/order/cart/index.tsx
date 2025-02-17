@@ -8,7 +8,7 @@ function Order() {
       <Layout.Content>
          <Cart.Steps.View current={0} className="mb-10" />
          <Layout>
-            <Sidebar></Sidebar>
+            <Sidebar />
          </Layout>
       </Layout.Content>
    )
