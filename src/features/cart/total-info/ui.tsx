@@ -6,7 +6,7 @@ import { BookCard } from "entities/book"
 import { Link } from "@tanstack/react-router"
 import { ReactNode } from "react"
 
-export const PLACEHOLDER = "Blank order"
+export const PLACEHOLDER = "Order is empty"
 
 const useDurations = () => {
    const durations = orderModel.cart.useOrderDurations()
