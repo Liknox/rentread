@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router"
 import { Button, Col, Empty, Layout, Row, Typography } from "antd"
-import { BookRowCard } from "entities/book"
-import { orderModel } from "entities/order"
+import { BookCard, BookRowCard } from "entities/book"
+import { orderLib, orderModel } from "entities/order"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
+import { Fav } from "features/fav"
 
 function Order() {
    return (
@@ -62,7 +63,46 @@ const Content = () => {
                />
             )}
          </section>
+         <section className="my-14">
+            <RecommendationsSection />
+         </section>
       </Layout>
+   )
+}
+
+const RecommendationsSection = () => {
+   const recommended = orderModel.cart.useRecommended()
+
+   if (!recommended.books) return null
+
+   return (
+      <>
+         <Typography.Title level={3} type="secondary">
+            Take a closer look as well
+         </Typography.Title>
+         <Typography.Text className="block mb-5" type="secondary">
+            A selection of recommended books based on your order
+         </Typography.Text>
+         <Row className="overflow-auto pb-5" wrap={false} gutter={[20, 0]}>
+            {recommended.books
+               .filter(b => orderLib.getRentInfo(b.id).status === "RENTABLE")
+               .map(b => (
+                  <Col key={b.id} span={8}>
+                     <BookCard
+                        data={b}
+                        size="small"
+                        className="m-0"
+                        // TODO: Add a check for `rent` and return?
+                        actions={[
+                           <Fav.Actions.AddBookMini key="fav" bookId={b.id} />,
+                           <Cart.Actions.AddBookMini key="order" bookId={b.id} />,
+                        ]}
+                        withDescription
+                     />
+                  </Col>
+               ))}
+         </Row>
+      </>
    )
 }
 
