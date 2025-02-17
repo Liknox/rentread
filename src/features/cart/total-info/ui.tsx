@@ -2,6 +2,7 @@ import { Typography, Row, Divider, Col } from "antd"
 import { BookOutlined, ClockCircleOutlined } from "@ant-design/icons"
 
 import { orderModel } from "entities/order"
+import { BookCard } from "entities/book"
 import { Link } from "@tanstack/react-router"
 import { ReactNode } from "react"
 
@@ -64,6 +65,27 @@ export const Card = ({ children }: Props) => {
          <Form />
          <Divider style={{ margin: 0 }} />
          <section className="p-10">{children}</section>
+      </article>
+   )
+}
+
+export const CartMini = () => {
+   const order = orderModel.cart.useOrder()
+
+   return (
+      <article className="ml-10 text-center rounded-[10px] shadow-inset p-5">
+         <Typography.Title level={4} type="secondary">
+            Your order
+         </Typography.Title>
+         <Row justify="space-between" gutter={[0, 30]} className="mt-4">
+            {order.books.map(book => (
+               <Col key={book.id} span={11}>
+                  <Link to={`/book/${book.id}`} title={book.name}>
+                     <BookCard data={book} size="mini" className="cursor-pointer" />
+                  </Link>
+               </Col>
+            ))}
+         </Row>
       </article>
    )
 }
