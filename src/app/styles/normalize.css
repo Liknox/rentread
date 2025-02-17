@@ -102,3 +102,6 @@ html {
 .dark-slick-dots .slick-dots.slick-dots-bottom {
    filter: invert(100%) opacity(50%);
 }
+.ant-steps-item-description {
+   max-width: none !important;
+}
