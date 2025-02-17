@@ -66,7 +66,7 @@ const BookRow = (props: Props) => {
          </Col>
          <Col className="flex flex-col justify-center" style={styleDetails[size]} span={spanDetails}>
             {titleAsLink ? (
-               <Link className="text-primary w-[95%]" to={`/book/${data.id}`}>
+               <Link className="text-primary w-[95%] leading-normal" to={`/book/${data.id}`}>
                   {title}
                </Link>
             ) : (
