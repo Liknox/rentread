@@ -1,3 +1,4 @@
+import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
 import { Button, Col, Empty, Layout, Row, Typography } from "antd"
 import { BookCard, BookRowCard } from "entities/book"
@@ -7,6 +8,7 @@ import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 
 function Order() {
+   useTitle("Cart | Rentread")
    return (
       <Layout.Content>
          <Cart.Steps.View current={0} className="mb-10" />
