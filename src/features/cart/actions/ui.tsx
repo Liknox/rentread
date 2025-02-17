@@ -1,6 +1,6 @@
 import { ShoppingFilled, ShoppingOutlined } from "@ant-design/icons"
 import { alert } from "@shared/lib"
-import { Button } from "antd"
+import { Button, Modal } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
 import type { CSSProperties } from "react"
@@ -51,5 +51,35 @@ export const AddBookMini = (props: Props) => {
 
    return (
       <Icon className="!text-[20px] mb-1" style={{ ...disabledStyles }} onClick={handleToggle} disabled={disabled} />
+   )
+}
+
+export const DeleteBook = (props: Props) => {
+   const { handleToggle } = useToggleBook(props)
+   const { disabled } = props
+
+   return (
+      <Button
+         type="default"
+         ghost
+         danger
+         icon={<ShoppingFilled />}
+         onClick={() =>
+            Modal.confirm({
+               title: "Are you sure you want to remove the book from the order?",
+               icon: <ShoppingFilled />,
+               content: "This action cannot be undone.",
+               okText: "Yes",
+               cancelText: "No",
+               okType: "danger",
+               onOk() {
+                  handleToggle()
+               },
+            })
+         }
+         block
+         disabled={disabled}>
+         Remove
+      </Button>
    )
 }

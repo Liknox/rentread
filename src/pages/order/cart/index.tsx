@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router"
 import { Button, Col, Empty, Layout, Row, Typography } from "antd"
 import { BookRowCard } from "entities/book"
 import { orderModel } from "entities/order"
+import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 
 function Order() {
@@ -38,6 +39,7 @@ const Content = () => {
                         size="large"
                         actions={
                            <>
+                              <Cart.Actions.DeleteBook bookId={book.id} />
                               <TariffRadio
                                  onChange={value =>
                                     orderModel.cart.events.setBookDuration({
