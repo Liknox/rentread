@@ -16,6 +16,7 @@ import {
    InitialImport,
    LayoutImport,
    OrderImport,
+   CheckoutImport,
    ProfileImport,
    R404Import,
 } from "./../../../pages/router"
@@ -52,6 +53,12 @@ const ProfileRoute = ProfileImport.update({
 
 const OrderRoute = OrderImport.update({
    path: "/order",
+   getParentRoute: () => LayoutImport,
+   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+} as any)
+
+const CheckoutRoute = CheckoutImport.update({
+   path: "/order/checkout",
    getParentRoute: () => LayoutImport,
    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 } as any)
@@ -95,6 +102,10 @@ declare module "@tanstack/react-router" {
          preLoaderRoute: typeof string
          parentRoute: typeof LayoutImport
       }
+      "/order/checkout": {
+         preLoaderRoute: typeof string
+         parentRoute: typeof LayoutImport
+      }
       "/__404": {
          preLoaderRoute: typeof string
          parentRoute: typeof LayoutImport
@@ -113,6 +124,7 @@ export const routeTree = LayoutImport.addChildren([
    BookRoute,
    ProfileRoute,
    OrderRoute,
+   CheckoutRoute,
    R404Route,
    DebugRoute,
 ])
