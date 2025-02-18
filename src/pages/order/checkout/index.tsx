@@ -145,6 +145,39 @@ const DeliveryForm = () => {
                style={{ marginBottom: 20 }}>
                Pick up at the nearest meetup in a coffee shop
             </Checkbox>
+            {mode === "MANUAL" && (
+               <>
+                  <Input
+                     key={mode}
+                     placeholder="Chose delivery address..."
+                     defaultValue={address}
+                     onChange={e => orderModel.cart.events.setDelivery({ address: e.target.value })}
+                  />
+                  <DatePicker
+                     placeholder="Chose delivery time..."
+                     style={{ width: "100%", marginTop: 20 }}
+                     value={date ? moment(date) : undefined}
+                     onChange={value => orderModel.cart.events.setDelivery({ date: value?.toISOString() })}
+                  />
+               </>
+            )}
+            {mode === "COFFESHOP" && (
+               <>
+                  <Select
+                     options={shopsOptions}
+                     style={{ width: "100%" }}
+                     placeholder="Chose coffee shop..."
+                     onSelect={value => {
+                        const shop = shopsQuery.find(cs => String(cs.id) === value)
+                        if (!shop) return
+                        orderModel.cart.events.setDelivery({
+                           address: shop.address,
+                           date: shop.deliveryAt,
+                        })
+                     }}
+                  />
+               </>
+            )}
          </Col>
          {/* <Col span={12} className={styles.deliveryMap}></Col> */}
       </Row>
