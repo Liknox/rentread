@@ -56,7 +56,7 @@ const BookCard = (props: Props) => {
                "grayscale opacity-50": asSecondary,
                // "p-6": size === "default",
                // "p-4": size === "small",
-               "p-2": size === "mini",
+               // "p-2": size === "mini",
             },
             className,
          )}
