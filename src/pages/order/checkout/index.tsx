@@ -1,4 +1,6 @@
 import { useTitle } from "@shared/lib/dom"
+import { Link } from "@tanstack/react-router"
+import { Button, Checkbox, Col, DatePicker, Input, Layout, Result, Row, Select, Typography } from "antd"
 import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
 import { Cart } from "features/cart"
@@ -27,6 +29,31 @@ function Checkout() {
             <Sidebar />
          </Layout>
       </Layout.Content>
+   )
+}
+
+const Content = () => {
+   return (
+      <Layout>
+         <Link to="/order">Return to cart</Link>
+         <Typography.Title level={2}>Order processing</Typography.Title>
+         <section className="mb-10">
+            <Typography.Title level={3} type="secondary">
+               Payment
+            </Typography.Title>
+            <Typography.Text className="block mb-5" type="secondary">
+               Funds will be deducted from your internal wallet
+            </Typography.Text>
+         </section>
+         <section className="mb-10">
+            <Typography.Title level={3} type="secondary">
+               Delivery
+            </Typography.Title>
+            <Typography.Text className="block mb-5" type="secondary">
+               Specify and verify the delivery method and address.
+            </Typography.Text>
+         </section>
+      </Layout>
    )
 }
 const Sidebar = () => {
