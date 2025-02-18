@@ -44,6 +44,7 @@ const Content = () => {
             <Typography.Text className="block mb-5" type="secondary">
                Funds will be deducted from your internal wallet
             </Typography.Text>
+            <WalletForm />
          </section>
          <section className="mb-10">
             <Typography.Title level={3} type="secondary">
@@ -56,6 +57,20 @@ const Content = () => {
       </Layout>
    )
 }
+
+const WalletForm = () => {
+   const validation = useCheckoutValidation()
+   return (
+      <Row gutter={[0, 20]} className="p-5 bg-accent rounded-[25px]" justify="center">
+         {validation.isEnoughMoney ? (
+            <Result status="success" title="Sufficient funds on the account" />
+         ) : (
+            <Result status="warning" title="Insufficient funds on the account" extra={<Wallet.AddFunds.Form />} />
+         )}
+      </Row>
+   )
+}
+
 const Sidebar = () => {
    const viewer = viewerModel.useViewerWallet()
    const order = orderModel.cart.useOrder()
