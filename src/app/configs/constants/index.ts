@@ -38,5 +38,19 @@ export const TOPIC_FAV = {
    description: "Favorite books",
 }
 
-// prettier-ignore
 export const topics = [TOPIC_OPENED, TOPIC_RESERVED, TOPIC_FAV, TOPIC_HISTORY]
+
+/** router-pages */
+export const router = {
+   DEFAULT: "/",
+   BOOK: "/book/$bookId",
+   ABOUT: "/about",
+   CATALOG: "/catalog",
+   PROFILE: "/profile",
+   ORDER: "/order",
+   CHECKOUT: "/order/checkout",
+   RESULT: "/order/result/$result",
+   NOTFOUND: "/__404",
+   DEBUG: "/debug",
+   ALL: "/*",
+}
