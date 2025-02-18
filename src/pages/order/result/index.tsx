@@ -29,7 +29,7 @@ const ResultPage = () => {
                      <Button type="primary">To your order</Button>
                   </Link>,
                   <Link to="/catalog" key="catalog">
-                     <Button>To Catalog</Button>,
+                     <Button>To Catalog</Button>
                   </Link>,
                ]}
             />
