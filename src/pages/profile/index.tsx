@@ -7,7 +7,7 @@ import { Content } from "./content"
 import { Sidebar } from "./sidebar"
 
 function ProfilePage() {
-   useTitle("Profile - RentRead")
+   useTitle("Profile | RentRead")
 
    /* FIXME: Very bad practice. anyone, don't judge this way of solving the problem */
    // eslint-disable-next-line @typescript-eslint/no-unused-vars

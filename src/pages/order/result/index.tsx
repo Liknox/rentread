@@ -13,7 +13,7 @@ import { Link } from "@tanstack/react-router"
 const ResultPage = () => {
    // const { isEmptyCart } = orderModel.cart.useOrderValidation();
    // FIXME: Rewrite later with promise
-   useTitle("Order Confirmation Page! | Rentread")
+   useTitle("Order Confirmation Page | Rentread")
    // hooks.useRedirectOn(isEmptyCart, "/order");
 
    return (

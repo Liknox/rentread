@@ -8,7 +8,8 @@ import HeroSection from "./sections/hero"
 import SocialSection from "./sections/socials"
 
 function AboutPage() {
-   useTitle("About us - RentRead")
+   useTitle("About us | RentRead")
+
    return (
       <>
          <Layout.Content>

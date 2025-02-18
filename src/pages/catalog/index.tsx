@@ -4,7 +4,7 @@ import CatalogContent from "./content"
 import Sidebar from "./sidebar"
 
 function CatalogPage() {
-   useTitle("Books Catalog - RentRead")
+   useTitle("Catalog | RentRead")
    return (
       <Layout.Content>
          <Typography.Title className="text-center mt-10" level={2}>
