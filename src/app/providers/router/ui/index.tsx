@@ -1,4 +1,5 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router"
+import { Spin } from "antd"
 import { Suspense } from "react"
 
 import { routeTree } from "@app/configs/router"
@@ -19,7 +20,7 @@ declare module "@tanstack/react-router" {
 }
 
 const Router = () => (
-   <Suspense fallback={null}>
+   <Suspense fallback={<Spin delay={300} className="overlay" size="large" />}>
       <RouterProvider router={router} />
    </Suspense>
 )
