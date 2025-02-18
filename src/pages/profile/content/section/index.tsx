@@ -47,7 +47,7 @@ export function Section<T extends Book | AbstractBook>(props: Props<T>) {
          <Typography.Text type="secondary" className="block mb-5">
             {description}
          </Typography.Text>
-         <Row gutter={[10, 10]} wrap={false}>
+         <Row gutter={[10, 10]} wrap={false} className="overflow-auto pb-5">
             {books.map((book, idx) => (
                <Col key={book.id} span={8}>
                   <Badge.Ribbon
