@@ -39,6 +39,23 @@ export const $durations = browser
       // events.setBookDuration({ bookId: payload, duration });
    })
    .on(events.submitOrder, () => {
-      // console.log("$durations SUBMIT");
+      console.log("$durations SUBMIT")
       return {}
    })
+
+const initialDelivery = {
+   date: "",
+   address: "",
+}
+
+export const $delivery = browser
+   .createPersistStore(initialDelivery, {
+      name: "entities/order/cart--delivery",
+   })
+   .on(events.setDelivery, (state, payload) => {
+      return {
+         date: payload.date ?? state.date,
+         address: payload.address ?? state.address,
+      }
+   })
+
