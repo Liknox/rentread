@@ -1,9 +1,14 @@
+import { fakeApi } from "@shared/api"
 import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
 import { Button, Checkbox, Col, DatePicker, Input, Layout, Result, Row, Select, Typography } from "antd"
+import dayjs from "dayjs"
 import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
 import { Cart } from "features/cart"
+import { Wallet } from "features/wallet"
+import moment from "moment"
+import { useState } from "react"
 
 const useCheckoutValidation = () => {
    const { price } = orderModel.cart.useOrder()
@@ -26,6 +31,7 @@ function Checkout() {
       <Layout.Content>
          <Cart.Steps.View current={1} className="mb-10" />
          <Layout>
+            <Content />
             <Sidebar />
          </Layout>
       </Layout.Content>
@@ -53,6 +59,7 @@ const Content = () => {
             <Typography.Text className="block mb-5" type="secondary">
                Specify and verify the delivery method and address.
             </Typography.Text>
+            <DeliveryForm />
          </section>
       </Layout>
    )
@@ -106,6 +113,42 @@ const Sidebar = () => {
    )
 }
 
+const DeliveryForm = () => {
+   const [mode, setMode] = useState<"MANUAL" | "COFFESHOP">("MANUAL")
+   const { date, address } = orderModel.cart.useDeliveryStore()
+   const shopsQuery = fakeApi.checkout.coffeeshops.getAll()
+   const shopsOptions = shopsQuery.map(cs => ({
+      value: String(cs.id),
+      label: (
+         <article>
+            <b>{cs.name}</b>
+            <ul>
+               <li>{cs.address}</li>
+               <li>{dayjs(cs.deliveryAt).format("DD/MM/YYYY")}</li>
+            </ul>
+         </article>
+      ),
+   }))
+
+   return (
+      <Row
+         className="min-h-[500px] overflow-hidden bg-[var(--color-accent)] border border-[var(--color-accent)] rounded-[25px]"
+         justify="space-between">
+         <Col span={10} className="p-10">
+            <Typography.Title level={4}>Select a delivery method</Typography.Title>
+            <Checkbox
+               onChange={e => {
+                  orderModel.cart.events.setDelivery({ address: "", date: "" })
+                  setMode(e.target.checked ? "COFFESHOP" : "MANUAL")
+               }}
+               checked={mode === "COFFESHOP"}
+               style={{ marginBottom: 20 }}>
+               Pick up at the nearest meetup in a coffee shop
+            </Checkbox>
+         </Col>
+         {/* <Col span={12} className={styles.deliveryMap}></Col> */}
+      </Row>
+   )
 }
 
 export default Checkout
