@@ -1,6 +1,6 @@
 import { useStoreMap, useUnit } from "effector-react"
 import { bookModel } from "entities/book"
-import { $books, $durations, DEFAULT_DURATION } from "./store"
+import { $books, $delivery, $durations, DEFAULT_DURATION } from "./store"
 import { fakeApi } from "@shared/api"
 
 export const useOrderDurations = () => useUnit($durations)
@@ -70,4 +70,8 @@ export const useOrder = () => {
       .reduce((a, b) => a + b, 0)
 
    return { books, price }
+}
+
+export const useDeliveryStore = () => {
+   return useUnit($delivery)
 }
