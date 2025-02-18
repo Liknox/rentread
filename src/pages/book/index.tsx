@@ -51,6 +51,19 @@ type BookProps = {
    book: AbstractBook
 }
 
+type CarouselColor = {
+   id: number
+   color: string
+}
+
+const carousel: CarouselColor[] = [
+   { id: 1, color: "" },
+   { id: 2, color: "royalblue" },
+   { id: 3, color: "goldenrod" },
+   { id: 4, color: "red" },
+   { id: 5, color: "limegreen" },
+]
+
 const Card = ({ book }: BookProps) => {
    const { authors, publicationYear, publishingHouse } = book
    const author = authors.map(fakeApi.library.authors.getShortname).join(", ")
@@ -60,21 +73,13 @@ const Card = ({ book }: BookProps) => {
          <div className="flex">
             <div className="w-[450px]">
                <Carousel autoplay autoplaySpeed={3000} className="dark-slick-dots">
-                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
-                     <BookFilled style={{ marginTop: 150 }} />
-                  </div>
-                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
-                     <BookFilled style={{ marginTop: 150, color: "royalblue" }} />
-                  </div>
-                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
-                     <BookFilled style={{ marginTop: 150, color: "goldenrod" }} />
-                  </div>
-                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
-                     <BookFilled style={{ marginTop: 150, color: "red" }} />
-                  </div>
-                  <div className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
-                     <BookFilled style={{ marginTop: 150, color: "limegreen" }} />
-                  </div>
+                  {carousel.map(c => (
+                     <div
+                        key={c.id}
+                        className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
+                        <BookFilled className="mt-40" style={{ color: c.color }} />
+                     </div>
+                  ))}
                </Carousel>
             </div>
             <div className="mt-10 ml-10">

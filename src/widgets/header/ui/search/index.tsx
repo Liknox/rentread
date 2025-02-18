@@ -35,6 +35,7 @@ const useSearch = () => {
    const isCatalogPage = location.pathname === CATALOG_ROUTE
 
    const handleAutocomplete = (search: string) => {
+      // FIXME: set max line (value is too big)
       const isNotEnoughLength = search.length < 3
       setTooltip(isNotEnoughLength ? TOOLTIP.MIN_LENGTH : TOOLTIP.NOT_FOUND)
       // FIXME: hardcoded
