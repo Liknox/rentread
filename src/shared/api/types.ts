@@ -112,3 +112,10 @@ export type BannerScreen = {
    img: string
    imgAlt: string
 }
+
+export type CoffeeShop = {
+   id: number
+   name: string
+   address: string
+   deliveryAt: string
+}
