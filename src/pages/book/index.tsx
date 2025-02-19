@@ -34,7 +34,7 @@ function BookPage() {
    return (
       <Layout.Content className="mb-20">
          <Link to={routes.CATALOG} className="text-primary">
-            Каталог
+            Catalog
          </Link>
          <Typography.Title level={2}>{fakeApi.library.books.getBookString(book)}</Typography.Title>
          <Row className="mt-8 mb-20">
