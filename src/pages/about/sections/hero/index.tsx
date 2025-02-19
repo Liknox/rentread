@@ -3,6 +3,7 @@ import { Button } from "antd"
 
 import bg_hero from "../../assets/bg_hero.jpg"
 import Section from "../index"
+import { routes } from "@app/configs/constants"
 
 const HeroSection = () => {
    const router = useRouter()
@@ -19,7 +20,7 @@ const HeroSection = () => {
                The book can be given away permanently or temporarily. Those interested can use the book for a chosen
                period and pay less for it than the book costs in the store.
             </p>
-            <Button type="default" size="large" onClick={() => router.navigate({ to: "/catalog" })}>
+            <Button type="default" size="large" onClick={() => router.navigate({ to: routes.CATALOG })}>
                Try it out!
             </Button>
          </div>

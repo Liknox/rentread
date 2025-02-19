@@ -1,4 +1,5 @@
 import { BookFilled } from "@ant-design/icons"
+import { routes } from "@app/configs/constants"
 import { Link } from "@tanstack/react-router"
 import { Card } from "antd"
 import cn from "classnames"
@@ -65,7 +66,10 @@ const BookCard = (props: Props) => {
                   {withPrice && (
                      <span className="font-semibold text-[20px]">from {fakeApi.library.books.getPrice(b)} $</span>
                   )}
-                  <Link to={`/book/${b.id}`} title={title} className="text-blue-500 hover:underline whitespace-normal">
+                  <Link
+                     to={`${routes.BOOK}/${b.id}`}
+                     title={title}
+                     className="text-blue-500 hover:underline whitespace-normal">
                      {string.textOverflow(title, 50)}
                   </Link>
                </div>

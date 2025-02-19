@@ -3,6 +3,7 @@ import { Layout, Button, Result } from "antd"
 import { Cart } from "features/cart"
 import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
+import { routes } from "@app/configs/constants"
 
 // !!! FIXME: split by features!
 // TODO: Add skeletons loader
@@ -25,10 +26,10 @@ const ResultPage = () => {
                title="The order has been successfully paid and completed!"
                subTitle="Please wait for delivery within the timeframe specified in your order."
                extra={[
-                  <Link to="/profile#opened" key="order">
+                  <Link to={`${routes.PROFILE}#opened`} key="order">
                      <Button type="primary">To your order</Button>
                   </Link>,
-                  <Link to="/catalog" key="catalog">
+                  <Link to={routes.CATALOG} key="catalog">
                      <Button>To Catalog</Button>
                   </Link>,
                ]}

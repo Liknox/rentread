@@ -1,4 +1,5 @@
 import { BookFilled, HistoryOutlined, InboxOutlined } from "@ant-design/icons"
+import { routes } from "@app/configs/constants"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { alert } from "@shared/lib"
 import { Link, useMatch } from "@tanstack/react-router"
@@ -32,7 +33,7 @@ function BookPage() {
 
    return (
       <Layout.Content className="mb-20">
-         <Link to="/catalog" className="text-primary">
+         <Link to={routes.CATALOG} className="text-primary">
             Каталог
          </Link>
          <Typography.Title level={2}>{fakeApi.library.books.getBookString(book)}</Typography.Title>
@@ -119,15 +120,14 @@ const Checkout = ({ book }: BookProps) => {
                   {rent.status === "RESERVABLE" && "You can reserve"}
                   {rent.status === "OUT_STOCK" && "Out of stock"}
                </h3>
-               {/* FIXME: inline style */}
-               <Row style={{ marginTop: 20 }}>
+               <Row className="mt-5">
                   {rent.status === "RENTABLE" && (
                      <ul className="text-darkGray">
                         <li className="mt-2">
                            <InboxOutlined /> Delivery by courier service within 2 days.
                         </li>
                         <li className="mt-2">
-                           <HistoryOutlined /> For rent until {/* FIXME: hardcoded, use entities/tariffs */}
+                           <HistoryOutlined /> For rent until
                            {Math.min(30, rent.duration)}
                            {rent.duration === 1 ? "day" : "days"}
                         </li>
@@ -153,7 +153,7 @@ const Checkout = ({ book }: BookProps) => {
                </Row>
             </div>
             {/* FIXME: action button style */}
-            <div className="mt-5">
+            <div className="mt-10 w-[300px] gap-2 m-auto">
                <Fav.Actions.AddBook bookId={book.id} />
                {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={book.id} />}
                {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={book.id} />}

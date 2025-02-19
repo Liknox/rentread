@@ -5,6 +5,7 @@ import { orderModel } from "entities/order"
 import { BookCard } from "entities/book"
 import { Link } from "@tanstack/react-router"
 import { ReactNode } from "react"
+import { routes } from "@app/configs/constants"
 
 export const PLACEHOLDER = "Order is empty"
 
@@ -80,7 +81,7 @@ export const CartMini = () => {
          <Row justify="space-between" gutter={[0, 30]} className="mt-4">
             {order.books.map(book => (
                <Col key={book.id} span={11}>
-                  <Link to={`/book/${book.id}`} title={book.name}>
+                  <Link to={`${routes.BOOK}/${book.id}`} title={book.name}>
                      <BookCard data={book} size="mini" className="cursor-pointer" />
                   </Link>
                </Col>

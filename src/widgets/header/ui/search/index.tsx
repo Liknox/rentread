@@ -1,3 +1,4 @@
+import { routes } from "@app/configs/constants"
 import { useRouter } from "@tanstack/react-router"
 import { AutoComplete, Input } from "antd"
 import { BookRow } from "entities/book"
@@ -8,9 +9,6 @@ import { useSearchParam } from "widgets/header/params"
 
 // const initialQuery = fakeApi.library.books.getAll();
 const initialQuery: AbstractBook[] = []
-
-// !!! FIXME
-const CATALOG_ROUTE = "/catalog"
 
 const mapToOptions = (books: AbstractBook[]) =>
    books.map(book => ({
@@ -32,7 +30,7 @@ const useSearch = () => {
    const router = useRouter()
 
    // FIXME: Reset input, if not catalog's page
-   const isCatalogPage = location.pathname === CATALOG_ROUTE
+   const isCatalogPage = location.pathname === routes.CATALOG
 
    const handleAutocomplete = (search: string) => {
       // FIXME: set max line (value is too big)
@@ -48,8 +46,8 @@ const useSearch = () => {
    const handleSelect = (value: string) => {
       // FIXME: added manually
       setQuery([])
-      // FIXME: hardcoded
-      router.navigate({ to: `/book/${value}` })
+      const route = `${routes.BOOK}/${value}`
+      router.navigate({ to: route })
       updateReset((indexReset + 1) % 10)
    }
 
@@ -59,7 +57,7 @@ const useSearch = () => {
       }
 
       // FIXME: hardcoded
-      router.navigate({ to: CATALOG_ROUTE, search: { q: String(search) } })
+      router.navigate({ to: routes.CATALOG, search: { q: String(search) } })
    }
 
    return {

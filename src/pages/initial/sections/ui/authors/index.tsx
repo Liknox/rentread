@@ -3,6 +3,7 @@ import { Col, Row, Typography } from "antd"
 
 import { useRouter } from "@tanstack/react-router"
 import imgOrwell from "./assets/orwell.jpg"
+import { routes } from "@app/configs/constants"
 
 const srcAuthorsMap: Record<number, string> = {
    2: imgOrwell,
@@ -16,6 +17,8 @@ const Authors = () => {
    const router = useRouter()
    const authorsQuery = fakeApi.library.authors.getPopular()
 
+   const authors = "authors"
+
    return (
       <Row justify="space-around">
          {authorsQuery.map(author => (
@@ -23,8 +26,7 @@ const Authors = () => {
                key={author.id}
                className="transition-[0.25s] hover:opacity-80 relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
                span={3}
-               // FIXME: hardcoded param!
-               onClick={() => router.navigate({ to: `/catalog?authors=${author.id}` })}
+               onClick={() => router.navigate({ to: `${routes.CATALOG}?${authors}=${author.id}` })}
                title="Go to the author's books">
                <Typography.Title
                   className="absolute top-1/2 left-1/2 z-10 !text-white !important transform -translate-x-1/2 -translate-y-1/2"

@@ -40,10 +40,11 @@ export const TOPIC_FAV = {
 
 export const topics = [TOPIC_OPENED, TOPIC_RESERVED, TOPIC_FAV, TOPIC_HISTORY]
 
-/** router-pages */
-export const router = {
+/** routes */
+export const routes = {
    DEFAULT: "/",
-   BOOK: "/book/$bookId",
+   BOOKID: "/book/$bookId",
+   BOOK: "/book",
    ABOUT: "/about",
    CATALOG: "/catalog",
    PROFILE: "/profile",

@@ -1,3 +1,4 @@
+import { routes } from "@app/configs/constants"
 import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
 import { Button, Col, Empty, Layout, Row, Typography } from "antd"
@@ -114,7 +115,7 @@ const Sidebar = () => {
    return (
       <Layout.Sider width={400}>
          <Cart.TotalInfo.Card>
-            <Link to="/order/checkout">
+            <Link to={routes.CHECKOUT}>
                {isEmptyCart ? (
                   <Button block type="default" style={{ height: 50 }} disabled>
                      Proceed to checkout

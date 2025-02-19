@@ -1,4 +1,5 @@
 import { BookFilled } from "@ant-design/icons"
+import { routes } from "@app/configs/constants"
 import { Link } from "@tanstack/react-router"
 import { Card, Col, Row } from "antd"
 import cn from "classnames"
@@ -66,7 +67,7 @@ const BookRow = (props: Props) => {
          </Col>
          <Col className="flex flex-col justify-center" style={styleDetails[size]} span={spanDetails}>
             {titleAsLink ? (
-               <Link className="text-primary w-[95%] leading-normal" to={`/book/${data.id}`}>
+               <Link className="text-primary w-[95%] leading-normal" to={`${routes.BOOK}/${data.id}`}>
                   {title}
                </Link>
             ) : (

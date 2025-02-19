@@ -1,5 +1,6 @@
 import type { BannerScreen } from "@shared/api"
 import imgBanner1 from "../assets/b1.jpg"
+import { routes } from "@app/configs/constants"
 
 export const bannerScreen: BannerScreen[] = [
    {
@@ -9,7 +10,7 @@ export const bannerScreen: BannerScreen[] = [
       description: "The owner of a book can give it to the service to offer it for rent to those interested.",
       info: "Go to",
       link: true,
-      linkHref: "/about",
+      linkHref: routes.ABOUT,
       img: imgBanner1, // FIXME: update img
       imgAlt: "img-banner-1",
    },
@@ -21,7 +22,7 @@ export const bannerScreen: BannerScreen[] = [
       description: "There you will also find other details that interest you.",
       info: "Go to",
       link: true,
-      linkHref: "/profile",
+      linkHref: routes.PROFILE,
       img: imgBanner1, // FIXME: update img
       imgAlt: "img-banner-2",
    },
@@ -32,7 +33,7 @@ export const bannerScreen: BannerScreen[] = [
       description: "Adapted to your financial expectations and rental period",
       info: "Go to",
       link: true,
-      linkHref: "/catalog",
+      linkHref: routes.CATALOG,
       img: imgBanner1, // FIXME: update img
       imgAlt: "img-banner-3",
    },
