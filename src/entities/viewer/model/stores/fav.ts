@@ -1,4 +1,3 @@
-// FIXME: temp! @hardcoded
 import { fakeApi } from "shared/api"
 import { browser } from "shared/lib"
 import * as events from "../events"

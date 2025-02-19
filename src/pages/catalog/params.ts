@@ -190,7 +190,6 @@ export const useSorting = () => {
 
    const sorting = Number(search.sort) || DEFAULT_SORTING
 
-   // FIXME: Update after delay
    const setSorting = (value: number) => {
       const newSearch: SearchParams = { ...search }
 

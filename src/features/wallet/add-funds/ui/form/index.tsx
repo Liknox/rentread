@@ -39,9 +39,7 @@ const AddFundsForm = ({ className }: Props) => {
             block
             // href="#redirect-to-payment-service"
             onClick={() => {
-               // eslint-disable-next-line no-console
                console.debug("[DEBUG] reachGoal: APPLY_TRANSACTION")
-               // eslint-disable-next-line no-restricted-globals
                // FIXME: create wallet store and update this store (not only localStorage)
                viewer.payment.applyTransaction(money).then(() => location.reload())
             }}

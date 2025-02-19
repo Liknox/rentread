@@ -6,6 +6,8 @@ import { orderLib } from "entities/order"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 
+import cn from "classnames"
+
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
@@ -78,11 +80,10 @@ function CatalogContent() {
                   {Object.entries(SORTINGS).map(([sId, sName]) => (
                      <li
                         key={sId}
-                        className="select-none  transition-all duration-250 cursor-pointer"
-                        onClick={() => obParam.setSorting(Number(sId))}
-                        // FIXME: rewrite with tailwind classes
-                        style={obParam.sorting === Number(sId) ? { color: "var(--color-primary)" } : {}}
-                     >
+                        className={cn("select-none transition-all duration-250 cursor-pointer", {
+                           "text-primary": obParam.sorting === Number(sId),
+                        })}
+                        onClick={() => obParam.setSorting(Number(sId))}>
                         {sName}
                      </li>
                   ))}
