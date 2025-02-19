@@ -65,25 +65,25 @@ export const THE_OLD_MAN_AND_THE_SEA_1952: AbstractBook = {
    category: categories.IMAGINATIVE,
 }
 
-export const FAREWELL_TO_ARMS_1929: AbstractBook = {
+export const ISLAND_1962: AbstractBook = {
    id: 30,
-   name: "A Farewell to Arms",
-   description: `Set against the backdrop of World War I, this novel follows Lieutenant Frederic Henry, an American serving as an ambulance driver in Italy. Amid the horrors of war, he falls in love with Catherine Barkley, a British nurse. Their relationship, filled with passion and tragedy, unfolds in the midst of battlefield chaos, with themes of love, loss, and the futility of war at its core. The novel is widely regarded as one of Hemingway's finest works, capturing the disillusionment of the "lost generation" in a time of global conflict.`,
-   authors: [authors.HEMINGWAY],
-   publicationYear: 1929,
+   name: "Island",
+   description: `"Island" is Aldous Huxley’s utopian novel, presenting an ideal society on the isolated island of Pala. Journalist Will Farnaby arrives there and discovers a harmonious culture that blends science, spirituality, and psychedelics. Unlike dystopian worlds, Pala embraces mindfulness, education, and balanced living. However, external forces threaten its existence. The novel contrasts Huxley’s "Brave New World", offering a vision of an enlightened society that might be doomed by outside greed and.`,
+   authors: [authors.HUXLEY],
+   publicationYear: 1962,
    publishingHouse: publishers.SIMON_SHUSTER,
    category: categories.IMAGINATIVE,
 }
 
-export const FOR_WHOM_THE_BELL_TOLLS_1940: AbstractBook = {
+export const PRESS_RESET_2021: AbstractBook = {
    id: 1,
-   name: "For Whom the Bell Tolls",
+   name: "Press Reset",
    description:
-      "Taking place during the Spanish Civil War, this novel focuses on Robert Jordan, an American explosives expert working with a band of guerilla fighters. Assigned to blow up a bridge that will aid enemy forces, Robert struggles with his sense of duty, his romantic feelings for a fellow fighter named Maria, and the broader implications of war. Hemingway explores themes of sacrifice, loyalty, and the emotional toll of war, making this one of his most powerful anti-war novels.",
-   authors: [authors.HEMINGWAY],
-   publicationYear: 1940,
+      "This book explores the instability of the video game industry, focusing on studio closures and layoffs. Through real stories from developers behind games like Bioshock, Epic Mickey, and Dishonored, the book reveals how talented teams are often dismantled despite success. Schreier examines the industry’s harsh work conditions, lack of job security, and the struggles of developers trying to rebuild their careers after studio shutdowns.",
+   authors: [authors.SCHREIER],
+   publicationYear: 2021,
    publishingHouse: publishers.PENGUINS,
-   category: categories.IMAGINATIVE,
+   category: categories.BUSINESS,
 }
 
 export const SUN_ALSO_RISES_1926: AbstractBook = {
@@ -166,14 +166,14 @@ export const NEW_HAMPSHIRE_1923: AbstractBook = {
    category: categories.IMAGINATIVE,
 }
 
-export const WEST_RUNNING_BROOK_1928: AbstractBook = {
+export const ROAD_TO_WIGAN_PIER_1937: AbstractBook = {
    id: 17,
-   name: "West-Running Brook",
-   description: `In this collection, Frost engages more deeply with the intricacies of human emotion and experience, blending a mix of humor and melancholy. The book’s title poem reflects the ebb and flow of life, using the metaphor of a brook running westward to describe the unpredictable nature of time and existence. The collection’s poems vary in tone, ranging from the reflective to the conversational, and continue to draw on the rural New England settings that defined much of his work. "West-Running Brook" is notable for Frost’s delicate handling of form and meter, showcasing his versatility and his ability to convey profound philosophical musings in accessible language.`,
-   authors: [authors.FROST],
-   publicationYear: 1928,
+   name: "The Road to Wigan Pier",
+   description: `This book is George Orwell’s documentary work exploring poverty and class struggles in 1930s Britain. The first part vividly describes the harsh living and working conditions of coal miners in Northern England, highlighting their struggles with poverty and poor housing. The second part is a critique of socialism, class prejudice, and economic inequality, where Orwell argues for a more practical and human-centered socialism. The book blends journalistic investigation with political analysis, shaping Orwell’s later views on totalitarianism and social justice.`,
+   authors: [authors.ORWELL],
+   publicationYear: 1937,
    publishingHouse: publishers.PENGUINS,
-   category: categories.IMAGINATIVE,
+   category: categories.NOT_IMAGINATIVE,
 }
 
 export const STEEPLE_BUSH_1947: AbstractBook = {
@@ -363,8 +363,8 @@ export const getAll = () =>
       CHOKE_2006,
       CHOKE_2015,
       THE_OLD_MAN_AND_THE_SEA_1952,
-      FAREWELL_TO_ARMS_1929,
-      FOR_WHOM_THE_BELL_TOLLS_1940,
+      ISLAND_1962,
+      PRESS_RESET_2021,
       SUN_ALSO_RISES_1926,
       GARDEN_OF_EDEN_1986,
       GREEN_HILLS_OF_AFRICA_1935,
@@ -373,7 +373,7 @@ export const getAll = () =>
       NORTH_OF_BOSTON_1914,
       MOUNTAIN_INTERVAL_1916,
       NEW_HAMPSHIRE_1923,
-      WEST_RUNNING_BROOK_1928,
+      ROAD_TO_WIGAN_PIER_1937,
       STEEPLE_BUSH_1947,
       CLEAN_CODE_2019,
       PERFECT_PROGRAMMER_2021,
