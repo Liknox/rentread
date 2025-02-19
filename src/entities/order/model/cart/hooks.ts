@@ -12,10 +12,7 @@ export const useRecommended = () => {
    const orderIds = order.map(b => b.id)
    const totalBooks = bookModel.useBooks()
 
-   const orderAuthors = order
-      .map(b => b.authors)
-      .flat()
-      .map(a => a.id)
+   const orderAuthors = order.flatMap(b => b.authors).map(a => a.id)
 
    const otherBooks = totalBooks.filter(b => !orderIds.includes(b.id))
 

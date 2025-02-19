@@ -44,7 +44,7 @@ export const Form = () => {
             &nbsp;
             <Typography.Text type="secondary">
                {order.books.length
-                  ? order.books.length + `${order.books.length === 1 ? " book" : " books"}`
+                  ? `${order.books.length}${order.books.length === 1 ? " book" : " books"}`
                   : PLACEHOLDER}
             </Typography.Text>
          </Row>

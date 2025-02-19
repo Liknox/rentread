@@ -163,21 +163,19 @@ const DeliveryForm = () => {
                </>
             )}
             {mode === "COFFESHOP" && (
-               <>
-                  <Select
-                     options={shopsOptions}
-                     style={{ width: "100%" }}
-                     placeholder="Chose coffee shop..."
-                     onSelect={value => {
-                        const shop = shopsQuery.find(cs => String(cs.id) === value)
-                        if (!shop) return
-                        orderModel.cart.events.setDelivery({
-                           address: shop.address,
-                           date: shop.deliveryAt,
-                        })
-                     }}
-                  />
-               </>
+               <Select
+                  options={shopsOptions}
+                  style={{ width: "100%" }}
+                  placeholder="Chose coffee shop..."
+                  onSelect={value => {
+                     const shop = shopsQuery.find(cs => String(cs.id) === value)
+                     if (!shop) return
+                     orderModel.cart.events.setDelivery({
+                        address: shop.address,
+                        date: shop.deliveryAt,
+                     })
+                  }}
+               />
             )}
          </Col>
          {/* <Col span={12} className={styles.deliveryMap}></Col> */}
