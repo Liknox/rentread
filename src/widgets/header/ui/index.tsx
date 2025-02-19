@@ -2,13 +2,13 @@ import { FolderOpenOutlined, HeartOutlined, MenuOutlined, ShoppingCartOutlined, 
 import { Badge, Layout } from "antd"
 import cn from "classnames"
 
+import { routes } from "@app/configs/constants"
 // import { ReactComponent as Logo } from "./logo.svg"
 import { Link } from "@tanstack/react-router"
 import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
 import Search from "./search"
-import { routes } from "@app/configs/constants"
 
 const actions = [
    {

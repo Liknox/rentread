@@ -1,6 +1,6 @@
+import { routes } from "@app/configs/constants"
 import type { BannerScreen } from "@shared/api"
 import imgBanner1 from "../assets/b1.jpg"
-import { routes } from "@app/configs/constants"
 
 export const bannerScreen: BannerScreen[] = [
    {

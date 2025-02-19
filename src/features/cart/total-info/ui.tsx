@@ -1,11 +1,11 @@
-import { Typography, Row, Divider, Col } from "antd"
 import { BookOutlined, ClockCircleOutlined } from "@ant-design/icons"
+import { Col, Divider, Row, Typography } from "antd"
 
-import { orderModel } from "entities/order"
-import { BookCard } from "entities/book"
-import { Link } from "@tanstack/react-router"
-import { ReactNode } from "react"
 import { routes } from "@app/configs/constants"
+import { Link } from "@tanstack/react-router"
+import { BookCard } from "entities/book"
+import { orderModel } from "entities/order"
+import type { ReactNode } from "react"
 
 export const PLACEHOLDER = "Order is empty"
 

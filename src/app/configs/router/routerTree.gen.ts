@@ -13,14 +13,14 @@ import {
    AboutImport,
    BookImport,
    CatalogImport,
+   CheckoutImport,
    DebugImport,
    InitialImport,
    LayoutImport,
    OrderImport,
-   CheckoutImport,
-   ResultImport,
    ProfileImport,
    R404Import,
+   ResultImport,
 } from "./../../../pages/router"
 
 const InitialRoute = InitialImport.update({

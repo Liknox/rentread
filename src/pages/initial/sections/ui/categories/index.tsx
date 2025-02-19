@@ -1,8 +1,8 @@
+import { routes } from "@app/configs/constants"
 import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Typography } from "antd"
 import { fakeApi } from "shared/api"
 import imgCat1 from "./assets/c1.png"
-import { routes } from "@app/configs/constants"
 
 const srcCategoriesMap: Record<number, string> = {
    1: imgCat1,

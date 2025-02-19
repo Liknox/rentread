@@ -1,9 +1,9 @@
 import { fakeApi } from "@shared/api"
 import { Col, Row, Typography } from "antd"
 
+import { routes } from "@app/configs/constants"
 import { useRouter } from "@tanstack/react-router"
 import imgOrwell from "./assets/orwell.jpg"
-import { routes } from "@app/configs/constants"
 
 const srcAuthorsMap: Record<number, string> = {
    2: imgOrwell,

@@ -1,7 +1,7 @@
+import { type Order, fakeApi } from "@shared/api"
 import { browser } from "@shared/lib"
-import * as events from "./events"
 import { combine, sample } from "effector"
-import { fakeApi, Order } from "@shared/api"
+import * as events from "./events"
 
 import { v4 as uuid } from "uuid"
 

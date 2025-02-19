@@ -1,9 +1,9 @@
-import { Layout, Button, Result } from "antd"
+import { Button, Layout, Result } from "antd"
 
-import { Cart } from "features/cart"
+import { routes } from "@app/configs/constants"
 import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
-import { routes } from "@app/configs/constants"
+import { Cart } from "features/cart"
 
 // !!! FIXME: split by features!
 // TODO: Add skeletons loader

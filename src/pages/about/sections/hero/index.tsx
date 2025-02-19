@@ -1,9 +1,9 @@
 import { useRouter } from "@tanstack/react-router"
 import { Button } from "antd"
 
+import { routes } from "@app/configs/constants"
 import bg_hero from "../../assets/bg_hero.jpg"
 import Section from "../index"
-import { routes } from "@app/configs/constants"
 
 const HeroSection = () => {
    const router = useRouter()

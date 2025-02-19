@@ -1,7 +1,7 @@
+import { fakeApi } from "@shared/api"
 import { useStoreMap, useUnit } from "effector-react"
 import { bookModel } from "entities/book"
 import { $books, $delivery, $durations, DEFAULT_DURATION } from "./store"
-import { fakeApi } from "@shared/api"
 
 export const useOrderDurations = () => useUnit($durations)
 

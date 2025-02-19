@@ -1,6 +1,6 @@
 import { Actions } from "./actions"
-import { TotalInfo } from "./total-info"
 import { Steps } from "./steps"
+import { TotalInfo } from "./total-info"
 
 export const Cart = {
    Actions,
