@@ -3,7 +3,7 @@ import { routes } from "@app/configs/constants"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { alert } from "@shared/lib"
 import { Link, useMatch } from "@tanstack/react-router"
-import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Typography } from "antd"
+import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
 import { BookCard } from "entities/book"
 import { orderLib } from "entities/order"
 import { TariffRadio } from "entities/tariff"
@@ -116,11 +116,13 @@ const Checkout = ({ book }: BookProps) => {
          <article className="flex flex-col justify-between min-h-[300px] p-7 shadow-insetDark">
             <div>
                <h3 className="text-[40px] font-medium mt-2">
-                  {rent.status === "RENTABLE" && price}
+                  <Tooltip title="The price is very volatile, so it may change at any time." trigger="click">
+                     {rent.status === "RENTABLE" && price}
+                  </Tooltip>
                   {rent.status === "RESERVABLE" && "You can reserve"}
                   {rent.status === "OUT_STOCK" && "Out of stock"}
                </h3>
-               <Row className="mt-5">
+               <Row className="mt-3">
                   {rent.status === "RENTABLE" && (
                      <ul className="text-darkGray">
                         <li className="mt-2">
