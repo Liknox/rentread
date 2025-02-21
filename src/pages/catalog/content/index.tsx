@@ -1,5 +1,6 @@
 import { AppstoreOutlined, BarsOutlined } from "@ant-design/icons"
 import { type AbstractBook, fakeApi } from "@shared/api"
+import { Pagination } from "antd"
 import { Badge, Col, Empty, Layout, Radio, Row, Typography } from "antd"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
@@ -12,6 +13,7 @@ import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
+import { useState } from "react"
 
 const { SORTINGS } = catalogParams
 
@@ -71,6 +73,16 @@ function CatalogContent() {
    const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
    const vtParam = catalogParams.useViewType()
 
+   const [currentPage, setCurrentPage] = useState(1)
+   const [pageSize, setPageSize] = useState(6)
+
+   const handlePageChange = (page: number, size: number) => {
+      setCurrentPage(page)
+      setPageSize(size)
+   }
+
+   const paginatedData = booksQuery.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+
    return (
       <Layout>
          <section className="flex mr-10 mb-2 text-xl">
@@ -105,13 +117,22 @@ function CatalogContent() {
          </section>
          <section className="mr-10">
             <Row justify="start" gutter={[20, 20]}>
-               {booksQuery.map(b => (
+               {paginatedData.map(b => (
                   <BookItem key={b.id} data={b} />
                ))}
             </Row>
             {!booksQuery.length && (
                <Empty className="my-[100px]" description="Couldn't find anything matching your request." />
             )}
+            <Pagination
+               className="mt-8"
+               current={currentPage}
+               pageSize={pageSize}
+               total={booksQuery.length}
+               onChange={handlePageChange}
+               onShowSizeChange={handlePageChange}
+               align="center"
+            />
          </section>
       </Layout>
    )
