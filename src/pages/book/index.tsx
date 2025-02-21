@@ -130,8 +130,7 @@ const Checkout = ({ book }: BookProps) => {
                            <InboxOutlined /> Delivery by courier service within 2 days.
                         </li>
                         <li className="mt-2">
-                           <HistoryOutlined /> For rent until
-                           {Math.min(30, rent.duration)}
+                           <HistoryOutlined /> For rent until {Math.min(30, rent.duration)}{" "}
                            {rent.duration === 1 ? "day" : "days"}
                         </li>
                      </ul>
