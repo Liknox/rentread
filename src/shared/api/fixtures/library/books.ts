@@ -169,7 +169,8 @@ export const NEW_HAMPSHIRE_1923: AbstractBook = {
 export const ROAD_TO_WIGAN_PIER_1937: AbstractBook = {
    id: 17,
    name: "The Road to Wigan Pier",
-   description: `This book is George Orwell’s documentary work exploring poverty and class struggles in 1930s Britain. The first part vividly describes the harsh living and working conditions of coal miners in Northern England, highlighting their struggles with poverty and poor housing. The second part is a critique of socialism, class prejudice, and economic inequality, where Orwell argues for a more practical and human-centered socialism. The book blends journalistic investigation with political analysis, shaping Orwell’s later views on totalitarianism and social justice.`,
+   description:
+      "This book is George Orwell’s documentary work exploring poverty and class struggles in 1930s Britain. The first part vividly describes the harsh living and working conditions of coal miners in Northern England, highlighting their struggles with poverty and poor housing. The second part is a critique of socialism, class prejudice, and economic inequality, where Orwell argues for a more practical and human-centered socialism. The book blends journalistic investigation with political analysis, shaping Orwell’s later views on totalitarianism and social justice.",
    authors: [authors.ORWELL],
    publicationYear: 1937,
    publishingHouse: publishers.PENGUINS,
