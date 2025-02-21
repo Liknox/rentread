@@ -4,7 +4,7 @@ import { type AbstractBook, fakeApi } from "@shared/api"
 import { Link, useMatch } from "@tanstack/react-router"
 import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
 import { BookCard } from "entities/book"
-import { orderLib } from "entities/order"
+import { orderLib, orderModel } from "entities/order"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
@@ -108,7 +108,8 @@ const Checkout = ({ book }: BookProps) => {
    const rent = orderLib.getRentInfo(book.id)
    const style = rent.status !== "RENTABLE" ? { opacity: 0.5 } : {}
    const price = `${fakeApi.library.books.getPrice(book)} $`
-   
+   const durations = orderModel.cart.useOrderDurations()
+
    console.debug("BOOK RENT", book.id, rent)
 
    return (
@@ -156,7 +157,18 @@ const Checkout = ({ book }: BookProps) => {
             </div>
             {/* FIXME: action button style */}
             <div className="mt-10 w-[300px] gap-2 m-auto">
-               {<TariffRadio onChange={value => console.log(value)} withTitle={false} />}
+               {
+                  <TariffRadio
+                     onChange={value => {
+                        orderModel.cart.events.setBookDuration({
+                           bookId: book.id,
+                           duration: value,
+                        })
+                     }}
+                     value={durations[book.id] || 14}
+                     withTitle={false}
+                  />
+               }
                <div className="mt-5">
                   <Fav.Actions.AddBook bookId={book.id} />
                   {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={book.id} />}
