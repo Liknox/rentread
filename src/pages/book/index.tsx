@@ -112,6 +112,12 @@ const Checkout = ({ book }: BookProps) => {
 
    console.debug("BOOK RENT", book.id, rent)
 
+   const handleTariffChange = (value: number) => {
+      if (rent.status === "RENTABLE") {
+         orderModel.cart.events.setBookDuration({ bookId: book.id, duration: value })
+      }
+   }
+
    return (
       <Col span={7} offset={1} style={style}>
          <article className="flex flex-col justify-between min-h-[300px] p-7 shadow-insetDark">
@@ -158,15 +164,10 @@ const Checkout = ({ book }: BookProps) => {
             <div className="mt-10 w-[300px] gap-2 m-auto">
                {
                   <TariffRadio
-                     onChange={value => {
-                        orderModel.cart.events.setBookDuration({
-                           bookId: book.id,
-                           duration: value,
-                        })
-                     }}
-                     value={durations[book.id] || 7}
+                     onChange={handleTariffChange}
+                     value={rent.status === "RENTABLE" ? durations[book.id] || 7 : 0}
                      withTitle={false}
-                     __byDuration={rent.duration}
+                     __byDuration={rent.status === "RENTABLE" ? rent.duration : undefined}
                   />
                }
                <div className="mt-5">
