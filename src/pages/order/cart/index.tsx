@@ -36,28 +36,32 @@ const Content = () => {
                Check selected books before checkout
             </Typography.Text>
             <Row gutter={[0, 20]}>
-               {order.books.map(book => (
-                  <Col key={book.id} span={24}>
-                     <BookRowCard
-                        data={book}
-                        size="large"
-                        actions={
-                           <>
-                              <Cart.Actions.DeleteBook bookId={book.id} />
-                              <TariffRadio
-                                 onChange={value =>
-                                    orderModel.cart.events.setBookDuration({
-                                       bookId: book.id,
-                                       duration: value,
-                                    })
-                                 }
-                                 value={durations[book.id] || 14}
-                              />
-                           </>
-                        }
-                     />
-                  </Col>
-               ))}
+               {order.books.map(book => {
+                  const rent = orderLib.getRentInfo(book.id)
+                  return (
+                     <Col key={book.id} span={24}>
+                        <BookRowCard
+                           data={book}
+                           size="large"
+                           actions={
+                              <>
+                                 <Cart.Actions.DeleteBook bookId={book.id} />
+                                 <TariffRadio
+                                    onChange={value =>
+                                       orderModel.cart.events.setBookDuration({
+                                          bookId: book.id,
+                                          duration: value,
+                                       })
+                                    }
+                                    __byDuration={rent.duration}
+                                    value={durations[book.id] || 14}
+                                 />
+                              </>
+                           }
+                        />
+                     </Col>
+                  )
+               })}
             </Row>
             {!order.books.length && (
                <Empty

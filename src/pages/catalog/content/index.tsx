@@ -179,7 +179,7 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
                         <Fav.Actions.AddBook bookId={data.id} />
                         {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
                         {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
-                        {rent.status !== "RESERVABLE" && <TariffRadio __byDuration={rent.duration} />}
+                        {rent.status !== "RESERVABLE" && <TariffRadio __byDuration={rent.duration} disabled />}
                      </>
                   }
                />

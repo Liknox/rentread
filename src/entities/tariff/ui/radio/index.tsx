@@ -28,7 +28,7 @@ const TariffRadio = (props: Props) => {
             className="mt-3"
             disabled={disabled || Boolean(__byDuration)}>
             {TARIFFS.map(t => (
-               <Radio.Button key={t} value={getTValue(t)}>
+               <Radio.Button key={t} value={disabled ? getTValue(t) : t} disabled={disabled || t > __byDuration!}>
                   {t} d.
                </Radio.Button>
             ))}
