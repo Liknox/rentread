@@ -54,7 +54,7 @@ const Content = () => {
                                        })
                                     }
                                     __byDuration={rent.duration}
-                                    value={durations[book.id] || 14}
+                                    value={durations[book.id] || 7}
                                  />
                               </>
                            }
