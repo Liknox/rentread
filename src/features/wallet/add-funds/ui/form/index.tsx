@@ -22,7 +22,7 @@ const AddFundsForm = ({ className }: Props) => {
          <Form.Item
             // FIXME: simplify!
             validateStatus={isValid ? "success" : "error"}
-            help="The minimum payment is 5$, maximum 100$">
+            help="Minimum payment is 5$, maximum 100$">
             <Input
                addonAfter="$"
                min={MIN_MONEY}
