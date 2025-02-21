@@ -1,7 +1,6 @@
 import { BookFilled, HistoryOutlined, InboxOutlined } from "@ant-design/icons"
 import { routes } from "@app/configs/constants"
 import { type AbstractBook, fakeApi } from "@shared/api"
-import { alert } from "@shared/lib"
 import { Link, useMatch } from "@tanstack/react-router"
 import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
 import { BookCard } from "entities/book"
@@ -109,6 +108,7 @@ const Checkout = ({ book }: BookProps) => {
    const rent = orderLib.getRentInfo(book.id)
    const style = rent.status !== "RENTABLE" ? { opacity: 0.5 } : {}
    const price = `${fakeApi.library.books.getPrice(book)} $`
+   
    console.debug("BOOK RENT", book.id, rent)
 
    return (
@@ -156,12 +156,13 @@ const Checkout = ({ book }: BookProps) => {
             </div>
             {/* FIXME: action button style */}
             <div className="mt-10 w-[300px] gap-2 m-auto">
-               <Fav.Actions.AddBook bookId={book.id} />
-               {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={book.id} />}
-               {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={book.id} />}
-               {rent.status === "OUT_STOCK" && <Reserve.Actions.ReserveBook bookId={book.id} />}
-               {/* FIXME: display tarrif rent buttons */}
-               {false && <TariffRadio onChange={e => alert.info(String(e))} withTitle={false} disabled />}
+               {<TariffRadio onChange={value => console.log(value)} withTitle={false} />}
+               <div className="mt-5">
+                  <Fav.Actions.AddBook bookId={book.id} />
+                  {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={book.id} />}
+                  {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={book.id} />}
+                  {rent.status === "OUT_STOCK" && <Reserve.Actions.ReserveBook bookId={book.id} />}
+               </div>
             </div>
          </article>
       </Col>
