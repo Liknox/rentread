@@ -4,14 +4,7 @@ import { bannerScreen } from "./model"
 
 const Banner = () => {
    return (
-      <Carousel
-         autoplay
-         autoplaySpeed={4000}
-         // FIXME: add controls
-         // arrows
-         // nextArrow={<ArrowRightOutlined />}
-         // prevArrow={<ArrowLeftOutlined />}
-      >
+      <Carousel autoplay arrows infinite autoplaySpeed={4000}>
          {bannerScreen.map(banner => (
             <div className="text-center relative h-80" key={banner.id}>
                <Typography.Text className="absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white">
