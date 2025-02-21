@@ -5,7 +5,8 @@ import * as events from "./events"
 
 import { v4 as uuid } from "uuid"
 
-export const DEFAULT_DURATION = 14
+// TODO: change
+export const DEFAULT_DURATION = 7
 
 // FIXME: init later by API
 export const booksInitialState: number[] = []

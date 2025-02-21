@@ -164,7 +164,7 @@ const Checkout = ({ book }: BookProps) => {
                            duration: value,
                         })
                      }}
-                     value={durations[book.id] || 14}
+                     value={durations[book.id] || 7}
                      withTitle={false}
                      __byDuration={rent.duration}
                   />
