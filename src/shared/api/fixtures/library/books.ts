@@ -47,7 +47,8 @@ export const CHOKE_2006: AbstractBook = {
 export const CORALINE_2002: AbstractBook = {
    id: 5,
    name: "Coraline",
-   description: `It tells the story of Coraline Jones, a curious girl who discovers a secret door in her new home. Behind it lies a parallel world that seems perfect—until she realizes its dangers. The Other Mother, a sinister figure with button eyes, wants to keep Coraline forever. To escape, Coraline must use her bravery and intelligence to outsmart the Other Mother and save lost souls trapped in the eerie world. The book explores themes of courage, curiosity, and the importance of real love over illusions. It was later adapted into a 2009 stop-motion film.`,
+   description:
+      "It tells the story of Coraline Jones, a curious girl who discovers a secret door in her new home. Behind it lies a parallel world that seems perfect—until she realizes its dangers. The Other Mother, a sinister figure with button eyes, wants to keep Coraline forever. To escape, Coraline must use her bravery and intelligence to outsmart the Other Mother and save lost souls trapped in the eerie world. The book explores themes of courage, curiosity, and the importance of real love over illusions. It was later adapted into a 2009 stop-motion film.",
    authors: [authors.NEIL_GAIMAN],
    publicationYear: 2002,
    publishingHouse: publishers.SIMON_SHUSTER,
