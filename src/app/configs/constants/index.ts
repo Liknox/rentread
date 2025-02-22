@@ -55,3 +55,12 @@ export const routes = {
    DEBUG: "/debug",
    ALL: "/*",
 }
+
+type MapAnchorsType = { [key: string]: [number, number] }
+
+export const MAP_ANCHORS: MapAnchorsType = {
+   DEFAULT: [49.8515, 24.0295],
+   OPERA: [49.84403, 24.02625],
+   MCDONALDS: [49.8564, 24.0224],
+   HIHGCASTLE: [49.848, 24.036868],
+}

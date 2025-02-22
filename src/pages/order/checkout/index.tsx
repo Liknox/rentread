@@ -1,4 +1,4 @@
-import { routes } from "@app/configs/constants"
+import { MAP_ANCHORS, routes } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
 import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
@@ -9,6 +9,7 @@ import { viewerModel } from "entities/viewer"
 import { Cart } from "features/cart"
 import { Wallet } from "features/wallet"
 import moment from "moment"
+import { Marker, Map as PMap } from "pigeon-maps"
 import { useState } from "react"
 
 const useCheckoutValidation = () => {
@@ -178,7 +179,16 @@ const DeliveryForm = () => {
                />
             )}
          </Col>
-         {/* <Col span={12} className={styles.deliveryMap}></Col> */}
+         <Col span={12}>
+            <PMap
+               defaultCenter={MAP_ANCHORS.DEFAULT} // Lviv Coordinates
+               dprs={[1, 2]}
+               defaultZoom={14}>
+               <Marker anchor={MAP_ANCHORS.OPERA} width={50} payload={"Pick up point"} /> {/* Opera */}
+               <Marker anchor={MAP_ANCHORS.MCDONALDS} width={50} payload={"Pick up point"} /> {/* McDonald's */}
+               <Marker anchor={MAP_ANCHORS.HIHGCASTLE} width={50} payload={"Pick up point"} /> {/* High Castle */}
+            </PMap>
+         </Col>
       </Row>
    )
 }
