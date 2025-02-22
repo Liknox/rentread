@@ -3,14 +3,18 @@ import { Col, Row, Typography } from "antd"
 
 import { routes } from "@app/configs/constants"
 import { useRouter } from "@tanstack/react-router"
-import imgOrwell from "./assets/orwell.jpg"
+import orwell from "./assets/orwell.jpg"
+import palahniuk from "./assets/palahniuk.jpg"
+import martin from "./assets/martin.jpg"
+import taleb from "./assets/taleb.jpg"
+import gaiman from "./assets/gaiman.jpg"
 
 const srcAuthorsMap: Record<number, string> = {
-   2: imgOrwell,
-   3: imgOrwell,
-   7: imgOrwell,
-   10: imgOrwell,
-   13: imgOrwell,
+   2: palahniuk,
+   3: taleb,
+   7: gaiman,
+   10: orwell,
+   13: martin,
 }
 
 const Authors = () => {
