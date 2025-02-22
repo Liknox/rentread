@@ -44,13 +44,13 @@ export const CHOKE_2006: AbstractBook = {
    category: categories.IMAGINATIVE,
 }
 
-export const CHOKE_2015: AbstractBook = {
+export const CORALINE_2002: AbstractBook = {
    id: 5,
-   name: "Choke",
-   description: `A story about a young con artist who fakes choking episodes in expensive restaurants every day—and earns quite a bit of money from it... A book about sex addicts, alcoholics, and shopaholics. About love, friendship, and philosophy. About a questionable "second coming"—and the undeniable "unbearable lightness of being" in our modern age. However... as Palahniuk himself says about it: "Thinking of reading it? Don't bother!" In short—read it at your own risk!`,
-   authors: [authors.PALAHNIUK],
-   publicationYear: 2015,
-   publishingHouse: publishers.PENGUINS,
+   name: "Coraline",
+   description: `It tells the story of Coraline Jones, a curious girl who discovers a secret door in her new home. Behind it lies a parallel world that seems perfect—until she realizes its dangers. The Other Mother, a sinister figure with button eyes, wants to keep Coraline forever. To escape, Coraline must use her bravery and intelligence to outsmart the Other Mother and save lost souls trapped in the eerie world. The book explores themes of courage, curiosity, and the importance of real love over illusions. It was later adapted into a 2009 stop-motion film.`,
+   authors: [authors.NEIL_GAIMAN],
+   publicationYear: 2002,
+   publishingHouse: publishers.SIMON_SHUSTER,
    category: categories.IMAGINATIVE,
 }
 
@@ -362,7 +362,7 @@ export const getAll = () =>
       FIGHT_CLUB_2018,
       BLACK_SWAN_2021,
       CHOKE_2006,
-      CHOKE_2015,
+      CORALINE_2002,
       THE_OLD_MAN_AND_THE_SEA_1952,
       ISLAND_1962,
       PRESS_RESET_2021,
