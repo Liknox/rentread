@@ -2,12 +2,14 @@ import { routes } from "@app/configs/constants"
 import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Typography } from "antd"
 import { fakeApi } from "shared/api"
-import imgCat1 from "./assets/c1.png"
+import imgCat1 from "./assets/c1.jpg"
+import imgCat2 from "./assets/c2.jpg"
+import imgCat3 from "./assets/c3.jpg"
 
 const srcCategoriesMap: Record<number, string> = {
    1: imgCat1,
-   2: imgCat1,
-   3: imgCat1,
+   2: imgCat2,
+   3: imgCat3,
 }
 
 const Categories = () => {
