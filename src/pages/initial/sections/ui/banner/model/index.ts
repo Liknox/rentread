@@ -1,6 +1,9 @@
 import { routes } from "@app/configs/constants"
 import type { BannerScreen } from "@shared/api"
-import imgBanner1 from "../assets/b1.jpg"
+import b1 from "../assets/b1.jpg"
+import b2 from "../assets/b2.jpg"
+import b3 from "../assets/b3.jpg"
+import b4 from "../assets/b4.jpg"
 
 export const bannerScreen: BannerScreen[] = [
    {
@@ -11,7 +14,7 @@ export const bannerScreen: BannerScreen[] = [
       info: "Go to",
       link: true,
       linkHref: routes.ABOUT,
-      img: imgBanner1, // FIXME: update img
+      img: b1, // FIXME: update img
       imgAlt: "img-banner-1",
    },
    {
@@ -23,7 +26,7 @@ export const bannerScreen: BannerScreen[] = [
       info: "Go to",
       link: true,
       linkHref: routes.PROFILE,
-      img: imgBanner1, // FIXME: update img
+      img: b2, // FIXME: update img
       imgAlt: "img-banner-2",
    },
    {
@@ -34,7 +37,7 @@ export const bannerScreen: BannerScreen[] = [
       info: "Go to",
       link: true,
       linkHref: routes.CATALOG,
-      img: imgBanner1, // FIXME: update img
+      img: b3, // FIXME: update img
       imgAlt: "img-banner-3",
    },
    {
@@ -45,7 +48,7 @@ export const bannerScreen: BannerScreen[] = [
       info: "There you can pick up your latest ordered books!",
       link: false,
       linkHref: "",
-      img: imgBanner1, // FIXME: update img
+      img: b4, // FIXME: update img
       imgAlt: "img-banner-4",
    },
 ]
