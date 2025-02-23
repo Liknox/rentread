@@ -44,8 +44,8 @@ export const bannerScreen: BannerScreen[] = [
       id: 4,
       title: "Book Meetup #4",
       subtitle: "Coffee-shop Company (Viennese Coffee House)",
-      description: "Manhattan 5th Avenue",
-      info: "There you can pick up your latest ordered books!",
+      description: "There you can pick up your latest ordered books!",
+      info: "Manhattan 5th Avenue",
       link: false,
       linkHref: "",
       img: b4, // FIXME: update img

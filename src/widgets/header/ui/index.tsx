@@ -66,7 +66,7 @@ const Header = () => {
 
    return (
       <>
-         <Layout.Header className="relative flex justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset">
+         <Layout.Header className="relative hidden justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset lg:flex">
             <Link
                className="flex flex-grow items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
                to={routes.DEFAULT}

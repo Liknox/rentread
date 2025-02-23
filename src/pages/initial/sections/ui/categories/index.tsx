@@ -19,15 +19,15 @@ const Categories = () => {
    const category = "cat"
 
    return (
-      <Row justify="space-between">
+      <Row justify="space-between" className="sm:flex sm:flex-row flex-col">
          {categoriesQuery.map(cat => (
             <Col
                key={cat.id}
-               className="hover:opacity-80 hover:scale-[1.01] transition-[0.25s] relative h-[292px] !important p-10 overflow-hidden text-center cursor-pointer bg-[var(--color-accent)] rounded-[10px]"
+               className="hover:opacity-80 hover:scale-[1.01] transition-[0.25s] relative h-[292px] !important p-10 overflow-hidden text-center cursor-pointer bg-[var(--color-accent)] rounded-[10px] max-w-none mt-3 sm:mt-0 min-h-52"
                span={7}
                onClick={() => router.navigate({ to: `${routes.CATALOG}?${category}=${cat.id}` })}
                title="Go to books by category">
-               <div className="absolute top-1/2 left-1/2 z-10 text-white !important transform -translate-x-1/2 -translate-y-1/2">
+               <div className="absolute top-1/2 left-1/2 z-10 text-white !important transform -translate-x-1/2 -translate-y-1/2 min-w-[180px]">
                   <Typography.Title className="!text-white" level={3}>
                      {cat.name}
                   </Typography.Title>
