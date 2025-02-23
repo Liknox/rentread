@@ -10,7 +10,7 @@ const Books = () => {
          {booksQuery.map((book: AbstractBook) => (
             <Col
                key={book.id}
-               className="px-0 mt-5 sm:px-2 2xl:px-5 xl:mt-0 md:min-w-[350px] xl:min-w-[280px] max-w-none"
+               className="px-0 mt-5 sm:px-2 2xl:px-4 xl:mt-0 md:min-w-[350px] xl:min-w-[280px] max-w-none"
                span={6}>
                <BookCard data={book} size="small" className="h-full" />
             </Col>
