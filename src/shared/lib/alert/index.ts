@@ -1,6 +1,7 @@
 import { notification } from "antd"
 import type { IconType } from "antd/es/notification/interface"
 import type { ReactNode } from "react"
+import { isMobile } from "../browser"
 
 /**
  * NOTE: Moved to a separate module for:
@@ -8,7 +9,14 @@ import type { ReactNode } from "react"
  * - Standardizing a unified placement for all alerts
  */
 const generateOpener = (type: IconType) => (message: string, description?: ReactNode, icon?: ReactNode) => {
-   notification.open({ type, message, description, placement: "bottomRight", icon })
+   notification.open({
+      icon,
+      type,
+      message,
+      description,
+      duration: isMobile ? 1.5 : 5,
+      placement: isMobile ? "top" : "bottomRight",
+   })
 }
 
 const error = generateOpener("error")
