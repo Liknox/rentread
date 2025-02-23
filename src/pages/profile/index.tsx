@@ -19,7 +19,7 @@ function ProfilePage() {
 
    return (
       <Layout.Content>
-         <Layout>
+         <Layout className="flex !flex-col md:!flex-row">
             <Aside />
             <Content />
             <Sidebar forceUpdate={forceUpdate} />
