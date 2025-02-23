@@ -122,7 +122,7 @@ const Header = () => {
 }
 
 const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
-   const [open, setOpen] = useState(true)
+   const [open, setOpen] = useState(false)
    return (
       <>
          <Link
@@ -136,9 +136,9 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
          </Link>
          <Button
             type="text"
-            icon={<MenuOutlined className="text-[100px]" />}
+            icon={<MenuOutlined />}
             onClick={() => setOpen(true)}
-            className="lg:hidden text-[30px] mt-4 ml-auto"
+            className="lg:hidden text-[25px] mt-4 ml-auto"
          />
          <Drawer
             title={
@@ -172,7 +172,7 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
                            <span className="text-[26px] font-extralight">{label}</span>
                            <span className="block w-full bg-primary h-[1px]"></span>
                         </div>
-                        <Badge className="ml-2" count={count[id]} style={{ backgroundColor: "#108ee9" }} />
+                        <Badge className="ml-3" count={count[id]} style={{ backgroundColor: "#108ee9" }} />
                      </span>
                   </Link>
                ))}
