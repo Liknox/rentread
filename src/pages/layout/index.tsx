@@ -12,9 +12,13 @@ const Layout = () => {
 
    return (
       <AntLayout>
-         <DemoAlert />
-         <Header />
-         <Outlet />
+         <div className="fixed top-0 left-0 right-0 z-50">
+            <DemoAlert />
+            <Header />
+         </div>
+         <div className="mt-28">
+            <Outlet />
+         </div>
          <Footer />
       </AntLayout>
    )
