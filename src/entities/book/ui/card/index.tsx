@@ -1,5 +1,6 @@
 import { BookFilled } from "@ant-design/icons"
 import { routes } from "@app/configs/constants"
+import { isMobile } from "@shared/lib/browser"
 import { Link } from "@tanstack/react-router"
 import { Card } from "antd"
 import cn from "classnames"
@@ -70,7 +71,7 @@ const BookCard = (props: Props) => {
                      to={`${routes.BOOK}/${b.id}`}
                      title={title}
                      className="text-blue-500 hover:underline whitespace-normal">
-                     {string.textOverflow(title, 50)}
+                     {string.textOverflow(title, isMobile ? 30 : 50)}
                   </Link>
                </div>
             }
