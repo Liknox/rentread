@@ -23,7 +23,7 @@ const Categories = () => {
          {categoriesQuery.map(cat => (
             <Col
                key={cat.id}
-               className="hover:opacity-80 hover:scale-[1.01] transition-[0.25s] relative h-[292px] !important p-10 overflow-hidden text-center cursor-pointer bg-[var(--color-accent)] rounded-[10px] max-w-none mt-3 sm:mt-0 min-h-52"
+               className="2xl:min-w-[390px] hover:opacity-80 hover:scale-[1.01] transition-[0.25s] relative h-[292px] !important p-10 overflow-hidden text-center cursor-pointer bg-[var(--color-accent)] rounded-[10px] max-w-none mt-3 sm:mt-0 min-h-52"
                span={7}
                onClick={() => router.navigate({ to: `${routes.CATALOG}?${category}=${cat.id}` })}
                title="Go to books by category">
