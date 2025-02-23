@@ -4,13 +4,14 @@ import { Avatar, Divider, Layout, Typography } from "antd"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
 import * as lib from "../lib"
+import { isMobile } from "@shared/lib/browser"
 
 export const Aside = () => {
    const viewer = viewerModel.useViewer()
 
    /* FIXME: move to entities */
    return (
-      <Layout.Sider width={400}>
+      <Layout.Sider width={isMobile ? "100%" : 400}>
          <div className="p-10 text-center shadow-insetDark rounded-md">
             <section className="flex flex-col items-center">
                <Avatar size={128} icon={<UserOutlined />} />
@@ -24,7 +25,10 @@ export const Aside = () => {
             </section>
             <Divider />
             <section>
-               <Wallet.AddFunds.Popover placement="right" buttonStyle={{ fontSize: 30, height: 60, width: "100%" }} />
+               <Wallet.AddFunds.Popover
+                  placement={isMobile ? "bottom" : "right"}
+                  buttonStyle={{ fontSize: 30, height: 60, width: "100%" }}
+               />
             </section>
             <Divider />
             <section>

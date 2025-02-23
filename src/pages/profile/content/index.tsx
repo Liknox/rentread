@@ -25,7 +25,7 @@ export const Content = () => {
    }, [currentAnchor])
 
    return (
-      <Layout className="mx-5">
+      <Layout className="mx-0 md:mx-5 mt-5 md:mt-0 !w-full">
          <Section
             id={TOPIC_OPENED.id}
             title={TOPIC_OPENED.fullTitle}

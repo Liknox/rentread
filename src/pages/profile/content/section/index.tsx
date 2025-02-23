@@ -31,7 +31,7 @@ export function Section<T extends Book | AbstractBook>(props: Props<T>) {
 
    return (
       <section
-         className={cn("p-10 mb-10 border border-accent rounded-[25px] transition duration-200", {
+         className={cn("p-5 md:p-10 mb-10 border border-accent rounded-[25px] transition duration-200", {
             "!border-primary": active,
          })}
          id={id}>
@@ -49,7 +49,7 @@ export function Section<T extends Book | AbstractBook>(props: Props<T>) {
          </Typography.Text>
          <Row gutter={[10, 10]} wrap={false} className="overflow-auto pb-5">
             {books.map((book, idx) => (
-               <Col key={book.id} span={8}>
+               <Col key={book.id} span={8} className="min-w-full md:min-w-[315px]">
                   <Badge.Ribbon
                      {...props.getRibbonProps?.(book, idx)}
                      style={{
@@ -57,7 +57,7 @@ export function Section<T extends Book | AbstractBook>(props: Props<T>) {
                         opacity: Number(props.getRibbonProps !== undefined),
                      }}>
                      <BookCard
-                        // @ts-expect-error warn
+                        // @ts-expect-error warning
                         data={book.abstractBook || book}
                         size="small"
                         withPrice={false}
