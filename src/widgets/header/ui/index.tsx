@@ -1,5 +1,12 @@
-import { FolderOpenOutlined, HeartOutlined, MenuOutlined, ShoppingCartOutlined, UserOutlined } from "@ant-design/icons"
-import { Badge, Layout } from "antd"
+import {
+   CloseOutlined,
+   FolderOpenOutlined,
+   HeartOutlined,
+   MenuOutlined,
+   ShoppingCartOutlined,
+   UserOutlined,
+} from "@ant-design/icons"
+import { Badge, Button, Drawer, Layout } from "antd"
 import cn from "classnames"
 
 import { routes } from "@app/configs/constants"
@@ -9,6 +16,8 @@ import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
 import Search from "./search"
+import { isMobile } from "@shared/lib/browser"
+import { useState } from "react"
 
 const actions = [
    {
@@ -64,42 +73,111 @@ const Header = () => {
       profile: 0,
    }
 
+   console.log()
+
    return (
       <>
-         <Layout.Header className="relative hidden justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset lg:flex">
-            <Link
-               className="flex flex-grow items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
-               to={routes.DEFAULT}
-               onClick={() => {
-                  console.debug("[DEBUG] reachGoal: BACK_HOME")
-               }}>
-               {/* <Logo width={24} /> */}
-               <h1 className="pb-1 pl-[10px] text-[20px]">Rentread</h1>
-            </Link>
-            <div className="flex flex-grow-[2] items-center mr-[2%]">
-               <Search />
-            </div>
-            <div className="flex items-center gap-3">
-               <Wallet.AddFunds.Popover />
-               {actions.map(({ id, label, Icon, url, disabled }) => (
+         <Layout.Header className="relative flex justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset ">
+            {isMobile ? (
+               <MobileHeader count={count} />
+            ) : (
+               <>
+                  <Link
+                     className="flex flex-grow items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
+                     to={routes.DEFAULT}
+                     onClick={() => {
+                        console.debug("[DEBUG] reachGoal: BACK_HOME")
+                     }}>
+                     {/* <Logo width={24} /> */}
+                     <h1 className="pb-1 pl-[10px] text-[20px]">Rentread</h1>
+                  </Link>
+                  <div className="flex flex-grow-[2] items-center mr-[2%]">
+                     <Search />
+                  </div>
+                  <div className="flex items-center gap-3">
+                     <Wallet.AddFunds.Popover />
+                     {actions.map(({ id, label, Icon, url, disabled }) => (
+                        <Link
+                           key={label}
+                           to={url}
+                           className={cn("flex flex-col mx-[10px] leading-[16px]", {
+                              "pointer-events-none opacity-50": disabled,
+                           })}
+                           title={disabled ? NOT_AVAILABLE : ""}>
+                           {/* for centering badge */}
+                           <span className="text-center">
+                              <Badge count={count[id]} style={{ backgroundColor: "#108ee9" }}>
+                                 <Icon className="text-[24px]" />
+                              </Badge>
+                           </span>
+                           <span>{label}</span>
+                        </Link>
+                     ))}
+                  </div>
+               </>
+            )}
+         </Layout.Header>
+      </>
+   )
+}
+
+const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
+   const [open, setOpen] = useState(true)
+   return (
+      <>
+         <Link
+            className="flex flex-grow items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
+            to={routes.DEFAULT}
+            onClick={() => {
+               console.debug("[DEBUG] reachGoal: BACK_HOME")
+            }}>
+            {/* <Logo width={24} /> */}
+            <h2 className="text-[20px]">Rentread</h2>
+         </Link>
+         <Button
+            type="text"
+            icon={<MenuOutlined className="text-[100px]" />}
+            onClick={() => setOpen(true)}
+            className="lg:hidden text-[30px] mt-4 ml-auto"
+         />
+         <Drawer
+            title={
+               <div className="flex justify-between w-full text-[30px]">
+                  <Wallet.AddFunds.Popover />
+                  <Button
+                     className="text-[30px] mr-3"
+                     type="text"
+                     icon={<CloseOutlined />}
+                     onClick={() => setOpen(false)}
+                  />
+               </div>
+            }
+            closable={false}
+            placement="top"
+            onClose={() => setOpen(prev => !prev)}
+            open={open}>
+            <div className="flex flex-col gap-7 mt-5">
+               {actions.map(({ id, label, url, disabled }) => (
                   <Link
                      key={label}
                      to={url}
                      className={cn("flex flex-col mx-[10px] leading-[16px]", {
                         "pointer-events-none opacity-50": disabled,
                      })}
+                     onClick={() => setOpen(false)}
                      title={disabled ? NOT_AVAILABLE : ""}>
                      {/* for centering badge */}
-                     <span className="text-center">
-                        <Badge count={count[id]} style={{ backgroundColor: "#108ee9" }}>
-                           <Icon className="text-[24px]" />
-                        </Badge>
+                     <span className="text-left relative flex">
+                        <div>
+                           <span className="text-[26px] font-extralight">{label}</span>
+                           <span className="block w-full bg-primary h-[1px]"></span>
+                        </div>
+                        <Badge className="ml-2" count={count[id]} style={{ backgroundColor: "#108ee9" }} />
                      </span>
-                     <span>{label}</span>
                   </Link>
                ))}
             </div>
-         </Layout.Header>
+         </Drawer>
       </>
    )
 }

@@ -17,7 +17,7 @@ const AddFundsPopover = ({ className, placement = "bottom", buttonStyle }: Props
       <Popover
          trigger="click"
          className={className}
-         content={<AddFundsForm className="w-[350px]" />}
+         content={<AddFundsForm className="w-full sm:w-[350px]" />}
          placement={placement}>
          <Button shape="round" type="dashed" style={buttonStyle}>
             {viewer.wallet} $
