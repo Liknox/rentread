@@ -1,6 +1,6 @@
 import { AppstoreOutlined, BarsOutlined } from "@ant-design/icons"
 import { type AbstractBook, fakeApi } from "@shared/api"
-import { Pagination } from "antd"
+import { Button, Pagination, Select } from "antd"
 import { Badge, Col, Empty, Layout, Radio, Row, Typography } from "antd"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
@@ -15,6 +15,8 @@ import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 import { useState } from "react"
 import { isMobile } from "@shared/lib/browser"
+
+const { Option } = Select
 
 const { SORTINGS } = catalogParams
 
@@ -86,22 +88,8 @@ function CatalogContent() {
 
    return (
       <Layout>
-         <section className="flex mr-10 mb-2 text-xl">
-            <Row className="grow mr-5">
-               <b className="mr-5 text-xl">Sort by:</b>
-               <ul className="flex grow justify-start gap-3 items-center">
-                  {Object.entries(SORTINGS).map(([sId, sName]) => (
-                     <li
-                        key={sId}
-                        className={cn("select-none transition-all duration-250 cursor-pointer", {
-                           "text-primary": obParam.sorting === Number(sId),
-                        })}
-                        onClick={() => obParam.setSorting(Number(sId))}>
-                        {sName}
-                     </li>
-                  ))}
-               </ul>
-            </Row>
+         <section className="flex md:mr-10 mb-2 text-xl">
+            <SortFilterOptions />
             {isMobile || (
                <Radio.Group
                   value={vtParam.viewType}
@@ -191,6 +179,43 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
             )}
          </Badge.Ribbon>
       </Col>
+   )
+}
+
+const SortFilterOptions = () => {
+   const obParam = catalogParams.useSorting()
+
+   if (isMobile) {
+      return (
+         <Row className="grow justify-between">
+            <Button>123</Button>
+            <Select placeholder="Sort by" style={{ width: 200 }} onChange={value => obParam.setSorting(value)}>
+               {Object.entries(SORTINGS).map(([sId, sName]) => (
+                  <Option key={sId} value={Number(sId)}>
+                     {sName}
+                  </Option>
+               ))}
+            </Select>
+         </Row>
+      )
+   }
+
+   return (
+      <Row className="grow mr-5">
+         <b className="mr-5 text-xl">Sort by:</b>
+         <ul className="flex grow justify-start gap-3 items-center">
+            {Object.entries(SORTINGS).map(([sId, sName]) => (
+               <li
+                  key={sId}
+                  className={cn("select-none transition-all duration-250 cursor-pointer", {
+                     "text-primary": obParam.sorting === Number(sId),
+                  })}
+                  onClick={() => obParam.setSorting(Number(sId))}>
+                  {sName}
+               </li>
+            ))}
+         </ul>
+      </Row>
    )
 }
 

@@ -34,8 +34,8 @@ export const AddBook = ({ bookId }: Props) => {
 
    const Icon = isBookFav ? HeartFilled : HeartOutlined
 
-   const text = isBookFav ? isMobile ? "Remove Favorite" : "Remove from Favorites"  : "Add to Favorites"
-   
+   const text = isBookFav ? (isMobile ? "Remove Favorite" : "Remove from Favorites") : "Add to Favorites"
+
    return (
       <Button className="rounded-sm mr-3 md:mr-0" block icon={<Icon />} onClick={handleToggle}>
          {text}
