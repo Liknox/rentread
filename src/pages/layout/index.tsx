@@ -6,6 +6,7 @@ import { Header } from "widgets/header"
 
 import { useResetScrollAtEveryPage } from "@pages/hooks"
 import { DemoAlert } from "@shared/ui/location-alert"
+import { isMobile } from "@shared/lib/browser"
 
 const Layout = () => {
    useResetScrollAtEveryPage()
@@ -16,7 +17,7 @@ const Layout = () => {
             <DemoAlert />
             <Header />
          </div>
-         <div className="mt-28">
+         <div className={isMobile ? "mt-16" : "mt-28"}>
             <Outlet />
          </div>
          <Footer />
