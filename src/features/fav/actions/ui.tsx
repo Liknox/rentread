@@ -1,5 +1,6 @@
 import { HeartFilled, HeartOutlined } from "@ant-design/icons"
 import { alert } from "@shared/lib"
+import { isMobile } from "@shared/lib/browser"
 import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { viewerModel } from "entities/viewer"
@@ -32,9 +33,12 @@ export const AddBook = ({ bookId }: Props) => {
    const { handleToggle, isBookFav } = useToggleBook(bookId)
 
    const Icon = isBookFav ? HeartFilled : HeartOutlined
+
+   const text = isBookFav ? isMobile ? "Remove Favorite" : "Remove from Favorites"  : "Add to Favorites"
+   
    return (
-      <Button className="rounded-sm" block icon={<Icon />} onClick={handleToggle}>
-         {isBookFav ? "Remove from Favorites" : "Add to Favorites"}
+      <Button className="rounded-sm mr-3 md:mr-0" block icon={<Icon />} onClick={handleToggle}>
+         {text}
       </Button>
    )
 }

@@ -152,7 +152,7 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
    const span = vtParam.isGrid ? 8 : 24
 
    return (
-      <Col span={span} className="mt-4 !p-0 md:!p-2">
+      <Col span={span} className="mt-4 md:mt-0 !p-0 md:!p-2">
          <Badge.Ribbon
             text={ribbon.text}
             color={ribbon.color}
