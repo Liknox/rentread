@@ -118,3 +118,7 @@ html {
 .custom-steps .ant-steps-item-finish .ant-steps-item-icon {
    background-color: var(--color-primary) !important; /* Колір завершених кроків */
 }
+
+#left-drawer .ant-drawer-body {
+   padding: 0;
+}
