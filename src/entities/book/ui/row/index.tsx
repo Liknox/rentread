@@ -1,5 +1,6 @@
 import { BookFilled } from "@ant-design/icons"
 import { routes } from "@app/configs/constants"
+import { isMobile } from "@shared/lib/browser"
 import { Link } from "@tanstack/react-router"
 import { Card, Col, Row } from "antd"
 import cn from "classnames"
@@ -29,8 +30,8 @@ const styleIcon: Record<Size, CSSProperties> = {
       padding: 10,
    },
    default: {
-      fontSize: 60,
-      padding: 30,
+      fontSize: 50,
+      padding: 25,
    },
    large: {
       fontSize: 80,
@@ -74,9 +75,11 @@ const BookRow = (props: Props) => {
                <span>{title}</span>
             )}
 
-            <span className="text-darkGray">
-               {data.publicationYear}, {data.publishingHouse.name}
-            </span>
+            {isMobile || (
+               <span className="text-darkGray">
+                  {data.publicationYear}, {data.publishingHouse.name}
+               </span>
+            )}
 
             {!isSmall && <span className="text-[1.4rem] font-medium">{price} $</span>}
          </Col>
@@ -86,7 +89,7 @@ const BookRow = (props: Props) => {
 }
 
 export const BookRowCard = (props: Props) => (
-   <Card hoverable className="cursor-default shadow-[0_1px_2px_var(--color-shadow)]">
+   <Card hoverable className="cursor-default md:shadow-[0_1px_2px_var(--color-shadow)]">
       <BookRow {...props} />
    </Card>
 )
