@@ -1,8 +1,8 @@
 import { createFileRoute, createRootRoute } from "@tanstack/react-router"
 import { lazy } from "react"
 
-import Layout from "./layout"
 import Initial from "./initial"
+import Layout from "./layout"
 
 const Book = lazy(() => import("./book"))
 const About = lazy(() => import("./about"))

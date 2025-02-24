@@ -6,15 +6,13 @@ import { BookCard, BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
-
 import cn from "classnames"
-
+import { isMobile } from "@shared/lib/browser"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 import { useState } from "react"
-import { isMobile } from "@shared/lib/browser"
 import Sidebar from "../sidebar"
 
 const { Option } = Select

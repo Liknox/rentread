@@ -5,8 +5,8 @@ import { Footer } from "widgets/footer"
 import { Header } from "widgets/header"
 
 import { useResetScrollAtEveryPage } from "@pages/hooks"
-import { DemoAlert } from "@shared/ui/location-alert"
 import { isMobile } from "@shared/lib/browser"
+import { DemoAlert } from "@shared/ui/location-alert"
 
 const Layout = () => {
    useResetScrollAtEveryPage()

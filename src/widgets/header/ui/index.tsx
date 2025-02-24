@@ -10,14 +10,14 @@ import { Badge, Button, Drawer, Layout } from "antd"
 import cn from "classnames"
 
 import { routes } from "@app/configs/constants"
+import { isMobile } from "@shared/lib/browser"
 // import { ReactComponent as Logo } from "./logo.svg"
 import { Link } from "@tanstack/react-router"
 import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
-import Search from "./search"
-import { isMobile } from "@shared/lib/browser"
 import { useState } from "react"
+import Search from "./search"
 
 const actions = [
    {
@@ -170,7 +170,7 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
                      <span className="text-left relative flex">
                         <div>
                            <span className="text-[26px] font-extralight">{label}</span>
-                           <span className="block w-full bg-primary h-[1px]"></span>
+                           <span className="block w-full bg-primary h-[1px]" />
                         </div>
                         <Badge className="ml-3" count={count[id]} style={{ backgroundColor: "#108ee9" }} />
                      </span>

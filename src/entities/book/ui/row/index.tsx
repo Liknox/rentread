@@ -63,7 +63,7 @@ const BookRow = (props: Props) => {
    const spanDetails = MAX_SPAN - spanIcon[size] - spanActions - 1
 
    return (
-      <Row align="middle" className={cn(`grid grid-cols-[120px_2fr] md:flex`, { "grayscale opacity-50": asSecondary })}>
+      <Row align="middle" className={cn("grid grid-cols-[120px_2fr] md:flex", { "grayscale opacity-50": asSecondary })}>
          <Col span={spanIcon[size]} className="col-span-1">
             <BookFilled className="bg-accent" style={styleIcon[size]} />
          </Col>

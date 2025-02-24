@@ -1,8 +1,8 @@
+import { isMobile } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
 import { Layout, Typography } from "antd"
 import CatalogContent from "./content"
 import Sidebar from "./sidebar"
-import { isMobile } from "@shared/lib/browser"
 
 function CatalogPage() {
    useTitle("Catalog | RentRead")

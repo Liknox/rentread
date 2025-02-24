@@ -1,10 +1,10 @@
 import { CheckCircleOutlined, ClockCircleOutlined, UserOutlined } from "@ant-design/icons"
+import { isMobile } from "@shared/lib/browser"
 import Tile from "@shared/ui/tile"
 import { Avatar, Divider, Layout, Typography } from "antd"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
 import * as lib from "../lib"
-import { isMobile } from "@shared/lib/browser"
 
 export const Aside = () => {
    const viewer = viewerModel.useViewer()

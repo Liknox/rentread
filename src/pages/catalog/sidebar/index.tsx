@@ -1,8 +1,8 @@
 import { PRICES, TARIFFS } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
+import { isMobile } from "@shared/lib/browser"
 import { Checkbox, Divider, Layout, Slider, Typography } from "antd"
 import * as catalogParams from "../params"
-import { isMobile } from "@shared/lib/browser"
 
 function Sidebar() {
    return (
