@@ -15,6 +15,7 @@ import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 import { useState } from "react"
 import { isMobile } from "@shared/lib/browser"
+import Sidebar from "../sidebar"
 
 const { Option } = Select
 
@@ -78,6 +79,7 @@ function CatalogContent() {
 
    const [currentPage, setCurrentPage] = useState(1)
    const [pageSize, setPageSize] = useState(6)
+   const [open, setOpen] = useState(false)
 
    const handlePageChange = (page: number, size: number) => {
       setCurrentPage(page)
@@ -187,7 +189,11 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
    )
 }
 
-const SortFilterOptions = () => {
+type Props = {
+   setOpen: (e: boolean) => void
+}
+
+const SortFilterOptions = ({ setOpen }: Props) => {
    const obParam = catalogParams.useSorting()
 
    if (isMobile) {
