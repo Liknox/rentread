@@ -3,7 +3,7 @@ import Section from "../index"
 import bg_books from "../../assets/bg_books.png"
 
 const BenefitsSection = () => (
-   <Section id="benefits" style={{ backgroundImage: `url(${bg_books})` }}>
+   <Section id="benefits" style={{ backgroundImage: `url(${bg_books})` }} innerClassName="w-full md:w-1/2">
       <h2 className="text-3xl font-bold">Books - New Assets</h2>
       <p className="my-4">
          Purchased books usually end up gathering dust on the shelf over time. Instead, you can entrust them to our

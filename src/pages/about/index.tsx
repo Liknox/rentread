@@ -12,7 +12,7 @@ function AboutPage() {
 
    return (
       <>
-         <Layout.Content>
+         <Layout.Content className="p-0">
             {sections.map(({ id, Section }) => (
                <Section key={id} />
             ))}

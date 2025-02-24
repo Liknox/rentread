@@ -1,7 +1,7 @@
 import Section from "../index"
 
 const SocialSection = () => (
-   <Section id="social">
+   <Section id="social" innerClassName="w-full md:w-1/2">
       <h2 className="text-3xl font-bold">Finding Like-Minded People</h2>
       <p className="my-4">
          Paper books are being reimagined. They are no longer just a source of knowledge but also a foundation for

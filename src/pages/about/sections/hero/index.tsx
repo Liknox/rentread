@@ -9,7 +9,9 @@ const HeroSection = () => {
    const router = useRouter()
 
    return (
-      <Section style={{ backgroundImage: `url(${bg_hero})` }} innerClassName="text-white flex flex-col align-center">
+      <Section
+         style={{ backgroundImage: `url(${bg_hero})` }}
+         innerClassName="text-white flex flex-col align-center w-full md:w-1/2">
          <div className="relative z-10 p-5 text-white">
             <h2 className="text-white text-3xl font-medium">Rentread</h2>
             <p className="my-4">
