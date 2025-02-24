@@ -2,10 +2,11 @@ import { PRICES, TARIFFS } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
 import { Checkbox, Divider, Layout, Slider, Typography } from "antd"
 import * as catalogParams from "../params"
+import { isMobile } from "@shared/lib/browser"
 
 function Sidebar() {
    return (
-      <Layout.Sider width={400}>
+      <Layout.Sider width={isMobile ? "100%" : 400}>
          <div className="p-5 shadow-insetDark">
             <Typography.Title level={4} className="text-center">
                Filters
