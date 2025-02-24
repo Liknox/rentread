@@ -87,45 +87,50 @@ function CatalogContent() {
    const paginatedData = booksQuery.slice((currentPage - 1) * pageSize, currentPage * pageSize)
 
    return (
-      <Layout>
-         <section className="flex md:mr-10 mb-2 text-xl">
-            <SortFilterOptions />
-            {isMobile || (
-               <Radio.Group
-                  value={vtParam.viewType}
-                  onChange={e => {
-                     console.debug("[DEBUG] reachGoal: CHANGE_CATALOG_VIEW_TYPE")
-                     vtParam.setViewType(e.target.value)
-                  }}
-                  buttonStyle="solid">
-                  {viewTypes.map(vt => (
-                     <Radio.Button key={vt.key} value={vt.key} className="h-[30px] text-lightGray">
-                        <vt.Icon className="text-[20px] pt-1" />
-                     </Radio.Button>
+      <>
+         <Layout>
+            <section className="flex md:mr-10 mb-2 text-xl">
+               <SortFilterOptions setOpen={setOpen} />
+               {isMobile || (
+                  <Radio.Group
+                     value={vtParam.viewType}
+                     onChange={e => {
+                        console.debug("[DEBUG] reachGoal: CHANGE_CATALOG_VIEW_TYPE")
+                        vtParam.setViewType(e.target.value)
+                     }}
+                     buttonStyle="solid">
+                     {viewTypes.map(vt => (
+                        <Radio.Button key={vt.key} value={vt.key} className="h-[30px] text-lightGray">
+                           <vt.Icon className="text-[20px] pt-1" />
+                        </Radio.Button>
+                     ))}
+                  </Radio.Group>
+               )}
+            </section>
+            <section className="mr-0 md:mr-10">
+               <Row justify="start" className="!gap-1 md:!gap-0" gutter={[20, 20]}>
+                  {paginatedData.map(b => (
+                     <BookItem key={b.id} data={b} />
                   ))}
-               </Radio.Group>
-            )}
-         </section>
-         <section className="mr-0 md:mr-10">
-            <Row justify="start" className="!gap-1 md:!gap-0" gutter={[20, 20]}>
-               {paginatedData.map(b => (
-                  <BookItem key={b.id} data={b} />
-               ))}
-            </Row>
-            {!booksQuery.length && (
-               <Empty className="my-[100px]" description="Couldn't find anything matching your request." />
-            )}
-            <Pagination
-               className="mt-8"
-               current={currentPage}
-               pageSize={pageSize}
-               total={booksQuery.length}
-               onChange={handlePageChange}
-               onShowSizeChange={handlePageChange}
-               align="center"
-            />
-         </section>
-      </Layout>
+               </Row>
+               {!booksQuery.length && (
+                  <Empty className="my-[100px]" description="Couldn't find anything matching your request." />
+               )}
+               <Pagination
+                  className="mt-8"
+                  current={currentPage}
+                  pageSize={pageSize}
+                  total={booksQuery.length}
+                  onChange={handlePageChange}
+                  onShowSizeChange={handlePageChange}
+                  align="center"
+               />
+            </section>
+         </Layout>
+         <Drawer id="left-drawer" closable={true} placement="left" onClose={() => setOpen(prev => !prev)} open={open}>
+            <Sidebar />
+         </Drawer>
+      </>
    )
 }
 
@@ -188,7 +193,7 @@ const SortFilterOptions = () => {
    if (isMobile) {
       return (
          <Row className="grow justify-between">
-            <Button>123</Button>
+            <Button onClick={() => setOpen(true)}>Filters</Button>
             <Select placeholder="Sort by" style={{ width: 200 }} onChange={value => obParam.setSorting(value)}>
                {Object.entries(SORTINGS).map(([sId, sName]) => (
                   <Option key={sId} value={Number(sId)}>
