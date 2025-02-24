@@ -62,13 +62,8 @@ const BookRow = (props: Props) => {
    const isSmall = size === "small"
    const spanDetails = MAX_SPAN - spanIcon[size] - spanActions - 1
 
-   // TODO: very bad practice / fix
-   const textWidth = window.innerWidth < 350 ? 165 : 200
-
    return (
-      <Row
-         align="middle"
-         className={cn(`grid grid-cols-[120px_${textWidth}px] md:flex`, { "grayscale opacity-50": asSecondary })}>
+      <Row align="middle" className={cn(`grid grid-cols-[120px_2fr] md:flex`, { "grayscale opacity-50": asSecondary })}>
          <Col span={spanIcon[size]} className="col-span-1">
             <BookFilled className="bg-accent" style={styleIcon[size]} />
          </Col>
