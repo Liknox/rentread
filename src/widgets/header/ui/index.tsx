@@ -77,7 +77,11 @@ const Header = () => {
 
    return (
       <>
-         <Layout.Header className="relative flex justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset ">
+         <Layout.Header
+            className={cn(
+               "relative flex justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset gap-4 md:gap-0",
+               { "!px-3": isMobile },
+            )}>
             {isMobile ? (
                <MobileHeader count={count} />
             ) : (
@@ -126,19 +130,21 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
    return (
       <>
          <Link
-            className="flex flex-grow items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
+            className="flex items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
             to={routes.DEFAULT}
             onClick={() => {
                console.debug("[DEBUG] reachGoal: BACK_HOME")
             }}>
-            {/* <Logo width={24} /> */}
-            <h2 className="text-[20px]">Rentread</h2>
+            <h2 className="text-[20px]">R</h2>
          </Link>
+         <div className="flex flex-grow items-center">
+            <Search />
+         </div>
          <Button
             type="text"
             icon={<MenuOutlined />}
             onClick={() => setOpen(true)}
-            className="lg:hidden text-[25px] mt-4 ml-auto"
+            className="lg:hidden text-[25px] mt-4"
          />
          <Drawer
             title={
