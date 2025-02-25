@@ -1,6 +1,7 @@
 import { BookFilled, HistoryOutlined, InboxOutlined } from "@ant-design/icons"
 import { routes } from "@app/configs/constants"
 import { type AbstractBook, fakeApi } from "@shared/api"
+import { isMobile } from "@shared/lib/browser"
 import { Link, useMatch } from "@tanstack/react-router"
 import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
 import { BookCard } from "entities/book"
@@ -9,6 +10,7 @@ import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
+import cn from "classnames"
 
 function BookPage() {
    // FIXME: add skeleton template
@@ -35,8 +37,8 @@ function BookPage() {
          <Link to={routes.CATALOG} className="text-primary">
             Catalog
          </Link>
-         <Typography.Title level={2}>{fakeApi.library.books.getBookString(book)}</Typography.Title>
-         <Row className="mt-8 mb-20">
+         <Typography.Title level={isMobile ? 3 : 2}>{fakeApi.library.books.getBookString(book)}</Typography.Title>
+         <Row className="mt-8 mb-20 flex flex-col md:flex-row">
             <Card book={book} />
             <Checkout book={book} />
          </Row>
@@ -69,22 +71,24 @@ const Card = ({ book }: BookProps) => {
    const author = authors.map(fakeApi.library.authors.getShortname).join(", ")
 
    return (
-      <Col span={16}>
-         <div className="flex">
-            <div className="w-[450px]">
+      <Col span={isMobile ? "full" : 16}>
+         <div className="flex flex-col md:flex-row">
+            <div className={cn({ "w-[450px]": !isMobile, "w-full": isMobile })}>
                <Carousel autoplay autoplaySpeed={3000} className="dark-slick-dots">
                   {carousel.map(c => (
                      <div
                         key={c.id}
-                        className="h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]">
-                        <BookFilled className="mt-40" style={{ color: c.color }} />
+                        className={cn("h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]", {
+                           "!h-[440px] !text-[270px]": isMobile,
+                        })}>
+                        <BookFilled className={isMobile ? "mt-20" : "mt-40"} style={{ color: c.color }} />
                      </div>
                   ))}
                </Carousel>
             </div>
-            <div className="mt-10 ml-10">
+            <div className="mt-3 ml-0 md:mt-10 md:ml-10">
                <Descriptions
-                  title={<span className="text-[20px]">About the book</span>}
+                  title={<span className="text-[25px]">About book</span>}
                   column={1}
                   contentStyle={{ fontSize: 16 }}>
                   <Descriptions.Item label={<span className="text-dark text-[16px] font-medium">Author</span>}>
@@ -119,7 +123,7 @@ const Checkout = ({ book }: BookProps) => {
    }
 
    return (
-      <Col span={7} offset={1} style={style}>
+      <Col span={isMobile ? "full" : 7} offset={1} style={style} className={cn({ "ml-0 mt-5": isMobile })}>
          <article className="flex flex-col justify-between min-h-[300px] p-7 shadow-insetDark">
             <div>
                <h3 className="text-[40px] font-medium mt-2">
@@ -161,7 +165,7 @@ const Checkout = ({ book }: BookProps) => {
                </Row>
             </div>
             {/* FIXME: action button style */}
-            <div className="mt-10 w-[300px] gap-2 m-auto">
+            <div className="mt-10 w-full md:w-[300px] gap-2 m-auto">
                {
                   <TariffRadio
                      onChange={handleTariffChange}
@@ -190,11 +194,11 @@ const Recommendations = ({ book }: BookProps) => {
    if (!booksQuery.length) return null
 
    return (
-      <Col span={16}>
+      <Col span={isMobile ? "full" : 16}>
          <h1 className="text-[20px] font-medium">By the same author</h1>
          <Row className="pb-5 mt-5 overflow-auto" wrap={false} gutter={[20, 0]}>
             {booksQuery.map(b => (
-               <Col key={b.id} span={8}>
+               <Col key={b.id} span={8} className="min-w-full md:min-w-[315px]">
                   <BookCard data={b} size="small" />
                </Col>
             ))}
