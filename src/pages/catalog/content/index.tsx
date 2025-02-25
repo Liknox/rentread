@@ -14,6 +14,7 @@ import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 import { useState } from "react"
 import Sidebar from "../sidebar"
+import { scrollToTop } from "@shared/lib/dom"
 
 const { Option } = Select
 
@@ -80,6 +81,7 @@ function CatalogContent() {
    const [open, setOpen] = useState(false)
 
    const handlePageChange = (page: number, size: number) => {
+      scrollToTop()
       setCurrentPage(page)
       setPageSize(size)
    }
