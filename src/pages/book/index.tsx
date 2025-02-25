@@ -4,13 +4,13 @@ import { type AbstractBook, fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
 import { Link, useMatch } from "@tanstack/react-router"
 import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
+import cn from "classnames"
 import { BookCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
-import cn from "classnames"
 
 function BookPage() {
    // FIXME: add skeleton template
