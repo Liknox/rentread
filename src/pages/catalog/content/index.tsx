@@ -84,7 +84,7 @@ function CatalogContent() {
       setPageSize(size)
    }
 
-   const paginatedData = booksQuery.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+   const paginatedData = isMobile ? booksQuery : booksQuery.slice((currentPage - 1) * pageSize, currentPage * pageSize)
 
    return (
       <>
@@ -116,15 +116,17 @@ function CatalogContent() {
                {!booksQuery.length && (
                   <Empty className="my-[100px]" description="Couldn't find anything matching your request." />
                )}
-               <Pagination
-                  className="mt-8"
-                  current={currentPage}
-                  pageSize={pageSize}
-                  total={booksQuery.length}
-                  onChange={handlePageChange}
-                  onShowSizeChange={handlePageChange}
-                  align="center"
-               />
+               {isMobile || (
+                  <Pagination
+                     className="mt-8"
+                     current={currentPage}
+                     pageSize={pageSize}
+                     total={booksQuery.length}
+                     onChange={handlePageChange}
+                     onShowSizeChange={handlePageChange}
+                     align="center"
+                  />
+               )}
             </section>
          </Layout>
          <Drawer id="left-drawer" closable={true} placement="left" onClose={() => setOpen(prev => !prev)} open={open}>
