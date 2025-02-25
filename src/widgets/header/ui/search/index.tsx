@@ -13,7 +13,7 @@ const initialQuery: AbstractBook[] = []
 const mapToOptions = (books: AbstractBook[]) =>
    books.map(book => ({
       value: String(book.id),
-      label: <BookRow data={book} size="small" titleAsLink={false} />,
+      label: <BookRow data={book} size="small" titleAsLink={false} searchBar />,
    }))
 
 const TOOLTIP = {

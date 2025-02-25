@@ -17,6 +17,7 @@ type Props = {
    size?: Size
    actions?: ReactNode
    asSecondary?: boolean
+   searchBar?: boolean
 }
 
 const spanIcon: Record<Size, number> = {
@@ -55,7 +56,7 @@ const spanActions = 5
 const MAX_SPAN = 24
 
 const BookRow = (props: Props) => {
-   const { data, size = "default", titleAsLink = true, actions, asSecondary } = props
+   const { data, size = "default", titleAsLink = true, actions, asSecondary, searchBar = false } = props
 
    const title = fakeApi.library.books.getShortname(data)
    const price = fakeApi.library.books.getPrice(data)
@@ -63,7 +64,12 @@ const BookRow = (props: Props) => {
    const spanDetails = MAX_SPAN - spanIcon[size] - spanActions - 1
 
    return (
-      <Row align="middle" className={cn("grid grid-cols-[120px_2fr] md:flex", { "grayscale opacity-50": asSecondary })}>
+      <Row
+         align="middle"
+         className={cn("grid grid-cols-[120px_2fr] md:flex", {
+            "grayscale opacity-50": asSecondary,
+            "grid-cols-[50px_2fr]": searchBar,
+         })}>
          <Col span={spanIcon[size]} className="col-span-1">
             <BookFilled className="bg-accent" style={styleIcon[size]} />
          </Col>
@@ -76,7 +82,7 @@ const BookRow = (props: Props) => {
                   {isMobile ? textOverflow(title, 50) : title}
                </Link>
             ) : (
-               <span>{title}</span>
+               <span>{searchBar && isMobile ? data.name : title}</span>
             )}
 
             <span className="text-darkGray">
@@ -85,14 +91,16 @@ const BookRow = (props: Props) => {
 
             {!isSmall && <span className="text-[1.4rem] font-medium md:mt-0 mt-1z">{price} $</span>}
          </Col>
-         <Col
-            span={spanActions}
-            className={cn("flex md:block min-w-fit md:min-w-0   col-span-1 row-span-1 mt-4", {
-               // dirty method, don't write like this
-               "flex-col": window.innerWidth < 350,
-            })}>
-            {actions}
-         </Col>
+         {searchBar || (
+            <Col
+               span={spanActions}
+               className={cn("flex md:block min-w-fit md:min-w-0   col-span-1 row-span-1 mt-4", {
+                  // dirty method, don't write like this
+                  "flex-col": window.innerWidth < 350,
+               })}>
+               {actions}
+            </Col>
+         )}
       </Row>
    )
 }
