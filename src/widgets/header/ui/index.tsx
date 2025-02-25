@@ -11,7 +11,6 @@ import cn from "classnames"
 
 import { routes } from "@app/configs/constants"
 import { isMobile } from "@shared/lib/browser"
-// import { ReactComponent as Logo } from "./logo.svg"
 import { Link } from "@tanstack/react-router"
 import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
@@ -150,19 +149,14 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
             title={
                <div className="flex justify-between w-full text-[30px]">
                   <Wallet.AddFunds.Popover />
-                  <Button
-                     className="text-[30px] mr-3"
-                     type="text"
-                     icon={<CloseOutlined />}
-                     onClick={() => setOpen(false)}
-                  />
+                  <Button className="text-[30px]" type="text" icon={<CloseOutlined />} onClick={() => setOpen(false)} />
                </div>
             }
             closable={false}
             placement="top"
             onClose={() => setOpen(prev => !prev)}
             open={open}>
-            <div className="flex flex-col gap-7 mt-5">
+            <div className="flex flex-col gap-7 mt-3">
                {actions.map(({ id, label, url, disabled }) => (
                   <Link
                      key={label}
