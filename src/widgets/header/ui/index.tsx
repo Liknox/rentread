@@ -72,8 +72,6 @@ const Header = () => {
       profile: 0,
    }
 
-   console.log()
-
    return (
       <>
          <Layout.Header

@@ -47,9 +47,9 @@ export function Section<T extends Book | AbstractBook>(props: Props<T>) {
          <Typography.Text type="secondary" className="block mb-5">
             {description}
          </Typography.Text>
-         <Row gutter={[10, 10]} wrap={false} className="overflow-auto pb-5">
+         <Row gutter={[10, 10]} wrap={false} className="overflow-auto pb-5 md:max-w-[945px]">
             {books.map((book, idx) => (
-               <Col key={book.id} span={8} className="min-w-full md:min-w-[315px]">
+               <Col key={book.id} span={8} className="min-w-full md:min-w-[315px] md:max-w-[315px]">
                   <Badge.Ribbon
                      {...props.getRibbonProps?.(book, idx)}
                      style={{
@@ -68,7 +68,7 @@ export function Section<T extends Book | AbstractBook>(props: Props<T>) {
                </Col>
             ))}
          </Row>
-         {!books.length && <Empty description="Пусто" />}
+         {!books.length && <Empty description="Empty" />}
       </section>
    )
 }
