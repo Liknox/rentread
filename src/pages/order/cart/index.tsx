@@ -7,13 +7,15 @@ import { orderLib, orderModel } from "entities/order"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
+import cn from "classnames"
+import { isMobile } from "@shared/lib/browser"
 
 function Order() {
    useTitle("Cart | Rentread")
    return (
       <Layout.Content>
          <Cart.Steps.View current={0} className="mb-10" />
-         <Layout>
+         <Layout className={cn("flex", { "!flex-col": isMobile })}>
             <Content />
             <Sidebar />
          </Layout>
@@ -26,7 +28,7 @@ const Content = () => {
    const durations = orderModel.cart.useOrderDurations()
 
    return (
-      <Layout>
+      <Layout className={cn({ "!w-full": isMobile })}>
          <Typography.Title level={2}>Cart</Typography.Title>
          <section>
             <Typography.Title level={3} type="secondary">
@@ -42,9 +44,14 @@ const Content = () => {
                      <Col key={book.id} span={24}>
                         <BookRowCard
                            data={book}
-                           size="large"
+                           size={isMobile ? "default" : "large"}
+                           cartBar
                            actions={
-                              <>
+                              <div
+                                 className={cn({
+                                    "flex flex-row gap-2": isMobile,
+                                    "flex-col gap-4": window.innerWidth < 380,
+                                 })}>
                                  <Cart.Actions.DeleteBook bookId={book.id} />
                                  <TariffRadio
                                     onChange={value =>
@@ -56,7 +63,7 @@ const Content = () => {
                                     __byDuration={rent.duration}
                                     value={durations[book.id] || 7}
                                  />
-                              </>
+                              </div>
                            }
                         />
                      </Col>
@@ -70,9 +77,11 @@ const Content = () => {
                />
             )}
          </section>
-         <section className="my-14">
-            <RecommendationsSection />
-         </section>
+         {isMobile || (
+            <section className="my-14">
+               <RecommendationsSection />
+            </section>
+         )}
       </Layout>
    )
 }
@@ -94,7 +103,7 @@ const RecommendationsSection = () => {
             {recommended.books
                .filter(b => orderLib.getRentInfo(b.id).status === "RENTABLE")
                .map(b => (
-                  <Col key={b.id} span={8}>
+                  <Col key={b.id} span={8} className="min-w-full md:min-w-[315px]">
                      <BookCard
                         data={b}
                         size="small"
@@ -117,7 +126,7 @@ const Sidebar = () => {
    const { isEmptyCart } = orderModel.cart.useOrderValidation()
 
    return (
-      <Layout.Sider width={400}>
+      <Layout.Sider width={isMobile ? "100%" : 400} className="mt-8 md:mt-0">
          <Cart.TotalInfo.Card>
             <Link to={routes.CHECKOUT}>
                {isEmptyCart ? (
@@ -131,6 +140,11 @@ const Sidebar = () => {
                )}
             </Link>
          </Cart.TotalInfo.Card>
+         {isMobile && (
+            <section className="my-14">
+               <RecommendationsSection />
+            </section>
+         )}
       </Layout.Sider>
    )
 }
