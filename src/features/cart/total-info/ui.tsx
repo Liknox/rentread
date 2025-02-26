@@ -62,7 +62,7 @@ type Props = {
 }
 export const Card = ({ children }: Props) => {
    return (
-      <article className="ml-10 text-center rounded-[10px] shadow-inset">
+      <article className="md:ml-10 text-center rounded-[10px] shadow-insetDark md:shadow-inset">
          <Form />
          <Divider style={{ margin: 0 }} />
          <section className="p-10">{children}</section>
