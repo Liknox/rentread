@@ -19,17 +19,17 @@ const TariffRadio = (props: Props) => {
    }
 
    return (
-      <div className="text-center">
+      <div className="text-center flex flex-col items-center">
          {/* {withTitle && <h4>Rent Terms</h4>} */}
          <Radio.Group
             value={value}
             buttonStyle="solid"
             onChange={e => onChange?.(e.target.value)}
-            className="mt-3"
+            className="md:mt-3 flex whitespace-nowrap"
             disabled={disabled || Boolean(__byDuration)}>
             {TARIFFS.map(t => (
                <Radio.Button key={t} value={disabled ? getTValue(t) : t} disabled={disabled || t > __byDuration!}>
-                  {t} d.
+                  {t}d.
                </Radio.Button>
             ))}
          </Radio.Group>
