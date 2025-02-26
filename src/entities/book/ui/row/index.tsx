@@ -18,6 +18,7 @@ type Props = {
    actions?: ReactNode
    asSecondary?: boolean
    searchBar?: boolean
+   cartBar?: boolean
 }
 
 const spanIcon: Record<Size, number> = {
@@ -79,7 +80,7 @@ const BookRow = (props: Props) => {
             span={spanDetails}>
             {titleAsLink ? (
                <Link className="text-primary w-[95%] leading-normal " to={`${routes.BOOK}/${data.id}`}>
-                  {isMobile ? textOverflow(title, 50) : title}
+                  {isMobile || searchBar ? textOverflow(data.name, 50) : title}
                </Link>
             ) : (
                <span>{searchBar && isMobile ? data.name : title}</span>
