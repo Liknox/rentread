@@ -1,5 +1,6 @@
 import { MAP_ANCHORS, routes } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
+import { isMobile } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
 import { Button, Checkbox, Col, DatePicker, Input, Layout, Result, Row, Select, Typography } from "antd"
@@ -11,6 +12,7 @@ import { Wallet } from "features/wallet"
 import moment from "moment"
 import { Marker, Map as PMap } from "pigeon-maps"
 import { useState } from "react"
+import cn from "classnames"
 
 const useCheckoutValidation = () => {
    const { price } = orderModel.cart.useOrder()
@@ -32,7 +34,7 @@ function Checkout() {
    return (
       <Layout.Content>
          <Cart.Steps.View current={1} className="mb-10" />
-         <Layout>
+         <Layout className="flex !flex-col md:!flex-row">
             <Content />
             <Sidebar />
          </Layout>
@@ -42,7 +44,7 @@ function Checkout() {
 
 const Content = () => {
    return (
-      <Layout>
+      <Layout className={cn({ "!w-full": isMobile })}>
          <Link to={routes.ORDER}>Return to cart</Link>
          <Typography.Title level={2}>Order processing</Typography.Title>
          <section className="mb-10">
@@ -74,7 +76,12 @@ const WalletForm = () => {
          {validation.isEnoughMoney ? (
             <Result status="success" title="Sufficient funds on the account" />
          ) : (
-            <Result status="warning" title="Insufficient funds on the account" extra={<Wallet.AddFunds.Form />} />
+            <Result
+               className={cn({ "!p-0": isMobile })}
+               status="warning"
+               title="Insufficient funds on the account"
+               extra={<Wallet.AddFunds.Form />}
+            />
          )}
       </Row>
    )
@@ -88,7 +95,7 @@ const Sidebar = () => {
    // hooks.useRedirectOn(isEmptyCart, "/order");
 
    return (
-      <Layout.Sider width={400}>
+      <Layout.Sider width={isMobile ? "100%" : 400} className="mt-8 md:mt-0">
          <Cart.TotalInfo.Card>
             {validation.isTotallyAllowed ? (
                <Button
@@ -134,9 +141,12 @@ const DeliveryForm = () => {
 
    return (
       <Row
-         className="min-h-[500px] overflow-hidden bg-[var(--color-accent)] border border-[var(--color-accent)] rounded-[25px]"
+         className={cn(
+            "md:min-h-[500px] overflow-hidden bg-[var(--color-accent)] border border-[var(--color-accent)] rounded-[25px]",
+            { "flex-col": isMobile },
+         )}
          justify="space-between">
-         <Col span={10} className="p-10">
+         <Col span={isMobile ? "full" : 10} className="p-10">
             <Typography.Title level={4}>Select a delivery method</Typography.Title>
             <Checkbox
                onChange={e => {
@@ -179,7 +189,7 @@ const DeliveryForm = () => {
                />
             )}
          </Col>
-         <Col span={12}>
+         <Col span={isMobile ? "full" : 12} className={cn({ "h-[400px]": isMobile })}>
             <PMap
                defaultCenter={MAP_ANCHORS.DEFAULT} // Lviv Coordinates
                dprs={[1, 2]}
