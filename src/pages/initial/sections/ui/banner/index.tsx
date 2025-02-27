@@ -13,14 +13,14 @@ const Banner = () => {
             <div className="text-center relative h-80" key={banner.id}>
                <Typography.Text className="absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white w-[75%] sm:w-[50%]">
                   <h3 className="!text-white">{t(banner.title)}</h3>
-                  <p className="w-[100%] m-[auto]">{banner.subtitle}</p>
-                  <p className="hidden sm:block">{banner.description}</p>
+                  <p className="w-[100%] m-[auto]">{t(banner.subtitle)}</p>
+                  <p className="hidden sm:block">{t(banner.description)}</p>
                   {banner.link ? (
                      <Link to={banner.linkHref} className="text-lightPrimary">
-                        {banner.info}
+                        {t(banner.info)}
                      </Link>
                   ) : (
-                     <i>{banner.info}</i>
+                     <i>{t(banner.info)}</i>
                   )}
                </Typography.Text>
                <img src={banner.img} alt="img-banner-1" width="100%" className="object-cover h-full" />

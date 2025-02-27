@@ -1,7 +1,30 @@
 {
    "main": {
       "sections": {
-         "banner": "About us"
+         "banner": {
+            "about": {
+               "title": "About us",
+               "subtitle": "Our service allows people to exchange books.",
+               "description": "The owner of a book can give it to the service to offer it for rent to those interested."
+            },
+            "personal": {
+               "title": "Personal account",
+               "subtitle": "In your personal account, you can see information about your personal books, books in your possession, reserved books, favorites, as well as your rental history in general.",
+               "description": "There you will also find other details that interest you."
+            },
+            "catalog": {
+               "title": "Catalog",
+               "subtitle": "Flexible search with filters and suitable sorting.",
+               "description": "Adapted to your financial expectations and rental period."
+            },
+            "meetUp": {
+               "title": "Book Meetup #4",
+               "subtitle": "Yellow Place Company (Lviv Coffee House)",
+               "description": "There you can pick up your latest ordered books!"
+            },
+            "street": "Lviv, Pidvalna 5",
+            "goTo": "Go to"
+         }
       }
    }
 }

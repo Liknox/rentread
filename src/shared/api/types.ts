@@ -102,15 +102,17 @@ export type SectionsDisplay = {
    Section: FC
 }[]
 
-type TranslationKeys = typeof TRANSLATIONS.main.sections
-type TitleTranslated = TranslationKeys["BANNER"]
+type BannerTrans = typeof TRANSLATIONS.main.sections.banner
+type TextTrans = BannerTrans["about" | "personal" | "meetUp" | "catalog"]["title" | "subtitle" | "description"]
+type GoToTrans = BannerTrans["goTo"]
+type StreetTrans = BannerTrans["street"]
 
 export type BannerScreen = {
    id: number
-   title: string
-   subtitle: string
-   description: string
-   info: string
+   title: TextTrans
+   subtitle: TextTrans
+   description: TextTrans
+   info: GoToTrans | StreetTrans
    link: boolean
    linkHref: string
    img: string

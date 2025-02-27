@@ -9,10 +9,10 @@ import { TRANSLATIONS } from "@app/configs/constants/translation"
 export const bannerScreen: BannerScreen[] = [
    {
       id: 1,
-      title: TRANSLATIONS.main.sections.BANNER,
-      subtitle: "Our service allows people to exchange books.",
-      description: "The owner of a book can give it to the service to offer it for rent to those interested.",
-      info: "Go to",
+      title: TRANSLATIONS.main.sections.banner.about.title,
+      subtitle: TRANSLATIONS.main.sections.banner.about.subtitle,
+      description: TRANSLATIONS.main.sections.banner.about.description,
+      info: TRANSLATIONS.main.sections.banner.goTo,
       link: true,
       linkHref: routes.ABOUT,
       img: b1, // FIXME: update img
@@ -20,11 +20,10 @@ export const bannerScreen: BannerScreen[] = [
    },
    {
       id: 2,
-      title: "Personal Account",
-      subtitle:
-         "In your personal account, you can see information about your personal books, books in your possession, reserved books, favorites, as well as your rental history in general",
-      description: "There you will also find other details that interest you.",
-      info: "Go to",
+      title: TRANSLATIONS.main.sections.banner.personal.title,
+      subtitle: TRANSLATIONS.main.sections.banner.personal.subtitle,
+      description: TRANSLATIONS.main.sections.banner.personal.description,
+      info: TRANSLATIONS.main.sections.banner.goTo,
       link: true,
       linkHref: routes.PROFILE,
       img: b2, // FIXME: update img
@@ -32,10 +31,10 @@ export const bannerScreen: BannerScreen[] = [
    },
    {
       id: 3,
-      title: "Catalog",
-      subtitle: "Flexible search with filters and suitable sorting",
-      description: "Adapted to your financial expectations and rental period",
-      info: "Go to",
+      title: TRANSLATIONS.main.sections.banner.catalog.title,
+      subtitle: TRANSLATIONS.main.sections.banner.catalog.subtitle,
+      description: TRANSLATIONS.main.sections.banner.catalog.description,
+      info: TRANSLATIONS.main.sections.banner.goTo,
       link: true,
       linkHref: routes.CATALOG,
       img: b3, // FIXME: update img
@@ -43,10 +42,10 @@ export const bannerScreen: BannerScreen[] = [
    },
    {
       id: 4,
-      title: "Book Meetup #4",
-      subtitle: "Coffee-shop Company (Viennese Coffee House)",
-      description: "There you can pick up your latest ordered books!",
-      info: "Manhattan 5th Avenue",
+      title: TRANSLATIONS.main.sections.banner.meetUp.title,
+      subtitle: TRANSLATIONS.main.sections.banner.meetUp.subtitle,
+      description: TRANSLATIONS.main.sections.banner.meetUp.description,
+      info: TRANSLATIONS.main.sections.banner.street,
       link: false,
       linkHref: "",
       img: b4, // FIXME: update img
