@@ -5,7 +5,6 @@ import { Layout } from "antd"
 import { viewerLib, viewerModel } from "entities/viewer"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
-import { useEffect } from "react"
 import { Section } from "./section"
 
 export const Content = () => {
@@ -14,15 +13,6 @@ export const Content = () => {
 
    const router = useRouter()
    const currentAnchor = router.state.location.hash
-
-   useEffect(() => {
-      setTimeout(() => {
-         const element = document.getElementById(currentAnchor)
-         if (element) {
-            element.scrollIntoView({ behavior: "smooth" })
-         }
-      }, 20)
-   }, [currentAnchor])
 
    return (
       <Layout className="mx-0 md:mx-5 mt-5 md:mt-0 !w-full">
