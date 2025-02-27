@@ -23,7 +23,7 @@ const Banner = () => {
                      <i>{t(banner.info)}</i>
                   )}
                </Typography.Text>
-               <img src={banner.img} alt="img-banner-1" width="100%" className="object-cover h-full" />
+               <img src={banner.img} alt={banner.imgAlt} width="100%" className="object-cover h-full" />
             </div>
          ))}
       </Carousel>

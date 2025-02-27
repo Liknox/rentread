@@ -16,7 +16,7 @@ export const bannerScreen: BannerScreen[] = [
       link: true,
       linkHref: routes.ABOUT,
       img: b1, // FIXME: update img
-      imgAlt: "img-banner-1",
+      imgAlt: "banner-1",
    },
    {
       id: 2,
@@ -27,7 +27,7 @@ export const bannerScreen: BannerScreen[] = [
       link: true,
       linkHref: routes.PROFILE,
       img: b2, // FIXME: update img
-      imgAlt: "img-banner-2",
+      imgAlt: "banner-2",
    },
    {
       id: 3,
@@ -38,7 +38,7 @@ export const bannerScreen: BannerScreen[] = [
       link: true,
       linkHref: routes.CATALOG,
       img: b3, // FIXME: update img
-      imgAlt: "img-banner-3",
+      imgAlt: "banner-3",
    },
    {
       id: 4,
@@ -49,6 +49,6 @@ export const bannerScreen: BannerScreen[] = [
       link: false,
       linkHref: "",
       img: b4, // FIXME: update img
-      imgAlt: "img-banner-4",
+      imgAlt: "banner-4",
    },
 ]
