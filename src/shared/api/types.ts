@@ -1,3 +1,4 @@
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import type { FC } from "react"
 
 export type User = {
@@ -100,6 +101,9 @@ export type SectionsDisplay = {
    title?: string
    Section: FC
 }[]
+
+type TranslationKeys = typeof TRANSLATIONS.main.sections
+type TitleTranslated = TranslationKeys["BANNER"]
 
 export type BannerScreen = {
    id: number
