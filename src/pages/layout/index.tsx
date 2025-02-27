@@ -5,7 +5,6 @@ import { Footer } from "widgets/footer"
 import { Header } from "widgets/header"
 
 import { useResetScrollAtEveryPage } from "@pages/hooks"
-import { isMobile } from "@shared/lib/browser"
 import { DemoAlert } from "@shared/ui/location-alert"
 
 const Layout = () => {
@@ -13,11 +12,9 @@ const Layout = () => {
 
    return (
       <AntLayout>
-         <div className="fixed top-0 left-0 right-0 z-50">
-            <DemoAlert />
-            <Header />
-         </div>
-         <div className={isMobile ? "mt-16" : "mt-28"}>
+         <DemoAlert />
+         <Header />
+         <div className="mt-16 md:mt-0">
             <Outlet />
          </div>
          <Footer />
