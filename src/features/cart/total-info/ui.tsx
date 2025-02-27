@@ -74,7 +74,7 @@ export const CartMini = () => {
    const order = orderModel.cart.useOrder()
 
    return (
-      <article className="ml-10 text-center rounded-[10px] shadow-inset p-5">
+      <article className="ml-0 md:ml-10 text-center rounded-[10px] shadow-inset p-5">
          <Typography.Title level={4} type="secondary">
             Your order
          </Typography.Title>
