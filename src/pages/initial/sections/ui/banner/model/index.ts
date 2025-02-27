@@ -4,11 +4,12 @@ import b1 from "../assets/b1.jpg"
 import b2 from "../assets/b2.jpg"
 import b3 from "../assets/b3.jpg"
 import b4 from "../assets/b4.jpg"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 export const bannerScreen: BannerScreen[] = [
    {
       id: 1,
-      title: "About us",
+      title: TRANSLATIONS.main.sections.BANNER,
       subtitle: "Our service allows people to exchange books.",
       description: "The owner of a book can give it to the service to offer it for rent to those interested.",
       info: "Go to",
