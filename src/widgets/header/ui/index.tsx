@@ -77,7 +77,7 @@ const Header = () => {
          <Layout.Header
             className={cn(
                "relative flex justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset gap-4 md:gap-0",
-               { "!px-3": isMobile },
+               { "!fixed top-0 left-0 right-0 z-50 !px-3": isMobile },
             )}>
             {isMobile ? (
                <MobileHeader count={count} />
