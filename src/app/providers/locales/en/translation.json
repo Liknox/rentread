@@ -24,6 +24,15 @@
             },
             "street": "Lviv, Pidvalna 5",
             "goTo": "Go to"
+         },
+         "categories": {
+            "title": "Book Categories"
+         },
+         "authors": {
+            "title": "Popular Authors"
+         },
+         "books": {
+            "title": "Popular Books"
          }
       }
    }

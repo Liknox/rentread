@@ -25,6 +25,15 @@ export const TRANSLATIONS = {
             street: "initial.sections.banner.street",
             goTo: "initial.sections.banner.goTo",
          },
+         categories: {
+            title: "initial.sections.categories.title",
+         },
+         authors: {
+            title: "initial.sections.authors.title",
+         },
+         books: {
+            title: "initial.sections.books.title",
+         }
       },
    },
 } as const

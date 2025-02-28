@@ -1,5 +1,6 @@
 import type { SectionsDisplay } from "@shared/api"
 import { Authors, Banner, Books, Categories } from "../ui"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 export const sections: SectionsDisplay = [
    {
@@ -8,17 +9,17 @@ export const sections: SectionsDisplay = [
    },
    {
       id: 2,
-      title: "Book Categories",
+      title: TRANSLATIONS.initial.sections.categories.title,   
       Section: Categories,
    },
    {
       id: 3,
-      title: "Popular Authors",
+      title: TRANSLATIONS.initial.sections.authors.title,
       Section: Authors,
    },
    {
       id: 4,
-      title: "Popular Authors",
+      title: TRANSLATIONS.initial.sections.books.title,
       Section: Books,
    },
 ]

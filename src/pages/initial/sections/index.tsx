@@ -1,22 +1,26 @@
 import { Layout, Typography } from "antd"
 import type { FC, ReactNode } from "react"
 import { sections } from "./model"
+import { useTranslation } from "react-i18next"
 
 type SectionWrapperTypes = {
    title?: string
    children: ReactNode
 }
 
-const SectionWrapper: FC<SectionWrapperTypes> = ({ title, children }) => (
-   <section className="mb-20">
-      {title && (
-         <Typography.Title level={2} className="pb-8 mt-5 text-center">
-            {title}
-         </Typography.Title>
-      )}
-      {children}
-   </section>
-)
+const SectionWrapper: FC<SectionWrapperTypes> = ({ title, children }) => {
+   const { t } = useTranslation()
+   return (
+      <section className="mb-20">
+         {title && (
+            <Typography.Title level={2} className="pb-8 mt-5 text-center">
+               {t(title)}
+            </Typography.Title>
+         )}
+         {children}
+      </section>
+   )
+}
 
 const Sections = () => (
    <Layout.Content>
