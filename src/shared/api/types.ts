@@ -102,7 +102,7 @@ export type SectionsDisplay = {
    Section: FC
 }[]
 
-type BannerTrans = typeof TRANSLATIONS.main.sections.banner
+type BannerTrans = typeof TRANSLATIONS.initial.sections.banner
 type TextTrans = BannerTrans["about" | "personal" | "meetUp" | "catalog"]["title" | "subtitle" | "description"]
 type GoToTrans = BannerTrans["goTo"]
 type StreetTrans = BannerTrans["street"]
