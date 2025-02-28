@@ -3,6 +3,8 @@ import cn from "classnames"
 import { useState } from "react"
 
 import { viewerModel } from "entities/viewer"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 type Props = {
    className?: string
@@ -12,28 +14,29 @@ const MIN_MONEY = 5
 const MAX_MONEY = 100
 
 const AddFundsForm = ({ className }: Props) => {
+   const { t } = useTranslation()
    const viewer = viewerModel.useViewerWallet()
    const [money, setMoney] = useState(MIN_MONEY)
    const isValid = money >= MIN_MONEY && money <= MAX_MONEY
 
    return (
       <div className={cn("p-5", className)}>
-         <Typography.Title level={4}>Wallet Deposit</Typography.Title>
+         <Typography.Title level={4}>{t(TRANSLATIONS.features.wallet.title)}</Typography.Title>
          <Form.Item
             // FIXME: simplify!
             validateStatus={isValid ? "success" : "error"}
-            help="Minimum payment is 5$, maximum 100$">
+            help={`${t(TRANSLATIONS.features.wallet.help.start)} ${MIN_MONEY}$, ${t(TRANSLATIONS.features.wallet.help.end)} ${MAX_MONEY}$.`}>
             <Input
                addonAfter="$"
                min={MIN_MONEY}
                type="number"
                value={money || ""}
                onChange={e => setMoney(Number(e.target.value))}
-               placeholder="Enter the required amount ..."
+               placeholder={t(TRANSLATIONS.features.wallet.placeholder)}
             />
          </Form.Item>
          <Typography.Text type="secondary" className="block mt-10 mb-5">
-            **The payment will be processed on an external service that complies with PCI DSS security standards.**
+            {t(TRANSLATIONS.features.wallet.text)}
          </Typography.Text>
          {isValid ? (
             <Button
@@ -46,11 +49,11 @@ const AddFundsForm = ({ className }: Props) => {
                   viewer.payment.applyTransaction(money).then(() => location.reload())
                }}
                loading={viewer.payment.isPending}>
-               Deposit
+               {t(TRANSLATIONS.features.wallet.button)}
             </Button>
          ) : (
             <Button block type="default" disabled>
-               Deposit
+               {t(TRANSLATIONS.features.wallet.button)}
             </Button>
          )}
       </div>

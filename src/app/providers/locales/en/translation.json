@@ -83,5 +83,17 @@
       "notFound": "Not Found Page | RentRead",
       "initial": "RentRead | Rent Books Service",
       "result": "Order Confirmation Page | Rentread"
+   },
+   "features": {
+      "wallet": {
+         "title": "Wallet Deposit",
+         "text": "**The payment will be processed on an external service that complies with PCI DSS security standards.**",
+         "button": "Deposit",
+         "placeholder": "Enter the required amount...",
+         "help": {
+            "start": "Minimum payment is",
+            "end": "maximum "
+         }
+      }
    }
 }

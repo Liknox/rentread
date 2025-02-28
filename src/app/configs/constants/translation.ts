@@ -81,4 +81,16 @@ export const TRANSLATIONS = {
       initial: "pageTitle.initial",
       result: "pageTitle.result",
    },
+   features: {
+      wallet: {
+         title: "features.wallet.title",
+         text: "features.wallet.text",
+         button: "features.wallet.button",
+         placeholder: "features.wallet.placeholder",
+         help: {
+            start: "features.wallet.help.start",
+            end: "features.wallet.help.end",
+         },
+      },
+   },
 } as const
