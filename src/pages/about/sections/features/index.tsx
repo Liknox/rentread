@@ -1,20 +1,25 @@
 import Section from "../index"
 
 import bg_laptop from "../../assets/bg_laptop.jpg"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
-const FeaturesSection = () => (
-   <Section id="features" style={{ backgroundImage: `url(${bg_laptop})` }} innerClassName="w-full md:w-1/2">
-      <h2 className="text-3xl font-bold">Features</h2>
-      <ul className="mt-4">
-         <li>- Convenient database search</li>
-         <li>- Database of all books available to the service</li>
-         <li>- Rental and payment mechanisms</li>
-         <li>- Internal logic for calculating interest</li>
-         <li>- Rating system</li>
-         <li>- Notification system for events</li>
-         <li>- Mechanisms for conducting secure transactions</li>
-      </ul>
-   </Section>
-)
+const FeaturesSection = () => {
+   const { t } = useTranslation()
+   return (
+      <Section id="features" style={{ backgroundImage: `url(${bg_laptop})` }} innerClassName="w-full md:w-1/2">
+         <h2 className="text-3xl font-bold">{t(TRANSLATIONS.about.sections.features.title)}</h2>
+         <ul className="mt-4">
+            <li>{t(TRANSLATIONS.about.sections.features.text1)}</li>
+            <li>{t(TRANSLATIONS.about.sections.features.text2)}</li>
+            <li>{t(TRANSLATIONS.about.sections.features.text3)}</li>
+            <li>{t(TRANSLATIONS.about.sections.features.text4)}</li>
+            <li>{t(TRANSLATIONS.about.sections.features.text5)}</li>
+            <li>{t(TRANSLATIONS.about.sections.features.text6)}</li>
+            <li>{t(TRANSLATIONS.about.sections.features.text7)}</li>
+         </ul>
+      </Section>
+   )
+}
 
 export default FeaturesSection

@@ -1,14 +1,16 @@
+import { useTranslation } from "react-i18next"
 import Section from "../index"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
-const SocialSection = () => (
-   <Section id="social" innerClassName="w-full md:w-1/2">
-      <h2 className="text-3xl font-bold">Finding Like-Minded People</h2>
-      <p className="my-4">
-         Paper books are being reimagined. They are no longer just a source of knowledge but also a foundation for
-         community: from finding like-minded individuals to sharing experiences.
-      </p>
-      <p>Professional communities and groups of friends are built around the same books.</p>
-   </Section>
-)
+const SocialSection = () => {
+   const { t } = useTranslation()
+   return (
+      <Section id="social" innerClassName="w-full md:w-1/2">
+         <h2 className="text-3xl font-bold">{t(TRANSLATIONS.about.sections.socials.title)}</h2>
+         <p className="my-4">{t(TRANSLATIONS.about.sections.socials.text)}</p>
+         <p>{t(TRANSLATIONS.about.sections.socials.text2)}</p>
+      </Section>
+   )
+}
 
 export default SocialSection

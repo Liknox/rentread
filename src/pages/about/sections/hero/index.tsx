@@ -4,9 +4,12 @@ import { Button } from "antd"
 import { routes } from "@app/configs/constants"
 import bg_hero from "../../assets/bg_hero.jpg"
 import Section from "../index"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 const HeroSection = () => {
    const router = useRouter()
+   const { t } = useTranslation()
 
    return (
       <Section
@@ -14,16 +17,10 @@ const HeroSection = () => {
          innerClassName="text-white flex flex-col align-center w-full md:w-1/2">
          <div className="relative z-10 p-5 text-white">
             <h2 className="text-white text-3xl font-medium">Rentread</h2>
-            <p className="my-4">
-               Our service allows people to exchange books. The owner of a book can give it to the service to offer it
-               for rent to those interested.
-            </p>
-            <p className="my-4">
-               The book can be given away permanently or temporarily. Those interested can use the book for a chosen
-               period and pay less for it than the book costs in the store.
-            </p>
+            <p className="my-4">{t(TRANSLATIONS.about.sections.hero.text)}</p>
+            <p className="my-4">{t(TRANSLATIONS.about.sections.hero.text2)}</p>
             <Button type="default" size="large" onClick={() => router.navigate({ to: routes.CATALOG })}>
-               Try it out!
+               {t(TRANSLATIONS.about.sections.hero.button)}
             </Button>
          </div>
       </Section>

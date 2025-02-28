@@ -36,6 +36,36 @@ export const TRANSLATIONS = {
          },
       },
    },
+   about: {
+      sections: {
+         hero: {
+            text: "about.sections.hero.text",
+            text2: "about.sections.hero.text2",
+            button: "about.sections.hero.button",
+         },
+         benefits: {
+            title: "about.sections.benefits.title",
+            text1: "about.sections.benefits.text1",
+            text2: "about.sections.benefits.text2",
+            bold: "about.sections.benefits.bold",
+         },
+         features: {
+            title: "about.sections.features.title",
+            text1: "about.sections.features.text1",
+            text2: "about.sections.features.text2",
+            text3: "about.sections.features.text3",
+            text4: "about.sections.features.text4",
+            text5: "about.sections.features.text5",
+            text6: "about.sections.features.text6",
+            text7: "about.sections.features.text7",
+         },
+         socials: {
+            title: "about.sections.socials.title",
+            text: "about.sections.socials.text",
+            text2: "about.sections.socials.text2",
+         },
+      },
+   },
    footer: {
       name: "footer.name",
       text: "footer.text",

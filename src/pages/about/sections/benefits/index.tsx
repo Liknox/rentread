@@ -1,20 +1,24 @@
 import Section from "../index"
 
 import bg_books from "../../assets/bg_books.png"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { useTranslation } from "react-i18next"
 
-const BenefitsSection = () => (
-   <Section id="benefits" style={{ backgroundImage: `url(${bg_books})` }} innerClassName="w-full md:w-1/2">
-      <h2 className="text-3xl font-bold">Books - New Assets</h2>
-      <p className="my-4">
-         Purchased books usually end up gathering dust on the shelf over time. Instead, you can entrust them to our
-         service for rental, earning passive income!
-      </p>
-      <p>
-         On the other hand, book-sharing allows you to avoid spending a lot of money to explore books you're interested
-         in. <b>Rentread</b> will help you get the books you need, for just the right amount of time and without
-         overpaying!
-      </p>
-   </Section>
-)
+const BenefitsSection = () => {
+   const { t } = useTranslation()
+   return (
+      <Section id="benefits" style={{ backgroundImage: `url(${bg_books})` }} innerClassName="w-full md:w-1/2">
+         <h2 className="text-3xl font-bold">{t(TRANSLATIONS.about.sections.benefits.title)}</h2>
+         <p className="my-4">
+            Purchased books usually end up gathering dust on the shelf over time. Instead, you can entrust them to our
+            service for rental, earning passive income!
+         </p>
+         <p>
+            {t(TRANSLATIONS.about.sections.benefits.text1)} <b>{t(TRANSLATIONS.about.sections.benefits.bold)}</b>{" "}
+            {t(TRANSLATIONS.about.sections.benefits.text2)}
+         </p>
+      </Section>
+   )
+}
 
 export default BenefitsSection

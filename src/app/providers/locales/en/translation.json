@@ -36,6 +36,36 @@
          }
       }
    },
+   "about": {
+      "sections": {
+         "hero": {
+            "text": "Our service allows people to exchange books. The owner of a book can give it to the service to offer it for rent to those interested.",
+            "text2": "The book can be given away permanently or temporarily. Those interested can use the book for a chosen period and pay less for it than the book costs in the store.",
+            "button": "Try it out!"
+         },
+         "benefits": {
+            "title": "Books - New Assets",
+            "text1": "On the other hand, book-sharing allows you to avoid spending a lot of money to explore books you're interested in.",
+            "text2": "will help you get the books you need, for just the right amount of time and without overpaying!",
+            "bold": "Rentread"
+         },
+         "features": {
+            "title": "Features",
+            "text1": "- Convenient database search",
+            "text2": "- Database of all books available to the service",
+            "text3": "- Rental and payment mechanisms",
+            "text4": "- Internal logic for calculating interest",
+            "text5": "- Rating system",
+            "text6": "- Notification system for events",
+            "text7": "- Mechanisms for conducting secure transactions"
+         },
+         "socials": {
+            "title": "Finding Like-Minded People",
+            "text": "Paper books are being reimagined. They are no longer just a source of knowledge but also a foundation for community: from finding like-minded individuals to sharing experiences.",
+            "text2": "Professional communities and groups of friends are built around the same books."
+         }
+      }
+   },
    "footer": {
       "name": "Nazar Koval",
       "text": "Created by"
