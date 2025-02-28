@@ -7,10 +7,10 @@ export const DemoAlert = () => {
    return (
       <Alert
          className="text-center hidden sm:flex"
-         message={t(TRANSLATIONS.demoAlert)}
+         message={t(TRANSLATIONS.demoAlert.text)}
          type="info"
          closable={{
-            closeIcon: <div>Close</div>,
+            closeIcon: <div>{t(TRANSLATIONS.demoAlert.close)}</div>,
          }}
       />
    )

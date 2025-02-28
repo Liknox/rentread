@@ -40,5 +40,8 @@
       "name": "Nazar Koval",
       "text": "Created by"
    },
-   "demoAlert": "This is only a demo version of the service client. No real transactions or operations are being conducted!"
+   "demoAlert": {
+      "text": "This is only a demo version of the service client. No real transactions or operations are being conducted!",
+      "close": "Close"
+   }
 }
