@@ -9,9 +9,12 @@ import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import cn from "classnames"
 import { isMobile } from "@shared/lib/browser"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 function Order() {
-   useTitle("Cart | Rentread")
+   const { t } = useTranslation()
+   useTitle(t(TRANSLATIONS.pageTitle.cart))
    return (
       <Layout.Content>
          <Cart.Steps.View current={0} className="mb-10" />

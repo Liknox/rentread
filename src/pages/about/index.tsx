@@ -6,9 +6,12 @@ import BenefitsSection from "./sections/benefits"
 import FeaturesSection from "./sections/features"
 import HeroSection from "./sections/hero"
 import SocialSection from "./sections/socials"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 function AboutPage() {
-   useTitle("About us | RentRead")
+   const { t } = useTranslation()
+   useTitle(t(TRANSLATIONS.pageTitle.about))
 
    return (
       <>

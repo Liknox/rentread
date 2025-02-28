@@ -1,7 +1,10 @@
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTitle } from "@shared/lib/dom"
+import { useTranslation } from "react-i18next"
 
 function NotFoundPage() {
-   useTitle("Not Found Page | RentRead")
+   const { t } = useTranslation()
+   useTitle(t(TRANSLATIONS.pageTitle.notFound))
 
    return (
       <div className="p-2">

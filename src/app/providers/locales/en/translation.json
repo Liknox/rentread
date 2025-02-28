@@ -43,5 +43,15 @@
    "demoAlert": {
       "text": "This is only a demo version of the service client. No real transactions or operations are being conducted!",
       "close": "Close"
+   },
+   "pageTitle": {
+      "cart": "Cart | Rentread",
+      "about": "About us | RentRead",
+      "catalog": "Catalog | RentRead",
+      "profile": "Profile | RentRead",
+      "checkout": "Checkout | Rentread",
+      "notFound": "Not Found Page | RentRead",
+      "initial": "RentRead | Rent Books Service",
+      "result": "Order Confirmation Page | Rentread"
    }
 }

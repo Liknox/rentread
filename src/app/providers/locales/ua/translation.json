@@ -43,5 +43,15 @@
    "demoAlert": {
       "text": "Це лише демонстраційна версія клієнта сервісу. Жодних реальних транзакцій або операцій не проводиться!",
       "close": "Закрити"
+   },
+   "pageTitle": {
+      "cart": "Корзина | Rentread",
+      "about": "Про нас | RentRead",
+      "catalog": "Каталог | RentRead",
+      "profile": "Профіль | RentRead",
+      "checkout": "Оплата | Rentread",
+      "notFound": "Сторінку не знайдено | RentRead",
+      "initial": "RentRead | Сервіс оренди книжок",
+      "result": "Підтвердження замовлення | Rentread"
    }
 }

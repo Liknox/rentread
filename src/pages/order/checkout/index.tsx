@@ -13,6 +13,8 @@ import moment from "moment"
 import { Marker, Map as PMap } from "pigeon-maps"
 import { useState } from "react"
 import cn from "classnames"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 const useCheckoutValidation = () => {
    const { price } = orderModel.cart.useOrder()
@@ -30,7 +32,8 @@ const useCheckoutValidation = () => {
 }
 
 function Checkout() {
-   useTitle("Checkout | Rentread")
+   const { t } = useTranslation()
+   useTitle(t(TRANSLATIONS.pageTitle.checkout))
    return (
       <Layout.Content>
          <Cart.Steps.View current={1} className="mb-10" />

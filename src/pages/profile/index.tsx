@@ -5,9 +5,12 @@ import { useState } from "react"
 import { Aside } from "./aside"
 import { Content } from "./content"
 import { Sidebar } from "./sidebar"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 function ProfilePage() {
-   useTitle("Profile | RentRead")
+   const { t } = useTranslation()
+   useTitle(t(TRANSLATIONS.pageTitle.profile))
 
    /* FIXME: Very bad practice. anyone, don't judge this way of solving the problem */
    // eslint-disable-next-line @typescript-eslint/no-unused-vars

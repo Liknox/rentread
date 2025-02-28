@@ -41,4 +41,14 @@ export const TRANSLATIONS = {
       text: "footer.text",
    },
    demoAlert: { text: "demoAlert.text", close: "demoAlert.close" },
+   pageTitle: {
+      cart: "pageTitle.cart",
+      about: "pageTitle.about",
+      catalog: "pageTitle.catalog",
+      profile: "pageTitle.profile",
+      checkout: "pageTitle.checkout",
+      notFound: "pageTitle.notFound",
+      initial: "pageTitle.initial",
+      result: "pageTitle.result",
+   },
 } as const
