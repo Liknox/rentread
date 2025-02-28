@@ -1,16 +1,16 @@
 import { routes } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { isMobile } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
 import { Button, Col, Empty, Layout, Row, Typography } from "antd"
+import cn from "classnames"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
-import cn from "classnames"
-import { isMobile } from "@shared/lib/browser"
 import { useTranslation } from "react-i18next"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 function Order() {
    const { t } = useTranslation()

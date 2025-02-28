@@ -1,10 +1,10 @@
 import { routes } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import type { BannerScreen } from "@shared/api"
 import b1 from "../assets/b1.jpg"
 import b2 from "../assets/b2.jpg"
 import b3 from "../assets/b3.jpg"
 import b4 from "../assets/b4.jpg"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 export const bannerScreen: BannerScreen[] = [
    {

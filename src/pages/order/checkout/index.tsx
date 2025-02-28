@@ -1,9 +1,11 @@
 import { MAP_ANCHORS, routes } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
 import { Button, Checkbox, Col, DatePicker, Input, Layout, Result, Row, Select, Typography } from "antd"
+import cn from "classnames"
 import dayjs from "dayjs"
 import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
@@ -12,9 +14,7 @@ import { Wallet } from "features/wallet"
 import moment from "moment"
 import { Marker, Map as PMap } from "pigeon-maps"
 import { useState } from "react"
-import cn from "classnames"
 import { useTranslation } from "react-i18next"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 const useCheckoutValidation = () => {
    const { price } = orderModel.cart.useOrder()

@@ -1,7 +1,7 @@
 import { Layout, Typography } from "antd"
 import type { FC, ReactNode } from "react"
-import { sections } from "./model"
 import { useTranslation } from "react-i18next"
+import { sections } from "./model"
 
 type SectionWrapperTypes = {
    title?: string

@@ -1,12 +1,12 @@
 import { Layout } from "antd"
 
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTitle } from "@shared/lib/dom"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { Aside } from "./aside"
 import { Content } from "./content"
 import { Sidebar } from "./sidebar"
-import { useTranslation } from "react-i18next"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 function ProfilePage() {
    const { t } = useTranslation()

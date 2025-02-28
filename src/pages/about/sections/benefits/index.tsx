@@ -1,8 +1,8 @@
 import Section from "../index"
 
-import bg_books from "../../assets/bg_books.png"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTranslation } from "react-i18next"
+import bg_books from "../../assets/bg_books.png"
 
 const BenefitsSection = () => {
    const { t } = useTranslation()

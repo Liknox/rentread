@@ -1,4 +1,4 @@
-import { TRANSLATIONS } from "@app/configs/constants/translation"
+import type { TRANSLATIONS } from "@app/configs/constants/translation"
 import type { FC } from "react"
 
 export type User = {

@@ -1,8 +1,8 @@
 import Section from "../index"
 
-import bg_laptop from "../../assets/bg_laptop.jpg"
-import { useTranslation } from "react-i18next"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { useTranslation } from "react-i18next"
+import bg_laptop from "../../assets/bg_laptop.jpg"
 
 const FeaturesSection = () => {
    const { t } = useTranslation()

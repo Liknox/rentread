@@ -1,6 +1,6 @@
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTranslation } from "react-i18next"
 import Section from "../index"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 const SocialSection = () => {
    const { t } = useTranslation()

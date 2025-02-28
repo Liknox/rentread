@@ -1,6 +1,6 @@
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import type { SectionsDisplay } from "@shared/api"
 import { Authors, Banner, Books, Categories } from "../ui"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 export const sections: SectionsDisplay = [
    {
