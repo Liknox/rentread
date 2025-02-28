@@ -78,7 +78,7 @@
       "cart": "Корзина | Rentread",
       "about": "Про нас | RentRead",
       "catalog": "Каталог | RentRead",
-      "profile": "Профіль | RentRead",
+      "profile": "Особистий Кабінет | RentRead",
       "checkout": "Оплата | Rentread",
       "notFound": "Сторінку не знайдено | RentRead",
       "initial": "RentRead | Сервіс оренди книжок",
@@ -94,6 +94,15 @@
             "start": "Мінімальний платіж від ",
             "end": "максимальний "
          }
+      }
+   },
+   "headers": {
+      "options": {
+         "catalog": "Каталог",
+         "orders": "Замовлення",
+         "favorites": "Улюблені",
+         "cart": "Корзина",
+         "profile": "Кабінет"
       }
    }
 }

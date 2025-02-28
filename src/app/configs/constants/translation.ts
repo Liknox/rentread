@@ -93,4 +93,13 @@ export const TRANSLATIONS = {
          },
       },
    },
+   headers: {
+      options: {
+         cart: "headers.options.cart",
+         catalog: "headers.options.catalog",
+         profile: "headers.options.profile",
+         orders: "headers.options.orders",
+         favorites: "headers.options.favorites",
+      },
+   },
 } as const

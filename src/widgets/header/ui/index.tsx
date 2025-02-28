@@ -17,39 +17,41 @@ import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
 import { useState } from "react"
 import Search from "./search"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { useTranslation } from "react-i18next"
 
 const actions = [
    {
       id: "catalog" as const,
-      label: "Catalog",
+      label: TRANSLATIONS.headers.options.catalog,
       Icon: MenuOutlined,
       url: "/catalog",
       disabled: false,
    },
    {
       id: "orders" as const,
-      label: "Orders",
+      label: TRANSLATIONS.headers.options.orders,
       Icon: FolderOpenOutlined,
       url: "/profile#opened",
       disabled: false,
    },
    {
       id: "fav" as const,
-      label: "Favorites",
+      label: TRANSLATIONS.headers.options.favorites,
       Icon: HeartOutlined,
       url: "/profile#fav",
       disabled: false,
    },
    {
       id: "cart" as const,
-      label: "Cart",
+      label: TRANSLATIONS.headers.options.cart,
       Icon: ShoppingCartOutlined,
       url: "/order",
       disabled: false,
    },
    {
       id: "profile" as const,
-      label: "Profile",
+      label: TRANSLATIONS.headers.options.profile,
       Icon: UserOutlined,
       url: "/profile",
       disabled: false,
@@ -63,6 +65,9 @@ const NOT_AVAILABLE = "So far, this function is not available"
 const Header = () => {
    const orderTotal = orderModel.cart.useOrderBooks().length
    const favTotal = viewerModel.useFavBooks().length
+   const { t, i18n } = useTranslation()
+
+   console.log(i18n.language)
 
    const count: Record<ActionId, number> = {
       cart: orderTotal,
@@ -101,8 +106,10 @@ const Header = () => {
                         <Link
                            key={label}
                            to={url}
-                           className={cn("flex flex-col mx-[10px] leading-[16px]", {
+                           className={cn("flex flex-col  leading-[16px]", {
                               "pointer-events-none opacity-50": disabled,
+                              "mx-[10px]": i18n.language === "en",
+                              "mx-[4px]": i18n.language === "ua",
                            })}
                            title={disabled ? NOT_AVAILABLE : ""}>
                            {/* for centering badge */}
@@ -111,7 +118,7 @@ const Header = () => {
                                  <Icon className="text-[24px]" />
                               </Badge>
                            </span>
-                           <span>{label}</span>
+                           <span>{t(label)}</span>
                         </Link>
                      ))}
                   </div>

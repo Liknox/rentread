@@ -95,5 +95,14 @@
             "end": "maximum "
          }
       }
+   },
+   "headers": {
+      "options": {
+         "catalog": "Catalog",
+         "orders": "Orders",
+         "favorites": "Favorites",
+         "cart": "Cart",
+         "profile": "Profile"
+      }
    }
 }
