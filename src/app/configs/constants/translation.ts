@@ -40,4 +40,6 @@ export const TRANSLATIONS = {
       name: "footer.name",
       text: "footer.text",
    },
+   demoAlert:
+      "demoAlert",
 } as const
