@@ -130,7 +130,9 @@ const Header = () => {
 }
 
 const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
+   const { t } = useTranslation()
    const [open, setOpen] = useState(false)
+
    return (
       <>
          <Link
@@ -174,7 +176,7 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
                      {/* for centering badge */}
                      <span className="text-left relative flex">
                         <div>
-                           <span className="text-[26px] font-extralight">{label}</span>
+                           <span className="text-[26px] font-extralight">{t(label)}</span>
                            <span className="block w-full bg-primary h-[1px]" />
                         </div>
                         <Badge className="ml-3" count={count[id]} style={{ backgroundColor: "#108ee9" }} />
