@@ -15,7 +15,7 @@ export const bannerScreen: BannerScreen[] = [
       info: TRANSLATIONS.initial.sections.banner.goTo,
       link: true,
       linkHref: routes.ABOUT,
-      img: b1, // FIXME: update img
+      img: b1,
       imgAlt: "banner-1",
    },
    {
@@ -26,7 +26,7 @@ export const bannerScreen: BannerScreen[] = [
       info: TRANSLATIONS.initial.sections.banner.goTo,
       link: true,
       linkHref: routes.PROFILE,
-      img: b2, // FIXME: update img
+      img: b2,
       imgAlt: "banner-2",
    },
    {
@@ -37,7 +37,7 @@ export const bannerScreen: BannerScreen[] = [
       info: TRANSLATIONS.initial.sections.banner.goTo,
       link: true,
       linkHref: routes.CATALOG,
-      img: b3, // FIXME: update img
+      img: b3,
       imgAlt: "banner-3",
    },
    {
@@ -48,7 +48,7 @@ export const bannerScreen: BannerScreen[] = [
       info: TRANSLATIONS.initial.sections.banner.street,
       link: false,
       linkHref: "",
-      img: b4, // FIXME: update img
+      img: b4,
       imgAlt: "banner-4",
    },
 ]

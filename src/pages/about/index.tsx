@@ -27,22 +27,18 @@ function AboutPage() {
 const sections: SectionsDisplay = [
    {
       id: 1,
-      title: "Hero",
       Section: HeroSection,
    },
    {
       id: 2,
-      title: "Benefits",
       Section: BenefitsSection,
    },
    {
       id: 3,
-      title: "Features",
       Section: FeaturesSection,
    },
    {
       id: 4,
-      title: "Socials",
       Section: SocialSection,
    },
 ]
