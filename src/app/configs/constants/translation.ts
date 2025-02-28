@@ -33,7 +33,11 @@ export const TRANSLATIONS = {
          },
          books: {
             title: "initial.sections.books.title",
-         }
+         },
       },
+   },
+   footer: {
+      name: "footer.name",
+      text: "footer.text",
    },
 } as const

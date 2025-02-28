@@ -35,5 +35,9 @@
             "title": "Popular Books"
          }
       }
+   },
+   "footer": {
+      "name": "Nazar Koval",
+      "text": "Created by"
    }
 }

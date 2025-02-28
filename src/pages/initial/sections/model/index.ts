@@ -9,7 +9,7 @@ export const sections: SectionsDisplay = [
    },
    {
       id: 2,
-      title: TRANSLATIONS.initial.sections.categories.title,   
+      title: TRANSLATIONS.initial.sections.categories.title,
       Section: Categories,
    },
    {
