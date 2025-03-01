@@ -139,7 +139,7 @@
       },
       "ribbon": {
          "popular": "Популярне",
-         "notAvailable": "Не доступно"
+         "notAvailable": "Недоступно"
       }
    },
    "actions": {
@@ -167,9 +167,37 @@
       "text2": "Заощаджено"
    },
    "anchors": {
-      "rented": "Оренда",
-      "reserved": "Резерв",
-      "favorites": "Улюблені",
-      "history": "Історія"
+      "rented": {
+         "title": "Оренда",
+         "fullTitle": "Орендовані книги",
+         "description": "Книги на руках"
+      },
+      "reserved": {
+         "title": "Резерв",
+         "fullTitle": "Зарезервовані книги",
+         "description": "Книги в очікуванні"
+      },
+      "favorites": {
+         "title": "Улюблені",
+         "fullTitle": "Улюблені книги",
+         "description": "Книги, які ви додали в Улюблені"
+      },
+      "history": {
+         "title": "Історія",
+         "fullTitle": "Недавно орендовані книги",
+         "description": "Книги з минулих замовлень"
+      }
+   },
+   "timezone": {
+      "day": "день",
+      "days": "дні",
+      "dayss": "днів",
+      "willBe": "Буде доставлено через",
+      "remained": "Залишилось:",
+      "forRent": "В оренду до",
+      "couldBeRent": "Зробіть замовлення протягом двох днів, щоб зберегти своє місце в черзі.",
+      "waitingTime": "Час очікування: ~",
+      "yourTurn": "Ваша черга!",
+      "yourQueue": "Ваш номер в черзі:"
    }
 }

@@ -7,7 +7,7 @@ type Props = {
 }
 
 export const Sidebar = (props: Props) => {
-   const {t} = useTranslation()
+   const { t } = useTranslation()
    return (
       <Layout.Sider width={80} className="md:block hidden">
          <Anchor

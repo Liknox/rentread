@@ -14,30 +14,30 @@ export const PRICES = {
 /** profile topics/anchors */
 export const TOPIC_OPENED = {
    id: "opened",
-   title: TRANSLATIONS.anchors.rented,
-   fullTitle: "Rented books",
-   description: "Books on hands",
+   title: TRANSLATIONS.anchors.rented.title,
+   fullTitle: TRANSLATIONS.anchors.rented.fullTitle,
+   description: TRANSLATIONS.anchors.rented.description,
 }
 
 export const TOPIC_RESERVED = {
    id: "reserved",
-   title: TRANSLATIONS.anchors.reserved,
-   fullTitle: "Reserved Books",
-   description: "Added to a rent queue",
+   title: TRANSLATIONS.anchors.reserved.title,
+   fullTitle: TRANSLATIONS.anchors.reserved.fullTitle,
+   description: TRANSLATIONS.anchors.reserved.description,
 }
 
 export const TOPIC_HISTORY = {
    id: "history",
-   title: TRANSLATIONS.anchors.history,
-   fullTitle: "Rent history",
-   description: "Recent orders books",
+   title: TRANSLATIONS.anchors.history.title,
+   fullTitle: TRANSLATIONS.anchors.history.fullTitle,
+   description: TRANSLATIONS.anchors.history.description,
 }
 
 export const TOPIC_FAV = {
    id: "fav",
-   title: TRANSLATIONS.anchors.favorites,
-   fullTitle: "Books in Favorites",
-   description: "Favorite books",
+   title: TRANSLATIONS.anchors.favorites.title,
+   fullTitle: TRANSLATIONS.anchors.favorites.fullTitle,
+   description: TRANSLATIONS.anchors.favorites.description,
 }
 
 export const topics = [TOPIC_OPENED, TOPIC_RESERVED, TOPIC_FAV, TOPIC_HISTORY]

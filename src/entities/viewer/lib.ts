@@ -1,6 +1,8 @@
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import type { AbstractBook, Book, Order, Reservation, User } from "@shared/api"
 import { fakeApi } from "@shared/api"
 import dayjs from "dayjs"
+import { useTranslation } from "react-i18next"
 
 /* Tsss... Don't show this to anybody! */
 export const getUserNormalized = (user: User) => {
@@ -38,16 +40,17 @@ export const getUserStat = (user: User) => {
    }
 }
 
-export const getOrderInfo = (order: Order) => {
+export const useOrderInfo = (order: Order) => {
    const { status, deliveredAt, endAt } = order
+   const { t } = useTranslation()
 
    if (status === "WAITING_TRANSFER") {
       const diff = dayjs(deliveredAt).diff(dayjs(), "days")
-      return `Will be delivered in ${diff} days`
+      return `${t(TRANSLATIONS.timezone.willBe)} ${diff} ${t(diff > 1 ? (diff >= 2 && diff < 5 ? TRANSLATIONS.timezone.days : TRANSLATIONS.timezone.dayss) : TRANSLATIONS.timezone.day)}`
    }
    if (status === "RENTED") {
       const diff = dayjs(endAt).diff(dayjs(), "days")
-      return `Remained: ${diff} ${diff === 1 ? "day" : "days"}`
+      return `${t(TRANSLATIONS.timezone.remained)} ${diff} ${t(diff > 1 ? (diff >= 2 && diff < 5 ? TRANSLATIONS.timezone.days : TRANSLATIONS.timezone.dayss) : TRANSLATIONS.timezone.day)}`
    }
 
    return ""

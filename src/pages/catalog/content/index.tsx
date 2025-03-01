@@ -168,7 +168,12 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
                   ].filter(Boolean)}>
                   <br />
                   <Typography.Text type="secondary">
-                     {rent.status === "RENTABLE" && <span>For rent up to {Math.min(30, rent.duration)} days</span>}
+                     {rent.status === "RENTABLE" && (
+                        <span>
+                           {t(TRANSLATIONS.timezone.forRent)} {Math.min(30, rent.duration)}{" "}
+                           {t(TRANSLATIONS.timezone.dayss)}
+                        </span>
+                     )}
                   </Typography.Text>
                </BookCard>
             )}

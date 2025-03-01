@@ -167,9 +167,37 @@
       "text2": "Saved"
    },
    "anchors": {
-      "rented": "Rented",
-      "reserved": "Reserved",
-      "favorites": "Favorites",
-      "history": "History"
+      "rented": {
+         "title": "Rented",
+         "fullTitle": "Rented books",
+         "description": "Books on hands"
+      },
+      "reserved": {
+         "title": "Reserved",
+         "fullTitle": "Reserved books",
+         "description": "Added to a rent queue"
+      },
+      "favorites": {
+         "title": "Favorites",
+         "fullTitle": "Favorite books",
+         "description": "Books in Favorites"
+      },
+      "history": {
+         "title": "History",
+         "fullTitle": "Recently rented books",
+         "description": "Recent orders books"
+      }
+   },
+   "timezone": {
+      "day": "day",
+      "days": "days",
+      "dayss": "days",
+      "willBe": "Will be delivered in",
+      "remained": "Remained:",
+      "forRent": "For rent up to",
+      "couldBeRent": "Place your order within two days to keep your spot in the queue.",
+      "waitingTime": "Waiting time: ~",
+      "yourTurn": "It's your turn!",
+      "yourQueue": "Your number in queue:"
    }
 }

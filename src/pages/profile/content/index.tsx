@@ -6,8 +6,11 @@ import { viewerLib, viewerModel } from "entities/viewer"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Section } from "./section"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 export const Content = () => {
+   const { t } = useTranslation()
    const viewerNrml = viewerModel.useViewerNormalized()
    const favBooks = viewerModel.useFavBooks()
 
@@ -18,20 +21,20 @@ export const Content = () => {
       <Layout className="mx-0 md:mx-5 mt-5 md:mt-0 !w-full">
          <Section
             id={TOPIC_OPENED.id}
-            title={TOPIC_OPENED.fullTitle}
-            description={TOPIC_OPENED.description}
+            title={t(TOPIC_OPENED.fullTitle)}
+            description={t(TOPIC_OPENED.description)}
             books={viewerNrml.openedBooks.slice().reverse()}
             Icon={ShoppingOutlined}
             active={TOPIC_OPENED.id === currentAnchor}
             renderBookDetails={(_, idx) => {
                const order = viewerNrml.opened[idx]
-               return viewerLib.getOrderInfo(order)
+               return viewerLib.useOrderInfo(order)
             }}
          />
          <Section
             id={TOPIC_RESERVED.id}
-            title={TOPIC_RESERVED.fullTitle}
-            description={TOPIC_RESERVED.description}
+            title={t(TOPIC_RESERVED.fullTitle)}
+            description={t(TOPIC_RESERVED.description)}
             books={viewerNrml.reservedBooks}
             Icon={ClockCircleOutlined}
             active={TOPIC_RESERVED.id === currentAnchor}
@@ -39,22 +42,22 @@ export const Content = () => {
                const reserve = viewerLib.getReservationInfo(viewerNrml.reserved[idx])
 
                if (reserve.couldBeRent) {
-                  return { color: "orange", text: "It's your turn!" }
+                  return { color: "orange", text: t(TRANSLATIONS.timezone.yourTurn) }
                }
                return {
                   color: "lightslategray",
-                  text: `Your number in queue: ${reserve.queryIdx + 1}`,
+                  text: `${t(TRANSLATIONS.timezone.yourQueue)} ${reserve.queryIdx + 1}`,
                }
             }}
             renderBookDetails={(_, idx) => {
                const reserve = viewerLib.getReservationInfo(viewerNrml.reserved[idx])
-
                if (reserve.couldBeRent) {
-                  return <p>Place your order within two days to keep your spot in the queue.</p>
+                  return <p>{t(TRANSLATIONS.timezone.couldBeRent)}</p>
                }
                return (
                   <span>
-                     Waiting time: ~ <b>{`${reserve.awaitTime} ${reserve.awaitTime > 1 ? "days" : "day"}`}</b>
+                     {t(TRANSLATIONS.timezone.waitingTime)}{" "}
+                     <b>{`${reserve.awaitTime} ${t(reserve.awaitTime > 1 ? (reserve.awaitTime >= 2 && reserve.awaitTime < 5 ? TRANSLATIONS.timezone.days : TRANSLATIONS.timezone.dayss) : TRANSLATIONS.timezone.day)}`}</b>
                   </span>
                )
             }}
@@ -65,8 +68,8 @@ export const Content = () => {
          />
          <Section
             id={TOPIC_FAV.id}
-            title={TOPIC_FAV.fullTitle}
-            description={TOPIC_FAV.description}
+            title={t(TOPIC_FAV.fullTitle)}
+            description={t(TOPIC_FAV.description)}
             books={favBooks}
             Icon={HeartOutlined}
             active={TOPIC_FAV.id === currentAnchor}
@@ -74,8 +77,8 @@ export const Content = () => {
          />
          <Section
             id={TOPIC_HISTORY.id}
-            title={TOPIC_HISTORY.fullTitle}
-            description={TOPIC_HISTORY.description}
+            title={t(TOPIC_HISTORY.fullTitle)}
+            description={t(TOPIC_HISTORY.description)}
             books={viewerNrml.closedBooks}
             Icon={CheckCircleOutlined}
             active={TOPIC_HISTORY.id === currentAnchor}

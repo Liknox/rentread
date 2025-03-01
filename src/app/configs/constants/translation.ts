@@ -164,9 +164,37 @@ export const TRANSLATIONS = {
       text2: "tiles.text2",
    },
    anchors: {
-      rented: "anchors.rented",
-      reserved: "anchors.reserved",
-      favorites: "anchors.favorites",
-      history: "anchors.history",
+      rented: {
+         title: "anchors.rented.title",
+         fullTitle: "anchors.rented.fullTitle",
+         description: "anchors.rented.description",
+      },
+      reserved: {
+         title: "anchors.reserved.title",
+         fullTitle: "anchors.reserved.fullTitle",
+         description: "anchors.reserved.description",
+      },
+      favorites: {
+         title: "anchors.favorites.title",
+         fullTitle: "anchors.favorites.fullTitle",
+         description: "anchors.favorites.description",
+      },
+      history: {
+         title: "anchors.history.title",
+         fullTitle: "anchors.history.fullTitle",
+         description: "anchors.history.description",
+      },
+   },
+   timezone: {
+      day: "timezone.day",
+      days: "timezone.days",
+      dayss: "timezone.dayss",
+      willBe: "timezone.willBe",
+      remained: "timezone.remained",
+      forRent: "timezone.forRent",
+      couldBeRent: "timezone.couldBeRent",
+      waitingTime: "timezone.waitingTime",
+      yourTurn: "timezone.yourTurn",
+      yourQueue: "timezone.yourQueue",
    },
 } as const
