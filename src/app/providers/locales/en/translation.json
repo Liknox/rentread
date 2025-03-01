@@ -96,13 +96,19 @@
          }
       }
    },
-   "headers": {
+   "header": {
       "options": {
          "catalog": "Catalog",
          "orders": "Orders",
          "favorites": "Favorites",
          "cart": "Cart",
          "profile": "Profile"
+      },
+      "placeholders": {
+         "searchPlaceholder": "Search books",
+         "notAvailable": "So far, this function is not available",
+         "minLength": "Clarify the request (minimum 3 characters)",
+         "notFound": "Nothing found - try an advanced search."
       }
    }
 }

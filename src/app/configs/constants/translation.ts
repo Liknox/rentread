@@ -93,13 +93,19 @@ export const TRANSLATIONS = {
          },
       },
    },
-   headers: {
+   header: {
       options: {
-         cart: "headers.options.cart",
-         catalog: "headers.options.catalog",
-         profile: "headers.options.profile",
-         orders: "headers.options.orders",
-         favorites: "headers.options.favorites",
+         cart: "header.options.cart",
+         catalog: "header.options.catalog",
+         profile: "header.options.profile",
+         orders: "header.options.orders",
+         favorites: "header.options.favorites",
+      },
+      placeholders: {
+         searchPlaceholder: "header.placeholders.searchPlaceholder",
+         notAvailable: "header.placeholders.notAvailable",
+         minLength: "header.placeholders.minLength",
+         notFound: "header.placeholders.notFound",
       },
    },
 } as const

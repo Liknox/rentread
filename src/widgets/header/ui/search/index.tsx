@@ -1,8 +1,10 @@
 import { routes } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useRouter } from "@tanstack/react-router"
 import { AutoComplete, Input } from "antd"
 import { BookRow } from "entities/book"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
 import { useSearchParam } from "widgets/header/params"
@@ -17,15 +19,16 @@ const mapToOptions = (books: AbstractBook[]) =>
    }))
 
 const TOOLTIP = {
-   MIN_LENGTH: "Clarify the request (minimum 3 characters)",
-   NOT_FOUND: "Nothing found - try an advanced search.",
+   MIN_LENGTH: TRANSLATIONS.header.placeholders.minLength,
+   NOT_FOUND: TRANSLATIONS.header.placeholders.notFound,
 }
 
 const useSearch = () => {
    const [query, setQuery] = useState<AbstractBook[]>(initialQuery)
    // FIXME
+   const { t } = useTranslation()
    const [indexReset, updateReset] = useState(0)
-   const [tooltip, setTooltip] = useState(TOOLTIP.MIN_LENGTH)
+   const [tooltip, setTooltip] = useState(t(TOOLTIP.MIN_LENGTH))
    const params = useSearchParam()
    const router = useRouter()
 
@@ -35,7 +38,7 @@ const useSearch = () => {
    const handleAutocomplete = (search: string) => {
       // FIXME: set max line (value is too big)
       const isNotEnoughLength = search.length < 3
-      setTooltip(isNotEnoughLength ? TOOLTIP.MIN_LENGTH : TOOLTIP.NOT_FOUND)
+      setTooltip(t(isNotEnoughLength ? TOOLTIP.MIN_LENGTH : TOOLTIP.NOT_FOUND))
       // FIXME: hardcoded
       if (isNotEnoughLength) return setQuery(initialQuery)
 
@@ -72,6 +75,7 @@ const useSearch = () => {
 }
 
 const HeaderSearch = () => {
+   const { t } = useTranslation()
    const search = useSearch()
 
    return (
@@ -86,7 +90,13 @@ const HeaderSearch = () => {
          onSelect={search.handleSelect}
          onSearch={search.handleAutocomplete}
          notFoundContent={search.tooltip}>
-         <Input.Search size="large" placeholder="Search books" enterButton onSearch={search.handleSubmit} allowClear />
+         <Input.Search
+            size="large"
+            placeholder={t(TRANSLATIONS.header.placeholders.searchPlaceholder)}
+            enterButton
+            onSearch={search.handleSubmit}
+            allowClear
+         />
       </AutoComplete>
    )
 }

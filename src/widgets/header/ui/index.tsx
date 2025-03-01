@@ -23,35 +23,35 @@ import { useTranslation } from "react-i18next"
 const actions = [
    {
       id: "catalog" as const,
-      label: TRANSLATIONS.headers.options.catalog,
+      label: TRANSLATIONS.header.options.catalog,
       Icon: MenuOutlined,
       url: "/catalog",
       disabled: false,
    },
    {
       id: "orders" as const,
-      label: TRANSLATIONS.headers.options.orders,
+      label: TRANSLATIONS.header.options.orders,
       Icon: FolderOpenOutlined,
       url: "/profile#opened",
       disabled: false,
    },
    {
       id: "fav" as const,
-      label: TRANSLATIONS.headers.options.favorites,
+      label: TRANSLATIONS.header.options.favorites,
       Icon: HeartOutlined,
       url: "/profile#fav",
       disabled: false,
    },
    {
       id: "cart" as const,
-      label: TRANSLATIONS.headers.options.cart,
+      label: TRANSLATIONS.header.options.cart,
       Icon: ShoppingCartOutlined,
       url: "/order",
       disabled: false,
    },
    {
       id: "profile" as const,
-      label: TRANSLATIONS.headers.options.profile,
+      label: TRANSLATIONS.header.options.profile,
       Icon: UserOutlined,
       url: "/profile",
       disabled: false,
@@ -60,7 +60,7 @@ const actions = [
 
 type ActionId = (typeof actions)[number]["id"]
 
-const NOT_AVAILABLE = "So far, this function is not available"
+const NOT_AVAILABLE = TRANSLATIONS.header.placeholders.notAvailable
 
 const Header = () => {
    const orderTotal = orderModel.cart.useOrderBooks().length
@@ -111,7 +111,7 @@ const Header = () => {
                               "mx-[10px]": i18n.language === "en",
                               "mx-[4px]": i18n.language === "ua",
                            })}
-                           title={disabled ? NOT_AVAILABLE : ""}>
+                           title={disabled ? t(NOT_AVAILABLE) : ""}>
                            {/* for centering badge */}
                            <span className="text-center">
                               <Badge count={count[id]} style={{ backgroundColor: "#108ee9" }}>

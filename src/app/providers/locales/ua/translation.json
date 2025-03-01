@@ -96,13 +96,19 @@
          }
       }
    },
-   "headers": {
+   "header": {
       "options": {
          "catalog": "Каталог",
          "orders": "Замовлення",
          "favorites": "Улюблені",
          "cart": "Корзина",
          "profile": "Кабінет"
+      },
+      "placeholders": {
+         "searchPlaceholder": "Пошук книг",
+         "notAvailable": "Поки що ця функція недоступна",
+         "minLength": "Уточніть запит (мінімум 3 символи)",
+         "notFound": "Нічого не знайдено - спробуйте розширений пошук."
       }
    }
 }
