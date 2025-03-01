@@ -121,6 +121,18 @@ export const TRANSLATIONS = {
       },
       filters: {
          title: "catalog.filters.title",
+         sections: {
+            exists: {
+               title: "catalog.filters.sections.exists.title",
+               option: "catalog.filters.sections.exists.option",
+            },
+            rentPrice: "catalog.filters.sections.rentPrice",
+            rentTerms: "catalog.filters.sections.rentTerms",
+            days: "catalog.filters.sections.days",
+            categories: "catalog.filters.sections.categories",
+            authors: "catalog.filters.sections.authors",
+            publishers: "catalog.filters.sections.publishers",
+         },
       },
    },
 } as const

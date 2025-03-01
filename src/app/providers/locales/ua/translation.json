@@ -123,7 +123,19 @@
          }
       },
       "filters": {
-         "title": "Фільтри"
+         "title": "Фільтри",
+         "sections": {
+            "exists": {
+               "title": "Загальні",
+               "option": "Тільки в наявності"
+            },
+            "rentPrice": "Ціна Оренди",
+            "rentTerms": "Термін Оренди",
+            "days": "дн",
+            "categories": "Категорії",
+            "authors": "Автори",
+            "publishers": "Видавці"
+         }
       }
    }
 }

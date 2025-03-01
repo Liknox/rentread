@@ -123,7 +123,19 @@
          }
       },
       "filters": {
-         "title": "Filters"
+         "title": "Filters",
+         "sections": {
+            "exists": {
+               "title": "General",
+               "option": "Only Available"
+            },
+            "rentPrice": "Rent Price",
+            "rentTerms": "Rent Terms",
+            "days": "d",
+            "categories": "Categories",
+            "authors": "Authors",
+            "publishers": "Publishers"
+         }
       }
    }
 }

@@ -3,13 +3,16 @@ import { fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
 import { Checkbox, Divider, Layout, Slider, Typography } from "antd"
 import * as catalogParams from "../params"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 function Sidebar() {
+   const { t } = useTranslation()
    return (
       <Layout.Sider width={isMobile ? "100%" : 400}>
          <div className="p-5 shadow-insetDark">
             <Typography.Title level={4} className="text-center">
-               Filters
+               {t(TRANSLATIONS.catalog.filters.title)}
             </Typography.Title>
             <ExistsOnlySection />
             <PriceSection />
@@ -23,13 +26,14 @@ function Sidebar() {
 }
 
 const ExistsOnlySection = () => {
+   const { t } = useTranslation()
    const params = catalogParams.useExistsOnly()
 
    return (
       <section className="p-3">
-         <Divider plain>General</Divider>
+         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.exists.title)}</Divider>
          <Checkbox defaultChecked={params.existsOnly} onChange={e => params.setExistsOnly(e.target.checked)}>
-            Only in stock
+            {t(TRANSLATIONS.catalog.filters.sections.exists.option)}
          </Checkbox>
       </section>
    )
@@ -38,17 +42,18 @@ const ExistsOnlySection = () => {
 /* FIXME: replace to datepicker later */
 // FIXME: hardcode by query-params?
 const TimeSection = () => {
+   const { t } = useTranslation()
    const params = catalogParams.useTariff()
 
    const marks = {
-      [TARIFFS.T7]: `${TARIFFS.T7}+ дн`,
-      [TARIFFS.T14]: `${TARIFFS.T14}+ дн`,
-      [TARIFFS.T30]: `${TARIFFS.T30}+ дн`,
+      [TARIFFS.T7]: `${TARIFFS.T7}${t(TRANSLATIONS.catalog.filters.sections.days)}+`,
+      [TARIFFS.T14]: `${TARIFFS.T14}${t(TRANSLATIONS.catalog.filters.sections.days)}+`,
+      [TARIFFS.T30]: `${TARIFFS.T30}${t(TRANSLATIONS.catalog.filters.sections.days)}+`,
    }
 
    return (
       <section className="p-3">
-         <Divider plain>Term of rent</Divider>
+         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.rentTerms)}</Divider>
          <Slider
             marks={marks}
             defaultValue={params.tariff}
@@ -63,11 +68,12 @@ const TimeSection = () => {
 }
 
 const PriceSection = () => {
+   const { t } = useTranslation()
    const params = catalogParams.usePrices()
 
    return (
       <section className="p-3">
-         <Divider plain>Rent Price</Divider>
+         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.rentPrice)}</Divider>
          <Slider
             range
             marks={{
@@ -85,6 +91,7 @@ const PriceSection = () => {
 }
 
 const AuthorSection = () => {
+   const { t } = useTranslation()
    const params = catalogParams.useFilterByAuthor()
    const options = fakeApi.library.authors.getAll().map(a => ({
       label: fakeApi.library.authors.getShortname(a),
@@ -93,7 +100,7 @@ const AuthorSection = () => {
 
    return (
       <section className="p-3">
-         <Divider plain>Authors</Divider>
+         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.authors)}</Divider>
          <Checkbox.Group
             options={options}
             value={params.authors}
@@ -105,6 +112,7 @@ const AuthorSection = () => {
 }
 
 const PublisherSection = () => {
+   const { t } = useTranslation()
    const params = catalogParams.useFilterByPublisher()
    const options = fakeApi.library.publishers.getAll().map(a => ({
       label: `${a.name} (${a.city})`,
@@ -113,7 +121,7 @@ const PublisherSection = () => {
 
    return (
       <section className="p-3">
-         <Divider plain>Publishers</Divider>
+         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.publishers)}</Divider>
          <Checkbox.Group
             options={options}
             value={params.publishers || []}
@@ -125,6 +133,7 @@ const PublisherSection = () => {
 }
 
 const CategorySection = () => {
+   const { t } = useTranslation()
    const params = catalogParams.useFilterByCategory()
    // Some options could be disabled
    const options = fakeApi.library.categories.getAll().map(a => ({
@@ -134,7 +143,7 @@ const CategorySection = () => {
 
    return (
       <section className="p-3">
-         <Divider plain>Categories</Divider>
+         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.categories)}</Divider>
          <Checkbox.Group
             options={options}
             value={params.categories || []}
