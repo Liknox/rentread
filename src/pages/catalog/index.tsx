@@ -16,7 +16,7 @@ function CatalogPage() {
          </Typography.Title>
          <Layout className="md:mt-16 mt-8">
             <CatalogContent />
-            {isMobile ? null : <Sidebar />}
+            {isMobile || <Sidebar />}
          </Layout>
       </Layout.Content>
    )
