@@ -15,6 +15,8 @@ import { useState } from "react"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 import Sidebar from "../sidebar"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 const { Option } = Select
 
@@ -196,15 +198,23 @@ type Props = {
 }
 
 const SortFilterOptions = ({ setOpen }: Props) => {
+   const { t } = useTranslation()
    const obParam = catalogParams.useSorting()
 
    return (
       <Row className={cn("grow", { "mr-5": !isMobile, "justify-between": isMobile })}>
-         {isMobile ? <Button onClick={() => setOpen(true)}>Filters</Button> : <b className="mr-5 text-xl">Sort by:</b>}
-         <Select placeholder="Sort by" style={{ width: 200 }} onChange={value => obParam.setSorting(value)}>
+         {isMobile ? (
+            <Button onClick={() => setOpen(true)}>{t(TRANSLATIONS.catalog.filters.title)}</Button>
+         ) : (
+            <b className="mr-5 text-xl">{t(TRANSLATIONS.catalog.sortBy.title)}:</b>
+         )}
+         <Select
+            placeholder={t(TRANSLATIONS.catalog.sortBy.title)}
+            style={{ width: 200 }}
+            onChange={value => obParam.setSorting(value)}>
             {Object.entries(SORTINGS).map(([sId, sName]) => (
                <Option key={sId} value={Number(sId)}>
-                  {sName}
+                  {t(sName)}
                </Option>
             ))}
          </Select>

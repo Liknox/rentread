@@ -110,5 +110,17 @@ export const TRANSLATIONS = {
    },
    catalog: {
       title: "catalog.title",
+      sortBy: {
+         title: "catalog.sortBy.title",
+         options: {
+            popularity: "catalog.sortBy.options.popularity",
+            price: "catalog.sortBy.options.price",
+            time: "catalog.sortBy.options.time",
+            novelty: "catalog.sortBy.options.novelty",
+         },
+      },
+      filters: {
+         title: "catalog.filters.title",
+      },
    },
 } as const

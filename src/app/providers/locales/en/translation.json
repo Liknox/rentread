@@ -112,6 +112,18 @@
       }
    },
    "catalog": {
-      "title": "Books Catalog"
+      "title": "Books Catalog",
+      "sortBy": {
+         "title": "Sort by",
+         "options": {
+            "popularity": "by popularity",
+            "price": "by price",
+            "time": "by time",
+            "novelty": "by novelty"
+         }
+      },
+      "filters": {
+         "title": "Filters"
+      }
    }
 }

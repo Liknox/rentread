@@ -1,4 +1,5 @@
 import { PRICES, TARIFFS } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useRouter, useSearch } from "@tanstack/react-router"
 import { useRef } from "react"
 
@@ -178,10 +179,10 @@ export const usePrices = () => {
 
 const DEFAULT_SORTING = 4
 export const SORTINGS = {
-   1: "by popularity",
-   2: "by price",
-   3: "by time",
-   4: "by novelty",
+   1: TRANSLATIONS.catalog.sortBy.options.popularity,
+   2: TRANSLATIONS.catalog.sortBy.options.price,
+   3: TRANSLATIONS.catalog.sortBy.options.time,
+   4: TRANSLATIONS.catalog.sortBy.options.novelty,
 }
 
 export const useSorting = () => {
