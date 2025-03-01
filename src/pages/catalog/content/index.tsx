@@ -30,12 +30,12 @@ const viewTypes = [
 // FIXME: extract to constants
 const ribbonPropsTypes = {
    RESERVABLE: {
-      text: "Not Available",
+      text: TRANSLATIONS.catalog.ribbon.notAvailable,
       color: "gray",
       isVisible: true,
    },
    OUT_STOCK: {
-      text: "Popular",
+      text: TRANSLATIONS.catalog.ribbon.popular,
       color: "magenta",
       isVisible: true,
    },
@@ -141,6 +141,7 @@ function CatalogContent() {
 }
 
 const BookItem = ({ data }: { data: AbstractBook }) => {
+   const { t } = useTranslation()
    const vtParam = catalogParams.useViewType()
    const rent = orderLib.getRentInfo(data.id)
    // const viewerNrml = viewerModel.useViewerNormalized();
@@ -153,7 +154,7 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
    return (
       <Col span={span} className="mt-4 md:mt-0 !p-0 md:!p-2">
          <Badge.Ribbon
-            text={ribbon.text}
+            text={t(ribbon.text)}
             color={ribbon.color}
             style={ribbon.isVisible ? undefined : { display: "none" }}>
             {vtParam.isGrid && (

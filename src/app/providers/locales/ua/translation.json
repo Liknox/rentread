@@ -136,6 +136,30 @@
             "authors": "Автори",
             "publishers": "Видавці"
          }
+      },
+      "ribbon": {
+         "popular": "Популярне",
+         "notAvailable": "Не доступно"
       }
+   },
+   "actions": {
+      "favorites": {
+         "addText": "В Улюблені",
+         "removeText": "Вилучити Улюблену",
+         "removeText2": "Вилучити Улюблену"
+      },
+      "cart": {
+         "addText": "В Корзину",
+         "removeText": "Вилучити з Корзини"
+      },
+      "reservation": {
+         "addText": "Резерв",
+         "removeText": "Вилучити резерв"
+      },
+      "tarrifButton": "д"
+   },
+   "tooltip": {
+      "confirmationAwaiting": "Очікує підтвердження",
+      "emailVerified": "Почту підтверджено"
    }
 }

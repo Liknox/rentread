@@ -134,5 +134,29 @@ export const TRANSLATIONS = {
             publishers: "catalog.filters.sections.publishers",
          },
       },
+      ribbon: {
+         popular: "catalog.ribbon.popular",
+         notAvailable: "catalog.ribbon.notAvailable",
+      },
+   },
+   actions: {
+      favorites: {
+         addText: "actions.favorites.addText",
+         removeText: "actions.favorites.removeText",
+         removeText2: "actions.favorites.removeText2",
+      },
+      cart: {
+         addText: "actions.cart.addText",
+         removeText: "actions.cart.removeText",
+      },
+      reservation: {
+         addText: "actions.reservation.addText",
+         removeText: "actions.reservation.removeText",
+      },
+      tarrifButton: "actions.tarrifButton",
+   },
+   tooltip: {
+      confirmationAwaiting: "tooltip.confirmationAwaiting",
+      emailVerified: "tooltip.emailVerified",
    },
 } as const

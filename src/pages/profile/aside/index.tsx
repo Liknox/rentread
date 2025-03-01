@@ -5,6 +5,8 @@ import { Avatar, Divider, Layout, Typography } from "antd"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
 import * as lib from "../lib"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 export const Aside = () => {
    const viewer = viewerModel.useViewer()
@@ -40,9 +42,10 @@ export const Aside = () => {
 }
 
 const EmailVerified = ({ emailVerified }: { emailVerified: boolean }) => {
+   const { t } = useTranslation()
    if (emailVerified) {
-      return <CheckCircleOutlined title="Email verified" style={{ color: "green" }} />
+      return <CheckCircleOutlined title={t(TRANSLATIONS.tooltip.emailVerified)} style={{ color: "green" }} />
    }
 
-   return <ClockCircleOutlined title="Confirmation awaiting" style={{ color: "red" }} />
+   return <ClockCircleOutlined title={t(TRANSLATIONS.tooltip.confirmationAwaiting)} style={{ color: "red" }} />
 }

@@ -1,5 +1,7 @@
 import { Radio } from "antd"
 import { DEFAULT, TARIFFS } from "../../lib"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { useTranslation } from "react-i18next"
 
 type Props = {
    onChange?: (value: number) => void
@@ -10,12 +12,13 @@ type Props = {
 }
 
 const TariffRadio = (props: Props) => {
+   const { t } = useTranslation()
    const { onChange, value = DEFAULT, disabled, __byDuration } = props
 
    // !!! FIXME: Very bad practice !!!
-   const getTValue = (t: number) => {
-      if (!__byDuration) return t
-      return t <= __byDuration ? value : -1
+   const getTValue = (tarrif: number) => {
+      if (!__byDuration) return tarrif
+      return tarrif <= __byDuration ? value : -1
    }
 
    return (
@@ -27,9 +30,13 @@ const TariffRadio = (props: Props) => {
             onChange={e => onChange?.(e.target.value)}
             className="md:mt-3 flex whitespace-nowrap"
             disabled={disabled || Boolean(__byDuration)}>
-            {TARIFFS.map(t => (
-               <Radio.Button key={t} value={disabled ? getTValue(t) : t} disabled={disabled || t > __byDuration!}>
-                  {t}d.
+            {TARIFFS.map(tarrif => (
+               <Radio.Button
+                  key={tarrif}
+                  value={disabled ? getTValue(tarrif) : tarrif}
+                  disabled={disabled || tarrif > __byDuration!}>
+                  {tarrif}
+                  {t(TRANSLATIONS.actions.tarrifButton)}.
                </Radio.Button>
             ))}
          </Radio.Group>

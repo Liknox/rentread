@@ -1,9 +1,11 @@
 import { ShoppingFilled, ShoppingOutlined } from "@ant-design/icons"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { Button, Modal } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
 import type { CSSProperties } from "react"
+import { useTranslation } from "react-i18next"
 
 type Props = {
    bookId: number
@@ -31,13 +33,14 @@ const useToggleBook = ({ bookId, disabled }: Props) => {
 }
 
 export const AddBook = (props: Props) => {
+   const { t } = useTranslation()
    const { handleToggle, isBookInCart } = useToggleBook(props)
    const { disabled } = props
 
    const Icon = isBookInCart ? ShoppingFilled : ShoppingOutlined
    return (
       <Button className="rounded-sm" type="primary" icon={<Icon />} onClick={handleToggle} block disabled={disabled}>
-         {isBookInCart ? "Remove from cart" : "Add to cart"}
+         {t(isBookInCart ? TRANSLATIONS.actions.cart.removeText : TRANSLATIONS.actions.cart.addText)}
       </Button>
    )
 }

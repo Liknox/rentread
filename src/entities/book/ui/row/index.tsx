@@ -97,7 +97,7 @@ const BookRow = (props: Props) => {
                span={spanActions}
                className={cn("flex md:block min-w-fit md:min-w-0   col-span-1 row-span-1 mt-4", {
                   // dirty method, don't write like this
-                  "flex-col": window.innerWidth < 350,
+                  "flex-col": window.innerWidth < 370,
                })}>
                {actions}
             </Col>

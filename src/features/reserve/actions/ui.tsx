@@ -1,8 +1,10 @@
 import { ClockCircleFilled, ClockCircleOutlined } from "@ant-design/icons"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
+import { useTranslation } from "react-i18next"
 
 type Props = {
    bookId: number
@@ -30,12 +32,13 @@ const useToggleBook = (bookId: number) => {
 }
 
 export const ReserveBook = ({ bookId }: Props) => {
+   const { t } = useTranslation()
    const { handleToggle, isBookReserved } = useToggleBook(bookId)
 
    const Icon = isBookReserved ? ClockCircleFilled : ClockCircleOutlined
    return (
       <Button block icon={<Icon />} onClick={handleToggle} type="dashed">
-         {isBookReserved ? "Cancel reservation" : "Reserve"}
+         {t(isBookReserved ? TRANSLATIONS.actions.reservation.removeText : TRANSLATIONS.actions.reservation.addText)}
       </Button>
    )
 }

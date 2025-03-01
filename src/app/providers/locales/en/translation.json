@@ -136,6 +136,30 @@
             "authors": "Authors",
             "publishers": "Publishers"
          }
+      },
+      "ribbon": {
+         "popular": "Popular",
+         "notAvailable": "Not Available"
       }
+   },
+   "actions": {
+      "favorites": {
+         "addText": "Add to Favorites",
+         "removeText": "Remove Favorite",
+         "removeText2": "Remove from Favorites"
+      },
+      "cart": {
+         "addText": "Add to cart",
+         "removeText": "Remove from cart"
+      },
+      "reservation": {
+         "addText": "Reserve",
+         "removeText": "Cancel reservation"
+      },
+      "tarrifButton": "d"
+   },
+   "tooltip": {
+      "confirmationAwaiting": "Confirmation awaiting",
+      "emailVerified": "Email verified"
    }
 }

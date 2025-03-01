@@ -1,9 +1,11 @@
 import { HeartFilled, HeartOutlined } from "@ant-design/icons"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { isMobile } from "@shared/lib/browser"
 import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { viewerModel } from "entities/viewer"
+import { useTranslation } from "react-i18next"
 
 type Props = {
    bookId: number
@@ -30,15 +32,19 @@ const useToggleBook = (bookId: number) => {
 }
 
 export const AddBook = ({ bookId }: Props) => {
+   const { t } = useTranslation()
    const { handleToggle, isBookFav } = useToggleBook(bookId)
 
    const Icon = isBookFav ? HeartFilled : HeartOutlined
-
-   const text = isBookFav ? (isMobile ? "Remove Favorite" : "Remove from Favorites") : "Add to Favorites"
+   const text = isBookFav
+      ? isMobile
+         ? TRANSLATIONS.actions.favorites.removeText
+         : TRANSLATIONS.actions.favorites.removeText2
+      : TRANSLATIONS.actions.favorites.addText
 
    return (
       <Button className="rounded-sm mr-3 md:mr-0" block icon={<Icon />} onClick={handleToggle}>
-         {text}
+         {t(text)}
       </Button>
    )
 }
