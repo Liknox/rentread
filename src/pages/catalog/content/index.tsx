@@ -198,36 +198,16 @@ type Props = {
 const SortFilterOptions = ({ setOpen }: Props) => {
    const obParam = catalogParams.useSorting()
 
-   if (isMobile) {
-      return (
-         <Row className="grow justify-between">
-            <Button onClick={() => setOpen(true)}>Filters</Button>
-            <Select placeholder="Sort by" style={{ width: 200 }} onChange={value => obParam.setSorting(value)}>
-               {Object.entries(SORTINGS).map(([sId, sName]) => (
-                  <Option key={sId} value={Number(sId)}>
-                     {sName}
-                  </Option>
-               ))}
-            </Select>
-         </Row>
-      )
-   }
-
    return (
-      <Row className="grow mr-5">
-         <b className="mr-5 text-xl">Sort by:</b>
-         <ul className="flex grow justify-start gap-3 items-center">
+      <Row className={cn("grow", { "mr-5": !isMobile, "justify-between": isMobile })}>
+         {isMobile ? <Button onClick={() => setOpen(true)}>Filters</Button> : <b className="mr-5 text-xl">Sort by:</b>}
+         <Select placeholder="Sort by" style={{ width: 200 }} onChange={value => obParam.setSorting(value)}>
             {Object.entries(SORTINGS).map(([sId, sName]) => (
-               <li
-                  key={sId}
-                  className={cn("select-none transition-all duration-250 cursor-pointer", {
-                     "text-primary": obParam.sorting === Number(sId),
-                  })}
-                  onClick={() => obParam.setSorting(Number(sId))}>
+               <Option key={sId} value={Number(sId)}>
                   {sName}
-               </li>
+               </Option>
             ))}
-         </ul>
+         </Select>
       </Row>
    )
 }
