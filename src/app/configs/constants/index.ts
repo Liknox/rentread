@@ -1,3 +1,5 @@
+import { TRANSLATIONS } from "./translation"
+
 export const TARIFFS = {
    T7: 7,
    T14: 14,
@@ -12,28 +14,28 @@ export const PRICES = {
 /** profile topics/anchors */
 export const TOPIC_OPENED = {
    id: "opened",
-   title: "Rented",
+   title: TRANSLATIONS.anchors.rented,
    fullTitle: "Rented books",
    description: "Books on hands",
 }
 
 export const TOPIC_RESERVED = {
    id: "reserved",
-   title: "Reserved",
+   title: TRANSLATIONS.anchors.reserved,
    fullTitle: "Reserved Books",
    description: "Added to a rent queue",
 }
 
 export const TOPIC_HISTORY = {
    id: "history",
-   title: "History",
+   title: TRANSLATIONS.anchors.history,
    fullTitle: "Rent history",
    description: "Recent orders books",
 }
 
 export const TOPIC_FAV = {
    id: "fav",
-   title: "Favorites",
+   title: TRANSLATIONS.anchors.favorites,
    fullTitle: "Books in Favorites",
    description: "Favorite books",
 }

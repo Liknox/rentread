@@ -161,5 +161,15 @@
    "tooltip": {
       "confirmationAwaiting": "Очікує підтвердження",
       "emailVerified": "Почту підтверджено"
+   },
+   "tiles": {
+      "text1": "Користувач сервісу з",
+      "text2": "Заощаджено"
+   },
+   "anchors": {
+      "rented": "Оренда",
+      "reserved": "Резерв",
+      "favorites": "Улюблені",
+      "history": "Історія"
    }
 }

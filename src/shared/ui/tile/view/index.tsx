@@ -1,9 +1,10 @@
 import { Col } from "antd"
 import type { ReactNode } from "react"
+import { useTranslation } from "react-i18next"
 
 export type TileItem = {
    id: string
-   label: ReactNode
+   label: string
    value: ReactNode
 }
 export type TileProps = TileItem & {
@@ -12,6 +13,7 @@ export type TileProps = TileItem & {
 }
 
 const TileView = (props: TileProps) => {
+   const { t } = useTranslation()
    const { label, value, span } = props
 
    return (
@@ -19,7 +21,7 @@ const TileView = (props: TileProps) => {
          span={span}
          className="flex md:min-w-0 min-w-full items-center justify-center h-[144px] p-[18px] text-[18px] text-darkGray bg-[var(--color-accent)] border border-[var(--color-accent)] rounded-[25px] transition duration-200 hover:shadow-inset">
          <span>
-            {label}
+            {t(label)}
             <br />
             <b>{value}</b>
          </span>

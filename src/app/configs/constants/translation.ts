@@ -159,4 +159,14 @@ export const TRANSLATIONS = {
       confirmationAwaiting: "tooltip.confirmationAwaiting",
       emailVerified: "tooltip.emailVerified",
    },
+   tiles: {
+      text1: "tiles.text1",
+      text2: "tiles.text2",
+   },
+   anchors: {
+      rented: "anchors.rented",
+      reserved: "anchors.reserved",
+      favorites: "anchors.favorites",
+      history: "anchors.history",
+   },
 } as const

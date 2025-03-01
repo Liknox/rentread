@@ -161,5 +161,15 @@
    "tooltip": {
       "confirmationAwaiting": "Confirmation awaiting",
       "emailVerified": "Email verified"
+   },
+   "tiles": {
+      "text1": "Service user since",
+      "text2": "Saved"
+   },
+   "anchors": {
+      "rented": "Rented",
+      "reserved": "Reserved",
+      "favorites": "Favorites",
+      "history": "History"
    }
 }
