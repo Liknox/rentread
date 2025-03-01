@@ -110,5 +110,8 @@
          "minLength": "Clarify the request (minimum 3 characters)",
          "notFound": "Nothing found - try an advanced search."
       }
+   },
+   "catalog": {
+      "title": "Books Catalog"
    }
 }

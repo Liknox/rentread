@@ -108,4 +108,7 @@ export const TRANSLATIONS = {
          notFound: "header.placeholders.notFound",
       },
    },
+   catalog: {
+      title: "catalog.title",
+   },
 } as const
