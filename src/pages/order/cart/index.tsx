@@ -27,18 +27,19 @@ function Order() {
 }
 
 const Content = () => {
+   const { t } = useTranslation()
    const order = orderModel.cart.useOrder()
    const durations = orderModel.cart.useOrderDurations()
 
    return (
       <Layout className={cn({ "!w-full": isMobile })}>
-         <Typography.Title level={2}>Cart</Typography.Title>
+         <Typography.Title level={2}>{t(TRANSLATIONS.order.cart.title)}</Typography.Title>
          <section>
             <Typography.Title level={3} type="secondary">
-               Order contents
+               {t(TRANSLATIONS.order.cart.subtitle)}
             </Typography.Title>
             <Typography.Text className="block mb-5" type="secondary">
-               Check selected books before checkout
+               {t(TRANSLATIONS.order.cart.description)}
             </Typography.Text>
             <Row gutter={[0, 20]}>
                {order.books.map(book => {
@@ -76,7 +77,7 @@ const Content = () => {
             {!order.books.length && (
                <Empty
                   className="py-40 text-center text-lightslategray bg-[var(--color-accent)] rounded-[25px]"
-                  description="Order is empty"
+                  description={t(TRANSLATIONS.order.cart.empty)}
                />
             )}
          </section>
@@ -90,6 +91,7 @@ const Content = () => {
 }
 
 const RecommendationsSection = () => {
+   const { t } = useTranslation()
    const recommended = orderModel.cart.useRecommended()
 
    if (!recommended.books) return null
@@ -97,10 +99,10 @@ const RecommendationsSection = () => {
    return (
       <>
          <Typography.Title level={3} type="secondary">
-            Take a closer look as well
+            {t(TRANSLATIONS.order.cart.commTitle)}
          </Typography.Title>
          <Typography.Text className="block mb-5" type="secondary">
-            A selection of recommended books based on your order
+            {t(TRANSLATIONS.order.cart.commDescr)}
          </Typography.Text>
          <Row className="overflow-auto pb-5" wrap={false} gutter={[20, 0]}>
             {recommended.books
@@ -126,6 +128,7 @@ const RecommendationsSection = () => {
 }
 
 const Sidebar = () => {
+   const { t } = useTranslation()
    const { isEmptyCart } = orderModel.cart.useOrderValidation()
 
    return (
@@ -134,11 +137,11 @@ const Sidebar = () => {
             <Link to={routes.CHECKOUT}>
                {isEmptyCart ? (
                   <Button block type="default" style={{ height: 50 }} disabled>
-                     Proceed to checkout
+                     {t(TRANSLATIONS.order.sidebar.proceed)}
                   </Button>
                ) : (
                   <Button block type="primary" style={{ height: 50 }}>
-                     Proceed to checkout
+                     {t(TRANSLATIONS.order.sidebar.proceed)}
                   </Button>
                )}
             </Link>

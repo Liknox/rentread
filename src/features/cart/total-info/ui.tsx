@@ -6,10 +6,13 @@ import { Link } from "@tanstack/react-router"
 import { BookCard } from "entities/book"
 import { orderModel } from "entities/order"
 import type { ReactNode } from "react"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
-export const PLACEHOLDER = "Order is empty"
+export const PLACEHOLDER = TRANSLATIONS.order.sidebar.empty
 
 const useDurations = () => {
+   const { t } = useTranslation()
    const durations = orderModel.cart.useOrderDurations()
 
    const durationsSorted = Object.values(durations).sort((a, b) => a - b)
@@ -22,19 +25,20 @@ const useDurations = () => {
    }
 
    if (from === to) {
-      return `For ${from} d.`
+      return `${t(TRANSLATIONS.order.sidebar.for)} ${from} ${t(TRANSLATIONS.order.sidebar.duration)}`
    }
 
    return `For ${from}-${to} d.`
 }
 export const Form = () => {
+   const { t } = useTranslation()
    const order = orderModel.cart.useOrder()
    const totalDuration = useDurations()
 
    return (
       <section className="p-10">
          <Row justify="space-between" align="middle">
-            <Typography.Title level={4}>Total</Typography.Title>
+            <Typography.Title level={4}>{t(TRANSLATIONS.order.sidebar.total)}</Typography.Title>
             <Typography.Title level={4} style={{ margin: 0 }}>
                {order.price} $
             </Typography.Title>
@@ -44,14 +48,14 @@ export const Form = () => {
             &nbsp;
             <Typography.Text type="secondary">
                {order.books.length
-                  ? `${order.books.length}${order.books.length === 1 ? " book" : " books"}`
-                  : PLACEHOLDER}
+                  ? `${order.books.length} ${t(order.books.length > 1 ? (order.books.length >= 2 && order.books.length < 5 ? TRANSLATIONS.order.sidebar.books : TRANSLATIONS.order.sidebar.bookss) : TRANSLATIONS.order.sidebar.book)}`
+                  : t(PLACEHOLDER)}
             </Typography.Text>
          </Row>
          <Row align="middle" className="pt-1">
             <ClockCircleOutlined />
             &nbsp;
-            <Typography.Text type="secondary">{totalDuration}</Typography.Text>
+            <Typography.Text type="secondary">{t(totalDuration)}</Typography.Text>
          </Row>
       </section>
    )

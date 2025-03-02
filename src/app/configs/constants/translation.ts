@@ -153,6 +153,13 @@ export const TRANSLATIONS = {
          addText: "actions.reservation.addText",
          removeText: "actions.reservation.removeText",
       },
+      modal: {
+         title: "actions.modal.title",
+         description: "actions.modal.description",
+         yes: "actions.modal.yes",
+         no: "actions.modal.no",
+      },
+      remove: "actions.remove",
       tarrifButton: "actions.tarrifButton",
    },
    tooltip: {
@@ -196,5 +203,33 @@ export const TRANSLATIONS = {
       waitingTime: "timezone.waitingTime",
       yourTurn: "timezone.yourTurn",
       yourQueue: "timezone.yourQueue",
+   },
+   order: {
+      steps: {
+         cartTitle: "order.steps.cartTitle",
+         checkoutTitle: "order.steps.checkoutTitle",
+         deliveryTitle: "order.steps.deliveryTitle",
+         cartDescription: "order.steps.cartDescription",
+         checkoutDescription: "order.steps.checkoutDescription",
+         deliveryDescription: "order.steps.deliveryDescription",
+      },
+      cart: {
+         title: "order.cart.title",
+         subtitle: "order.cart.subtitle",
+         description: "order.cart.description",
+         empty: "order.cart.empty",
+         commTitle: "order.cart.commTitle",
+         commDescr: "order.cart.commDescr",
+      },
+      sidebar: {
+         book: "order.sidebar.book",
+         books: "order.sidebar.books",
+         bookss: "order.sidebar.bookss",
+         for: "order.sidebar.for",
+         duration: "order.sidebar.duration",
+         total: "order.sidebar.total",
+         empty: "order.sidebar.empty",
+         proceed: "order.sidebar.proceed",
+      },
    },
 } as const

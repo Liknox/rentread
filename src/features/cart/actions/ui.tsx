@@ -58,6 +58,7 @@ export const AddBookMini = (props: Props) => {
 }
 
 export const DeleteBook = (props: Props) => {
+   const { t } = useTranslation()
    const { handleToggle } = useToggleBook(props)
    const { disabled } = props
 
@@ -69,11 +70,11 @@ export const DeleteBook = (props: Props) => {
          icon={<ShoppingFilled />}
          onClick={() =>
             Modal.confirm({
-               title: "Are you sure you want to remove the book from the order?",
+               title: t(TRANSLATIONS.actions.modal.title),
                icon: <ShoppingFilled />,
-               content: "This action cannot be undone.",
-               okText: "Yes",
-               cancelText: "No",
+               content: t(TRANSLATIONS.actions.modal.description),
+               okText: t(TRANSLATIONS.actions.modal.yes),
+               cancelText: t(TRANSLATIONS.actions.modal.no),
                okType: "danger",
                onOk() {
                   handleToggle()
@@ -82,7 +83,7 @@ export const DeleteBook = (props: Props) => {
          }
          block
          disabled={disabled}>
-         Remove
+         {t(TRANSLATIONS.actions.remove)}
       </Button>
    )
 }

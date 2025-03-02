@@ -156,6 +156,13 @@
          "addText": "Reserve",
          "removeText": "Cancel reservation"
       },
+      "modal": {
+         "title": "Are you sure you want to remove the book from the order?",
+         "description": "This action cannot be undone.",
+         "yes": "Yes",
+         "no": "No"
+      },
+      "remove": "Remove",
       "tarrifButton": "d"
    },
    "tooltip": {
@@ -199,5 +206,33 @@
       "waitingTime": "Waiting time: ~",
       "yourTurn": "It's your turn!",
       "yourQueue": "Your number in queue:"
+   },
+   "order": {
+      "steps": {
+         "cartTitle": "Cart",
+         "checkoutTitle": "Checkout",
+         "deliveryTitle": "Delivery",
+         "cartDescription": "Check your choice",
+         "checkoutDescription": "Payment and delivery selection",
+         "deliveryDescription": "Order pickup"
+      },
+      "cart": {
+         "title": "Cart",
+         "subtitle": "Order contents",
+         "description": "Check selected books before checkout",
+         "empty": "Order is empty",
+         "commTitle": "Take a closer look as well",
+         "commDescr": "A selection of recommended books based on your order"
+      },
+      "sidebar": {
+         "book": "book",
+         "books": "books",
+         "bookss": "books",
+         "for": "For",
+         "duration": "d.",
+         "total": "Total",
+         "empty": "Order is empty",
+         "proceed": "Proceed to checkout"
+      }
    }
 }
