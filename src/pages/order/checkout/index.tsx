@@ -46,25 +46,28 @@ function Checkout() {
 }
 
 const Content = () => {
+   const { t } = useTranslation()
    return (
       <Layout className={cn({ "!w-full": isMobile })}>
-         <Link to={routes.ORDER}>Return to cart</Link>
-         <Typography.Title level={2}>Order processing</Typography.Title>
+         <Link to={routes.ORDER} className="text-primary">
+            {t(TRANSLATIONS.order.checkout.returnToCart)}
+         </Link>
+         <Typography.Title level={2}>{t(TRANSLATIONS.order.checkout.title)}</Typography.Title>
          <section className="mb-10">
             <Typography.Title level={3} type="secondary">
-               Payment
+               {t(TRANSLATIONS.order.checkout.subtitle)}
             </Typography.Title>
             <Typography.Text className="block mb-5" type="secondary">
-               Funds will be deducted from your internal wallet
+               {t(TRANSLATIONS.order.checkout.description)}
             </Typography.Text>
             <WalletForm />
          </section>
          <section className="mb-10">
             <Typography.Title level={3} type="secondary">
-               Delivery
+               {t(TRANSLATIONS.order.checkout.deliveryTitle)}
             </Typography.Title>
             <Typography.Text className="block mb-5" type="secondary">
-               Specify and verify the delivery method and address.
+               {t(TRANSLATIONS.order.checkout.deliveryDescription)}
             </Typography.Text>
             <DeliveryForm />
          </section>
@@ -73,16 +76,17 @@ const Content = () => {
 }
 
 const WalletForm = () => {
+   const { t } = useTranslation()
    const validation = useCheckoutValidation()
    return (
       <Row gutter={[0, 20]} className="p-5 bg-accent rounded-[25px]" justify="center">
          {validation.isEnoughMoney ? (
-            <Result status="success" title="Sufficient funds on the account" />
+            <Result status="success" title={t(TRANSLATIONS.order.checkout.sufficientMoney)} />
          ) : (
             <Result
                className={cn({ "!p-0": isMobile })}
                status="warning"
-               title="Insufficient funds on the account"
+               title={t(TRANSLATIONS.order.checkout.insufficientMoney)}
                extra={<Wallet.AddFunds.Form />}
             />
          )}
@@ -91,6 +95,7 @@ const WalletForm = () => {
 }
 
 const Sidebar = () => {
+   const { t } = useTranslation()
    const viewer = viewerModel.useViewerWallet()
    const order = orderModel.cart.useOrder()
    const validation = useCheckoutValidation()
@@ -112,11 +117,11 @@ const Sidebar = () => {
                      })
                   }
                   loading={viewer.payment.isPending}>
-                  Pay for the order
+                  {t(TRANSLATIONS.order.checkout.payOrder)}
                </Button>
             ) : (
                <Button block type="default" style={{ height: 50 }} disabled>
-                  Pay for the order
+                  {t(TRANSLATIONS.order.checkout.payOrder)}
                </Button>
             )}
          </Cart.TotalInfo.Card>
@@ -126,6 +131,7 @@ const Sidebar = () => {
 }
 
 const DeliveryForm = () => {
+   const { t } = useTranslation()
    const [mode, setMode] = useState<"MANUAL" | "COFFESHOP">("MANUAL")
    const { date, address } = orderModel.cart.useDeliveryStore()
    const shopsQuery = fakeApi.checkout.coffeeshops.getAll()
@@ -150,7 +156,7 @@ const DeliveryForm = () => {
          )}
          justify="space-between">
          <Col span={isMobile ? "full" : 10} className="p-10">
-            <Typography.Title level={4}>Select a delivery method</Typography.Title>
+            <Typography.Title level={4}>{t(TRANSLATIONS.order.checkout.deliveryMethod)}</Typography.Title>
             <Checkbox
                onChange={e => {
                   orderModel.cart.events.setDelivery({ address: "", date: "" })
@@ -158,18 +164,18 @@ const DeliveryForm = () => {
                }}
                checked={mode === "COFFESHOP"}
                style={{ marginBottom: 20 }}>
-               Pick up at the nearest meetup in a coffee shop
+               {t(TRANSLATIONS.order.checkout.nearestMeetUp)}
             </Checkbox>
             {mode === "MANUAL" && (
                <>
                   <Input
                      key={mode}
-                     placeholder="Chose delivery address..."
+                     placeholder={t(TRANSLATIONS.order.checkout.deliveryAddress)}
                      defaultValue={address}
                      onChange={e => orderModel.cart.events.setDelivery({ address: e.target.value })}
                   />
                   <DatePicker
-                     placeholder="Chose delivery time..."
+                     placeholder={t(TRANSLATIONS.order.checkout.deliveryTime)}
                      style={{ width: "100%", marginTop: 20 }}
                      value={date ? moment(date) : undefined}
                      onChange={value => orderModel.cart.events.setDelivery({ date: value?.toISOString() })}
@@ -180,7 +186,7 @@ const DeliveryForm = () => {
                <Select
                   options={shopsOptions}
                   style={{ width: "100%" }}
-                  placeholder="Chose coffee shop..."
+                  placeholder={t(TRANSLATIONS.order.checkout.deliveryCoffee)}
                   onSelect={value => {
                      const shop = shopsQuery.find(cs => String(cs.id) === value)
                      if (!shop) return

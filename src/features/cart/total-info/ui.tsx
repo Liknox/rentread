@@ -75,12 +75,13 @@ export const Card = ({ children }: Props) => {
 }
 
 export const CartMini = () => {
+   const { t } = useTranslation()
    const order = orderModel.cart.useOrder()
 
    return (
       <article className="ml-0 md:ml-10 text-center rounded-[10px] shadow-inset p-5">
          <Typography.Title level={4} type="secondary">
-            Your order
+            {t(TRANSLATIONS.order.checkout.yourOrder)}
          </Typography.Title>
          <Row justify="space-between" gutter={[0, 30]} className="mt-4">
             {order.books.map(book => (

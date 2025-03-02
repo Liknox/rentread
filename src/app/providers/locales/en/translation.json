@@ -233,6 +233,51 @@
          "total": "Total",
          "empty": "Order is empty",
          "proceed": "Proceed to checkout"
+      },
+      "checkout": {
+         "returnToCart": "Return to cart",
+         "title": "Order processing",
+         "subtitle": "Payment",
+         "description": "Funds will be deducted from your internal wallet",
+         "deliveryTitle": "Delivery",
+         "deliveryDescription": "Specify and verify the delivery method and address.",
+         "sufficientMoney": "Sufficient funds on the account",
+         "insufficientMoney": "Insufficient funds on the account",
+         "deliveryMethod": "Select a delivery method",
+         "nearestMeetUp": "Pick up at the nearest meetup in a coffee shop",
+         "deliveryAddress": "Chose delivery address...",
+         "deliveryTime": "Chose delivery time...",
+         "deliveryCoffee": "Chose coffee shop...",
+         "payOrder": "Pay for the order",
+         "yourOrder": "Your order"
+      },
+      "result": {
+         "text": "The order has been successfully paid and completed!",
+         "description": "Please wait for delivery within the timeframe specified in your order.",
+         "toOrder": "To your order",
+         "toCatalog": "To Catalog"
+      }
+   },
+   "book": {
+      "breadcrumbs": "Catalog",
+      "bookNotFound": "Book not found",
+      "about": "About Book",
+      "author": "Author",
+      "year": "Year",
+      "publisher": "Publisher",
+      "sameAuthor": "By the same author",
+      "deliveryByCourier": "Delivery by courier service within 2 days.",
+      "tooltip": "The price is very volatile, so it may change at any time.",
+      "forRent": "For rent until",
+      "reservable": {
+         "title": "You can reserve",
+         "subtitle": "At the moment, all copies of this book are taken.",
+         "description": "You can place a reservation on it to rent it once it becomes available and your turn comes."
+      },
+      "outOfStock": {
+         "title": "Out of stock",
+         "subtitle": "At the moment, there are no copies of this book from users in the service.",
+         "description": "You can place a reservation on it to rent it once it becomes available and your turn comes, or add it to your favorites."
       }
    }
 }

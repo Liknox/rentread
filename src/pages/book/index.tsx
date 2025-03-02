@@ -1,5 +1,6 @@
 import { BookFilled, HistoryOutlined, InboxOutlined } from "@ant-design/icons"
 import { routes } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
 import { Link, useMatch } from "@tanstack/react-router"
@@ -11,9 +12,11 @@ import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
+import { useTranslation } from "react-i18next"
 
 function BookPage() {
    // FIXME: add skeleton template
+   const { t } = useTranslation()
    const { params } = useMatch({ from: "/book/$bookId" }) as { params: { bookId: string } }
 
    const bookId = Number(params?.bookId)
@@ -25,8 +28,8 @@ function BookPage() {
             <Result
                status="404"
                title="404"
-               subTitle="Book not found"
-               extra={<Button href="/catalog">To the catalog</Button>}
+               subTitle={t(TRANSLATIONS.book.bookNotFound)}
+               extra={<Button href="/catalog">{t(TRANSLATIONS.order.result.toCatalog)}</Button>}
             />
          </Layout.Content>
       )
@@ -35,7 +38,7 @@ function BookPage() {
    return (
       <Layout.Content className="mb-20">
          <Link to={routes.CATALOG} className="text-primary">
-            Catalog
+            {t(TRANSLATIONS.book.breadcrumbs)}
          </Link>
          <Typography.Title level={isMobile ? 3 : 2}>{fakeApi.library.books.getBookString(book)}</Typography.Title>
          <Row className="mt-8 mb-20 flex flex-col md:flex-row">
@@ -67,6 +70,7 @@ const carousel: CarouselColor[] = [
 ]
 
 const Card = ({ book }: BookProps) => {
+   const { t } = useTranslation()
    const { authors, publicationYear, publishingHouse } = book
    const author = authors.map(fakeApi.library.authors.getShortname).join(", ")
 
@@ -88,16 +92,21 @@ const Card = ({ book }: BookProps) => {
             </div>
             <div className="mt-3 ml-0 md:mt-10 md:ml-10">
                <Descriptions
-                  title={<span className="text-[25px]">About book</span>}
+                  title={<span className="text-[25px]">{t(TRANSLATIONS.book.about)}</span>}
                   column={1}
                   contentStyle={{ fontSize: 16 }}>
-                  <Descriptions.Item label={<span className="text-dark text-[16px] font-medium">Author</span>}>
+                  <Descriptions.Item
+                     label={<span className="text-dark text-[16px] font-medium">{t(TRANSLATIONS.book.author)}</span>}>
                      {author}
                   </Descriptions.Item>
-                  <Descriptions.Item label={<span className="text-dark text-[16px] font-medium">Year</span>}>
+                  <Descriptions.Item
+                     label={<span className="text-dark text-[16px] font-medium">{t(TRANSLATIONS.book.year)}</span>}>
                      {publicationYear}
                   </Descriptions.Item>
-                  <Descriptions.Item label={<span className="text-dark text-[16px] font-medium">Publisher</span>}>
+                  <Descriptions.Item
+                     label={
+                        <span className="text-dark text-[16px] font-medium">{t(TRANSLATIONS.book.publisher)}</span>
+                     }>
                      {publishingHouse.name} ({publishingHouse.city})
                   </Descriptions.Item>
                </Descriptions>
@@ -109,6 +118,7 @@ const Card = ({ book }: BookProps) => {
 }
 
 const Checkout = ({ book }: BookProps) => {
+   const { t } = useTranslation()
    const rent = orderLib.getRentInfo(book.id)
    const style = rent.status !== "RENTABLE" ? { opacity: 0.5 } : {}
    const price = `${fakeApi.library.books.getPrice(book)} $`
@@ -127,39 +137,40 @@ const Checkout = ({ book }: BookProps) => {
          <article className="flex flex-col justify-between min-h-[300px] p-7 shadow-insetDark">
             <div>
                <h3 className="text-[40px] font-medium mt-2">
-                  <Tooltip title="The price is very volatile, so it may change at any time." trigger="click">
+                  <Tooltip title={t(TRANSLATIONS.book.tooltip)} trigger="click">
                      {rent.status === "RENTABLE" && price}
                   </Tooltip>
-                  {rent.status === "RESERVABLE" && "You can reserve"}
-                  {rent.status === "OUT_STOCK" && "Out of stock"}
+                  {rent.status === "RESERVABLE" && t(TRANSLATIONS.book.reservable.title)}
+                  {rent.status === "OUT_STOCK" && t(TRANSLATIONS.book.outOfStock.title)}
                </h3>
                <Row className="mt-3">
                   {rent.status === "RENTABLE" && (
                      <ul className="text-darkGray">
                         <li className="mt-2">
-                           <InboxOutlined /> Delivery by courier service within 2 days.
+                           <InboxOutlined /> {t(TRANSLATIONS.book.deliveryByCourier)}
                         </li>
                         <li className="mt-2">
-                           <HistoryOutlined /> For rent until {Math.min(30, rent.duration)}{" "}
-                           {rent.duration === 1 ? "day" : "days"}
+                           <HistoryOutlined /> {t(TRANSLATIONS.book.forRent)} {Math.min(30, rent.duration)}{" "}
+                           {t(
+                              rent.duration > 1
+                                 ? rent.duration >= 2 && rent.duration < 5
+                                    ? TRANSLATIONS.timezone.days
+                                    : TRANSLATIONS.timezone.dayss
+                                 : TRANSLATIONS.timezone.day,
+                           )}
                         </li>
                      </ul>
                   )}
                   {rent.status === "RESERVABLE" && (
                      <>
-                        <p>At the moment, all copies of this book are taken.</p>
-                        <p>
-                           You can place a reservation on it to rent it once it becomes available and your turn comes.
-                        </p>
+                        <p>{t(TRANSLATIONS.book.reservable.subtitle)}</p>
+                        <p>{t(TRANSLATIONS.book.reservable.description)}</p>
                      </>
                   )}
                   {rent.status === "OUT_STOCK" && (
                      <>
-                        <p>At the moment, there are no copies of this book from users in the service.</p>
-                        <p>
-                           You can place a reservation on it to rent it once it becomes available and your turn comes,
-                           or add it to your favorites.
-                        </p>
+                        <p>{t(TRANSLATIONS.book.outOfStock.subtitle)}</p>
+                        <p>{t(TRANSLATIONS.book.outOfStock.description)}</p>
                      </>
                   )}
                </Row>
@@ -187,6 +198,7 @@ const Checkout = ({ book }: BookProps) => {
 }
 
 const Recommendations = ({ book }: BookProps) => {
+   const { t } = useTranslation()
    const booksQuery = fakeApi.library.books
       .getList({ filters: { authors: book.authors.map(a => a.id) } })
       .filter(b => b.id !== book.id)
@@ -195,7 +207,7 @@ const Recommendations = ({ book }: BookProps) => {
 
    return (
       <Col span={isMobile ? "full" : 16}>
-         <h1 className="text-[20px] font-medium">By the same author</h1>
+         <h1 className="text-[20px] font-medium">{t(TRANSLATIONS.book.sameAuthor)}</h1>
          <Row className="pb-5 mt-5 overflow-auto" wrap={false} gutter={[20, 0]}>
             {booksQuery.map(b => (
                <Col key={b.id} span={8} className="min-w-full md:min-w-[315px]">
