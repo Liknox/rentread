@@ -277,4 +277,18 @@ export const TRANSLATIONS = {
          description: "book.outOfStock.description",
       },
    },
+   alert: {
+      cart: {
+         add: "alert.cart.add",
+         remove: "alert.cart.remove",
+      },
+      favorites: {
+         add: "alert.favorites.add",
+         remove: "alert.favorites.remove",
+      },
+      reserve: {
+         add: "alert.reserve.add",
+         remove: "alert.reserve.remove",
+      },
+   },
 } as const

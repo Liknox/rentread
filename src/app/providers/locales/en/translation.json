@@ -279,5 +279,19 @@
          "subtitle": "At the moment, there are no copies of this book from users in the service.",
          "description": "You can place a reservation on it to rent it once it becomes available and your turn comes, or add it to your favorites."
       }
+   },
+   "alert": {
+      "cart": {
+         "add": "Added to cart",
+         "remove": "Removed from cart"
+      },
+      "favorites": {
+         "add": "Added to favorites",
+         "remove": "Removed from favorites"
+      },
+      "reserve": {
+         "add": "Successfully reserved",
+         "remove": "Reservation canceled"
+      }
    }
 }

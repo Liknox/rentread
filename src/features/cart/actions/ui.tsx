@@ -13,16 +13,17 @@ type Props = {
 }
 
 const useToggleBook = ({ bookId, disabled }: Props) => {
+   const { t } = useTranslation()
    const { isBookInCart } = orderModel.cart.useBookStatus(bookId)
    const book = bookModel.useBook(bookId)
 
    const handleToggle = () => {
       if (disabled) return
-      const action = isBookInCart ? "Removed from cart" : "Added to cart"
+      const action = isBookInCart ? TRANSLATIONS.alert.cart.remove : TRANSLATIONS.alert.cart.add
       alert.info(
          `${book?.name}`,
          <a href="/order" className="text-primary">
-            {action}
+            {t(action)}
          </a>,
          <ShoppingOutlined />,
       )

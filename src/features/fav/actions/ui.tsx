@@ -12,16 +12,17 @@ type Props = {
 }
 
 const useToggleBook = (bookId: number) => {
+   const { t } = useTranslation()
    const { isBookFav } = viewerModel.useBookFavStatus(bookId)
    const book = bookModel.useBook(bookId)
 
    const handleToggle = () => {
-      const action = isBookFav ? "Removed from Favorites" : "Added to Favorites"
+      const action = isBookFav ? TRANSLATIONS.alert.favorites.remove : TRANSLATIONS.alert.favorites.add
 
       alert.info(
          `${book?.name}`,
          <a href="/profile#fav" className="text-primary">
-            {action}
+            {t(action)}
          </a>,
          <HeartOutlined />,
       )
