@@ -17,7 +17,7 @@ const ResultPage = () => {
    // const { isEmptyCart } = orderModel.cart.useOrderValidation();
    // FIXME: Rewrite later with promise
    const { t } = useTranslation()
-   useTitle("Order Confirmation Page | Rentread")
+   useTitle(t(TRANSLATIONS.pageTitle.result))
    // hooks.useRedirectOn(isEmptyCart, "/order");
 
    return (

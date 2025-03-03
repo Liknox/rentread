@@ -27,6 +27,7 @@ const AddFundsForm = ({ className }: Props) => {
             validateStatus={isValid ? "success" : "error"}
             help={`${t(TRANSLATIONS.features.wallet.help.start)} ${MIN_MONEY}$, ${t(TRANSLATIONS.features.wallet.help.end)} ${MAX_MONEY}$.`}>
             <Input
+               className="w-[300px]"
                addonAfter="$"
                min={MIN_MONEY}
                type="number"

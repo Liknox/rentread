@@ -293,5 +293,10 @@
          "add": "Successfully reserved",
          "remove": "Reservation canceled"
       }
+   },
+   "notFound": {
+      "title": "Page not found",
+      "catalog": "To Catalog",
+      "main": "Return Back"
    }
 }

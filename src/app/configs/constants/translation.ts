@@ -291,4 +291,9 @@ export const TRANSLATIONS = {
          remove: "alert.reserve.remove",
       },
    },
+   notFound: {
+      title: "notFound.title",
+      catalog: "notFound.catalog",
+      main: "notFound.main",
+   },
 } as const
