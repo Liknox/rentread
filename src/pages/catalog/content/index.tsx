@@ -1,4 +1,5 @@
 import { AppstoreOutlined, BarsOutlined } from "@ant-design/icons"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
 import { scrollToTop } from "@shared/lib/dom"
@@ -12,11 +13,10 @@ import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 import Sidebar from "../sidebar"
-import { useTranslation } from "react-i18next"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 const { Option } = Select
 

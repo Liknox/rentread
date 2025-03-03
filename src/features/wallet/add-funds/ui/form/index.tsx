@@ -2,9 +2,9 @@ import { Button, Form, Input, Typography } from "antd"
 import cn from "classnames"
 import { useState } from "react"
 
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { viewerModel } from "entities/viewer"
 import { useTranslation } from "react-i18next"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 type Props = {
    className?: string

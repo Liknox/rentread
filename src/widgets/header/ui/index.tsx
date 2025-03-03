@@ -10,15 +10,15 @@ import { Badge, Button, Drawer, Layout } from "antd"
 import cn from "classnames"
 
 import { routes } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { isMobile } from "@shared/lib/browser"
 import { Link } from "@tanstack/react-router"
 import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
 import { useState } from "react"
-import Search from "./search"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTranslation } from "react-i18next"
+import Search from "./search"
 
 const actions = [
    {

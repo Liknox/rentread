@@ -1,13 +1,13 @@
 import { CheckCircleOutlined, ClockCircleOutlined, HeartOutlined, ShoppingOutlined } from "@ant-design/icons"
 import { TOPIC_FAV, TOPIC_HISTORY, TOPIC_OPENED, TOPIC_RESERVED } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useRouter } from "@tanstack/react-router"
 import { Layout } from "antd"
 import { viewerLib, viewerModel } from "entities/viewer"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
-import { Section } from "./section"
 import { useTranslation } from "react-i18next"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { Section } from "./section"
 
 export const Content = () => {
    const { t } = useTranslation()

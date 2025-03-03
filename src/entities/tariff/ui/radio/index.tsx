@@ -1,7 +1,7 @@
-import { Radio } from "antd"
-import { DEFAULT, TARIFFS } from "../../lib"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { Radio } from "antd"
 import { useTranslation } from "react-i18next"
+import { DEFAULT, TARIFFS } from "../../lib"
 
 type Props = {
    onChange?: (value: number) => void

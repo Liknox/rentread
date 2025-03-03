@@ -3,10 +3,10 @@ import { Badge, Col, Empty, Row, Typography } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
 
-import { BookCard } from "entities/book"
-import type { AbstractBook, Book } from "shared/api"
-import { useTranslation } from "react-i18next"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { BookCard } from "entities/book"
+import { useTranslation } from "react-i18next"
+import type { AbstractBook, Book } from "shared/api"
 
 type Props<T> = {
    id: string

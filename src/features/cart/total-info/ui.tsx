@@ -2,12 +2,12 @@ import { BookOutlined, ClockCircleOutlined } from "@ant-design/icons"
 import { Col, Divider, Row, Typography } from "antd"
 
 import { routes } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { Link } from "@tanstack/react-router"
 import { BookCard } from "entities/book"
 import { orderModel } from "entities/order"
 import type { ReactNode } from "react"
 import { useTranslation } from "react-i18next"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 export const PLACEHOLDER = TRANSLATIONS.order.sidebar.empty
 
