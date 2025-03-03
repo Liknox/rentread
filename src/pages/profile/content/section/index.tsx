@@ -5,6 +5,8 @@ import type { CSSProperties, ReactNode } from "react"
 
 import { BookCard } from "entities/book"
 import type { AbstractBook, Book } from "shared/api"
+import { useTranslation } from "react-i18next"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 type Props<T> = {
    id: string
@@ -15,7 +17,7 @@ type Props<T> = {
    renderBookActions?: (book: T, idx: number) => ReactNode[]
    getRibbonProps?: (
       book: T,
-      idx: number,
+      idx: number
    ) => {
       text: ReactNode
       color: CSSProperties["color"]
@@ -27,6 +29,7 @@ type Props<T> = {
 }
 
 export function Section<T extends Book | AbstractBook>(props: Props<T>) {
+   const { t } = useTranslation()
    const { title, description, books, Icon, id, titleAfter, active } = props
 
    return (
@@ -71,7 +74,7 @@ export function Section<T extends Book | AbstractBook>(props: Props<T>) {
                </Col>
             ))}
          </Row>
-         {!books.length && <Empty description="Empty" />}
+         {!books.length && <Empty description={t(TRANSLATIONS.book.empty)} />}
       </section>
    )
 }

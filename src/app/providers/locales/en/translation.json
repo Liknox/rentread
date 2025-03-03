@@ -68,7 +68,7 @@
    },
    "footer": {
       "name": "Nazar Koval",
-      "text": "Created by"
+      "text": "By"
    },
    "demoAlert": {
       "text": "This is only a demo version of the service client. No real transactions or operations are being conducted!",
@@ -113,6 +113,7 @@
    },
    "catalog": {
       "title": "Books Catalog",
+      "foundNothing": "Couldn't find anything matching your request.",
       "sortBy": {
          "title": "Sort by",
          "options": {
@@ -259,6 +260,7 @@
       }
    },
    "book": {
+      "empty": "Empty",
       "breadcrumbs": "Catalog",
       "bookNotFound": "Book not found",
       "about": "About Book",

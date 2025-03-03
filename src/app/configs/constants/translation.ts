@@ -110,6 +110,7 @@ export const TRANSLATIONS = {
    },
    catalog: {
       title: "catalog.title",
+      foundNothing: "catalog.foundNothing",
       sortBy: {
          title: "catalog.sortBy.title",
          options: {
@@ -256,6 +257,7 @@ export const TRANSLATIONS = {
       },
    },
    book: {
+      empty: "book.empty",
       breadcrumbs: "book.breadcrumbs",
       bookNotFound: "book.bookNotFound",
       about: "book.about",

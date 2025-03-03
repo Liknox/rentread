@@ -72,6 +72,7 @@ const useFilters = () => {
 
 function CatalogContent() {
    // FIXME: add skeleton template
+   const {t} = useTranslation()
    const filters = useFilters()
    const obParam = catalogParams.useSorting()
 
@@ -118,7 +119,7 @@ function CatalogContent() {
                   ))}
                </Row>
                {!booksQuery.length && (
-                  <Empty className="my-[100px]" description="Couldn't find anything matching your request." />
+                  <Empty className="my-[100px]" description={t(TRANSLATIONS.catalog.foundNothing)} />
                )}
                {isMobile || (
                   <Pagination
