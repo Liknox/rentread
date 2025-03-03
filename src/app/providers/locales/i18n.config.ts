@@ -5,7 +5,7 @@ import { initReactI18next } from "react-i18next"
 import enTranslations from "./en/translation.json"
 import uaTranslations from "./ua/translation.json"
 
-const savedLanguage = localStorage.getItem("i18nextLng") || "en"
+export const savedLanguage = localStorage.getItem("i18nextLng") || "en"
 
 i18n
    .use(LanguageDetector)
