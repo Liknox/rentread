@@ -21,8 +21,6 @@ function Footer() {
                en
             </Option>
          </Select>
-         {/* <button onClick={() => i18n.changeLanguage("en")}>en</button>
-         <button onClick={() => i18n.changeLanguage("ua")}>ua</button> */}
       </Layout.Footer>
    )
 }

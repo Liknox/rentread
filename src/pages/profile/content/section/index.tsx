@@ -17,7 +17,7 @@ type Props<T> = {
    renderBookActions?: (book: T, idx: number) => ReactNode[]
    getRibbonProps?: (
       book: T,
-      idx: number
+      idx: number,
    ) => {
       text: ReactNode
       color: CSSProperties["color"]
