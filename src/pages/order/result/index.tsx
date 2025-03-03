@@ -30,7 +30,7 @@ const ResultPage = () => {
                subTitle={t(TRANSLATIONS.order.result.description)}
                extra={[
                   <Link to={`${routes.PROFILE}#opened`} key="order">
-                     <Button type="primary">{t(TRANSLATIONS.order.result.toOrder)}</Button>
+                     <Button type="primary" className="mb-2">{t(TRANSLATIONS.order.result.toOrder)}</Button>
                   </Link>,
                   <Link to={routes.CATALOG} key="catalog">
                      <Button>{t(TRANSLATIONS.order.result.toCatalog)}</Button>

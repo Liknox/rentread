@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client"
 import App from "./app"
-import "@app/providers/locales/i18n.config"
+import "@app/configs/language/i18n.config"
 
 import "@app/styles/index.css"
 

@@ -217,7 +217,7 @@ const SortFilterOptions = ({ setOpen }: Props) => {
          )}
          <Select
             placeholder={t(TRANSLATIONS.catalog.sortBy.title)}
-            style={{ width: 200 }}
+            className="md:!w-[200px] w-[180px]"
             onChange={value => obParam.setSorting(value)}>
             {Object.entries(SORTINGS).map(([sId, sName]) => (
                <Option key={sId} value={Number(sId)}>
