@@ -3,8 +3,6 @@ import { browser } from "@shared/lib"
 import { combine, sample } from "effector"
 import * as events from "./events"
 
-import { v4 as uuid } from "uuid"
-
 // TODO: change
 export const DEFAULT_DURATION = 7
 
@@ -89,10 +87,6 @@ sample({
 
       fakeApi.checkout.orders.__pushTo(...newOrders)
       fakeApi.users.users.__updateUser(viewer)
-
-      setTimeout(() => {
-         window.location.replace(`/order/result/${uuid()}`)
-      }, 0)
 
       $books.reset()
 

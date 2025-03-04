@@ -3,19 +3,20 @@ import cn from "classnames"
 import { useState } from "react"
 
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { viewerModel } from "entities/viewer"
 import { useTranslation } from "react-i18next"
+import { walletModel } from "entities/wallet"
 
 type Props = {
    className?: string
+   afterAction?: () => void
 }
 
 const MIN_MONEY = 5
 const MAX_MONEY = 100
 
-const AddFundsForm = ({ className }: Props) => {
+const AddFundsForm = ({ className, afterAction }: Props) => {
    const { t } = useTranslation()
-   const viewer = viewerModel.useViewerWallet()
+   const viewer = walletModel.useViewerWallet()
    const [money, setMoney] = useState(MIN_MONEY)
    const isValid = money >= MIN_MONEY && money <= MAX_MONEY
 
@@ -46,8 +47,8 @@ const AddFundsForm = ({ className }: Props) => {
                // href="#redirect-to-payment-service"
                onClick={() => {
                   console.debug("[DEBUG] reachGoal: APPLY_TRANSACTION")
-                  // FIXME: create wallet store and update this store (not only localStorage)
-                  viewer.payment.applyTransaction(money).then(() => location.reload())
+                  console.debug("[DEBUG] reachGoal: POPOVER_CLOSE")
+                  viewer.payment.applyTransaction(money).then(() => afterAction && afterAction())
                }}
                loading={viewer.payment.isPending}>
                {t(TRANSLATIONS.features.wallet.button)}

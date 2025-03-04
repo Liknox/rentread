@@ -1,5 +1,5 @@
 import { useRouter } from "@tanstack/react-router"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { dom } from "@shared/lib"
 
@@ -26,4 +26,18 @@ export const useResetScrollAtEveryPage = () => {
          unsubscribe()
       }
    }, [router])
+}
+
+export const useShowPopover = () => {
+   const [open, setOpen] = useState(false)
+
+   const handleAction = () => {
+      setOpen(false)
+   }
+
+   const handleOpenChange = (value: boolean) => {
+      setOpen(value)
+   }
+
+   return { open, handleAction, handleOpenChange }
 }

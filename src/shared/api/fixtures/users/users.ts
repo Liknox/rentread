@@ -83,18 +83,19 @@ const __VIEWER: User = {
    firstName: "Jack",
    lastName: "Doe",
    books: USERS_UBOOKS[4],
-   // FIXME: hardcoded
+   // hardcoded
    closedOrders: [4],
-   // FIXME: hardcoded
+   // hardcoded
    openedOrders: [1, 2, 3],
-   // FIXME: hardcoded
+   // hardcoded
    reservations: [2, 7],
-   // FIXME: hardcoded
+   // hardcoded
    favABooks: [6, 27],
    roles: [roles.USER],
    statusBan: false,
    registeredAt: "2023-04-04T00:00:00.354Z",
    wallet: {
+      // hardcoded
       moneyCount: 40,
    },
 }

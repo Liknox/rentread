@@ -8,18 +8,20 @@ import { Button, Checkbox, Col, DatePicker, Input, Layout, Result, Row, Select, 
 import cn from "classnames"
 import dayjs from "dayjs"
 import { orderModel } from "entities/order"
-import { viewerModel } from "entities/viewer"
+import { walletModel } from "entities/wallet"
 import { Cart } from "features/cart"
 import { Wallet } from "features/wallet"
 import moment from "moment"
 import { Marker, Map as PMap } from "pigeon-maps"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import { useNavigate } from "@tanstack/react-router"
+import { v4 as uuid } from "uuid"
 
 const useCheckoutValidation = () => {
    const { price } = orderModel.cart.useOrder()
    const delivery = orderModel.cart.useDeliveryStore()
-   const { wallet } = viewerModel.useViewerWallet()
+   const { wallet } = walletModel.useViewerWallet()
    const { isEmptyCart } = orderModel.cart.useOrderValidation()
 
    const isEnoughMoney = wallet >= price
@@ -96,11 +98,19 @@ const WalletForm = () => {
 
 const Sidebar = () => {
    const { t } = useTranslation()
-   const viewer = viewerModel.useViewerWallet()
+   const navigate = useNavigate()
+   const viewer = walletModel.useViewerWallet()
    const order = orderModel.cart.useOrder()
    const validation = useCheckoutValidation()
    // const history = useHistory();
    // hooks.useRedirectOn(isEmptyCart, "/order");
+
+   const handleButtonClick = () => {
+      viewer.payment.applyTransaction(-order.price).then(() => {
+         orderModel.cart.events.submitOrder()
+         navigate({ to: `/order/result/${uuid()}` })
+      })
+   }
 
    return (
       <Layout.Sider width={isMobile ? "100%" : 400} className="mt-8 md:mt-0">
@@ -111,11 +121,7 @@ const Sidebar = () => {
                   type="primary"
                   style={{ height: 50 }}
                   title={validation.message}
-                  onClick={() =>
-                     viewer.payment.applyTransaction(-order.price).then(() => {
-                        orderModel.cart.events.submitOrder()
-                     })
-                  }
+                  onClick={handleButtonClick}
                   loading={viewer.payment.isPending}>
                   {t(TRANSLATIONS.order.checkout.payOrder)}
                </Button>
