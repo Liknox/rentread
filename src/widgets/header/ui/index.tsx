@@ -67,8 +67,6 @@ const Header = () => {
    const favTotal = viewerModel.useFavBooks().length
    const { t, i18n } = useTranslation()
 
-   console.log(i18n.language)
-
    const count: Record<ActionId, number> = {
       cart: orderTotal,
       catalog: 0,
