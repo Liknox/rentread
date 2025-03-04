@@ -1,7 +1,7 @@
+import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 import { fakeApi } from "shared/api"
 import { browser } from "shared/lib"
 import * as events from "../events"
-import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 
 // FIXME: fetch later by API
 // export const initialState = fakeApi.viewer.getFavourite().map((it) => it.id);

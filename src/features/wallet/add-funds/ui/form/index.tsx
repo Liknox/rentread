@@ -3,8 +3,8 @@ import cn from "classnames"
 import { useState } from "react"
 
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { useTranslation } from "react-i18next"
 import { walletModel } from "entities/wallet"
+import { useTranslation } from "react-i18next"
 
 type Props = {
    className?: string
@@ -48,7 +48,7 @@ const AddFundsForm = ({ className, afterAction }: Props) => {
                onClick={() => {
                   console.debug("[DEBUG] reachGoal: APPLY_TRANSACTION")
                   console.debug("[DEBUG] reachGoal: POPOVER_CLOSE")
-                  viewer.payment.applyTransaction(money).then(() => afterAction && afterAction())
+                  viewer.payment.applyTransaction(money).then(() => afterAction?.())
                }}
                loading={viewer.payment.isPending}>
                {t(TRANSLATIONS.features.wallet.button)}

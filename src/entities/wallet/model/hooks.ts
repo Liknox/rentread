@@ -1,8 +1,8 @@
 import { fakeApi } from "@shared/api"
 import { useUnit } from "effector-react"
 import { useState } from "react"
-import { $wallet } from "./store"
 import { deposit } from "./events"
+import { $wallet } from "./store"
 
 export const useWallet = () => useUnit($wallet)
 

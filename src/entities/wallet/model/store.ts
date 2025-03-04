@@ -1,7 +1,7 @@
+import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
+import { fakeApi } from "@shared/api"
 import { browser } from "@shared/lib"
 import * as events from "./events"
-import { fakeApi } from "@shared/api"
-import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 
 const balance = fakeApi.users.users.getViewer().wallet!.moneyCount
 export const walletInitialState: number = balance

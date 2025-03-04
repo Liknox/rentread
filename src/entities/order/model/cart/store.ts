@@ -1,8 +1,8 @@
+import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 import { type Order, fakeApi } from "@shared/api"
 import { browser } from "@shared/lib"
 import { combine, sample } from "effector"
 import * as events from "./events"
-import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 
 // TODO: change
 export const DEFAULT_DURATION = 7
