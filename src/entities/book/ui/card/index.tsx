@@ -67,12 +67,14 @@ const BookCard = (props: Props) => {
                   {withPrice && (
                      <span className="font-semibold text-[20px]">from {fakeApi.library.books.getPrice(b)} $</span>
                   )}
-                  <Link
-                     to={`${routes.BOOK}/${b.id}`}
-                     title={title}
-                     className="text-blue-500 hover:underline whitespace-normal">
-                     {string.textOverflow(title, isMobile ? 30 : 50)}
-                  </Link>
+                  {isMini || (
+                     <Link
+                        to={`${routes.BOOK}/${b.id}`}
+                        title={title}
+                        className="text-blue-500 hover:underline whitespace-normal">
+                        {string.textOverflow(title, isMobile ? 30 : 50)}
+                     </Link>
+                  )}
                </div>
             }
             description={
