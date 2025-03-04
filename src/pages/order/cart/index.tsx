@@ -94,7 +94,11 @@ const RecommendationsSection = () => {
    const { t } = useTranslation()
    const recommended = orderModel.cart.useRecommended()
 
-   if (!recommended.books) return null
+   const parsedBooks = recommended.books.filter(b => orderLib.getRentInfo(b.id).status === "RENTABLE")
+
+   if (!parsedBooks.length) return null
+
+   console.log()
 
    return (
       <>
