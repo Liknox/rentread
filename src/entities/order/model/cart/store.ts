@@ -2,6 +2,7 @@ import { type Order, fakeApi } from "@shared/api"
 import { browser } from "@shared/lib"
 import { combine, sample } from "effector"
 import * as events from "./events"
+import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 
 // TODO: change
 export const DEFAULT_DURATION = 7
@@ -10,7 +11,7 @@ export const DEFAULT_DURATION = 7
 export const booksInitialState: number[] = []
 
 export const $books = browser
-   .createPersistStore(booksInitialState, { name: "entities/order/cart--books" })
+   .createPersistStore(booksInitialState, { name: PERSIST_STORE_ITEMS.cartBooks })
    .on(events.toggleBook, (state, payload) => {
       if (state.includes(payload)) {
          return state.filter(it => it !== payload)
@@ -21,7 +22,7 @@ export const $books = browser
 export const durationsInitialState: Record<number, number> = {}
 
 export const $durations = browser
-   .createPersistStore(durationsInitialState, { name: "entities/order/cart--duration" })
+   .createPersistStore(durationsInitialState, { name: PERSIST_STORE_ITEMS.cartDuration })
    .on(events.setBookDuration, (state, { bookId, duration }) => {
       if (duration === undefined) {
          delete state[bookId]
@@ -52,9 +53,7 @@ const initialDelivery = {
 }
 
 export const $delivery = browser
-   .createPersistStore(initialDelivery, {
-      name: "entities/order/cart--delivery",
-   })
+   .createPersistStore(initialDelivery, { name: PERSIST_STORE_ITEMS.cartDelivery })
    .on(events.setDelivery, (state, payload) => {
       return {
          date: payload.date ?? state.date,

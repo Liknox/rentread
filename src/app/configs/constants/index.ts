@@ -66,3 +66,12 @@ export const MAP_ANCHORS: MapAnchorsType = {
    MCDONALDS: [49.8564, 24.0224],
    HIHGCASTLE: [49.848, 24.036868],
 }
+
+export const PERSIST_STORE_ITEMS = {
+   fakeWallet: "entities/viewer/fakeWallet",
+   fav: "entities/viewer/fav",
+   reservation: "entities/order/reservation",
+   cartDelivery: "entities/order/cart--delivery",
+   cartDuration: "entities/order/cart--duration",
+   cartBooks: "entities/order/cart--books",
+}
