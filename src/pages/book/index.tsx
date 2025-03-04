@@ -77,15 +77,15 @@ const Card = ({ book }: BookProps) => {
    return (
       <Col span={isMobile ? "full" : 16}>
          <div className="flex flex-col md:flex-row">
-            <div className={cn({ "w-[450px]": !isMobile, "w-full": isMobile })}>
+            <div className="md:w-[450px]">
                <Carousel autoplay autoplaySpeed={3000} className="dark-slick-dots">
-                  {carousel.map(c => (
+                  {carousel.map(cover => (
                      <div
-                        key={c.id}
+                        key={cover.id}
                         className={cn("h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]", {
                            "!h-[440px] !text-[270px]": isMobile,
                         })}>
-                        <BookFilled className={isMobile ? "mt-20" : "mt-40"} style={{ color: c.color }} />
+                        <BookFilled className="md:mt-40" style={{ color: cover.color }} />
                      </div>
                   ))}
                </Carousel>
@@ -94,7 +94,7 @@ const Card = ({ book }: BookProps) => {
                <Descriptions
                   title={<span className="text-[25px]">{t(TRANSLATIONS.book.about)}</span>}
                   column={1}
-                  contentStyle={{ fontSize: 16 }}>
+                  styles={{ content: { fontSize: 16 } }}>
                   <Descriptions.Item
                      label={<span className="text-dark text-[16px] font-medium">{t(TRANSLATIONS.book.author)}</span>}>
                      {author}
@@ -133,7 +133,7 @@ const Checkout = ({ book }: BookProps) => {
    }
 
    return (
-      <Col span={isMobile ? "full" : 7} offset={1} style={style} className={cn({ "ml-0 mt-5": isMobile })}>
+      <Col span={isMobile ? "full" : 7} offset={1} style={style} className="ml-0 md:ml-14 mt-10 md:mt-0">
          <article className="flex flex-col justify-between min-h-[300px] p-7 shadow-insetDark">
             <div>
                <h3 className="text-[40px] font-medium mt-2">
