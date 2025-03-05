@@ -28,7 +28,7 @@ const useToggleBook = ({ bookId, disabled }: Props) => {
          <p onClick={() => router.navigate({ to: routes.ORDER })} className="text-primary cursor-pointer">
             {t(action)}
          </p>,
-         <ShoppingOutlined />
+         <ShoppingOutlined />,
       )
       orderModel.cart.events.toggleBook(bookId)
    }

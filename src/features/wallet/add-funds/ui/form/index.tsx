@@ -2,13 +2,13 @@ import { Button, Form, Input, Typography } from "antd"
 import cn from "classnames"
 import { useState } from "react"
 
+import { WalletOutlined } from "@ant-design/icons"
+import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { alert } from "@shared/lib"
+import { useRouter } from "@tanstack/react-router"
 import { walletModel } from "entities/wallet"
 import { useTranslation } from "react-i18next"
-import { alert } from "@shared/lib"
-import { WalletOutlined } from "@ant-design/icons"
-import { useRouter } from "@tanstack/react-router"
-import { routes } from "@app/configs/constants"
 
 type Props = {
    className?: string
@@ -64,7 +64,7 @@ const AddFundsForm = ({ className, afterAction }: Props) => {
                               className="text-primary cursor-pointer">
                               {`${money}$ ${t(TRANSLATIONS.alert.wallet.subtitle)}`}
                            </p>,
-                           <WalletOutlined />
+                           <WalletOutlined />,
                         )
                      })
                }}

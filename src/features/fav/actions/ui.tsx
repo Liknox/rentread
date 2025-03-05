@@ -27,7 +27,7 @@ const useToggleBook = (bookId: number) => {
          <p onClick={() => router.navigate({ to: routes.PROFILE_FAV })} className="text-primary cursor-pointer">
             {t(action)}
          </p>,
-         <HeartOutlined />
+         <HeartOutlined />,
       )
       viewerModel.events.toggleBook(bookId)
    }
