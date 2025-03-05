@@ -5,6 +5,9 @@ import { useState } from "react"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { walletModel } from "entities/wallet"
 import { useTranslation } from "react-i18next"
+import { alert } from "@shared/lib"
+import { WalletOutlined } from "@ant-design/icons"
+import { useRouter } from "@tanstack/react-router"
 
 type Props = {
    className?: string
@@ -16,6 +19,7 @@ const MAX_MONEY = 100
 
 const AddFundsForm = ({ className, afterAction }: Props) => {
    const { t } = useTranslation()
+   const router = useRouter()
    const viewer = walletModel.useViewerWallet()
    const [money, setMoney] = useState(MIN_MONEY)
    const isValid = money >= MIN_MONEY && money <= MAX_MONEY
@@ -48,7 +52,20 @@ const AddFundsForm = ({ className, afterAction }: Props) => {
                onClick={() => {
                   console.debug("[DEBUG] reachGoal: APPLY_TRANSACTION")
                   console.debug("[DEBUG] reachGoal: POPOVER_CLOSE")
-                  viewer.payment.applyTransaction(money).then(() => afterAction?.())
+                  viewer.payment
+                     .applyTransaction(money)
+                     .then(() => afterAction?.())
+                     .then(() => {
+                        alert.info(
+                           t(TRANSLATIONS.alert.wallet.title),
+                           <p
+                              onClick={() => router.navigate({ to: "/profile" })}
+                              className="text-primary cursor-pointer">
+                              {`${money}$ ${t(TRANSLATIONS.alert.wallet.subtitle)}`}
+                           </p>,
+                           <WalletOutlined />,
+                        )
+                     })
                }}
                loading={viewer.payment.isPending}>
                {t(TRANSLATIONS.features.wallet.button)}
