@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next"
 import { alert } from "@shared/lib"
 import { WalletOutlined } from "@ant-design/icons"
 import { useRouter } from "@tanstack/react-router"
+import { routes } from "@app/configs/constants"
 
 type Props = {
    className?: string
@@ -59,11 +60,11 @@ const AddFundsForm = ({ className, afterAction }: Props) => {
                         alert.info(
                            t(TRANSLATIONS.alert.wallet.title),
                            <p
-                              onClick={() => router.navigate({ to: "/profile" })}
+                              onClick={() => router.navigate({ to: routes.PROFILE })}
                               className="text-primary cursor-pointer">
                               {`${money}$ ${t(TRANSLATIONS.alert.wallet.subtitle)}`}
                            </p>,
-                           <WalletOutlined />,
+                           <WalletOutlined />
                         )
                      })
                }}

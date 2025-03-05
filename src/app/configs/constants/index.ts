@@ -50,6 +50,8 @@ export const routes = {
    ABOUT: "/about",
    CATALOG: "/catalog",
    PROFILE: "/profile",
+   PROFILE_FAV: "/profile#fav",
+   PROFILE_RESERVED: "/profile#reserved",
    ORDER: "/order",
    CHECKOUT: "/order/checkout",
    RESULT: "/order/result/$result",

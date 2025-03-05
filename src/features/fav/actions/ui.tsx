@@ -1,4 +1,5 @@
 import { HeartFilled, HeartOutlined } from "@ant-design/icons"
+import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { isMobile } from "@shared/lib/browser"
@@ -23,7 +24,7 @@ const useToggleBook = (bookId: number) => {
 
       alert.info(
          `${book?.name}`,
-         <p onClick={() => router.navigate({ to: "/profile#fav" })} className="text-primary cursor-pointer">
+         <p onClick={() => router.navigate({ to: routes.PROFILE_FAV })} className="text-primary cursor-pointer">
             {t(action)}
          </p>,
          <HeartOutlined />
