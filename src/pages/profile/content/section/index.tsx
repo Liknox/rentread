@@ -7,6 +7,7 @@ import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { BookCard } from "entities/book"
 import { useTranslation } from "react-i18next"
 import type { AbstractBook, Book } from "shared/api"
+import { Link } from "@tanstack/react-router"
 
 type Props<T> = {
    id: string
@@ -40,9 +41,9 @@ export function Section<T extends Book | AbstractBook>(props: Props<T>) {
          id={id}>
          <Row justify="space-between">
             <Typography.Title level={3}>
-               <a className="mr-1 ml-[-20px] opacity-0" href={`#${id}`}>
+               <Link to={`#${id}`} className="mr-1 ml-[-20px] !text-lightPrimary opacity-0 hover:opacity-100">
                   #
-               </a>
+               </Link>
                {title} <Icon style={{ color: "gray", fontSize: 20 }} />
             </Typography.Title>
             {titleAfter}

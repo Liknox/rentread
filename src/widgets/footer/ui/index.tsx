@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next"
 const { Option } = Select
 
 const langs = [
-   { value: "ua", label: "ua" },
-   { value: "en", label: "en" },
+   { label: "ua", value: "ua" },
+   { label: "en", value: "en" },
 ]
 
 function Footer() {
