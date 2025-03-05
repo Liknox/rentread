@@ -1,6 +1,7 @@
 import { ShoppingFilled, ShoppingOutlined } from "@ant-design/icons"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
+import { useRouter } from "@tanstack/react-router"
 import { Button, Modal } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
@@ -14,6 +15,7 @@ type Props = {
 
 const useToggleBook = ({ bookId, disabled }: Props) => {
    const { t } = useTranslation()
+   const router = useRouter()
    const { isBookInCart } = orderModel.cart.useBookStatus(bookId)
    const book = bookModel.useBook(bookId)
 
@@ -22,9 +24,9 @@ const useToggleBook = ({ bookId, disabled }: Props) => {
       const action = isBookInCart ? TRANSLATIONS.alert.cart.remove : TRANSLATIONS.alert.cart.add
       alert.info(
          `${book?.name}`,
-         <a href="/order" className="text-primary">
+         <p onClick={() => router.navigate({ to: "/order" })} className="text-primary cursor-pointer">
             {t(action)}
-         </a>,
+         </p>,
          <ShoppingOutlined />,
       )
       orderModel.cart.events.toggleBook(bookId)

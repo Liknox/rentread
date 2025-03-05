@@ -2,6 +2,7 @@ import { HeartFilled, HeartOutlined } from "@ant-design/icons"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { isMobile } from "@shared/lib/browser"
+import { useRouter } from "@tanstack/react-router"
 import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { viewerModel } from "entities/viewer"
@@ -13,6 +14,7 @@ type Props = {
 
 const useToggleBook = (bookId: number) => {
    const { t } = useTranslation()
+   const router = useRouter()
    const { isBookFav } = viewerModel.useBookFavStatus(bookId)
    const book = bookModel.useBook(bookId)
 
@@ -21,10 +23,10 @@ const useToggleBook = (bookId: number) => {
 
       alert.info(
          `${book?.name}`,
-         <a href="/profile#fav" className="text-primary">
+         <p onClick={() => router.navigate({ to: "/profile#fav" })} className="text-primary cursor-pointer">
             {t(action)}
-         </a>,
-         <HeartOutlined />,
+         </p>,
+         <HeartOutlined />
       )
       viewerModel.events.toggleBook(bookId)
    }
