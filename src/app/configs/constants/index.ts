@@ -74,4 +74,5 @@ export const PERSIST_STORE_ITEMS = {
    cartDelivery: "entities/order/cart--delivery",
    cartDuration: "entities/order/cart--duration",
    cartBooks: "entities/order/cart--books",
+   demoAlert: "demoAlert/visible",
 }
