@@ -13,6 +13,7 @@ export const getUserNormalized = (user: User) => {
    const closed: Order[] = fakeApi.checkout.orders.getByIds(user.closedOrders)
    const closedBooks: Book[] = fakeApi.users.userBooks.getUserBooksByIds(closed.map(o => o.bookId))
    const closedPrices: number[] = closedBooks.map(cb => fakeApi.library.books.getPrice(cb.abstractBook))
+   const savedMoney = openedBooks.map(cb => fakeApi.library.books.getPrice(cb.abstractBook))
 
    const reserved: Reservation[] = fakeApi.checkout.reservations.getByIds(user.reservations)
    const reservedBooks: AbstractBook[] = fakeApi.library.books.getByIds(reserved.map(o => o.aBookId))
@@ -23,6 +24,7 @@ export const getUserNormalized = (user: User) => {
       closed,
       closedBooks,
       closedPrices,
+      savedMoney,
       reserved,
       reservedBooks,
    }
@@ -32,7 +34,7 @@ export const getUserStat = (user: User) => {
    const un = getUserNormalized(user)
 
    // If we consider that the price of a book decreases on average by 4 times compared to the original.
-   const saved = un.closedPrices.reduce((a, b) => a + b, 0) * (4 - 1)
+   const saved = un.savedMoney.reduce((a, b) => a + b, 0) * (2 - 1)
 
    return {
       saved: `~ ${saved} $`,
