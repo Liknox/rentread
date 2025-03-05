@@ -261,6 +261,7 @@
    },
    "book": {
       "empty": "Empty",
+      "from": "from",
       "breadcrumbs": "Catalog",
       "bookNotFound": "Book not found",
       "about": "About Book",

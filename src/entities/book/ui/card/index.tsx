@@ -1,10 +1,12 @@
 import { BookFilled } from "@ant-design/icons"
 import { routes } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { isMobile } from "@shared/lib/browser"
 import { Link } from "@tanstack/react-router"
 import { Card } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
+import { useTranslation } from "react-i18next"
 
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
@@ -36,6 +38,7 @@ const imgStyle: Record<Size, CSSProperties> = {
 }
 
 const BookCard = (props: Props) => {
+   const { t } = useTranslation()
    const { data: b, className, size = "default", children, actions, withPrice = true, asSecondary } = props
    const author = b.authors.map(fakeApi.library.authors.getShortname).join(", ")
    const publisher = `${b.publishingHouse.name}`
@@ -65,7 +68,9 @@ const BookCard = (props: Props) => {
             title={
                <div className="flex flex-col">
                   {withPrice && (
-                     <span className="font-semibold text-[20px]">from {fakeApi.library.books.getPrice(b)} $</span>
+                     <span className="font-semibold text-[20px]">
+                        {t(TRANSLATIONS.book.from)} {fakeApi.library.books.getPrice(b)} $
+                     </span>
                   )}
                   {isMini || (
                      <Link

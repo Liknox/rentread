@@ -258,6 +258,7 @@ export const TRANSLATIONS = {
    },
    book: {
       empty: "book.empty",
+      from: "book.from",
       breadcrumbs: "book.breadcrumbs",
       bookNotFound: "book.bookNotFound",
       about: "book.about",

@@ -261,6 +261,7 @@
    },
    "book": {
       "empty": "Пусто",
+      "from": "від",
       "breadcrumbs": "Каталог",
       "bookNotFound": "Книгу не знайдено",
       "about": "Про книгу",
