@@ -271,6 +271,7 @@
       "sameAuthor": "By the same author",
       "deliveryByCourier": "Delivery by courier service within 2 days.",
       "tooltip": "The price is very volatile, so it may change at any time.",
+      "descrTooltip": "Translation is temporarily unavailable",
       "forRent": "For rent until",
       "reservable": {
          "title": "You can reserve",

@@ -268,6 +268,7 @@ export const TRANSLATIONS = {
       sameAuthor: "book.sameAuthor",
       deliveryByCourier: "book.deliveryByCourier",
       tooltip: "book.tooltip",
+      descrTooltip: "book.descrTooltip",
       forRent: "book.forRent",
       reservable: {
          title: "book.reservable.title",
