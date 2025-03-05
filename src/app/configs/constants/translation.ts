@@ -294,6 +294,10 @@ export const TRANSLATIONS = {
          add: "alert.reserve.add",
          remove: "alert.reserve.remove",
       },
+      wallet: {
+         title: "alert.wallet.title",
+         subtitle: "alert.wallet.subtitle",
+      },
    },
    notFound: {
       title: "notFound.title",

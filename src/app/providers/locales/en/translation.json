@@ -286,16 +286,20 @@
    },
    "alert": {
       "cart": {
-         "add": "Added to cart",
+         "add": "Added to cart!",
          "remove": "Removed from cart"
       },
       "favorites": {
-         "add": "Added to favorites",
+         "add": "Added to favorites!",
          "remove": "Removed from favorites"
       },
       "reserve": {
-         "add": "Successfully reserved",
+         "add": "Successfully reserved!",
          "remove": "Reservation canceled"
+      },
+      "wallet": {
+         "title": "Deposited Successfully!",
+         "subtitle": "has been added to your wallet"
       }
    },
    "notFound": {
