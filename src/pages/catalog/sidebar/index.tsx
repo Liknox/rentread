@@ -11,7 +11,7 @@ function Sidebar() {
    return (
       <Layout.Sider width={isMobile ? "100%" : 400}>
          <div className="p-5 shadow-insetDark">
-            <Typography.Title level={4} className="text-center">
+            <Typography.Title level={4} className="font-roboto text-center">
                {t(TRANSLATIONS.catalog.filters.title)}
             </Typography.Title>
             <ExistsOnlySection />
@@ -31,10 +31,37 @@ const ExistsOnlySection = () => {
 
    return (
       <section className="p-3">
-         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.exists.title)}</Divider>
+         <Divider plain className="font-roboto">
+            {t(TRANSLATIONS.catalog.filters.sections.exists.title)}
+         </Divider>
          <Checkbox defaultChecked={params.existsOnly} onChange={e => params.setExistsOnly(e.target.checked)}>
             {t(TRANSLATIONS.catalog.filters.sections.exists.option)}
          </Checkbox>
+      </section>
+   )
+}
+
+const PriceSection = () => {
+   const { t } = useTranslation()
+   const params = catalogParams.usePrices()
+
+   return (
+      <section className="p-3">
+         <Divider plain className="font-roboto">
+            {t(TRANSLATIONS.catalog.filters.sections.rentPrice)}
+         </Divider>
+         <Slider
+            range
+            marks={{
+               [PRICES.MIN]: `${PRICES.MIN} $`,
+               [PRICES.MAX]: `${PRICES.MAX} $`,
+            }}
+            defaultValue={[params.from, params.to]}
+            step={5}
+            min={PRICES.MIN}
+            max={PRICES.MAX}
+            onChange={([from, to]) => params.setPrice(from, to)}
+         />
       </section>
    )
 }
@@ -53,7 +80,9 @@ const TimeSection = () => {
 
    return (
       <section className="p-3">
-         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.rentTerms)}</Divider>
+         <Divider plain className="font-roboto">
+            {t(TRANSLATIONS.catalog.filters.sections.rentTerms)}
+         </Divider>
          <Slider
             marks={marks}
             defaultValue={params.tariff}
@@ -67,24 +96,25 @@ const TimeSection = () => {
    )
 }
 
-const PriceSection = () => {
+const CategorySection = () => {
    const { t } = useTranslation()
-   const params = catalogParams.usePrices()
+   const params = catalogParams.useFilterByCategory()
+   // Some options could be disabled
+   const options = fakeApi.library.categories.getAll().map(a => ({
+      label: a.name,
+      value: a.id,
+   }))
 
    return (
       <section className="p-3">
-         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.rentPrice)}</Divider>
-         <Slider
-            range
-            marks={{
-               [PRICES.MIN]: `${PRICES.MIN} $`,
-               [PRICES.MAX]: `${PRICES.MAX} $`,
-            }}
-            defaultValue={[params.from, params.to]}
-            step={5}
-            min={PRICES.MIN}
-            max={PRICES.MAX}
-            onChange={([from, to]) => params.setPrice(from, to)}
+         <Divider plain className="font-roboto">
+            {t(TRANSLATIONS.catalog.filters.sections.categories)}
+         </Divider>
+         <Checkbox.Group
+            options={options}
+            value={params.categories || []}
+            onChange={params.setCategories}
+            aria-label="checkboxes-group"
          />
       </section>
    )
@@ -100,7 +130,9 @@ const AuthorSection = () => {
 
    return (
       <section className="p-3">
-         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.authors)}</Divider>
+         <Divider plain className="font-roboto">
+            {t(TRANSLATIONS.catalog.filters.sections.authors)}
+         </Divider>
          <Checkbox.Group
             options={options}
             value={params.authors}
@@ -121,33 +153,13 @@ const PublisherSection = () => {
 
    return (
       <section className="p-3">
-         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.publishers)}</Divider>
+         <Divider plain className="font-roboto">
+            {t(TRANSLATIONS.catalog.filters.sections.publishers)}
+         </Divider>
          <Checkbox.Group
             options={options}
             value={params.publishers || []}
             onChange={params.setPublishers}
-            aria-label="checkboxes-group"
-         />
-      </section>
-   )
-}
-
-const CategorySection = () => {
-   const { t } = useTranslation()
-   const params = catalogParams.useFilterByCategory()
-   // Some options could be disabled
-   const options = fakeApi.library.categories.getAll().map(a => ({
-      label: a.name,
-      value: a.id,
-   }))
-
-   return (
-      <section className="p-3">
-         <Divider plain>{t(TRANSLATIONS.catalog.filters.sections.categories)}</Divider>
-         <Checkbox.Group
-            options={options}
-            value={params.categories || []}
-            onChange={params.setCategories}
             aria-label="checkboxes-group"
          />
       </section>

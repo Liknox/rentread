@@ -37,7 +37,7 @@ function BookPage() {
 
    return (
       <Layout.Content className="mb-20">
-         <Link to={routes.CATALOG} className="text-primary">
+         <Link to={routes.CATALOG} className="font-roboto text-primary">
             {t(TRANSLATIONS.book.breadcrumbs)}
          </Link>
          <Typography.Title level={isMobile ? 3 : 2}>{fakeApi.library.books.getBookString(book)}</Typography.Title>
@@ -92,25 +92,27 @@ const Card = ({ book }: BookProps) => {
             </div>
             <div className="mt-3 ml-0 md:mt-10 md:ml-10">
                <Descriptions
-                  title={<span className="text-[25px]">{t(TRANSLATIONS.book.about)}</span>}
+                  title={<span className="font-roboto text-[25px]">{t(TRANSLATIONS.book.about)}</span>}
                   column={1}
                   styles={{ content: { fontSize: 16 } }}>
                   <Descriptions.Item
-                     label={<span className="text-dark text-[16px] font-medium">{t(TRANSLATIONS.book.author)}</span>}>
+                     label={<span className="text-dark text-[16px] font-bold">{t(TRANSLATIONS.book.author)}</span>}>
                      {author}
                   </Descriptions.Item>
                   <Descriptions.Item
-                     label={<span className="text-dark text-[16px] font-medium">{t(TRANSLATIONS.book.year)}</span>}>
+                     label={<span className="text-dark text-[16px] font-bold">{t(TRANSLATIONS.book.year)}</span>}>
                      {publicationYear}
                   </Descriptions.Item>
                   <Descriptions.Item
-                     label={
-                        <span className="text-dark text-[16px] font-medium">{t(TRANSLATIONS.book.publisher)}</span>
-                     }>
+                     label={<span className="text-dark text-[16px] font-bold">{t(TRANSLATIONS.book.publisher)}</span>}>
                      {publishingHouse.name} ({publishingHouse.city})
                   </Descriptions.Item>
                </Descriptions>
-               <p className="mt-5">{book.description}</p>
+               <p className="mt-5">
+                  <Tooltip title={t(TRANSLATIONS.book.descrTooltip)} trigger="click">
+                     {book.description}
+                  </Tooltip>
+               </p>
             </div>
          </div>
       </Col>
@@ -207,7 +209,7 @@ const Recommendations = ({ book }: BookProps) => {
 
    return (
       <Col span={isMobile ? "full" : 16}>
-         <h1 className="text-[20px] font-medium">{t(TRANSLATIONS.book.sameAuthor)}</h1>
+         <h1 className="font-roboto text-[26px] font-medium">{t(TRANSLATIONS.book.sameAuthor)}</h1>
          <Row className="pb-5 mt-5 overflow-auto" wrap={false} gutter={[20, 0]}>
             {booksQuery.map(b => (
                <Col key={b.id} span={8} className="min-w-full md:min-w-[315px]">

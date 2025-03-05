@@ -19,7 +19,7 @@ const TileView = (props: TileProps) => {
    return (
       <Col
          span={span}
-         className="flex md:min-w-0 min-w-full items-center justify-center h-[144px] p-[18px] text-[18px] text-darkGray bg-[var(--color-accent)] border border-[var(--color-accent)] rounded-[25px] transition duration-200 hover:shadow-inset">
+         className="font-roboto flex md:min-w-0 min-w-full items-center justify-center h-[144px] p-[18px] text-[18px] text-darkGray bg-[var(--color-accent)] border border-[var(--color-accent)] rounded-[25px] transition duration-200 hover:shadow-inset">
          <span>
             {t(label)}
             <br />

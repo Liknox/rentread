@@ -101,7 +101,7 @@ const Header = () => {
                         <Link
                            key={label}
                            to={url}
-                           className={cn("flex flex-col  leading-[16px]", {
+                           className={cn("flex flex-col leading-[16px]", {
                               "pointer-events-none opacity-50": disabled,
                               "mx-[10px]": i18n.language === "en",
                               "mx-[4px]": i18n.language === "ua",

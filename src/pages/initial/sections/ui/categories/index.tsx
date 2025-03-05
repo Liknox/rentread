@@ -28,7 +28,7 @@ const Categories = () => {
                onClick={() => router.navigate({ to: `${routes.CATALOG}?${category}=${cat.id}` })}
                title="Go to books by category">
                <div className="absolute top-1/2 left-1/2 z-10 text-white !important transform -translate-x-1/2 -translate-y-1/2 min-w-[180px]">
-                  <Typography.Title className="!text-white" level={3}>
+                  <Typography.Title className="font-roboto !text-white" level={3}>
                      {cat.name}
                   </Typography.Title>
                   <Typography.Text className="text-white">{cat.description}</Typography.Text>

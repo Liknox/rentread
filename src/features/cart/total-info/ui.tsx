@@ -46,7 +46,7 @@ export const Form = () => {
          <Row align="middle" className="pt-1">
             <BookOutlined />
             &nbsp;
-            <Typography.Text type="secondary">
+            <Typography.Text type="secondary" className="font-roboto">
                {order.books.length
                   ? `${order.books.length} ${t(order.books.length > 1 ? (order.books.length >= 2 && order.books.length < 5 ? TRANSLATIONS.order.sidebar.books : TRANSLATIONS.order.sidebar.bookss) : TRANSLATIONS.order.sidebar.book)}`
                   : t(PLACEHOLDER)}
@@ -55,7 +55,9 @@ export const Form = () => {
          <Row align="middle" className="pt-1">
             <ClockCircleOutlined />
             &nbsp;
-            <Typography.Text type="secondary">{t(totalDuration)}</Typography.Text>
+            <Typography.Text type="secondary" className="font-roboto">
+               {t(totalDuration)}
+            </Typography.Text>
          </Row>
       </section>
    )

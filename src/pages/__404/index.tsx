@@ -12,7 +12,7 @@ function NotFoundPage() {
    return (
       <Layout.Content>
          <Layout>
-            <div className="flex flex-col items-center justify-center gap-3 h-[70vh]">
+            <div className="font-roboto flex flex-col items-center justify-center gap-3 h-[70vh]">
                <h1 className="text-[20px]">404 - {t(TRANSLATIONS.notFound.title)}</h1>
                <div className="flex flex-row gap-3">
                   <Link to={`${routes.CATALOG}#opened`} key="catalog">

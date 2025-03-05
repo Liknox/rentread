@@ -47,7 +47,7 @@ export function Section<T extends Book | AbstractBook>(props: Props<T>) {
             </Typography.Title>
             {titleAfter}
          </Row>
-         <Typography.Text type="secondary" className="block mb-5">
+         <Typography.Text type="secondary" className="font-roboto block mb-5">
             {description}
          </Typography.Text>
          <Row

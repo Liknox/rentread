@@ -33,7 +33,7 @@ const Authors = () => {
                onClick={() => router.navigate({ to: `${routes.CATALOG}?${authors}=${author.id}` })}
                title="Go to the author's books">
                <Typography.Title
-                  className="absolute top-1/2 left-1/2 z-10 !text-white !important transform -translate-x-1/2 -translate-y-1/2"
+                  className="font-roboto absolute top-1/2 left-1/2 z-10 !text-white !important transform -translate-x-1/2 -translate-y-1/2"
                   level={4}>
                   {fakeApi.library.authors.getShortname(author)}
                </Typography.Title>

@@ -75,11 +75,11 @@ const BookRow = (props: Props) => {
             <BookFilled className="bg-accent" style={styleIcon[size]} />
          </Col>
          <Col
-            className="flex flex-col justify-center max-w-full   col-span-1 row-span-1"
+            className="flex flex-col justify-center max-w-full col-span-1 row-span-1"
             style={styleDetails[size]}
             span={spanDetails}>
             {titleAsLink ? (
-               <Link className="text-primary w-[95%] leading-normal " to={`${routes.BOOK}/${data.id}`}>
+               <Link className="text-primary w-[95%] leading-normal" to={`${routes.BOOK}/${data.id}`}>
                   {isMobile || searchBar ? textOverflow(data.name, 50) : title}
                </Link>
             ) : (

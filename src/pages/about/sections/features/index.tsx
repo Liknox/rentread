@@ -7,7 +7,10 @@ import bg_laptop from "../../assets/bg_laptop.jpg"
 const FeaturesSection = () => {
    const { t } = useTranslation()
    return (
-      <Section id="features" style={{ backgroundImage: `url(${bg_laptop})` }} innerClassName="w-full md:w-1/2">
+      <Section
+         id="features"
+         style={{ backgroundImage: `url(${bg_laptop})` }}
+         innerClassName="font-roboto w-full md:w-1/2">
          <h2 className="text-3xl font-bold">{t(TRANSLATIONS.about.sections.features.title)}</h2>
          <ul className="mt-4">
             <li>{t(TRANSLATIONS.about.sections.features.text1)}</li>

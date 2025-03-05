@@ -13,7 +13,7 @@ const SectionWrapper: FC<SectionWrapperTypes> = ({ title, children }) => {
    return (
       <section className="mb-20">
          {title && (
-            <Typography.Title level={2} className="pb-8 mt-5 text-center">
+            <Typography.Title level={2} className="font-roboto pb-8 mt-5 text-center">
                {t(title)}
             </Typography.Title>
          )}
