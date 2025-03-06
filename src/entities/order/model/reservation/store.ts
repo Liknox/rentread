@@ -2,6 +2,7 @@ import { create } from "zustand"
 import { viewerLib } from "entities/viewer"
 import { fakeApi } from "shared/api"
 import { initLSItem } from "@shared/lib/browser"
+import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 
 export interface ReserveState {
    reserve: number[]
@@ -12,7 +13,7 @@ export interface ReserveState {
 const initialState: number[] = viewerLib.getUserNormalized(fakeApi.users.users.getViewer()).reserved.map(r => r.aBookId)
 
 export const useReserveStore = create<ReserveState>(set => {
-   const lsItem = initLSItem<number[]>("reservation", initialState)
+   const lsItem = initLSItem<number[]>(PERSIST_STORE_ITEMS.reservation, initialState)
    lsItem.setValue(initialState)
 
    return {
@@ -26,7 +27,7 @@ export const useReserveStore = create<ReserveState>(set => {
             } else {
                newReserve = { reserve: [...state.reserve, bookId] }
             }
-            
+
             lsItem.setValue(newReserve.reserve)
 
             return { ...newReserve }
