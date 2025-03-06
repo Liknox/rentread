@@ -1,16 +1,25 @@
 import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
-import { browser } from "@shared/lib"
-import * as events from "./events"
+import { initLSItem } from "@shared/lib/browser"
+import { create } from "zustand"
 
-const balance = fakeApi.users.users.getViewer().wallet!.moneyCount
-export const walletInitialState: number = balance
+export interface WalletState {
+   wallet: number
+   deposit: (amount: number) => void
+}
 
-export const $wallet = browser
-   .createPersistStore<number>(walletInitialState, { name: PERSIST_STORE_ITEMS.fakeWallet })
-   .on(events.deposit, (state, payload) => {
-      if (typeof payload === "number") {
-         return state + payload
-      }
-      return state
-   })
+export const useWalletStore = create<WalletState>(set => {
+   const balance = fakeApi.users.users.getViewer().wallet!.moneyCount
+   const lsItem = initLSItem<number>(PERSIST_STORE_ITEMS.fakeWallet, balance)
+   lsItem.setValue(balance)
+
+   return {
+      wallet: lsItem.value,
+      deposit: (amount: number) =>
+         set(state => {
+            const newWallet = state.wallet + amount
+            lsItem.setValue(newWallet)
+            return { wallet: newWallet }
+         }),
+   }
+})

@@ -1,24 +1,20 @@
 import { fakeApi } from "@shared/api"
-import { useUnit } from "effector-react"
 import { useState } from "react"
-import { deposit } from "./events"
-import { $wallet } from "./store"
-
-export const useWallet = () => useUnit($wallet)
+import { useWalletStore } from "./store"
 
 export const useViewer = () => {
    return fakeApi.users.users.getViewer()
 }
 
 export const useViewerWallet = () => {
-   const wallet = useWallet()
+   const wallet = useWalletStore()
    const [paymentPending, setPaymentPending] = useState(false)
 
    const applyTransaction = (amount: number) => {
       setPaymentPending(true)
       return new Promise(resolve => {
          setTimeout(() => {
-            deposit(amount)
+            wallet.deposit(amount)
             setPaymentPending(false)
             resolve({ status: 200 })
          }, 1000)
@@ -30,5 +26,5 @@ export const useViewerWallet = () => {
       applyTransaction,
    }
 
-   return { wallet, payment }
+   return { wallet: wallet.wallet, payment }
 }
