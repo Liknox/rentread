@@ -1,19 +1,35 @@
-import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
+import { create } from "zustand"
 import { viewerLib } from "entities/viewer"
 import { fakeApi } from "shared/api"
-import { browser } from "shared/lib"
-import * as events from "./events"
+import { initLSItem } from "@shared/lib/browser"
+
+export interface ReserveState {
+   reserve: number[]
+   toggleBook: (bookId: number) => void
+}
 
 // FIXME: fetch later by API
-export const initialState: number[] = viewerLib
-   .getUserNormalized(fakeApi.users.users.getViewer())
-   .reserved.map(r => r.aBookId)
+const initialState: number[] = viewerLib.getUserNormalized(fakeApi.users.users.getViewer()).reserved.map(r => r.aBookId)
 
-export const $reservations = browser
-   .createPersistStore(initialState, { name: PERSIST_STORE_ITEMS.reservation })
-   .on(events.toggleBook, (state, payload) => {
-      if (state.includes(payload)) {
-         return state.filter(it => it !== payload)
-      }
-      return [...state, payload]
-   })
+export const useReserveStore = create<ReserveState>(set => {
+   const lsItem = initLSItem<number[]>("reservation", initialState)
+   lsItem.setValue(initialState)
+
+   return {
+      reserve: lsItem.value,
+      toggleBook: (bookId: number) =>
+         set(state => {
+            let newReserve
+
+            if (state.reserve.includes(bookId)) {
+               newReserve = { reserve: state.reserve.filter(id => id !== bookId) }
+            } else {
+               newReserve = { reserve: [...state.reserve, bookId] }
+            }
+            
+            lsItem.setValue(newReserve.reserve)
+
+            return { ...newReserve }
+         }),
+   }
+})

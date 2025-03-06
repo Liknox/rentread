@@ -13,12 +13,12 @@ type Props = {
 }
 
 const useToggleBook = (bookId: number) => {
-   // FIXME: replace to reservationModel
    const { t } = useTranslation()
    const router = useRouter()
    const { isBookReserved } = orderModel.reservation.useBookReservationStatus(bookId)
    // const isBookReserved = Boolean((book?.name.length || 0) % 2);
    const book = bookModel.useBook(bookId)
+   const reserve = orderModel.reservation.store.useReserveStore()
 
    const handleToggle = () => {
       const action = isBookReserved ? TRANSLATIONS.alert.reserve.remove : TRANSLATIONS.alert.reserve.add
@@ -29,7 +29,7 @@ const useToggleBook = (bookId: number) => {
          </p>,
          <ClockCircleOutlined />,
       )
-      orderModel.reservation.events.toggleBook(bookId)
+      reserve.toggleBook(bookId)
    }
 
    return { handleToggle, isBookReserved }
