@@ -1,17 +1,19 @@
-import { createStore } from "effector"
-import { useStoreMap, useUnit } from "effector-react"
+import { create } from "zustand"
 import { fakeApi } from "shared/api"
 
 // FIXME: fetch effect later
-export const initialState = fakeApi.library.books.getAll()
+const initialState = fakeApi.library.books.getAll()
 
-export const $store = createStore<typeof initialState>(initialState)
+interface BookStoreState {
+   books: typeof initialState
+}
 
-export const useBooks = () => useUnit($store)
+export const useBookStore = create<BookStoreState>(() => ({
+   books: initialState,
+}))
 
-export const useBook = (bookId: number) =>
-   useStoreMap({
-      store: $store,
-      keys: [bookId],
-      fn: (books, [bookId]) => books.find(({ id }) => id === bookId),
-   })
+export const useBooks = () => useBookStore(state => state.books)
+
+export const useBook = (bookId: number) => {
+   return useBookStore(state => state.books.find(({ id }) => id === bookId))
+}
