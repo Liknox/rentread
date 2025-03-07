@@ -10,6 +10,7 @@ import cn from "classnames"
 import dayjs from "dayjs"
 import { orderModel } from "entities/order"
 import { submitOrder } from "entities/order/model/cart"
+import { useDeliveryStore } from "entities/order/model/cart/store"
 import { walletModel } from "entities/wallet"
 import { Cart } from "features/cart"
 import { Wallet } from "features/wallet"
@@ -21,7 +22,7 @@ import { v4 as uuid } from "uuid"
 
 const useCheckoutValidation = () => {
    const { price } = orderModel.cart.useOrder()
-   const delivery = orderModel.cart.useDeliveryStore()
+   const delivery = orderModel.cart.useDelivery()
    const { wallet } = walletModel.useViewerWallet()
    const { isEmptyCart } = orderModel.cart.useOrderValidation()
 
@@ -140,8 +141,9 @@ const Sidebar = () => {
 const DeliveryForm = () => {
    const { t } = useTranslation()
    const [mode, setMode] = useState<"MANUAL" | "COFFESHOP">("MANUAL")
-   const { date, address } = orderModel.cart.useDeliveryStore()
+   const { date, address } = orderModel.cart.useDelivery()
    const shopsQuery = fakeApi.checkout.coffeeshops.getAll()
+   const cartDelivery = useDeliveryStore()
    const shopsOptions = shopsQuery.map(cs => ({
       value: String(cs.id),
       label: (
@@ -166,7 +168,7 @@ const DeliveryForm = () => {
             <Typography.Title level={4}>{t(TRANSLATIONS.order.checkout.deliveryMethod)}</Typography.Title>
             <Checkbox
                onChange={e => {
-                  orderModel.cart.events.setDelivery({ address: "", date: "" })
+                  cartDelivery.setDelivery({ address: "", date: "" })
                   setMode(e.target.checked ? "COFFESHOP" : "MANUAL")
                }}
                checked={mode === "COFFESHOP"}
@@ -179,13 +181,17 @@ const DeliveryForm = () => {
                      key={mode}
                      placeholder={t(TRANSLATIONS.order.checkout.deliveryAddress)}
                      defaultValue={address}
-                     onChange={e => orderModel.cart.events.setDelivery({ address: e.target.value })}
+                     onChange={e => {
+                        cartDelivery.setDelivery({ address: e.target.value })
+                     }}
                   />
                   <DatePicker
                      placeholder={t(TRANSLATIONS.order.checkout.deliveryTime)}
                      style={{ width: "100%", marginTop: 20 }}
                      value={date ? moment(date) : undefined}
-                     onChange={value => orderModel.cart.events.setDelivery({ date: value?.toISOString() })}
+                     onChange={value => {
+                        cartDelivery.setDelivery({ date: value?.toISOString() })
+                     }}
                   />
                </>
             )}
@@ -197,7 +203,7 @@ const DeliveryForm = () => {
                   onSelect={value => {
                      const shop = shopsQuery.find(cs => String(cs.id) === value)
                      if (!shop) return
-                     orderModel.cart.events.setDelivery({
+                     cartDelivery.setDelivery({
                         address: shop.address,
                         date: shop.deliveryAt,
                      })
