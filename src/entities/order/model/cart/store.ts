@@ -11,7 +11,7 @@ export interface CartBooksState {
 }
 
 // FIXME: init later by API
-export const booksInitialState: number[] = []
+const booksInitialState: number[] = []
 
 export const useCartBooksStore = create<CartBooksState>(set => {
    const lsItem = initLSItem<number[]>("temp-cart-books", booksInitialState)
