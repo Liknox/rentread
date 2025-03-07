@@ -9,10 +9,10 @@ Rentread book service client (demo-only!)
 
 ## Technology stack
 
-- **UI**: `react`, `antd`, `tailwindcss`
-- **Data model**: `effector`
+- **UI**: `react`, `antd`, `tailwindcss`, `postcss`
+- **Data model**: `zustand`, `persist-storage`
 - **Lang**: `typescript`
-- **Data fetching**: `miragejs`, `faker`
+- **Data fetching**: `faker`
 - **Routing**: `tanstack-router`
 - **Lint**: `eslint`, `prettier`, `biomejs`
 - **Deployment**: `vercel`
@@ -23,7 +23,7 @@ Rentread book service client (demo-only!)
 <div align="center">
 <img title="react" alt="react" height=48 src="https://cdn.auth0.com/blog/react-js/react.png"/>
 <img title="typescript" alt="typescript" height=48 src="https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png"/>
-<img title="effector" alt="feature-sliced" height=48 src="https://effector.dev/favicon.ico"/>
+<img title="zustand" alt="feature-sliced" height=48 src="https://raw.githubusercontent.com/caish-cloud/react-cookies-consent/HEAD/assets/brand-logos/zustand_logo.png"/>
 <img title="antdesign" alt="antdesign" height=48 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
 <img title="tailwindcss" alt="antdesign" height=48 src="https://media.zeemly.com/media/product/tailwind-css.png"/>
 <img title="eslint" alt="eslint" height=48 src="https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg"/>
