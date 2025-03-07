@@ -1,4 +1,5 @@
 import { create } from "zustand"
+import { initLSItem } from "@shared/lib/browser"
 
 // TODO: change
 export const DEFAULT_DURATION = 7
