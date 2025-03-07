@@ -94,4 +94,32 @@ export const useDurationsStore = create<DurationsState>(set => {
       },
    }
 })
+
+interface DeliveryState {
+   delivery: {
+      date: string
+      address: string
+   }
+   setDelivery: (payload: Partial<{ date: string; address: string }>) => void
+}
+
+const initialDelivery = { date: "", address: "" }
+
+export const useDeliveryStore = create<DeliveryState>(set => {
+   const lsItem = initLSItem<{ date: string; address: string }>("temp-cart-delivery", initialDelivery)
+   lsItem.setValue(initialDelivery)
+
+   return {
+      delivery: lsItem.value,
+      setDelivery: payload =>
+         set(state => {
+            const newDelivery = {
+               date: payload.date ?? state.delivery.date,
+               address: payload.address ?? state.delivery.address,
+            }
+
+            lsItem.setValue(newDelivery)
+            return { delivery: newDelivery }
+         }),
+   }
 })
