@@ -39,75 +39,59 @@ export const useCartBooksStore = create<CartBooksState>(set => {
    }
 })
 
-export const $durations = browser
-   .createPersistStore(durationsInitialState, { name: PERSIST_STORE_ITEMS.cartDuration })
-   .on(events.setBookDuration, (state, { bookId, duration }) => {
-      if (duration === undefined) {
-         delete state[bookId]
-         return state
-      }
-      return { ...state, [bookId]: duration }
-   })
-   .on(events.toggleBook, (state, bookId) => {
-      // !!! FIXME
-      const duration = state[bookId] ? undefined : DEFAULT_DURATION
-      if (duration === undefined) {
-         // console.log("before", state);
-         delete state[bookId]
-         // console.log("after", state);
-         return state
-      }
-      return { ...state, [bookId]: duration }
-      // events.setBookDuration({ bookId: payload, duration });
-   })
-   .on(events.submitOrder, () => {
-      console.log("$durations SUBMIT")
-      return {}
-   })
-
-const initialDelivery = {
-   date: "",
-   address: "",
+interface DurationsState {
+   durations: Record<number, number>
+   setBookDuration: (bookId: number, duration?: number) => void
+   toggleBook: (bookId: number) => void
+   submitOrder: () => void
+   reset: () => void
 }
 
-export const $delivery = browser
-   .createPersistStore(initialDelivery, { name: PERSIST_STORE_ITEMS.cartDelivery })
-   .on(events.setDelivery, (state, payload) => {
-      return {
-         date: payload.date ?? state.date,
-         address: payload.address ?? state.address,
-      }
-   })
+const durationsInitialState: Record<number, number> = {}
 
-export const $cart = combine($books, $durations, (books, durations) => {
-   return { books, durations }
+export const useDurationsStore = create<DurationsState>(set => {
+   const lsItem = initLSItem<Record<number, number>>("temp-cart-duration", durationsInitialState)
+
+   return {
+      durations: lsItem.value,
+      setBookDuration: (bookId, duration) =>
+         set(state => {
+            let newDurations
+
+            if (duration === undefined) {
+               newDurations = { ...state.durations }
+               delete newDurations[bookId]
+            } else {
+               newDurations = { ...state.durations, [bookId]: duration }
+            }
+
+            lsItem.setValue(newDurations) // Зберегти новий стан у localStorage
+            return { durations: newDurations }
+         }),
+      toggleBook: bookId =>
+         set(state => {
+            const duration = state.durations[bookId] ? undefined : DEFAULT_DURATION
+            let newDurations
+
+            if (duration === undefined) {
+               newDurations = { ...state.durations }
+            } else {
+               newDurations = { ...state.durations, [bookId]: duration }
+            }
+
+            lsItem.setValue(newDurations)
+            return { durations: newDurations }
+         }),
+      submitOrder: () =>
+         set(() => {
+            console.log("$durations SUBMIT")
+            lsItem.setValue({}) // Очистити durations після відправлення замовлення
+            return { durations: {} }
+         }),
+      reset: () => {
+         lsItem.setValue([])
+         set({ durations: [] })
+      },
+   }
 })
-
-sample({
-   clock: events.submitOrder,
-   source: $cart,
-   fn: state => {
-      const viewer = fakeApi.users.users.getViewer()
-      const newOrders: Order[] = state.books.map(aBookId => {
-         return fakeApi.checkout.orders.createOrder({
-            bookId: fakeApi.users.userBooks.shuffleByABook(aBookId).id,
-            userId: viewer.id,
-            status: "WAITING_TRANSFER",
-            startDelta: 0,
-            deliveredDelta: 2,
-            endDelta: state.durations[aBookId] || 14,
-            costs: fakeApi.library.books.getPrice(fakeApi.library.books.getById(aBookId)!),
-         })
-      })
-
-      viewer.openedOrders.push(...newOrders.map(no => no.id))
-
-      fakeApi.checkout.orders.__pushTo(...newOrders)
-      fakeApi.users.users.__updateUser(viewer)
-
-      $books.reset()
-
-      return []
-   },
-   target: [$books, $durations],
 })
