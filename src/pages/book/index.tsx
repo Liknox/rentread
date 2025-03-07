@@ -8,6 +8,7 @@ import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typo
 import cn from "classnames"
 import { BookCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
+import { useDurationsStore } from "entities/order/model/cart/store"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
@@ -125,12 +126,13 @@ const Checkout = ({ book }: BookProps) => {
    const style = rent.status !== "RENTABLE" ? { opacity: 0.5 } : {}
    const price = `${fakeApi.library.books.getPrice(book)} $`
    const durations = orderModel.cart.useOrderDurations()
+   const cartDurations = useDurationsStore()
 
    console.debug("BOOK RENT", book.id, rent)
 
    const handleTariffChange = (value: number) => {
       if (rent.status === "RENTABLE") {
-         orderModel.cart.events.setBookDuration({ bookId: book.id, duration: value })
+         cartDurations.setBookDuration(book.id, value)
       }
    }
 

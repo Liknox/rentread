@@ -7,6 +7,7 @@ import { Button, Col, Empty, Layout, Row, Typography } from "antd"
 import cn from "classnames"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
+import { useDurationsStore } from "entities/order/model/cart/store"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
@@ -30,6 +31,7 @@ const Content = () => {
    const { t } = useTranslation()
    const order = orderModel.cart.useOrder()
    const durations = orderModel.cart.useOrderDurations()
+   const cartDurations = useDurationsStore()
 
    return (
       <Layout className={cn({ "!w-full": isMobile })}>
@@ -58,12 +60,9 @@ const Content = () => {
                                  })}>
                                  <Cart.Actions.DeleteBook bookId={book.id} />
                                  <TariffRadio
-                                    onChange={value =>
-                                       orderModel.cart.events.setBookDuration({
-                                          bookId: book.id,
-                                          duration: value,
-                                       })
-                                    }
+                                    onChange={value => {
+                                       cartDurations.setBookDuration(book.id, value)
+                                    }}
                                     __byDuration={rent.duration}
                                     value={durations[book.id] || 7}
                                  />
@@ -97,8 +96,6 @@ const RecommendationsSection = () => {
    const parsedBooks = recommended.books.filter(b => orderLib.getRentInfo(b.id).status === "RENTABLE")
 
    if (!parsedBooks.length) return null
-
-   console.log()
 
    return (
       <>
