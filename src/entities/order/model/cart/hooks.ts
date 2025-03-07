@@ -1,6 +1,6 @@
-import { fakeApi, Order } from "@shared/api"
+import { fakeApi } from "@shared/api"
 import { bookModel } from "entities/book"
-import { DEFAULT_DURATION, useCartBooksStore, useDeliveryStore, useDurationsStore } from "./store"
+import { DEFAULT_ORDER_DURATION, useCartBooksStore, useDeliveryStore, useDurationsStore } from "./store"
 
 export const useOrderDurations = () => {
    const { durations } = useDurationsStore()
@@ -70,32 +70,4 @@ export const useOrder = () => {
 export const useDelivery = () => {
    const delivery = useDeliveryStore().delivery
    return delivery
-}
-
-export const submitOrder = () => {
-   const { cartBooks, reset: booksReset } = useCartBooksStore.getState()
-   const { durations, reset: durationsReset } = useDurationsStore.getState()
-
-   const viewer = fakeApi.users.users.getViewer()
-   const newOrders: Order[] = cartBooks.map(aBookId => {
-      return fakeApi.checkout.orders.createOrder({
-         bookId: fakeApi.users.userBooks.shuffleByABook(aBookId).id,
-         userId: viewer.id,
-         status: "WAITING_TRANSFER",
-         startDelta: 0,
-         deliveredDelta: 2,
-         endDelta: durations[aBookId] || 14,
-         costs: fakeApi.library.books.getPrice(fakeApi.library.books.getById(aBookId)!),
-      })
-   })
-
-   viewer.openedOrders.push(...newOrders.map(no => no.id))
-
-   fakeApi.checkout.orders.__pushTo(...newOrders)
-   fakeApi.users.users.__updateUser(viewer)
-
-   console.log("everything worked well")
-
-   booksReset()
-   durationsReset()
 }
