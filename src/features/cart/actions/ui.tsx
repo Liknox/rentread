@@ -6,6 +6,7 @@ import { useRouter } from "@tanstack/react-router"
 import { Button, Modal } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
+import { useCartBooksStore, useDurationsStore } from "entities/order/model/cart/store"
 import type { CSSProperties } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -19,6 +20,8 @@ const useToggleBook = ({ bookId, disabled }: Props) => {
    const router = useRouter()
    const { isBookInCart } = orderModel.cart.useBookStatus(bookId)
    const book = bookModel.useBook(bookId)
+   const cartBooks = useCartBooksStore()
+   const cartDurations = useDurationsStore()
 
    const handleToggle = () => {
       if (disabled) return
@@ -30,7 +33,8 @@ const useToggleBook = ({ bookId, disabled }: Props) => {
          </p>,
          <ShoppingOutlined />,
       )
-      orderModel.cart.events.toggleBook(bookId)
+      cartBooks.toggleBook(bookId)
+      cartDurations.toggleBook(bookId)
    }
 
    return { handleToggle, isBookInCart }
