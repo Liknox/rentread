@@ -29,23 +29,19 @@ export const useRecommended = () => {
 }
 
 export const useBookStatus = (bookId: number) => {
-   const isBookInCart = useStoreMap({
-      store: $books,
-      keys: [bookId],
-      fn: (state, [bookId]) => state.includes(bookId),
-   })
+   const isBookInCart = useCartBooksStore(state => state.cartBooks.includes(bookId))
 
    return { isBookInCart }
 }
 
 export const useOrderBooks = () => {
    const books = bookModel.useBooks()
-   const orderIds = useUnit($books)
+   const orderIds = useCartBooksStore().cartBooks
    return books.filter(b => orderIds.includes(b.id))
 }
 
 export const useOrderValidation = () => {
-   const bookIds = useUnit($books)
+   const bookIds = useCartBooksStore().cartBooks
    const isEmptyCart = bookIds.length === 0
 
    return { isEmptyCart }
