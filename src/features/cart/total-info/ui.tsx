@@ -13,7 +13,7 @@ export const PLACEHOLDER = TRANSLATIONS.order.sidebar.empty
 
 const useDurations = () => {
    const { t } = useTranslation()
-   const durations = orderModel.cart.useOrderDurations()
+   const durations = orderModel.useOrderDurations()
 
    const durationsSorted = Object.values(durations).sort((a, b) => a - b)
 
@@ -32,7 +32,7 @@ const useDurations = () => {
 }
 export const Form = () => {
    const { t } = useTranslation()
-   const order = orderModel.cart.useOrder()
+   const order = orderModel.useOrder()
    const totalDuration = useDurations()
 
    return (
@@ -78,7 +78,7 @@ export const Card = ({ children }: Props) => {
 
 export const CartMini = () => {
    const { t } = useTranslation()
-   const order = orderModel.cart.useOrder()
+   const order = orderModel.useOrder()
 
    return (
       <article className="ml-0 md:ml-10 text-center rounded-[10px] shadow-inset p-5">

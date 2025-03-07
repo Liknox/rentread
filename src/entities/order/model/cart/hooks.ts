@@ -49,7 +49,6 @@ export const useOrderValidation = () => {
    return { isEmptyCart }
 }
 
-// FIXME: useStoreMap instead
 export const useOrder = () => {
    const books = useOrderBooks()
    const durations = useOrderDurations()
@@ -58,8 +57,8 @@ export const useOrder = () => {
       .map(b => {
          const price = fakeApi.library.books.getPrice(b)
          // FIXME: @hardcoded (return undefined, need to fix)
-         const duration = durations[b.id] || DEFAULT_DURATION
-         const coeff = duration / DEFAULT_DURATION
+         const duration = durations[b.id] || DEFAULT_ORDER_DURATION
+         const coeff = duration / DEFAULT_ORDER_DURATION
          return Math.floor(price * coeff)
       })
       .reduce((a, b) => a + b, 0)

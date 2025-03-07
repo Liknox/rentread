@@ -4,7 +4,7 @@ import { fakeApi } from "shared/api"
 import { initLSItem } from "@shared/lib/browser"
 import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 
-export interface ReserveState {
+interface ReserveState {
    reserve: number[]
    toggleBook: (bookId: number) => void
 }

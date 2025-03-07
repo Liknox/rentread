@@ -1,7 +1,7 @@
 import { fakeApi } from "@shared/api"
 import { bookModel } from "entities/book"
 import * as lib from "../lib"
-import { useFavStore } from "./store.ts"
+import { useFavStore } from "./store"
 
 export const useBookFavStatus = (bookId: number) => {
    const isBookFav = useFavStore(state => state.fav.includes(bookId))

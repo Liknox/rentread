@@ -8,7 +8,6 @@ import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typo
 import cn from "classnames"
 import { BookCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
-import { useDurationsStore } from "entities/order/model/cart/store"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
@@ -125,8 +124,8 @@ const Checkout = ({ book }: BookProps) => {
    const rent = orderLib.getRentInfo(book.id)
    const style = rent.status !== "RENTABLE" ? { opacity: 0.5 } : {}
    const price = `${fakeApi.library.books.getPrice(book)} $`
-   const durations = orderModel.cart.useOrderDurations()
-   const cartDurations = useDurationsStore()
+   const durations = orderModel.useOrderDurations()
+   const cartDurations = orderModel.useDurationsStore()
 
    console.debug("BOOK RENT", book.id, rent)
 

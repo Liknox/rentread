@@ -1,5 +1,4 @@
 import { Button, Layout, Result } from "antd"
-
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTitle } from "@shared/lib/dom"
@@ -7,14 +6,13 @@ import { Link } from "@tanstack/react-router"
 import { Cart } from "features/cart"
 import { useTranslation } from "react-i18next"
 
-// !!! FIXME: split by features!
 // TODO: Add skeletons loader
 
 /**
  * @page Order Confirmation Page
  */
 const ResultPage = () => {
-   // const { isEmptyCart } = orderModel.cart.useOrderValidation();
+   // const { isEmptyCart } = orderModel.useOrderValidation();
    // FIXME: Rewrite later with promise
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.result))

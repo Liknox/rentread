@@ -7,7 +7,6 @@ import { Button, Col, Empty, Layout, Row, Typography } from "antd"
 import cn from "classnames"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
-import { useDurationsStore } from "entities/order/model/cart/store"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
@@ -29,9 +28,9 @@ function Order() {
 
 const Content = () => {
    const { t } = useTranslation()
-   const order = orderModel.cart.useOrder()
-   const durations = orderModel.cart.useOrderDurations()
-   const cartDurations = useDurationsStore()
+   const order = orderModel.useOrder()
+   const durations = orderModel.useOrderDurations()
+   const cartDurations = orderModel.useDurationsStore()
 
    return (
       <Layout className={cn({ "!w-full": isMobile })}>
@@ -91,7 +90,7 @@ const Content = () => {
 
 const RecommendationsSection = () => {
    const { t } = useTranslation()
-   const recommended = orderModel.cart.useRecommended()
+   const recommended = orderModel.useRecommended()
 
    const parsedBooks = recommended.books.filter(b => orderLib.getRentInfo(b.id).status === "RENTABLE")
 
@@ -130,7 +129,7 @@ const RecommendationsSection = () => {
 
 const Sidebar = () => {
    const { t } = useTranslation()
-   const { isEmptyCart } = orderModel.cart.useOrderValidation()
+   const { isEmptyCart } = orderModel.useOrderValidation()
 
    return (
       <Layout.Sider width={isMobile ? "100%" : 400} className="mt-8 md:mt-0">

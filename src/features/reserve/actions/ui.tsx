@@ -15,10 +15,9 @@ type Props = {
 const useToggleBook = (bookId: number) => {
    const { t } = useTranslation()
    const router = useRouter()
-   const { isBookReserved } = orderModel.reservation.useBookReservationStatus(bookId)
-   // const isBookReserved = Boolean((book?.name.length || 0) % 2);
+   const isBookReserved = orderModel.useBookReservationStatus(bookId)
    const book = bookModel.useBook(bookId)
-   const reserve = orderModel.reservation.store.useReserveStore()
+   const reserve = orderModel.useReserveStore()
 
    const handleToggle = () => {
       const action = isBookReserved ? TRANSLATIONS.alert.reserve.remove : TRANSLATIONS.alert.reserve.add

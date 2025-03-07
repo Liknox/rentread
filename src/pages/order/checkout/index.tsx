@@ -3,14 +3,11 @@ import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
-import { Link } from "@tanstack/react-router"
-import { useNavigate } from "@tanstack/react-router"
+import { useNavigate, Link } from "@tanstack/react-router"
 import { Button, Checkbox, Col, DatePicker, Input, Layout, Result, Row, Select, Typography } from "antd"
 import cn from "classnames"
 import dayjs from "dayjs"
-import { orderModel } from "entities/order"
-import { submitOrder } from "entities/order/model/cart"
-import { useDeliveryStore } from "entities/order/model/cart/store"
+import { orderLib, orderModel } from "entities/order"
 import { walletModel } from "entities/wallet"
 import { Cart } from "features/cart"
 import { Wallet } from "features/wallet"
@@ -21,10 +18,10 @@ import { useTranslation } from "react-i18next"
 import { v4 as uuid } from "uuid"
 
 const useCheckoutValidation = () => {
-   const { price } = orderModel.cart.useOrder()
-   const delivery = orderModel.cart.useDelivery()
+   const { price } = orderModel.useOrder()
+   const delivery = orderModel.useDelivery()
    const { wallet } = walletModel.useViewerWallet()
-   const { isEmptyCart } = orderModel.cart.useOrderValidation()
+   const { isEmptyCart } = orderModel.useOrderValidation()
 
    const isEnoughMoney = wallet >= price
    const message = isEnoughMoney ? "" : "Insufficient funds for payment"
@@ -102,14 +99,14 @@ const Sidebar = () => {
    const { t } = useTranslation()
    const navigate = useNavigate()
    const viewer = walletModel.useViewerWallet()
-   const order = orderModel.cart.useOrder()
+   const order = orderModel.useOrder()
    const validation = useCheckoutValidation()
    // const history = useHistory();
    // hooks.useRedirectOn(isEmptyCart, "/order");
 
    const handleButtonClick = () => {
       viewer.payment.applyTransaction(-order.price).then(() => {
-         submitOrder()
+         orderLib.submitOrder()
          navigate({ to: `/order/result/${uuid()}` })
       })
    }
@@ -141,9 +138,9 @@ const Sidebar = () => {
 const DeliveryForm = () => {
    const { t } = useTranslation()
    const [mode, setMode] = useState<"MANUAL" | "COFFESHOP">("MANUAL")
-   const { date, address } = orderModel.cart.useDelivery()
+   const { date, address } = orderModel.useDelivery()
    const shopsQuery = fakeApi.checkout.coffeeshops.getAll()
-   const cartDelivery = useDeliveryStore()
+   const cartDelivery = orderModel.useDeliveryStore()
    const shopsOptions = shopsQuery.map(cs => ({
       value: String(cs.id),
       label: (

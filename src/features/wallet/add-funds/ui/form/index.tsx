@@ -1,7 +1,6 @@
 import { Button, Form, Input, Typography } from "antd"
 import cn from "classnames"
 import { useState } from "react"
-
 import { WalletOutlined } from "@ant-design/icons"
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"

@@ -2,9 +2,9 @@ import { create } from "zustand"
 import { initLSItem } from "@shared/lib/browser"
 
 // TODO: change
-export const DEFAULT_DURATION = 7
+export const DEFAULT_ORDER_DURATION = 7
 
-export interface CartBooksState {
+interface CartBooksState {
    cartBooks: number[]
    toggleBook: (bookId: number) => void
    reset: () => void
@@ -70,7 +70,7 @@ export const useDurationsStore = create<DurationsState>(set => {
          }),
       toggleBook: bookId =>
          set(state => {
-            const duration = state.durations[bookId] ? undefined : DEFAULT_DURATION
+            const duration = state.durations[bookId] ? undefined : DEFAULT_ORDER_DURATION
             let newDurations
 
             if (duration === undefined) {
