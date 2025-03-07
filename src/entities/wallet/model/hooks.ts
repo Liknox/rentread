@@ -1,10 +1,5 @@
-import { fakeApi } from "@shared/api"
 import { useState } from "react"
 import { useWalletStore } from "./store"
-
-export const useViewer = () => {
-   return fakeApi.users.users.getViewer()
-}
 
 export const useViewerWallet = () => {
    const wallet = useWalletStore()
