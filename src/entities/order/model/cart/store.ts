@@ -1,25 +1,42 @@
-import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
-import { type Order, fakeApi } from "@shared/api"
-import { browser } from "@shared/lib"
-import { combine, sample } from "effector"
-import * as events from "./events"
+import { create } from "zustand"
 
 // TODO: change
 export const DEFAULT_DURATION = 7
 
+export interface CartBooksState {
+   cartBooks: number[]
+   toggleBook: (bookId: number) => void
+   reset: () => void
+}
+
 // FIXME: init later by API
 export const booksInitialState: number[] = []
 
-export const $books = browser
-   .createPersistStore(booksInitialState, { name: PERSIST_STORE_ITEMS.cartBooks })
-   .on(events.toggleBook, (state, payload) => {
-      if (state.includes(payload)) {
-         return state.filter(it => it !== payload)
-      }
-      return [...state, payload]
-   })
+export const useCartBooksStore = create<CartBooksState>(set => {
+   const lsItem = initLSItem<number[]>("temp-cart-books", booksInitialState)
 
-export const durationsInitialState: Record<number, number> = {}
+   return {
+      cartBooks: lsItem.value,
+      toggleBook: (bookId: number) =>
+         set(state => {
+            let newBook
+
+            if (state.cartBooks.includes(bookId)) {
+               newBook = { cartBooks: state.cartBooks.filter(id => id !== bookId) }
+            } else {
+               newBook = { cartBooks: [...state.cartBooks, bookId] }
+            }
+
+            lsItem.setValue(newBook.cartBooks)
+
+            return { ...newBook }
+         }),
+      reset: () => {
+         lsItem.setValue([])
+         set({ cartBooks: [] })
+      },
+   }
+})
 
 export const $durations = browser
    .createPersistStore(durationsInitialState, { name: PERSIST_STORE_ITEMS.cartDuration })
