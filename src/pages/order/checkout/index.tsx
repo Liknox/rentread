@@ -9,6 +9,7 @@ import { Button, Checkbox, Col, DatePicker, Input, Layout, Result, Row, Select, 
 import cn from "classnames"
 import dayjs from "dayjs"
 import { orderModel } from "entities/order"
+import { submitOrder } from "entities/order/model/cart"
 import { walletModel } from "entities/wallet"
 import { Cart } from "features/cart"
 import { Wallet } from "features/wallet"
@@ -107,7 +108,7 @@ const Sidebar = () => {
 
    const handleButtonClick = () => {
       viewer.payment.applyTransaction(-order.price).then(() => {
-         orderModel.cart.events.submitOrder()
+         submitOrder()
          navigate({ to: `/order/result/${uuid()}` })
       })
    }
