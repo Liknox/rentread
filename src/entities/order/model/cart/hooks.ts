@@ -68,6 +68,8 @@ export const useOrder = () => {
    return { books, price }
 }
 
-export const useDeliveryStore = () => {
-   return useUnit($delivery)
+export const useDelivery = () => {
+   const delivery = useDeliveryStore().delivery
+   return delivery
+}
 }
