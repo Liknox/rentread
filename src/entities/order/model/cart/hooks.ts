@@ -4,8 +4,7 @@ import { useCartBooksStore, useDeliveryStore, useDurationsStore } from "./store"
 import { DEFAULT_ORDER_DURATION } from "@app/configs/constants"
 
 export const useOrderDurations = () => {
-   const { durations } = useDurationsStore()
-   return durations
+   return useDurationsStore().durations
 }
 
 const RECOMMEND_MAX = 6
@@ -32,9 +31,7 @@ export const useRecommended = () => {
 }
 
 export const useBookStatus = (bookId: number) => {
-   const isBookInCart = useCartBooksStore(state => state.cartBooks.includes(bookId))
-
-   return { isBookInCart }
+   return useCartBooksStore(state => state.cartBooks.includes(bookId))
 }
 
 export const useOrderBooks = () => {
@@ -68,6 +65,5 @@ export const useOrder = () => {
 }
 
 export const useDelivery = () => {
-   const delivery = useDeliveryStore().delivery
-   return delivery
+   return useDeliveryStore().delivery
 }
