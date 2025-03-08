@@ -1,7 +1,7 @@
-import { create } from "zustand"
-import { fakeApi } from "shared/api"
-import { initLSItem } from "@shared/lib/browser"
 import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
+import { initLSItem } from "@shared/lib/browser"
+import { fakeApi } from "shared/api"
+import { create } from "zustand"
 
 interface FavState {
    fav: number[]

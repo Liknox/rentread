@@ -1,4 +1,4 @@
-import { type Book, fakeApi, Order } from "@shared/api"
+import { type Book, type Order, fakeApi } from "@shared/api"
 import dayjs from "dayjs"
 import { orderModel } from "./index"
 

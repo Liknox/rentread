@@ -1,6 +1,6 @@
-import { create } from "zustand"
-import { initLSItem } from "@shared/lib/browser"
 import { DEFAULT_ORDER_DURATION, PERSIST_STORE_ITEMS } from "@app/configs/constants"
+import { initLSItem } from "@shared/lib/browser"
+import { create } from "zustand"
 
 // TODO: change
 

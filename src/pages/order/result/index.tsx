@@ -1,8 +1,8 @@
-import { Button, Layout, Result } from "antd"
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTitle } from "@shared/lib/dom"
 import { Link } from "@tanstack/react-router"
+import { Button, Layout, Result } from "antd"
 import { Cart } from "features/cart"
 import { useTranslation } from "react-i18next"
 
@@ -12,11 +12,8 @@ import { useTranslation } from "react-i18next"
  * @page Order Confirmation Page
  */
 const ResultPage = () => {
-   // const { isEmptyCart } = orderModel.useOrderValidation();
-   // FIXME: Rewrite later with promise
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.result))
-   // hooks.useRedirectOn(isEmptyCart, "/order");
 
    return (
       <Layout.Content>

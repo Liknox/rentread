@@ -1,5 +1,5 @@
-import { create } from "zustand"
 import { fakeApi } from "shared/api"
+import { create } from "zustand"
 
 // FIXME: fetch effect later
 const initialState = fakeApi.library.books.getAll()
