@@ -1,4 +1,4 @@
-import { DEFAULT_ORDER_DURATION } from "@app/configs/constants"
+import { DEFAULT_ORDER_DURATION, SERVICE_FEE } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
 import { bookModel } from "entities/book"
 import { useCartBooksStore, useDeliveryStore, useDurationsStore } from "./store"
@@ -50,8 +50,7 @@ export const useOrderValidation = () => {
 export const useOrder = () => {
    const books = useOrderBooks()
    const durations = useOrderDurations()
-
-   const price = books
+   const priceBeforeFee = books
       .map(b => {
          const price = fakeApi.library.books.getPrice(b)
          // FIXME: @hardcoded (return undefined, need to fix)
@@ -61,7 +60,10 @@ export const useOrder = () => {
       })
       .reduce((a, b) => a + b, 0)
 
-   return { books, price }
+   const fee = priceBeforeFee * SERVICE_FEE
+   const price = (priceBeforeFee + fee).toFixed(2)
+
+   return { books, price, fee }
 }
 
 export const useDelivery = () => {
