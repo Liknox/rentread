@@ -7,8 +7,8 @@ export const TARIFFS = {
 }
 
 export const PRICES = {
-   MIN: 0,
-   MAX: 50,
+   MIN: 5,
+   MAX: 30,
 }
 
 export const DEFAULT_ORDER_DURATION = 7
