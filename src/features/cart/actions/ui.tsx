@@ -17,8 +17,10 @@ type Props = {
 const useToggleBook = ({ bookId, disabled }: Props) => {
    const { t } = useTranslation()
    const router = useRouter()
-   const { isBookInCart } = orderModel.cart.useBookStatus(bookId)
+   const isBookInCart = orderModel.useBookStatus(bookId)
    const book = bookModel.useBook(bookId)
+   const cartBooks = orderModel.useCartBooksStore()
+   const cartDurations = orderModel.useDurationsStore()
 
    const handleToggle = () => {
       if (disabled) return
@@ -30,7 +32,8 @@ const useToggleBook = ({ bookId, disabled }: Props) => {
          </p>,
          <ShoppingOutlined />,
       )
-      orderModel.cart.events.toggleBook(bookId)
+      cartBooks.toggleBook(bookId)
+      cartDurations.toggleBook(bookId)
    }
 
    return { handleToggle, isBookInCart }

@@ -1,5 +1,6 @@
-import { type Book, fakeApi } from "@shared/api"
+import { type Book, type Order, fakeApi } from "@shared/api"
 import dayjs from "dayjs"
+import { orderModel } from "./index"
 
 const getRentStats = (userBooks: Book[]) => {
    return userBooks.map(ub => {
@@ -64,4 +65,32 @@ export const getRentInfo = (aBookId: number) => {
       duration: maxDuration,
       items: rentStats,
    }
+}
+
+export const submitOrder = () => {
+   const { cartBooks, reset: booksReset } = orderModel.useCartBooksStore.getState()
+   const { durations, reset: durationsReset } = orderModel.useDurationsStore.getState()
+
+   const viewer = fakeApi.users.users.getViewer()
+   const newOrders: Order[] = cartBooks.map(aBookId => {
+      return fakeApi.checkout.orders.createOrder({
+         bookId: fakeApi.users.userBooks.shuffleByABook(aBookId).id,
+         userId: viewer.id,
+         status: "WAITING_TRANSFER",
+         startDelta: 0,
+         deliveredDelta: 2,
+         endDelta: durations[aBookId] || 14,
+         costs: fakeApi.library.books.getPrice(fakeApi.library.books.getById(aBookId)!),
+      })
+   })
+
+   viewer.openedOrders.push(...newOrders.map(no => no.id))
+
+   fakeApi.checkout.orders.__pushTo(...newOrders)
+   fakeApi.users.users.__updateUser(viewer)
+
+   console.log("everything worked well")
+
+   booksReset()
+   durationsReset()
 }

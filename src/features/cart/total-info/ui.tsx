@@ -1,4 +1,4 @@
-import { BookOutlined, ClockCircleOutlined } from "@ant-design/icons"
+import { BookOutlined, ClockCircleOutlined, WalletOutlined } from "@ant-design/icons"
 import { Col, Divider, Row, Typography } from "antd"
 
 import { routes } from "@app/configs/constants"
@@ -13,7 +13,7 @@ export const PLACEHOLDER = TRANSLATIONS.order.sidebar.empty
 
 const useDurations = () => {
    const { t } = useTranslation()
-   const durations = orderModel.cart.useOrderDurations()
+   const durations = orderModel.useOrderDurations()
 
    const durationsSorted = Object.values(durations).sort((a, b) => a - b)
 
@@ -32,7 +32,7 @@ const useDurations = () => {
 }
 export const Form = () => {
    const { t } = useTranslation()
-   const order = orderModel.cart.useOrder()
+   const order = orderModel.useOrder()
    const totalDuration = useDurations()
 
    return (
@@ -42,6 +42,20 @@ export const Form = () => {
             <Typography.Title level={4} style={{ margin: 0 }}>
                {order.price} $
             </Typography.Title>
+         </Row>
+         <Row align="middle" className="pt-1 justify-between">
+            <div>
+               <WalletOutlined />
+               &nbsp;
+               <Typography.Text type="secondary" className="font-roboto">
+                  {order.books.length ? "Service fee (7%)" : t(PLACEHOLDER)}
+               </Typography.Text>
+            </div>
+            {!!order.books.length && (
+               <Typography.Text type="secondary" className="font-roboto">
+                  ~ {order.fee.toFixed(1)} $
+               </Typography.Text>
+            )}
          </Row>
          <Row align="middle" className="pt-1">
             <BookOutlined />
@@ -56,7 +70,7 @@ export const Form = () => {
             <ClockCircleOutlined />
             &nbsp;
             <Typography.Text type="secondary" className="font-roboto">
-               {t(totalDuration)}
+               {order.books.length ? t(totalDuration) : t(PLACEHOLDER)}
             </Typography.Text>
          </Row>
       </section>
@@ -78,7 +92,7 @@ export const Card = ({ children }: Props) => {
 
 export const CartMini = () => {
    const { t } = useTranslation()
-   const order = orderModel.cart.useOrder()
+   const order = orderModel.useOrder()
 
    return (
       <article className="ml-0 md:ml-10 text-center rounded-[10px] shadow-inset p-5">

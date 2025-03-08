@@ -1,13 +1,12 @@
-import { Button, Form, Input, Typography } from "antd"
-import cn from "classnames"
-import { useState } from "react"
-
 import { WalletOutlined } from "@ant-design/icons"
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { useRouter } from "@tanstack/react-router"
+import { Button, Form, Input, Typography } from "antd"
+import cn from "classnames"
 import { walletModel } from "entities/wallet"
+import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
 type Props = {

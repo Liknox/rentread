@@ -124,13 +124,14 @@ const Checkout = ({ book }: BookProps) => {
    const rent = orderLib.getRentInfo(book.id)
    const style = rent.status !== "RENTABLE" ? { opacity: 0.5 } : {}
    const price = `${fakeApi.library.books.getPrice(book)} $`
-   const durations = orderModel.cart.useOrderDurations()
+   const durations = orderModel.useOrderDurations()
+   const cartDurations = orderModel.useDurationsStore()
 
    console.debug("BOOK RENT", book.id, rent)
 
    const handleTariffChange = (value: number) => {
       if (rent.status === "RENTABLE") {
-         orderModel.cart.events.setBookDuration({ bookId: book.id, duration: value })
+         cartDurations.setBookDuration(book.id, value)
       }
    }
 

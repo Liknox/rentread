@@ -1,95 +1,125 @@
-import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
-import { type Order, fakeApi } from "@shared/api"
-import { browser } from "@shared/lib"
-import { combine, sample } from "effector"
-import * as events from "./events"
+import { DEFAULT_ORDER_DURATION, PERSIST_STORE_ITEMS } from "@app/configs/constants"
+import { initLSItem } from "@shared/lib/browser"
+import { create } from "zustand"
 
 // TODO: change
-export const DEFAULT_DURATION = 7
 
-// FIXME: init later by API
-export const booksInitialState: number[] = []
-
-export const $books = browser
-   .createPersistStore(booksInitialState, { name: PERSIST_STORE_ITEMS.cartBooks })
-   .on(events.toggleBook, (state, payload) => {
-      if (state.includes(payload)) {
-         return state.filter(it => it !== payload)
-      }
-      return [...state, payload]
-   })
-
-export const durationsInitialState: Record<number, number> = {}
-
-export const $durations = browser
-   .createPersistStore(durationsInitialState, { name: PERSIST_STORE_ITEMS.cartDuration })
-   .on(events.setBookDuration, (state, { bookId, duration }) => {
-      if (duration === undefined) {
-         delete state[bookId]
-         return state
-      }
-      return { ...state, [bookId]: duration }
-   })
-   .on(events.toggleBook, (state, bookId) => {
-      // !!! FIXME
-      const duration = state[bookId] ? undefined : DEFAULT_DURATION
-      if (duration === undefined) {
-         // console.log("before", state);
-         delete state[bookId]
-         // console.log("after", state);
-         return state
-      }
-      return { ...state, [bookId]: duration }
-      // events.setBookDuration({ bookId: payload, duration });
-   })
-   .on(events.submitOrder, () => {
-      console.log("$durations SUBMIT")
-      return {}
-   })
-
-const initialDelivery = {
-   date: "",
-   address: "",
+interface CartBooksState {
+   cartBooks: number[]
+   toggleBook: (bookId: number) => void
+   reset: () => void
 }
 
-export const $delivery = browser
-   .createPersistStore(initialDelivery, { name: PERSIST_STORE_ITEMS.cartDelivery })
-   .on(events.setDelivery, (state, payload) => {
-      return {
-         date: payload.date ?? state.date,
-         address: payload.address ?? state.address,
-      }
-   })
+// FIXME: init later by API
+const booksInitialState: number[] = []
 
-export const $cart = combine($books, $durations, (books, durations) => {
-   return { books, durations }
+export const useCartBooksStore = create<CartBooksState>(set => {
+   const lsItem = initLSItem<number[]>(PERSIST_STORE_ITEMS.cartBooks, booksInitialState)
+
+   return {
+      cartBooks: lsItem.value,
+      toggleBook: (bookId: number) =>
+         set(state => {
+            let newBook
+
+            if (state.cartBooks.includes(bookId)) {
+               newBook = { cartBooks: state.cartBooks.filter(id => id !== bookId) }
+            } else {
+               newBook = { cartBooks: [...state.cartBooks, bookId] }
+            }
+
+            lsItem.setValue(newBook.cartBooks)
+
+            return { ...newBook }
+         }),
+      reset: () => {
+         lsItem.setValue([])
+         set({ cartBooks: [] })
+      },
+   }
 })
 
-sample({
-   clock: events.submitOrder,
-   source: $cart,
-   fn: state => {
-      const viewer = fakeApi.users.users.getViewer()
-      const newOrders: Order[] = state.books.map(aBookId => {
-         return fakeApi.checkout.orders.createOrder({
-            bookId: fakeApi.users.userBooks.shuffleByABook(aBookId).id,
-            userId: viewer.id,
-            status: "WAITING_TRANSFER",
-            startDelta: 0,
-            deliveredDelta: 2,
-            endDelta: state.durations[aBookId] || 14,
-            costs: fakeApi.library.books.getPrice(fakeApi.library.books.getById(aBookId)!),
-         })
-      })
+interface DurationsState {
+   durations: Record<number, number>
+   setBookDuration: (bookId: number, duration?: number) => void
+   toggleBook: (bookId: number) => void
+   submitOrder: () => void
+   reset: () => void
+}
 
-      viewer.openedOrders.push(...newOrders.map(no => no.id))
+const durationsInitialState: Record<number, number> = {}
 
-      fakeApi.checkout.orders.__pushTo(...newOrders)
-      fakeApi.users.users.__updateUser(viewer)
+export const useDurationsStore = create<DurationsState>(set => {
+   const lsItem = initLSItem<Record<number, number>>(PERSIST_STORE_ITEMS.cartDuration, durationsInitialState)
 
-      $books.reset()
+   return {
+      durations: lsItem.value,
+      setBookDuration: (bookId, duration) =>
+         set(state => {
+            let newDurations
 
-      return []
-   },
-   target: [$books, $durations],
+            if (duration === undefined) {
+               newDurations = { ...state.durations }
+               delete newDurations[bookId]
+            } else {
+               newDurations = { ...state.durations, [bookId]: duration }
+            }
+
+            lsItem.setValue(newDurations) // Зберегти новий стан у localStorage
+            return { durations: newDurations }
+         }),
+      toggleBook: bookId =>
+         set(state => {
+            const duration = state.durations[bookId] ? undefined : DEFAULT_ORDER_DURATION
+            let newDurations
+
+            if (duration === undefined) {
+               newDurations = { ...state.durations }
+            } else {
+               newDurations = { ...state.durations, [bookId]: duration }
+            }
+
+            lsItem.setValue(newDurations)
+            return { durations: newDurations }
+         }),
+      submitOrder: () =>
+         set(() => {
+            console.log("$durations SUBMIT")
+            lsItem.setValue({}) // Очистити durations після відправлення замовлення
+            return { durations: {} }
+         }),
+      reset: () => {
+         lsItem.setValue([])
+         set({ durations: [] })
+      },
+   }
+})
+
+interface DeliveryState {
+   delivery: {
+      date: string
+      address: string
+   }
+   setDelivery: (payload: Partial<{ date: string; address: string }>) => void
+}
+
+const initialDelivery = { date: "", address: "" }
+
+export const useDeliveryStore = create<DeliveryState>(set => {
+   const lsItem = initLSItem<{ date: string; address: string }>(PERSIST_STORE_ITEMS.cartDelivery, initialDelivery)
+   lsItem.setValue(initialDelivery)
+
+   return {
+      delivery: lsItem.value,
+      setDelivery: payload =>
+         set(state => {
+            const newDelivery = {
+               date: payload.date ?? state.delivery.date,
+               address: payload.address ?? state.delivery.address,
+            }
+
+            lsItem.setValue(newDelivery)
+            return { delivery: newDelivery }
+         }),
+   }
 })

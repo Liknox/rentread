@@ -1,9 +1,11 @@
+import { DEFAULT_ORDER_DURATION, SERVICE_FEE } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
-import { useStoreMap, useUnit } from "effector-react"
 import { bookModel } from "entities/book"
-import { $books, $delivery, $durations, DEFAULT_DURATION } from "./store"
+import { useCartBooksStore, useDeliveryStore, useDurationsStore } from "./store"
 
-export const useOrderDurations = () => useUnit($durations)
+export const useOrderDurations = () => {
+   return useDurationsStore().durations
+}
 
 const RECOMMEND_MAX = 6
 
@@ -29,46 +31,41 @@ export const useRecommended = () => {
 }
 
 export const useBookStatus = (bookId: number) => {
-   const isBookInCart = useStoreMap({
-      store: $books,
-      keys: [bookId],
-      fn: (state, [bookId]) => state.includes(bookId),
-   })
-
-   return { isBookInCart }
+   return useCartBooksStore(state => state.cartBooks.includes(bookId))
 }
 
 export const useOrderBooks = () => {
    const books = bookModel.useBooks()
-   const orderIds = useUnit($books)
+   const orderIds = useCartBooksStore().cartBooks
    return books.filter(b => orderIds.includes(b.id))
 }
 
 export const useOrderValidation = () => {
-   const bookIds = useUnit($books)
+   const bookIds = useCartBooksStore().cartBooks
    const isEmptyCart = bookIds.length === 0
 
    return { isEmptyCart }
 }
 
-// FIXME: useStoreMap instead
 export const useOrder = () => {
    const books = useOrderBooks()
    const durations = useOrderDurations()
-
-   const price = books
+   const priceBeforeFee = books
       .map(b => {
          const price = fakeApi.library.books.getPrice(b)
          // FIXME: @hardcoded (return undefined, need to fix)
-         const duration = durations[b.id] || DEFAULT_DURATION
-         const coeff = duration / DEFAULT_DURATION
+         const duration = durations[b.id] || DEFAULT_ORDER_DURATION
+         const coeff = duration / DEFAULT_ORDER_DURATION
          return Math.floor(price * coeff)
       })
       .reduce((a, b) => a + b, 0)
 
-   return { books, price }
+   const fee = priceBeforeFee * SERVICE_FEE
+   const price = (priceBeforeFee + fee).toFixed(2)
+
+   return { books, price, fee }
 }
 
-export const useDeliveryStore = () => {
-   return useUnit($delivery)
+export const useDelivery = () => {
+   return useDeliveryStore().delivery
 }

@@ -7,9 +7,13 @@ export const TARIFFS = {
 }
 
 export const PRICES = {
-   MIN: 0,
-   MAX: 50,
+   MIN: 5,
+   MAX: 30,
 }
+
+export const DEFAULT_ORDER_DURATION = 7
+
+export const SERVICE_FEE = 0.07
 
 /** profile topics/anchors */
 export const TOPIC_OPENED = {

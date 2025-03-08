@@ -1,8 +1,7 @@
 import ReactDOM from "react-dom/client"
-import App from "./app"
 import "@app/configs/language/i18n.config"
-
 import "@app/styles/index.css"
+import App from "./app"
 
 const rootElement = document.getElementById("root")
 

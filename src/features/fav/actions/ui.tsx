@@ -18,6 +18,7 @@ const useToggleBook = (bookId: number) => {
    const router = useRouter()
    const { isBookFav } = viewerModel.useBookFavStatus(bookId)
    const book = bookModel.useBook(bookId)
+   const favorites = viewerModel.useFavStore()
 
    const handleToggle = () => {
       const action = isBookFav ? TRANSLATIONS.alert.favorites.remove : TRANSLATIONS.alert.favorites.add
@@ -29,7 +30,7 @@ const useToggleBook = (bookId: number) => {
          </p>,
          <HeartOutlined />,
       )
-      viewerModel.events.toggleBook(bookId)
+      favorites.toggleBook(bookId)
    }
 
    return { handleToggle, isBookFav }

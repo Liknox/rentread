@@ -63,7 +63,7 @@ type ActionId = (typeof actions)[number]["id"]
 const NOT_AVAILABLE = TRANSLATIONS.header.placeholders.notAvailable
 
 const Header = () => {
-   const orderTotal = orderModel.cart.useOrderBooks().length
+   const orderTotal = orderModel.useOrderBooks().length
    const favTotal = viewerModel.useFavBooks().length
    const { t, i18n } = useTranslation()
 
