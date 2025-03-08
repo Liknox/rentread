@@ -1,6 +1,7 @@
 import { fakeApi } from "@shared/api"
 import { bookModel } from "entities/book"
-import { DEFAULT_ORDER_DURATION, useCartBooksStore, useDeliveryStore, useDurationsStore } from "./store"
+import { useCartBooksStore, useDeliveryStore, useDurationsStore } from "./store"
+import { DEFAULT_ORDER_DURATION } from "@app/configs/constants"
 
 export const useOrderDurations = () => {
    const { durations } = useDurationsStore()

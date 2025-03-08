@@ -11,6 +11,8 @@ export const PRICES = {
    MAX: 50,
 }
 
+export const DEFAULT_ORDER_DURATION = 7
+
 /** profile topics/anchors */
 export const TOPIC_OPENED = {
    id: "opened",
