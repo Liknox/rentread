@@ -70,7 +70,7 @@ export const Form = () => {
             <ClockCircleOutlined />
             &nbsp;
             <Typography.Text type="secondary" className="font-roboto">
-               {t(totalDuration)}
+               {order.books.length ? t(totalDuration) : t(PLACEHOLDER)}
             </Typography.Text>
          </Row>
       </section>
