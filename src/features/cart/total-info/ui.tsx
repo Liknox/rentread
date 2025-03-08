@@ -1,4 +1,4 @@
-import { BookOutlined, ClockCircleOutlined } from "@ant-design/icons"
+import { BookOutlined, ClockCircleOutlined, WalletOutlined } from "@ant-design/icons"
 import { Col, Divider, Row, Typography } from "antd"
 
 import { routes } from "@app/configs/constants"
@@ -42,6 +42,20 @@ export const Form = () => {
             <Typography.Title level={4} style={{ margin: 0 }}>
                {order.price} $
             </Typography.Title>
+         </Row>
+         <Row align="middle" className="pt-1 justify-between">
+            <div>
+               <WalletOutlined />
+               &nbsp;
+               <Typography.Text type="secondary" className="font-roboto">
+                  {order.books.length ? "Service fee (7%)" : t(PLACEHOLDER)}
+               </Typography.Text>
+            </div>
+            {!!order.books.length && (
+               <Typography.Text type="secondary" className="font-roboto">
+                  ~ {order.fee.toFixed(1)} $
+               </Typography.Text>
+            )}
          </Row>
          <Row align="middle" className="pt-1">
             <BookOutlined />
