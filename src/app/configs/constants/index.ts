@@ -13,6 +13,8 @@ export const PRICES = {
 
 export const DEFAULT_ORDER_DURATION = 7
 
+export const SERVICE_FEE = 0.07
+
 /** profile topics/anchors */
 export const TOPIC_OPENED = {
    id: "opened",
