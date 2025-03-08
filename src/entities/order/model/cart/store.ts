@@ -1,5 +1,6 @@
 import { create } from "zustand"
 import { initLSItem } from "@shared/lib/browser"
+import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 
 // TODO: change
 export const DEFAULT_ORDER_DURATION = 7
@@ -14,7 +15,7 @@ interface CartBooksState {
 const booksInitialState: number[] = []
 
 export const useCartBooksStore = create<CartBooksState>(set => {
-   const lsItem = initLSItem<number[]>("temp-cart-books", booksInitialState)
+   const lsItem = initLSItem<number[]>(PERSIST_STORE_ITEMS.cartBooks, booksInitialState)
 
    return {
       cartBooks: lsItem.value,
@@ -50,7 +51,7 @@ interface DurationsState {
 const durationsInitialState: Record<number, number> = {}
 
 export const useDurationsStore = create<DurationsState>(set => {
-   const lsItem = initLSItem<Record<number, number>>("temp-cart-duration", durationsInitialState)
+   const lsItem = initLSItem<Record<number, number>>(PERSIST_STORE_ITEMS.cartDuration, durationsInitialState)
 
    return {
       durations: lsItem.value,
@@ -106,7 +107,7 @@ interface DeliveryState {
 const initialDelivery = { date: "", address: "" }
 
 export const useDeliveryStore = create<DeliveryState>(set => {
-   const lsItem = initLSItem<{ date: string; address: string }>("temp-cart-delivery", initialDelivery)
+   const lsItem = initLSItem<{ date: string; address: string }>(PERSIST_STORE_ITEMS.cartDelivery, initialDelivery)
    lsItem.setValue(initialDelivery)
 
    return {
