@@ -1,4 +1,4 @@
-# [Rentread](https://github.com/liknox/rentread)
+# [Rentread](https://github.com/liknox/rentread) | [Check Out](https://rentread.vercel.app/)
 
 Rentread book service client (demo-only!)
 
@@ -6,6 +6,7 @@ Rentread book service client (demo-only!)
 
 - [Architecture design guidelines](https://feature-sliced.design/)
 - [Contributing guide](CONTRIBUTING.md)
+- [Service Link](https://rentread.vercel.app/)
 
 ## Technology stack
 
@@ -31,3 +32,5 @@ Rentread book service client (demo-only!)
 <img title="biomejs" alt="prettier" height=48 src="https://biomejs.gallerycdn.vsassets.io/extensions/biomejs/biome/2024.3.70509/1709788159437/Microsoft.VisualStudio.Services.Icons.Default"/>
 <img title="feature-sliced-design" alt="feature-sliced" height=48 src="https://avatars.githubusercontent.com/u/60469024?s=200&v=4"/>
 </div>
+
+<br />

@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /debug/
+Disallow: /__404/
+
+Sitemap: https://rentread.vercel.app/sitemap.xml
