@@ -3,14 +3,16 @@ import { useWalletStore } from "./store"
 import { TIMEOUT } from "@app/configs/constants"
 
 export const useViewerWallet = () => {
-   const wallet = useWalletStore()
+   const walletStore = useWalletStore()
+   const wallet = Number(walletStore.wallet.toFixed(2))
    const [paymentPending, setPaymentPending] = useState(false)
 
    const applyTransaction = (amount: number) => {
       setPaymentPending(true)
       return new Promise(resolve => {
          setTimeout(() => {
-            wallet.deposit(amount)
+            const money = Number(amount.toFixed(2))
+            walletStore.deposit(money)
             setPaymentPending(false)
             resolve({ status: 200 })
          }, TIMEOUT.APPLY_TRANSACTION)
@@ -22,5 +24,5 @@ export const useViewerWallet = () => {
       applyTransaction,
    }
 
-   return { wallet: wallet.wallet, payment }
+   return { wallet, payment }
 }

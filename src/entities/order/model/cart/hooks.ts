@@ -61,7 +61,7 @@ export const useOrder = () => {
       .reduce((a, b) => a + b, 0)
 
    const fee = priceBeforeFee * SERVICE_FEE
-   const price = (priceBeforeFee + fee).toFixed(2)
+   const price = Number((priceBeforeFee + fee).toFixed(2))
 
    return { books, price, fee }
 }
