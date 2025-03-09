@@ -1,4 +1,4 @@
-import { PRICES, TARIFFS } from "@app/configs/constants"
+import { PRICES, TARIFFS, TIMEOUT } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useRouter, useSearch } from "@tanstack/react-router"
 import { useRef } from "react"
@@ -138,7 +138,7 @@ export const useTariff = () => {
          }
 
          router.navigate({ to: location.pathname, search: newSearch })
-      }, 500)
+      }, TIMEOUT.PARAM_DEBOUNCE)
    }
 
    return { tariff, setTariff }
@@ -171,7 +171,7 @@ export const usePrices = () => {
          }
 
          router.navigate({ to: location.pathname, search: newSearch })
-      }, 500)
+      }, TIMEOUT.PARAM_DEBOUNCE)
    }
 
    return { from, to, setPrice }

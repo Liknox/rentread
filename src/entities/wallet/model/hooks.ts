@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useWalletStore } from "./store"
+import { TIMEOUT } from "@app/configs/constants"
 
 export const useViewerWallet = () => {
    const wallet = useWalletStore()
@@ -12,7 +13,7 @@ export const useViewerWallet = () => {
             wallet.deposit(amount)
             setPaymentPending(false)
             resolve({ status: 200 })
-         }, 1000)
+         }, TIMEOUT.APPLY_TRANSACTION)
       })
    }
 

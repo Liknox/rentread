@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next"
 import { Aside } from "./aside"
 import { Content } from "./content"
 import { Sidebar } from "./sidebar"
+import { TIMEOUT } from "@app/configs/constants"
 
 function ProfilePage() {
    const { t } = useTranslation()
@@ -17,7 +18,7 @@ function ProfilePage() {
    const [_, setUpdate] = useState<boolean>(false)
 
    const forceUpdate = () => {
-      setTimeout(() => setUpdate(prev => !prev), 20)
+      setTimeout(() => setUpdate(prev => !prev), TIMEOUT.FORCE_UPDATE)
    }
 
    return (

@@ -82,3 +82,9 @@ export const PERSIST_STORE_ITEMS = {
    cartBooks: "entities/order/cart--books",
    demoAlert: "demoAlert/visible",
 }
+
+export const TIMEOUT = {
+   APPLY_TRANSACTION: 1e3 * 2,
+   PARAM_DEBOUNCE: 1e2 * 5,
+   FORCE_UPDATE: 1e1 * 2,
+}
