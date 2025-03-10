@@ -1,9 +1,9 @@
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTitle } from "@shared/lib/dom"
-import { Link } from "@tanstack/react-router"
 import { Button, Layout } from "antd"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
 function NotFoundPage() {
    const { t } = useTranslation()

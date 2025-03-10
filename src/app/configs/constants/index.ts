@@ -49,7 +49,7 @@ export const topics = [TOPIC_OPENED, TOPIC_RESERVED, TOPIC_FAV, TOPIC_HISTORY]
 /** routes */
 export const routes = {
    DEFAULT: "/",
-   BOOKID: "/book/$bookId",
+   BOOKID: "/book/:bookId",
    BOOK: "/book",
    ABOUT: "/about",
    CATALOG: "/catalog",
@@ -58,7 +58,7 @@ export const routes = {
    PROFILE_RESERVED: "/profile#reserved",
    ORDER: "/order",
    CHECKOUT: "/order/checkout",
-   RESULT: "/order/result/$result",
+   RESULT: "/order/result/:result",
    NOTFOUND: "/__404",
    DEBUG: "/debug",
    ALL: "/*",

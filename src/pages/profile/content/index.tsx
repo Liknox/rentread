@@ -1,21 +1,22 @@
 import { CheckCircleOutlined, ClockCircleOutlined, HeartOutlined, ShoppingOutlined } from "@ant-design/icons"
 import { TOPIC_FAV, TOPIC_HISTORY, TOPIC_OPENED, TOPIC_RESERVED } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { useRouter } from "@tanstack/react-router"
 import { Layout } from "antd"
 import { viewerLib, viewerModel } from "entities/viewer"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { useTranslation } from "react-i18next"
 import { Section } from "./section"
+import { useLocation } from "react-router-dom"
 
 export const Content = () => {
    const { t } = useTranslation()
    const viewerNrml = viewerModel.useViewerNormalized()
    const favBooks = viewerModel.useFavBooks()
 
-   const router = useRouter()
-   const currentAnchor = router.state.location.hash
+   const location = useLocation()
+
+   const currentAnchor = location.hash.slice(1)
 
    return (
       <Layout className="mx-0 md:mx-5 mt-5 md:mt-0 !w-full">

@@ -1,5 +1,5 @@
-import { useRouter } from "@tanstack/react-router"
 import { useEffect, useRef, useState } from "react"
+import { useLocation } from "react-router-dom"
 
 import { dom } from "@shared/lib"
 
@@ -7,25 +7,17 @@ import { dom } from "@shared/lib"
  * @hook Logic for resetting scroll position at every page
  */
 export const useResetScrollAtEveryPage = () => {
-   const router = useRouter()
+   const location = useLocation()
+   const hash = location.hash
    const prevPath = useRef<string>()
 
    useEffect(() => {
-      // scroll to top, if pages changes, not params
-
-      // @ts-expect-error this will cause an error
-      const unsubscribe = router.subscribe(({ location }) => {
-         if (prevPath.current !== location.pathname) {
-            dom.scrollToTop()
-         }
-
-         prevPath.current = location.pathname
-      }, {})
-
-      return () => {
-         unsubscribe()
+      if (prevPath.current !== location.pathname && !hash) {
+         dom.scrollToTop()
       }
-   }, [router])
+
+      prevPath.current = location.pathname
+   }, [location.pathname, hash])
 }
 
 export const useShowPopover = () => {

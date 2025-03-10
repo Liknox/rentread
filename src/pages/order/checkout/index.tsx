@@ -3,7 +3,7 @@ import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
-import { Link, useNavigate } from "@tanstack/react-router"
+import { Link, useNavigate } from "react-router-dom"
 import { Button, Checkbox, Col, DatePicker, Input, Layout, Result, Row, Select, Typography } from "antd"
 import cn from "classnames"
 import dayjs from "dayjs"
@@ -107,7 +107,7 @@ const Sidebar = () => {
    const handleButtonClick = () => {
       viewer.payment.applyTransaction(-order.price).then(() => {
          orderLib.submitOrder()
-         navigate({ to: `/order/result/${uuid()}` })
+         navigate(`/order/result/${uuid()}`)
       })
    }
 

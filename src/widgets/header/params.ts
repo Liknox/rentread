@@ -1,19 +1,20 @@
-import { useSearch } from "@tanstack/react-router"
+import { useSearchParams } from "react-router-dom"
 
 /** @query Search query */
 export const useSearchParam = () => {
-   const search = useSearch({ strict: false }) as Record<string, string>
-   const searchValue = search.q || ""
+   const [searchParams, setSearchParams] = useSearchParams()
+   const searchValue = searchParams.get("q") || ""
 
    const setSearch = (nextValue: string | undefined) => {
-      const newParams = new URLSearchParams(window.location.search)
+      const newParams = new URLSearchParams(searchParams)
 
       if (nextValue) {
          newParams.set("q", nextValue)
       } else {
          newParams.delete("q")
       }
-      window.history.replaceState(null, "", `?${newParams}`)
+
+      setSearchParams(newParams)
    }
 
    return { search: searchValue, setSearch }

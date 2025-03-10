@@ -1,10 +1,10 @@
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTitle } from "@shared/lib/dom"
-import { Link } from "@tanstack/react-router"
 import { Button, Layout, Result } from "antd"
 import { Cart } from "features/cart"
 import { useTranslation } from "react-i18next"
+import { HashLink } from "react-router-hash-link"
 
 // TODO: Add skeletons loader
 
@@ -24,14 +24,14 @@ const ResultPage = () => {
                title={t(TRANSLATIONS.order.result.text)}
                subTitle={t(TRANSLATIONS.order.result.description)}
                extra={[
-                  <Link to={`${routes.PROFILE}#opened`} key="order">
+                  <HashLink to={`${routes.PROFILE}#opened`} key="order">
                      <Button type="primary" className="mb-2">
                         {t(TRANSLATIONS.order.result.toOrder)}
                      </Button>
-                  </Link>,
-                  <Link to={routes.CATALOG} key="catalog">
+                  </HashLink>,
+                  <HashLink to={routes.CATALOG} key="catalog">
                      <Button>{t(TRANSLATIONS.order.result.toCatalog)}</Button>
-                  </Link>,
+                  </HashLink>,
                ]}
             />
          </Layout>

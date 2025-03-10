@@ -1,8 +1,8 @@
 import { isMobile } from "@shared/lib/browser"
-import { Link } from "@tanstack/react-router"
 import { Carousel, Typography } from "antd"
 import { useTranslation } from "react-i18next"
 import { bannerScreen } from "./model"
+import { Link } from "react-router-dom"
 
 const Banner = () => {
    const { t } = useTranslation()

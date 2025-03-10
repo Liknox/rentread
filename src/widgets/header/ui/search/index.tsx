@@ -1,10 +1,10 @@
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { useRouter } from "@tanstack/react-router"
 import { AutoComplete, Input } from "antd"
 import { BookRow } from "entities/book"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import { useNavigate } from "react-router-dom"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
 import { useSearchParam } from "widgets/header/params"
@@ -30,7 +30,7 @@ const useSearch = () => {
    const [indexReset, updateReset] = useState(0)
    const [tooltip, setTooltip] = useState(t(TOOLTIP.MIN_LENGTH))
    const params = useSearchParam()
-   const router = useRouter()
+   const navigate = useNavigate()
 
    // FIXME: Reset input, if not catalog's page
    const isCatalogPage = location.pathname === routes.CATALOG
@@ -50,7 +50,7 @@ const useSearch = () => {
       // FIXME: added manually
       setQuery([])
       const route = `${routes.BOOK}/${value}`
-      router.navigate({ to: route })
+      navigate(route)
       updateReset((indexReset + 1) % 10)
    }
 
@@ -59,8 +59,8 @@ const useSearch = () => {
          return params.setSearch(search)
       }
 
+      navigate(routes.CATALOG, { state: { q: String(search) } })
       // FIXME: hardcoded
-      router.navigate({ to: routes.CATALOG, search: { q: String(search) } })
    }
 
    return {

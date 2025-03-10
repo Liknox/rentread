@@ -3,11 +3,11 @@ import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { isMobile } from "@shared/lib/browser"
-import { useRouter } from "@tanstack/react-router"
 import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { viewerModel } from "entities/viewer"
 import { useTranslation } from "react-i18next"
+import { useNavigate } from "react-router-dom"
 
 type Props = {
    bookId: number
@@ -15,7 +15,7 @@ type Props = {
 
 const useToggleBook = (bookId: number) => {
    const { t } = useTranslation()
-   const router = useRouter()
+   const navigate = useNavigate()
    const { isBookFav } = viewerModel.useBookFavStatus(bookId)
    const book = bookModel.useBook(bookId)
    const favorites = viewerModel.useFavStore()
@@ -25,7 +25,7 @@ const useToggleBook = (bookId: number) => {
 
       alert.info(
          `${book?.name}`,
-         <p onClick={() => router.navigate({ to: routes.PROFILE_FAV })} className="text-primary cursor-pointer">
+         <p onClick={() => navigate(routes.PROFILE_FAV)} className="text-primary cursor-pointer">
             {t(action)}
          </p>,
          <HeartOutlined />,

@@ -1,11 +1,12 @@
-import { Outlet } from "@tanstack/react-router"
-import { Layout as AntLayout } from "antd"
+import { Layout as AntLayout, Spin } from "antd"
 
 import { Footer } from "widgets/footer"
 import { Header } from "widgets/header"
 
 import { useResetScrollAtEveryPage } from "@pages/hooks"
 import { DemoAlert } from "@shared/ui/location-alert"
+import { Outlet } from "react-router-dom"
+import { Suspense } from "react"
 
 const Layout = () => {
    useResetScrollAtEveryPage()
@@ -15,7 +16,9 @@ const Layout = () => {
          <DemoAlert />
          <Header />
          <div className="mt-16 md:mt-0">
-            <Outlet />
+            <Suspense fallback={<Spin delay={300} className="overlay" size="large" />}>
+               <Outlet />
+            </Suspense>
          </div>
          <Footer />
       </AntLayout>

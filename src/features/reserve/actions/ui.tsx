@@ -2,11 +2,11 @@ import { ClockCircleFilled, ClockCircleOutlined } from "@ant-design/icons"
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
-import { useRouter } from "@tanstack/react-router"
 import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
 import { useTranslation } from "react-i18next"
+import { useNavigate } from "react-router-dom"
 
 type Props = {
    bookId: number
@@ -14,7 +14,7 @@ type Props = {
 
 const useToggleBook = (bookId: number) => {
    const { t } = useTranslation()
-   const router = useRouter()
+   const navigate = useNavigate()
    const isBookReserved = orderModel.useBookReservationStatus(bookId)
    const book = bookModel.useBook(bookId)
    const reserve = orderModel.useReserveStore()
@@ -23,7 +23,7 @@ const useToggleBook = (bookId: number) => {
       const action = isBookReserved ? TRANSLATIONS.alert.reserve.remove : TRANSLATIONS.alert.reserve.add
       alert.info(
          `${book?.name}`,
-         <p onClick={() => router.navigate({ to: routes.PROFILE_RESERVED })} className="text-primary cursor-pointer">
+         <p onClick={() => navigate(routes.PROFILE_RESERVED)} className="text-primary cursor-pointer">
             {t(action)}
          </p>,
          <ClockCircleOutlined />,

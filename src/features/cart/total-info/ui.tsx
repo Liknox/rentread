@@ -3,7 +3,7 @@ import { Col, Divider, Row, Typography } from "antd"
 
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { Link } from "@tanstack/react-router"
+import { Link } from "react-router-dom"
 import { BookCard } from "entities/book"
 import { orderModel } from "entities/order"
 import type { ReactNode } from "react"

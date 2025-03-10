@@ -2,12 +2,12 @@ import { fakeApi } from "@shared/api"
 import { Col, Row, Typography } from "antd"
 
 import { routes } from "@app/configs/constants"
-import { useRouter } from "@tanstack/react-router"
 import gaiman from "./assets/gaiman.jpg"
 import martin from "./assets/martin.jpg"
 import orwell from "./assets/orwell.jpg"
 import palahniuk from "./assets/palahniuk.jpg"
 import taleb from "./assets/taleb.jpg"
+import { useNavigate } from "react-router-dom"
 
 const srcAuthorsMap: Record<number, string> = {
    2: palahniuk,
@@ -18,7 +18,7 @@ const srcAuthorsMap: Record<number, string> = {
 }
 
 const Authors = () => {
-   const router = useRouter()
+   const navigate = useNavigate()
    const authorsQuery = fakeApi.library.authors.getPopular()
 
    const authors = "authors"
@@ -30,7 +30,7 @@ const Authors = () => {
                key={author.id}
                className="min-w-[200px] m-auto mt-5 sm:mt-0 transition-[0.25s] hover:opacity-80 relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
                span={3}
-               onClick={() => router.navigate({ to: `${routes.CATALOG}?${authors}=${author.id}` })}
+               onClick={() => navigate(`${routes.CATALOG}?${authors}=${author.id}`)}
                title="Go to the author's books">
                <Typography.Title
                   className="font-roboto absolute top-1/2 left-1/2 z-10 !text-white !important transform -translate-x-1/2 -translate-y-1/2"

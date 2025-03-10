@@ -12,48 +12,48 @@ import cn from "classnames"
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { isMobile } from "@shared/lib/browser"
-import { Link } from "@tanstack/react-router"
 import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import Search from "./search"
+import { HashLink } from "react-router-hash-link"
 
 const actions = [
    {
       id: "catalog" as const,
       label: TRANSLATIONS.header.options.catalog,
       Icon: MenuOutlined,
-      url: "/catalog",
+      url: routes.CATALOG,
       disabled: false,
    },
    {
       id: "orders" as const,
       label: TRANSLATIONS.header.options.orders,
       Icon: FolderOpenOutlined,
-      url: "/profile#opened",
+      url: `${routes.PROFILE}#opened`,
       disabled: false,
    },
    {
       id: "fav" as const,
       label: TRANSLATIONS.header.options.favorites,
       Icon: HeartOutlined,
-      url: "/profile#fav",
+      url: `${routes.PROFILE}#fav`,
       disabled: false,
    },
    {
       id: "cart" as const,
       label: TRANSLATIONS.header.options.cart,
       Icon: ShoppingCartOutlined,
-      url: "/order",
+      url: routes.ORDER,
       disabled: false,
    },
    {
       id: "profile" as const,
       label: TRANSLATIONS.header.options.profile,
       Icon: UserOutlined,
-      url: "/profile",
+      url: routes.PROFILE,
       disabled: false,
    },
 ]
@@ -86,19 +86,19 @@ const Header = () => {
                <MobileHeader count={count} />
             ) : (
                <>
-                  <Link
+                  <HashLink
                      className="flex flex-grow items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
                      to={routes.DEFAULT}>
                      {/* <Logo width={24} /> */}
                      <h1 className="pb-1 pl-[10px] text-[20px]">Rentread</h1>
-                  </Link>
+                  </HashLink>
                   <div className="flex flex-grow-[2] items-center mr-[2%]">
                      <Search />
                   </div>
                   <div className="flex items-center gap-3">
                      <Wallet.AddFunds.Popover />
                      {actions.map(({ id, label, Icon, url, disabled }) => (
-                        <Link
+                        <HashLink
                            key={label}
                            to={url}
                            className={cn("flex flex-col leading-[16px]", {
@@ -114,7 +114,7 @@ const Header = () => {
                               </Badge>
                            </span>
                            <span>{t(label)}</span>
-                        </Link>
+                        </HashLink>
                      ))}
                   </div>
                </>
@@ -130,11 +130,11 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
 
    return (
       <>
-         <Link
+         <HashLink
             className="flex items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
             to={routes.DEFAULT}>
             <h2 className="text-[20px]">R</h2>
-         </Link>
+         </HashLink>
          <div className="flex flex-grow items-center">
             <Search />
          </div>
@@ -157,7 +157,7 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
             open={open}>
             <div className="flex flex-col gap-7 mt-3">
                {actions.map(({ id, label, url, disabled }) => (
-                  <Link
+                  <HashLink
                      key={label}
                      to={url}
                      className={cn("flex flex-col mx-[10px] leading-[16px]", {
@@ -173,7 +173,7 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
                         </div>
                         <Badge className="ml-3" count={count[id]} style={{ backgroundColor: "#108ee9" }} />
                      </span>
-                  </Link>
+                  </HashLink>
                ))}
             </div>
          </Drawer>

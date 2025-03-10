@@ -1,42 +1,28 @@
 import { PRICES, TARIFFS, TIMEOUT } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { useRouter, useSearch } from "@tanstack/react-router"
 import { useRef } from "react"
-
-interface SearchParams {
-   authors?: string | number
-   pub?: string | number
-   cat?: string | number
-   // @ts-expect-error this will cause an error
-   existsOnly?: boolean | undefined
-   tarrif?: string
-   from?: string
-   to?: string
-   sorting?: string
-   [key: string]: string | number | undefined
-}
 
 /** @query Filter: by author */
 export const useFilterByAuthor = () => {
-   const search = useSearch({ strict: false }) as SearchParams
-   const router = useRouter()
-   const authors = search.authors
-      ? String(search.authors)
-           ?.split("_")
+   const [searchParams, setSearchParams] = useSearchParams()
+
+   const authors = searchParams.get("authors")
+      ? String(searchParams.get("authors"))
+           .split("_")
            .map(item => (item ? Number(item) : null))
-           .filter((item): item is number => item !== null) || []
+           .filter((item): item is number => item !== null)
       : []
 
    const setAuthors = (value: number[]) => {
-      const newSearch: SearchParams = { ...search }
+      const newSearchParams = new URLSearchParams(searchParams)
 
       if (value.length > 0) {
-         newSearch.authors = value.length === 1 ? value[0] : value.join("_")
+         newSearchParams.set("authors", value.length === 1 ? value[0].toString() : value.join("_"))
       } else {
-         newSearch.authors = undefined
+         newSearchParams.delete("authors")
       }
 
-      router.navigate({ to: location.pathname, search: newSearch })
+      setSearchParams(newSearchParams, { replace: true })
    }
 
    return { authors, setAuthors }
@@ -44,25 +30,25 @@ export const useFilterByAuthor = () => {
 
 /** @query Filter: by publisher */
 export const useFilterByPublisher = () => {
-   const search = useSearch({ strict: false }) as SearchParams
-   const router = useRouter()
-   const publishers = search.pub
-      ? String(search.pub)
-           ?.split("_")
+   const [searchParams, setSearchParams] = useSearchParams()
+
+   const publishers = searchParams.get("pub")
+      ? String(searchParams.get("pub"))
+           .split("_")
            .map(item => (item ? Number(item) : null))
-           .filter((item): item is number => item !== null) || []
+           .filter((item): item is number => item !== null)
       : []
 
    const setPublishers = (value: number[]) => {
-      const newSearch: SearchParams = { ...search }
+      const newSearchParams = new URLSearchParams(searchParams)
 
       if (value.length > 0) {
-         newSearch.pub = value.length === 1 ? value[0] : value.join("_")
+         newSearchParams.set("pub", value.length === 1 ? value[0].toString() : value.join("_"))
       } else {
-         newSearch.pub = undefined
+         newSearchParams.delete("pub")
       }
 
-      router.navigate({ to: location.pathname, search: newSearch })
+      setSearchParams(newSearchParams, { replace: true })
    }
 
    return { publishers, setPublishers }
@@ -70,74 +56,77 @@ export const useFilterByPublisher = () => {
 
 /** @query Filter: by category */
 export const useFilterByCategory = () => {
-   const search = useSearch({ strict: false }) as SearchParams
-   const router = useRouter()
-   const categories = search.cat
-      ? String(search.cat)
-           ?.split("_")
+   const [searchParams, setSearchParams] = useSearchParams()
+
+   const categories = searchParams.get("cat")
+      ? String(searchParams.get("cat"))
+           .split("_")
            .map(item => (item ? Number(item) : null))
-           .filter((item): item is number => item !== null) || []
+           .filter((item): item is number => item !== null)
       : []
 
    const setCategories = (value: number[]) => {
-      const newSearch: SearchParams = { ...search }
+      const newSearchParams = new URLSearchParams(searchParams)
 
       if (value.length > 0) {
-         newSearch.cat = value.length === 1 ? value[0] : value.join("_")
+         newSearchParams.set("cat", value.length === 1 ? value[0].toString() : value.join("_"))
       } else {
-         newSearch.cat = undefined
+         newSearchParams.delete("cat")
       }
 
-      router.navigate({ to: location.pathname, search: newSearch })
+      setSearchParams(newSearchParams, { replace: true })
    }
 
    return { categories, setCategories }
 }
 
 /** @query Filter: by existence */
+import { useSearchParams } from "react-router-dom"
+
 export const useExistsOnly = () => {
-   const search = useSearch({ strict: false }) as SearchParams
-   const router = useRouter()
+   const [searchParams, setSearchParams] = useSearchParams()
 
    const DEFAULT_EXISTS_ONLY = false
-   const existsOnly = Boolean(search.existsOnly) || DEFAULT_EXISTS_ONLY
+   const existsOnly = searchParams.get("existsOnly") === "true" || DEFAULT_EXISTS_ONLY
 
    const setExistsOnly = (value: boolean) => {
-      const newSearch: SearchParams = { ...search }
+      const newSearchParams = new URLSearchParams(searchParams)
 
       if (value) {
-         newSearch.existsOnly = true
+         newSearchParams.set("existsOnly", "true")
       } else {
-         newSearch.existsOnly = undefined
+         newSearchParams.delete("existsOnly")
       }
 
-      router.navigate({ to: location.pathname, search: newSearch })
+      // Оновлюємо URL без перезавантаження сторінки
+      setSearchParams(newSearchParams, { replace: true })
    }
+
    return { existsOnly, setExistsOnly }
 }
 
 /** @query Filter: by terms of rent */
 export const useTariff = () => {
-   const search = useSearch({ strict: false }) as SearchParams
-   const router = useRouter()
+   const [searchParams, setSearchParams] = useSearchParams()
    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-   const tariff = Number(search.tariff) || TARIFFS.T7
 
-   // Debounce update
+   const tariff = Number(searchParams.get("tariff")) || TARIFFS.T7
+
    const setTariff = (tariff: number) => {
       if (timerRef.current) {
          clearTimeout(timerRef.current)
       }
+
       timerRef.current = setTimeout(() => {
-         const newSearch: SearchParams = { ...search }
+         const newSearchParams = new URLSearchParams(searchParams)
 
          if (tariff !== TARIFFS.T7) {
-            newSearch.tariff = tariff
+            newSearchParams.set("tariff", tariff.toString())
          } else {
-            newSearch.tariff = undefined
+            newSearchParams.delete("tariff")
          }
 
-         router.navigate({ to: location.pathname, search: newSearch })
+         setSearchParams(newSearchParams, { replace: true })
       }, TIMEOUT.PARAM_DEBOUNCE)
    }
 
@@ -146,31 +135,29 @@ export const useTariff = () => {
 
 /** @query Filter: by prices */
 export const usePrices = () => {
-   const search = useSearch({ strict: false }) as SearchParams
-   const router = useRouter()
-
+   const [searchParams, setSearchParams] = useSearchParams()
    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-   const from = Number(search.pf) || PRICES.MIN
-   const to = Number(search.pt) || PRICES.MAX
+   const from = Number(searchParams.get("pf")) || PRICES.MIN
+   const to = Number(searchParams.get("pt")) || PRICES.MAX
 
-   // Debounce update
    const setPrice = (from: number, to: number) => {
       if (timerRef.current) {
          clearTimeout(timerRef.current)
       }
+
       timerRef.current = setTimeout(() => {
-         const newSearch: SearchParams = { ...search }
+         const newSearchParams = new URLSearchParams(searchParams)
 
          if (from !== PRICES.MIN || to !== PRICES.MAX) {
-            newSearch.pf = from
-            newSearch.pt = to
+            newSearchParams.set("pf", from.toString())
+            newSearchParams.set("pt", to.toString())
          } else {
-            newSearch.pf = undefined
-            newSearch.pt = undefined
+            newSearchParams.delete("pf")
+            newSearchParams.delete("pt")
          }
 
-         router.navigate({ to: location.pathname, search: newSearch })
+         setSearchParams(newSearchParams, { replace: true })
       }, TIMEOUT.PARAM_DEBOUNCE)
    }
 
@@ -186,21 +173,20 @@ export const SORTINGS = {
 }
 
 export const useSorting = () => {
-   const search = useSearch({ strict: false }) as SearchParams
-   const router = useRouter()
+   const [searchParams, setSearchParams] = useSearchParams()
 
-   const sorting = Number(search.sort) || DEFAULT_SORTING
+   const sorting = Number(searchParams.get("sort")) || DEFAULT_SORTING
 
    const setSorting = (value: number) => {
-      const newSearch: SearchParams = { ...search }
+      const newSearchParams = new URLSearchParams(searchParams)
 
       if (value !== DEFAULT_SORTING) {
-         newSearch.sort = value
+         newSearchParams.set("sort", value.toString())
       } else {
-         newSearch.sort = undefined
+         newSearchParams.delete("sort")
       }
 
-      router.navigate({ to: location.pathname, search: newSearch })
+      setSearchParams(newSearchParams, { replace: true })
    }
 
    return { sorting, setSorting }
@@ -216,24 +202,28 @@ type ViewTypeValue = (typeof VIEW_TYPE)[keyof typeof VIEW_TYPE]
 export const defaultViewType = VIEW_TYPE.list
 
 export const useViewType = () => {
-   const search = useSearch({ strict: false }) as SearchParams
-   const router = useRouter()
-   const viewType = search.vt || defaultViewType
+   const [searchParams, setSearchParams] = useSearchParams()
 
+   // Отримуємо поточне значення параметра "vt"
+   const viewType = (searchParams.get("vt") as ViewTypeValue) || defaultViewType
+
+   // Допоміжні змінні для перевірки типу відображення
    const isGrid = viewType === "grid"
    const isList = viewType === "list"
 
+   // Функція для оновлення параметра "vt"
    const setViewType = (value: ViewTypeValue) => {
-      const newSearch: SearchParams = { ...search }
+      const newSearchParams = new URLSearchParams(searchParams)
 
       if (value !== defaultViewType) {
-         newSearch.vt = value
+         newSearchParams.set("vt", value)
       } else {
-         newSearch.vt = undefined
+         newSearchParams.delete("vt")
       }
 
-      router.navigate({ to: location.pathname, search: newSearch })
+      // Оновлюємо URL без перезавантаження сторінки
+      setSearchParams(newSearchParams, { replace: true })
    }
 
-   return { viewType: viewType as ViewTypeValue, setViewType, isGrid, isList }
+   return { viewType, setViewType, isGrid, isList }
 }

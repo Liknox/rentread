@@ -3,7 +3,6 @@ import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
-import { Link, useMatch } from "@tanstack/react-router"
 import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
 import cn from "classnames"
 import { BookCard } from "entities/book"
@@ -13,14 +12,13 @@ import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 import { useTranslation } from "react-i18next"
+import { Link, useParams } from "react-router-dom"
 
 function BookPage() {
    // FIXME: add skeleton template
    const { t } = useTranslation()
-   const { params } = useMatch({ from: "/book/$bookId" }) as { params: { bookId: string } }
-
-   const bookId = Number(params?.bookId)
-   const book = fakeApi.library.books.getById(bookId)
+   const { bookId } = useParams()
+   const book = fakeApi.library.books.getById(Number(bookId))
 
    if (!book) {
       return (
