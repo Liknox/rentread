@@ -23,7 +23,7 @@
       "indentStyle": "space",
       "formatWithErrors": false,
       "indentWidth": 3,
-      "lineEnding": "crlf"
+      "lineEnding": "lf"
    },
    "linter": {
       "enabled": true,
