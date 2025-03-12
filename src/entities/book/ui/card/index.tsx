@@ -3,7 +3,7 @@ import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { isMobile } from "@shared/lib/browser"
 import { Link } from "@tanstack/react-router"
-import { Card } from "antd"
+import { Card, Tooltip } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
 import { useTranslation } from "react-i18next"
@@ -50,46 +50,51 @@ const BookCard = (props: Props) => {
    const withDescription = props.withDescription || isDefault
 
    return (
-      <Card
-         key={b.id}
-         hoverable
-         styles={{ body: bodyStyle[size] }}
-         cover={<BookFilled style={imgStyle[size]} />}
-         className={cn(
-            "relative cursor-default rounded-lg shadow-[2px_2px_22px_var(--color-shadow)]",
-            {
-               "grayscale opacity-50": asSecondary,
-            },
-            className,
-         )}
-         actions={isMini || !actions?.length ? undefined : actions}>
-         <Card.Meta
-            className="space-y-2"
-            title={
-               <div className="flex flex-col">
-                  {withPrice && (
-                     <span className="font-semibold text-[20px]">
-                        {t(TRANSLATIONS.book.from)} {fakeApi.library.books.getPrice(b)} $
-                     </span>
-                  )}
-                  {isMini || (
-                     <Link
-                        to={`${routes.BOOK}/${b.id}`}
-                        title={title}
-                        className="text-blue-500 hover:underline whitespace-normal">
-                        {string.textOverflow(title, isMobile ? 30 : 50)}
-                     </Link>
-                  )}
-               </div>
-            }
-            description={
-               <div>
-                  {withDescription && <span className="text-gray-600">{description}</span>}
-                  {children}
-               </div>
-            }
-         />
-      </Card>
+      <Tooltip
+         title={t(TRANSLATIONS.book.bookTooltip)}
+         trigger="click"
+         classNames={{ root: "md:min-w-[360px] md:text-lg" }}>
+         <Card
+            key={b.id}
+            hoverable
+            styles={{ body: bodyStyle[size] }}
+            cover={<BookFilled style={imgStyle[size]} />}
+            className={cn(
+               "relative cursor-default rounded-lg shadow-[2px_2px_22px_var(--color-shadow)]",
+               {
+                  "grayscale opacity-50": asSecondary,
+               },
+               className
+            )}
+            actions={isMini || !actions?.length ? undefined : actions}>
+            <Card.Meta
+               className="space-y-2"
+               title={
+                  <div className="flex flex-col">
+                     {withPrice && (
+                        <span className="font-semibold text-[20px]">
+                           {t(TRANSLATIONS.book.from)} {fakeApi.library.books.getPrice(b)} $
+                        </span>
+                     )}
+                     {isMini || (
+                        <Link
+                           to={`${routes.BOOK}/${b.id}`}
+                           title={title}
+                           className="text-blue-500 hover:underline whitespace-normal">
+                           {string.textOverflow(title, isMobile ? 30 : 50)}
+                        </Link>
+                     )}
+                  </div>
+               }
+               description={
+                  <div>
+                     {withDescription && <span className="text-gray-600">{description}</span>}
+                     {children}
+                  </div>
+               }
+            />
+         </Card>
+      </Tooltip>
    )
 }
 

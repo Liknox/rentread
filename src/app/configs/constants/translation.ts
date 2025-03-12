@@ -257,6 +257,7 @@ export const TRANSLATIONS = {
       },
    },
    book: {
+      bookTooltip: "book.bookTooltip",
       empty: "book.empty",
       from: "book.from",
       breadcrumbs: "book.breadcrumbs",
