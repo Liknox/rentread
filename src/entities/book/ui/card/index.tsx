@@ -53,7 +53,7 @@ const BookCard = (props: Props) => {
       <Tooltip
          title={t(TRANSLATIONS.book.bookTooltip)}
          trigger="click"
-         classNames={{ root: "md:min-w-[360px] md:text-lg" }}>
+         classNames={{ root: "md:min-w-[360px] md:text-[16px]" }}>
          <Card
             key={b.id}
             hoverable
@@ -64,7 +64,7 @@ const BookCard = (props: Props) => {
                {
                   "grayscale opacity-50": asSecondary,
                },
-               className
+               className,
             )}
             actions={isMini || !actions?.length ? undefined : actions}>
             <Card.Meta
