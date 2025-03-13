@@ -3,16 +3,16 @@ import { lazy } from "react"
 
 import Initial from "./initial"
 import Layout from "./layout"
+import Profile from "./profile"
+import NotFound from "./__404"
+import Debug from "./debug"
+import Book from "./book"
 
-const Book = lazy(() => import("./book"))
 const About = lazy(() => import("./about"))
 const Catalog = lazy(() => import("./catalog"))
-const Profile = lazy(() => import("./profile"))
 const Order = lazy(() => import("./order/cart"))
 const Checkout = lazy(() => import("./order/checkout"))
 const Result = lazy(() => import("./order/result"))
-const NotFound = lazy(() => import("./__404"))
-const Debug = lazy(() => import("./debug"))
 
 export const InitialImport = createFileRoute("/")({
    component: Initial,
