@@ -4,12 +4,13 @@ import * as authors from "./authors"
 import * as categories from "./categories"
 import * as publishers from "./publishers"
 
-export const FIGHT_CLUB_2014: AbstractBook = {
+export const DIARY_2003: AbstractBook = {
    id: 8,
-   name: "Fight Club",
-   description: `Chuck Palahniuk lives in Portland, Oregon. He is the author of four novels. This book marks Palahniuk's literary debut. "Fight Club" is a unique manifesto of the "angry young men" of our time... It is the most stunning and controversial book of the 1990s. A book in which Chuck Palahniuk gives voice not just to "Generation X," but to a disillusioned and embittered "Generation X" that has lost its last illusions. Have you seen the movie "Fight Club"? Then read the book it was based on!`,
+   name: "Diary",
+   description:
+      "The protagonist is Misty Wilmot, a former promising artist who now works as a waitress on Waytansea Island. Her husband, Peter, a contractor, attempts suicide and falls into a coma. Misty is forced to confront the consequences of his past work: Peter had left hidden rooms and grotesque messages on the walls in renovated houses, leading to numerous lawsuits",
    authors: [authors.PALAHNIUK],
-   publicationYear: 2014,
+   publicationYear: 2003,
    publishingHouse: publishers.PENGUINS,
    category: categories.IMAGINATIVE,
 }
@@ -355,11 +356,11 @@ export const getPrice = (book: AbstractBook) => {
    return (factor * 50) / 10
 }
 
-export const getPopular = () => [REFACTORING_2008, FIGHT_CLUB_2014, CLEAN_CODE_2019, WITCHER_GE_2020]
+export const getPopular = () => [REFACTORING_2008, DIARY_2003, CLEAN_CODE_2019, WITCHER_GE_2020]
 
 export const getAll = () =>
    [
-      FIGHT_CLUB_2014,
+      DIARY_2003,
       FIGHT_CLUB_2018,
       BLACK_SWAN_2021,
       CHOKE_2006,
