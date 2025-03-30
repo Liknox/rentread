@@ -3,12 +3,13 @@ import { Link } from "@tanstack/react-router"
 import { Carousel, Typography } from "antd"
 import { useTranslation } from "react-i18next"
 import { bannerScreen } from "./model"
+import { CAROUSEL_TIMER } from "@app/configs/constants"
 
 const Banner = () => {
    const { t } = useTranslation()
 
    return (
-      <Carousel autoplay arrows={!isMobile} infinite autoplaySpeed={4000}>
+      <Carousel autoplay arrows={!isMobile} infinite autoplaySpeed={3 * CAROUSEL_TIMER}>
          {bannerScreen.map(banner => (
             <div className="text-center relative h-80" key={banner.id}>
                <Typography.Text className="font-roboto absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white w-[75%] sm:w-[50%]">

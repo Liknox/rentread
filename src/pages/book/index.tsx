@@ -1,5 +1,5 @@
 import { BookFilled, HistoryOutlined, InboxOutlined } from "@ant-design/icons"
-import { routes } from "@app/configs/constants"
+import { CAROUSEL_TIMER, routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
@@ -78,7 +78,7 @@ const Card = ({ book }: BookProps) => {
       <Col span={isMobile ? "full" : 16}>
          <div className="flex flex-col md:flex-row">
             <div className="md:w-[450px]">
-               <Carousel autoplay autoplaySpeed={3000} className="dark-slick-dots">
+               <Carousel autoplay autoplaySpeed={CAROUSEL_TIMER} className="dark-slick-dots">
                   {carousel.map(cover => (
                      <div
                         key={cover.id}

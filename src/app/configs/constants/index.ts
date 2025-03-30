@@ -88,3 +88,5 @@ export const TIMEOUT = {
    PARAM_DEBOUNCE: 1e2 * 5,
    FORCE_UPDATE: 1e1 * 2,
 }
+
+export const CAROUSEL_TIMER = 3 * 1e3
