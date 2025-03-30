@@ -260,7 +260,6 @@
       }
    },
    "book": {
-      "bookTooltip": "The book has been sent to your email, please check it out",
       "empty": "Empty",
       "from": "from",
       "breadcrumbs": "Catalog",
