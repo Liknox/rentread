@@ -439,7 +439,8 @@ export const getList = (params: GetListParams) => {
    const filtered = books
       .filter(book => {
          if (!filters.search) return true
-         return new RegExp(filters.search, "i").test(getBookString(book))
+         const parsedSearch = filters.search.split("+").join(" ")
+         return new RegExp(parsedSearch, "i").test(getBookString(book))
       })
       .filter(book => {
          if (!filters.publishers?.length) return true
