@@ -53,7 +53,7 @@ export const Form = () => {
             </div>
             {!!order.books.length && (
                <Typography.Text type="secondary" className="font-roboto">
-                  ~ {order.fee.toFixed(1)} $
+                  ~ {order.fee.toFixed(2)} $
                </Typography.Text>
             )}
          </Row>
