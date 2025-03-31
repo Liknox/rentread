@@ -89,8 +89,6 @@ export const submitOrder = () => {
    fakeApi.checkout.orders.__pushTo(...newOrders)
    fakeApi.users.users.__updateUser(viewer)
 
-   console.log("everything worked well")
-
    booksReset()
    durationsReset()
 }
