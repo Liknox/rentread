@@ -136,7 +136,7 @@ const Checkout = ({ book }: BookProps) => {
    }
 
    return (
-      <Col span={isMobile ? "full" : 7} offset={1} style={style} className="ml-0 md:ml-14 mt-10 md:mt-0">
+      <Col span={isMobile ? "full" : 7} offset={1} style={style} className="ml-0 md:ml-12 mt-10 md:mt-0">
          <article className="flex flex-col justify-between min-h-[300px] p-7 shadow-insetDark">
             <div>
                <h3 className="text-[40px] font-medium mt-2">
