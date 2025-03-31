@@ -233,7 +233,8 @@
          "duration": "d.",
          "total": "Total",
          "empty": "Order is empty",
-         "proceed": "Proceed to checkout"
+         "proceed": "Proceed to checkout",
+         "fee": "Service fee (7%)"
       },
       "checkout": {
          "returnToCart": "Return to cart",

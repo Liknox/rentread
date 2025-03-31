@@ -48,7 +48,7 @@ export const Form = () => {
                <WalletOutlined />
                &nbsp;
                <Typography.Text type="secondary" className="font-roboto">
-                  {order.books.length ? "Service fee (7%)" : t(PLACEHOLDER)}
+                  {order.books.length ? t(TRANSLATIONS.order.sidebar.fee) : t(PLACEHOLDER)}
                </Typography.Text>
             </div>
             {!!order.books.length && (

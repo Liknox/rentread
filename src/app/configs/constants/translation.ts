@@ -231,6 +231,7 @@ export const TRANSLATIONS = {
          total: "order.sidebar.total",
          empty: "order.sidebar.empty",
          proceed: "order.sidebar.proceed",
+         fee: "order.sidebar.fee",
       },
       checkout: {
          returnToCart: "order.checkout.returnToCart",
