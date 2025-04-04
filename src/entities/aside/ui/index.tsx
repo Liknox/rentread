@@ -6,7 +6,7 @@ import { Avatar, Divider, Layout, Typography } from "antd"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
 import { useTranslation } from "react-i18next"
-import * as lib from "../lib"
+import * as lib from "../index"
 
 export const Aside = () => {
    const viewer = viewerModel.useViewer()
