@@ -13,7 +13,7 @@ function ProfilePage() {
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.profile))
 
-   /* FIXME: Very bad practice. anyone, don't judge this way of solving the problem */
+   /* FIXME: Very bad practice, -_-) */
    // eslint-disable-next-line @typescript-eslint/no-unused-vars
    const [_, setUpdate] = useState<boolean>(false)
 

@@ -27,7 +27,6 @@ const viewTypes = [
    { key: "list", Icon: BarsOutlined },
 ]
 
-// FIXME: extract to constants
 const ribbonPropsTypes = {
    RESERVABLE: {
       text: TRANSLATIONS.catalog.ribbon.notAvailable,

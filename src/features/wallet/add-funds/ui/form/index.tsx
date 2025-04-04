@@ -28,7 +28,6 @@ const AddFundsForm = ({ className, afterAction }: Props) => {
       <div className={cn("p-5", className)}>
          <Typography.Title level={4}>{t(TRANSLATIONS.features.wallet.title)}</Typography.Title>
          <Form.Item
-            // FIXME: simplify!
             validateStatus={isValid ? "success" : "error"}
             help={`${t(TRANSLATIONS.features.wallet.help.start)} ${MIN_MONEY}$, ${t(TRANSLATIONS.features.wallet.help.end)} ${MAX_MONEY}$.`}>
             <Input

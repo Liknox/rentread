@@ -2,8 +2,6 @@ import { DEFAULT_ORDER_DURATION, PERSIST_STORE_ITEMS } from "@app/configs/consta
 import { initLSItem } from "@shared/lib/browser"
 import { create } from "zustand"
 
-// TODO: change
-
 interface CartBooksState {
    cartBooks: number[]
    toggleBook: (bookId: number) => void
@@ -65,7 +63,7 @@ export const useDurationsStore = create<DurationsState>(set => {
                newDurations = { ...state.durations, [bookId]: duration }
             }
 
-            lsItem.setValue(newDurations) // Зберегти новий стан у localStorage
+            lsItem.setValue(newDurations)
             return { durations: newDurations }
          }),
       toggleBook: bookId =>
@@ -85,7 +83,7 @@ export const useDurationsStore = create<DurationsState>(set => {
       submitOrder: () =>
          set(() => {
             console.log("$durations SUBMIT")
-            lsItem.setValue({}) // Очистити durations після відправлення замовлення
+            lsItem.setValue({})
             return { durations: {} }
          }),
       reset: () => {
