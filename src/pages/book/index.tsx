@@ -36,7 +36,7 @@ function BookPage() {
    }
 
    return (
-      <Layout.Content className="mb-20">
+      <Layout.Content className="md:mb-20">
          <Link to={routes.CATALOG} className="font-roboto text-primary">
             {t(TRANSLATIONS.book.breadcrumbs)}
          </Link>

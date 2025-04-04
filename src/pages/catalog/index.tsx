@@ -11,7 +11,7 @@ function CatalogPage() {
    useTitle(t(TRANSLATIONS.pageTitle.catalog))
 
    return (
-      <Layout.Content className="p-5 md:p-[40px_10%]">
+      <Layout.Content className="p-5 md:p-[40px_10%] mb-20 md:mb-0">
          <Typography.Title className="font-roboto text-center md:mt-10 mt-4" level={2}>
             {t(TRANSLATIONS.catalog.title)}
          </Typography.Title>

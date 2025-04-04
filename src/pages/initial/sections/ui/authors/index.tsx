@@ -28,7 +28,7 @@ const Authors = () => {
          {authorsQuery.map(author => (
             <Col
                key={author.id}
-               className="min-w-[200px] m-auto mt-5 sm:mt-0 transition-[0.25s] hover:opacity-80 relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
+               className="min-w-[200px] m-auto mt-8 sm:mt-0 transition-[0.25s] hover:opacity-80 relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
                span={3}
                onClick={() => router.navigate({ to: `${routes.CATALOG}?${authors}=${author.id}` })}
                title="Go to the author's books">
