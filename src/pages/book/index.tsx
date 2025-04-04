@@ -90,7 +90,7 @@ const Card = ({ book }: BookProps) => {
                   ))}
                </Carousel>
             </div>
-            <div className="mt-3 ml-0 md:mt-10 md:ml-10">
+            <div className="mt-7 ml-0 md:mt-0 md:ml-10">
                <Descriptions
                   title={<span className="font-roboto text-[25px]">{t(TRANSLATIONS.book.about)}</span>}
                   column={1}
@@ -139,7 +139,7 @@ const Checkout = ({ book }: BookProps) => {
       <Col span={isMobile ? "full" : 7} offset={1} style={style} className="ml-0 md:ml-12 mt-10 md:mt-0">
          <article className="flex flex-col justify-between min-h-[300px] p-7 shadow-insetDark">
             <div>
-               <h3 className="text-[40px] font-medium mt-2">
+               <h3 className="text-[40px] font-medium md:mt-2">
                   <Tooltip title={t(TRANSLATIONS.book.tooltip)} trigger="click">
                      {rent.status === "RENTABLE" && price}
                   </Tooltip>
@@ -179,7 +179,7 @@ const Checkout = ({ book }: BookProps) => {
                </Row>
             </div>
             {/* FIXME: action button style */}
-            <div className="mt-10 w-full md:w-[300px] gap-2 m-auto">
+            <div className="mt-6 md:mt-10 w-full md:w-[300px] gap-2 m-auto">
                {
                   <TariffRadio
                      onChange={handleTariffChange}
