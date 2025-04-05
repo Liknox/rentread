@@ -117,10 +117,10 @@
       "sortBy": {
          "title": "Sort by",
          "options": {
-            "popularity": "by popularity",
-            "price": "by price",
-            "time": "by time",
-            "novelty": "by novelty"
+            "popularity": "popularity",
+            "price": "price",
+            "time": "time",
+            "novelty": "novelty"
          }
       },
       "filters": {

@@ -117,10 +117,10 @@
       "sortBy": {
          "title": "Сортувати за",
          "options": {
-            "popularity": "за популярністю",
-            "price": "за ціною",
-            "time": "за часом",
-            "novelty": "за новизною"
+            "popularity": "популярністю",
+            "price": "ціною",
+            "time": "часом",
+            "novelty": "новизною"
          }
       },
       "filters": {
