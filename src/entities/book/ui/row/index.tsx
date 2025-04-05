@@ -71,7 +71,7 @@ const BookRow = (props: Props) => {
             "grayscale opacity-50": asSecondary,
             "grid-cols-[50px_2fr]": searchBar,
          })}>
-         <Col span={spanIcon[size]} className="col-span-1">
+         <Col span={spanIcon[size]} className="col-span-1 mr-2">
             <BookFilled className="bg-accent" style={styleIcon[size]} />
          </Col>
          <Col
