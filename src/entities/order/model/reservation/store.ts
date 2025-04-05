@@ -1,8 +1,9 @@
+import { create } from "zustand"
+
 import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 import { initLSItem } from "@shared/lib/browser"
 import { viewerLib } from "entities/viewer"
 import { fakeApi } from "shared/api"
-import { create } from "zustand"
 
 interface ReserveState {
    reserve: number[]

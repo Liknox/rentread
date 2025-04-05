@@ -1,11 +1,12 @@
 import { CheckCircleOutlined, ClockCircleOutlined, UserOutlined } from "@ant-design/icons"
+import { Avatar, Divider, Layout, Typography } from "antd"
+import { useTranslation } from "react-i18next"
+
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { isMobile } from "@shared/lib/browser"
 import Tile from "@shared/ui/tile"
-import { Avatar, Divider, Layout, Typography } from "antd"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
-import { useTranslation } from "react-i18next"
 import * as lib from "../index"
 
 export const Aside = () => {

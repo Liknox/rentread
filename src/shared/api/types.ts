@@ -1,5 +1,6 @@
-import type { TRANSLATIONS } from "@app/configs/constants/translation"
 import type { FC } from "react"
+
+import type { TRANSLATIONS } from "@app/configs/constants/translation"
 
 export type User = {
    id: number

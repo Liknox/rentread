@@ -1,7 +1,8 @@
-import { PRICES, TARIFFS, TIMEOUT } from "@app/configs/constants"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useRouter, useSearch } from "@tanstack/react-router"
 import { useRef } from "react"
+
+import { PRICES, TARIFFS, TIMEOUT } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 interface SearchParams {
    authors?: string | number

@@ -1,6 +1,7 @@
+import dayjs from "dayjs"
+
 import type { Order } from "@shared/api/types"
 import { browser } from "@shared/lib"
-import dayjs from "dayjs"
 
 // FIXME: hardcoded! dry!
 const VIEWER_ID = 4

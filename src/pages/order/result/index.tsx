@@ -1,10 +1,11 @@
+import { Link } from "@tanstack/react-router"
+import { Button, Layout, Result } from "antd"
+import { useTranslation } from "react-i18next"
+
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTitle } from "@shared/lib/dom"
-import { Link } from "@tanstack/react-router"
-import { Button, Layout, Result } from "antd"
 import { Cart } from "features/cart"
-import { useTranslation } from "react-i18next"
 
 // TODO: Add skeletons loader
 

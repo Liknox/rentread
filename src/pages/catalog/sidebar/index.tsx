@@ -1,9 +1,10 @@
+import { Checkbox, Divider, Layout, Slider, Typography } from "antd"
+import { useTranslation } from "react-i18next"
+
 import { PRICES, TARIFFS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
-import { Checkbox, Divider, Layout, Slider, Typography } from "antd"
-import { useTranslation } from "react-i18next"
 import * as catalogParams from "../params"
 
 function Sidebar() {

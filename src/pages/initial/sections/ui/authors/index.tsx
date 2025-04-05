@@ -1,8 +1,9 @@
-import { fakeApi } from "@shared/api"
+import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Typography } from "antd"
 
 import { routes } from "@app/configs/constants"
-import { useRouter } from "@tanstack/react-router"
+import { fakeApi } from "@shared/api"
+
 import gaiman from "./assets/gaiman.jpg"
 import martin from "./assets/martin.jpg"
 import orwell from "./assets/orwell.jpg"

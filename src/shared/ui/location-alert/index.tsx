@@ -1,11 +1,12 @@
-import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { Alert } from "antd"
 import { useTranslation } from "react-i18next"
 
+import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
+import { TRANSLATIONS } from "@app/configs/constants/translation"
+
 export const DemoAlert = () => {
    const { t } = useTranslation()
-   const isVisible = localStorage.getItem("RENTREAD:/demoAlert/visible") === "false"
+   const isVisible = localStorage.getItem(`RENTREAD:/${PERSIST_STORE_ITEMS.demoAlert}`) === "false"
 
    return (
       <>

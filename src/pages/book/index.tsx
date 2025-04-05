@@ -1,18 +1,19 @@
 import { BookFilled, HistoryOutlined, InboxOutlined } from "@ant-design/icons"
+import { Link, useMatch } from "@tanstack/react-router"
+import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
+import cn from "classnames"
+import { useTranslation } from "react-i18next"
+
 import { CAROUSEL_TIMER, routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
-import { Link, useMatch } from "@tanstack/react-router"
-import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
-import cn from "classnames"
 import { BookCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
-import { useTranslation } from "react-i18next"
 
 function BookPage() {
    // FIXME: add skeleton template

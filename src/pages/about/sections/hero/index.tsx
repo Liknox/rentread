@@ -1,11 +1,12 @@
 import { useRouter } from "@tanstack/react-router"
 import { Button } from "antd"
+import { useTranslation } from "react-i18next"
 
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { useTranslation } from "react-i18next"
-import bg_hero from "../../assets/bg_hero.jpg"
 import Section from "../index"
+
+import bg_hero from "../../assets/bg_hero.jpg"
 
 const HeroSection = () => {
    const router = useRouter()

@@ -1,9 +1,10 @@
-import { isMobile } from "@shared/lib/browser"
 import { Link } from "@tanstack/react-router"
 import { Carousel, Typography } from "antd"
 import { useTranslation } from "react-i18next"
-import { bannerScreen } from "./model"
+
 import { CAROUSEL_TIMER } from "@app/configs/constants"
+import { isMobile } from "@shared/lib/browser"
+import { bannerScreen } from "./model"
 
 const Banner = () => {
    const { t } = useTranslation()

@@ -1,12 +1,12 @@
 import { BookFilled } from "@ant-design/icons"
-import { routes } from "@app/configs/constants"
-import { isMobile } from "@shared/lib/browser"
-import { textOverflow } from "@shared/lib/string"
 import { Link } from "@tanstack/react-router"
 import { Card, Col, Row } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
 
+import { routes } from "@app/configs/constants"
+import { isMobile } from "@shared/lib/browser"
+import { textOverflow } from "@shared/lib/string"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
 

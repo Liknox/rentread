@@ -1,9 +1,9 @@
-import type { SectionsDisplay } from "@shared/api"
-import { useTitle } from "@shared/lib/dom"
 import { Layout } from "antd"
+import { useTranslation } from "react-i18next"
 
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { useTranslation } from "react-i18next"
+import type { SectionsDisplay } from "@shared/api"
+import { useTitle } from "@shared/lib/dom"
 import BenefitsSection from "./sections/benefits"
 import FeaturesSection from "./sections/features"
 import HeroSection from "./sections/hero"

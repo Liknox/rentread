@@ -1,13 +1,14 @@
 import { HeartFilled, HeartOutlined } from "@ant-design/icons"
+import { useRouter } from "@tanstack/react-router"
+import { Button } from "antd"
+import { useTranslation } from "react-i18next"
+
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { isMobile } from "@shared/lib/browser"
-import { useRouter } from "@tanstack/react-router"
-import { Button } from "antd"
 import { bookModel } from "entities/book"
 import { viewerModel } from "entities/viewer"
-import { useTranslation } from "react-i18next"
 
 type Props = {
    bookId: number

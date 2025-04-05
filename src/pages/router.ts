@@ -1,12 +1,12 @@
 import { createFileRoute, createRootRoute } from "@tanstack/react-router"
 import { lazy } from "react"
 
+import NotFound from "./__404"
+import Book from "./book"
+import Debug from "./debug"
 import Initial from "./initial"
 import Layout from "./layout"
 import Profile from "./profile"
-import NotFound from "./__404"
-import Debug from "./debug"
-import Book from "./book"
 
 const About = lazy(() => import("./about"))
 const Catalog = lazy(() => import("./catalog"))

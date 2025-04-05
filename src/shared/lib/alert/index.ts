@@ -1,6 +1,7 @@
 import { notification } from "antd"
 import type { IconType } from "antd/es/notification/interface"
 import type { ReactNode } from "react"
+
 import { isMobile } from "../browser"
 
 /**

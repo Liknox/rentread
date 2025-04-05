@@ -1,4 +1,6 @@
+// cSpell:disable
 import dayjs from "dayjs"
+
 import type { CoffeeShop } from "../../types"
 
 export const SVIT_KAVY: CoffeeShop = {

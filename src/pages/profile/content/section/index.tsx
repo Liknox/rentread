@@ -1,12 +1,12 @@
 import type { CheckCircleOutlined } from "@ant-design/icons"
+import { Link } from "@tanstack/react-router"
 import { Badge, Col, Empty, Row, Typography } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
+import { useTranslation } from "react-i18next"
 
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { Link } from "@tanstack/react-router"
 import { BookCard } from "entities/book"
-import { useTranslation } from "react-i18next"
 import type { AbstractBook, Book } from "shared/api"
 
 type Props<T> = {

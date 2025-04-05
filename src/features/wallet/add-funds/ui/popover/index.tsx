@@ -1,8 +1,9 @@
-import { useShowPopover } from "@pages/hooks"
-import { Button, Popover } from "antd"
 import type { PopoverProps } from "antd"
-import { walletModel } from "entities/wallet"
+import { Button, Popover } from "antd"
 import type { CSSProperties } from "react"
+
+import { useShowPopover } from "@pages/hooks"
+import { walletModel } from "entities/wallet"
 import AddFundsForm from "../form"
 
 type Props = {

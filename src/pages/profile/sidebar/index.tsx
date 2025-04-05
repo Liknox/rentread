@@ -1,6 +1,7 @@
-import { topics } from "@app/configs/constants"
 import { Anchor, Layout } from "antd"
 import { useTranslation } from "react-i18next"
+
+import { topics } from "@app/configs/constants"
 
 type Props = {
    forceUpdate: () => void

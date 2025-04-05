@@ -1,7 +1,8 @@
-import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { savedLanguage } from "@app/configs/language/i18n.config"
 import { Layout, Select } from "antd"
 import { useTranslation } from "react-i18next"
+
+import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { savedLanguage } from "@app/configs/language/i18n.config"
 
 const { Option } = Select
 

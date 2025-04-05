@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { useWalletStore } from "./store"
+
 import { TIMEOUT } from "@app/configs/constants"
+import { useWalletStore } from "./store"
 
 export const useViewerWallet = () => {
    const walletStore = useWalletStore()

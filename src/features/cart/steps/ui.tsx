@@ -1,7 +1,8 @@
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { Steps } from "antd"
 import cn from "classnames"
 import { useTranslation } from "react-i18next"
+
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 
 type Props = {
    current: 0 | 1 | 2

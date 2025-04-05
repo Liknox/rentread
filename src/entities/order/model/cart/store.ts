@@ -1,6 +1,7 @@
+import { create } from "zustand"
+
 import { DEFAULT_ORDER_DURATION, PERSIST_STORE_ITEMS } from "@app/configs/constants"
 import { initLSItem } from "@shared/lib/browser"
-import { create } from "zustand"
 
 interface CartBooksState {
    cartBooks: number[]

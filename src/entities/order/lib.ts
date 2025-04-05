@@ -1,5 +1,6 @@
-import { type Book, type Order, fakeApi } from "@shared/api"
 import dayjs from "dayjs"
+
+import { type Book, type Order, fakeApi } from "@shared/api"
 import { orderModel } from "./index"
 
 const getRentStats = (userBooks: Book[]) => {

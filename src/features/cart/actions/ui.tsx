@@ -1,13 +1,14 @@
 import { ShoppingFilled, ShoppingOutlined } from "@ant-design/icons"
+import { useRouter } from "@tanstack/react-router"
+import { Button, Modal } from "antd"
+import type { CSSProperties } from "react"
+import { useTranslation } from "react-i18next"
+
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
-import { useRouter } from "@tanstack/react-router"
-import { Button, Modal } from "antd"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
-import type { CSSProperties } from "react"
-import { useTranslation } from "react-i18next"
 
 type Props = {
    bookId: number

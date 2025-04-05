@@ -1,6 +1,7 @@
-import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { Radio } from "antd"
 import { useTranslation } from "react-i18next"
+
+import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { DEFAULT, TARIFFS } from "../../lib"
 
 type Props = {
