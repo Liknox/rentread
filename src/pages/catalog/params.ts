@@ -185,6 +185,7 @@ export const SORTINGS = {
    4: TRANSLATIONS.catalog.sortBy.options.novelty,
 }
 
+/** @query Sort: by sorting type */
 export const useSorting = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
@@ -215,6 +216,7 @@ type ViewTypeValue = (typeof VIEW_TYPE)[keyof typeof VIEW_TYPE]
 
 export const defaultViewType = VIEW_TYPE.list
 
+/** @query Display: by view type */
 export const useViewType = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
@@ -236,4 +238,26 @@ export const useViewType = () => {
    }
 
    return { viewType: viewType as ViewTypeValue, setViewType, isGrid, isList }
+}
+
+/** @query Pagination: by page */
+export const usePagination = () => {
+   const search = useSearch({ strict: false }) as SearchParams
+   const router = useRouter()
+
+   const page = Number(search.page) || 1
+
+   const setPage = (value: number) => {
+      const newSearch: SearchParams = { ...search }
+
+      if (value > 1) {
+         newSearch.page = value
+      } else {
+         newSearch.page = undefined
+      }
+
+      router.navigate({ to: location.pathname, search: newSearch })
+   }
+
+   return { page, setPage }
 }

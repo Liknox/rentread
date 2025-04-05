@@ -90,3 +90,5 @@ export const TIMEOUT = {
 }
 
 export const CAROUSEL_TIMER = 3 * 1e3
+
+export const BOOKS_PER_PAGE = 6

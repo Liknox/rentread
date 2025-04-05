@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 import Sidebar from "../sidebar"
+import { BOOKS_PER_PAGE } from "@app/configs/constants"
 
 const { Option } = Select
 
@@ -78,17 +79,19 @@ function CatalogContent() {
    const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
    const vtParam = catalogParams.useViewType()
 
-   const [currentPage, setCurrentPage] = useState(1)
-   const [pageSize, setPageSize] = useState(6)
+   const pagination = catalogParams.usePagination()
+   const [pageSize, setPageSize] = useState(BOOKS_PER_PAGE)
    const [open, setOpen] = useState(false)
 
    const handlePageChange = (page: number, size: number) => {
       scrollToTop()
-      setCurrentPage(page)
+      pagination.setPage(page)
       setPageSize(size)
    }
 
-   const paginatedData = isMobile ? booksQuery : booksQuery.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+   const paginatedData = isMobile
+      ? booksQuery
+      : booksQuery.slice((pagination.page - 1) * pageSize, pagination.page * pageSize)
 
    return (
       <>
@@ -123,7 +126,7 @@ function CatalogContent() {
                {isMobile || (
                   <Pagination
                      className="mt-8"
-                     current={currentPage}
+                     current={pagination.page}
                      pageSize={pageSize}
                      total={booksQuery.length}
                      onChange={handlePageChange}
