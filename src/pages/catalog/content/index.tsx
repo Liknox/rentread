@@ -5,7 +5,7 @@ import cn from "classnames"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import { BOOKS_PER_PAGE } from "@app/configs/constants"
+import { BOOKS_PER_PAGE, SORTINGS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { isMobile } from "@shared/lib/browser"
@@ -21,8 +21,6 @@ import * as catalogParams from "../params"
 import Sidebar from "../sidebar"
 
 const { Option } = Select
-
-const { SORTINGS } = catalogParams
 
 const viewTypes = [
    { key: "grid", Icon: AppstoreOutlined },
@@ -219,7 +217,7 @@ const SortFilterOptions = ({ setOpen }: Props) => {
             <b className="mr-5 text-xl">{t(TRANSLATIONS.catalog.sortBy.title)}:</b>
          )}
          <Select
-            placeholder={t(TRANSLATIONS.catalog.sortBy.title)}
+            placeholder={t(TRANSLATIONS.catalog.sortBy.options.novelty)}
             className="md:!w-[200px] w-[180px]"
             onChange={value => obParam.setSorting(value)}>
             {Object.entries(SORTINGS).map(([sId, sName]) => (

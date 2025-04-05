@@ -1,8 +1,7 @@
 import { useRouter, useSearch } from "@tanstack/react-router"
 import { useRef } from "react"
 
-import { PRICES, TARIFFS, TIMEOUT } from "@app/configs/constants"
-import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { DEFAULT_SORTING, PRICES, TARIFFS, TIMEOUT } from "@app/configs/constants"
 
 interface SearchParams {
    authors?: string | number
@@ -176,14 +175,6 @@ export const usePrices = () => {
    }
 
    return { from, to, setPrice }
-}
-
-const DEFAULT_SORTING = 4
-export const SORTINGS = {
-   1: TRANSLATIONS.catalog.sortBy.options.popularity,
-   2: TRANSLATIONS.catalog.sortBy.options.price,
-   3: TRANSLATIONS.catalog.sortBy.options.time,
-   4: TRANSLATIONS.catalog.sortBy.options.novelty,
 }
 
 /** @query Sort: by sorting type */

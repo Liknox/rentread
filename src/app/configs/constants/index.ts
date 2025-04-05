@@ -92,3 +92,11 @@ export const TIMEOUT = {
 export const CAROUSEL_TIMER = 3 * 1e3
 
 export const BOOKS_PER_PAGE = 6
+
+export const DEFAULT_SORTING = 1
+export const SORTINGS = {
+   1: TRANSLATIONS.catalog.sortBy.options.novelty,
+   2: TRANSLATIONS.catalog.sortBy.options.price,
+   3: TRANSLATIONS.catalog.sortBy.options.time,
+   4: TRANSLATIONS.catalog.sortBy.options.popularity,
+}

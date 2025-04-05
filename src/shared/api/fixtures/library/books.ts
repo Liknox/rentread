@@ -404,10 +404,10 @@ export const getByIds = (bookIds: number[]) => {
 }
 
 const SORTING_TYPE = {
-   1: "POPULARITY" as const,
+   1: "NOVELTY" as const,
    2: "PRICE" as const,
    3: "TIME" as const,
-   4: "NOVELTY" as const,
+   4: "POPULARITY" as const,
 }
 
 type GetListParams = {
