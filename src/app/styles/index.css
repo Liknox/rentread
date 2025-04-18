@@ -4,3 +4,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.overlay-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgba(255, 255, 255);
+   z-index: 1000;
+}
+
+.overlay {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}

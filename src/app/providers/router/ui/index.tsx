@@ -1,8 +1,14 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router"
-import { Spin } from "antd"
-import { Suspense } from "react"
+import { Spin, Result, Button } from "antd"
+import { Suspense, useState, useEffect } from "react"
 
 import { routeTree } from "@app/configs/router"
+
+const LoadingSpinner = ({ delay = 300 }) => (
+   <div className="overlay-container">
+      <Spin delay={delay} className="overlay" size="large" />
+   </div>
+)
 
 const router = createRouter({
    routeTree,
@@ -11,6 +17,19 @@ const router = createRouter({
    },
    defaultPreload: "intent",
    defaultPreloadStaleTime: 0,
+   defaultPendingComponent: () => <LoadingSpinner />,
+   defaultErrorComponent: ({ error }) => (
+      <Result
+         status="error"
+         title="Navigation Error"
+         subTitle={error?.message || "An unexpected error occurred"}
+         extra={[
+            <Button type="primary" key="retry" onClick={() => window.location.reload()}>
+               Retry
+            </Button>,
+         ]}
+      />
+   ),
 })
 
 declare module "@tanstack/react-router" {
@@ -19,10 +38,30 @@ declare module "@tanstack/react-router" {
    }
 }
 
-const Router = () => (
-   <Suspense fallback={<Spin delay={300} className="overlay" size="large" />}>
-      <RouterProvider router={router} />
-   </Suspense>
-)
+const Router = () => {
+   const [isRouterReady, setIsRouterReady] = useState(false)
+
+   useEffect(() => {
+      router
+         .load()
+         .then(() => {
+            setIsRouterReady(true)
+         })
+         .catch(error => {
+            console.error("Router initialization error:", error)
+            setIsRouterReady(true)
+         })
+   }, [])
+
+   if (!isRouterReady) {
+      return <LoadingSpinner delay={100} />
+   }
+
+   return (
+      <Suspense fallback={<LoadingSpinner />}>
+         <RouterProvider router={router} />
+      </Suspense>
+   )
+}
 
 export { Router }
