@@ -2,17 +2,17 @@ import { createFileRoute, createRootRoute } from "@tanstack/react-router"
 import { lazy } from "react"
 
 import NotFound from "./__404"
-import Book from "./book"
 import Debug from "./debug"
-import Initial from "./initial"
 import Layout from "./layout"
-import Profile from "./profile"
 
 const About = lazy(() => import("./about"))
 const Catalog = lazy(() => import("./catalog"))
 const Order = lazy(() => import("./order/cart"))
 const Checkout = lazy(() => import("./order/checkout"))
 const Result = lazy(() => import("./order/result"))
+const Book = lazy(() => import("./book"))
+const Profile = lazy(() => import("./profile"))
+const Initial = lazy(() => import("./initial"))
 
 export const InitialImport = createFileRoute("/")({
    component: Initial,
