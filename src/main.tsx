@@ -50,6 +50,6 @@ if (rootElement && !rootElement.innerHTML) {
    root.render(
       <ErrorBoundary>
          <App />
-      </ErrorBoundary>
+      </ErrorBoundary>,
    )
 }
