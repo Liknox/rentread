@@ -15,17 +15,26 @@ function Footer() {
    const { i18n, t } = useTranslation()
 
    return (
-      <Layout.Footer className="flex justify-center items-center md:flex-row flex-col gap-1">
-         Rentread ©{new Date().getFullYear()}
+      <Layout.Footer className="flex justify-center items-center md:flex-row flex-col gap-1" role="contentinfo">
+         Rentread {new Date().getFullYear()}
          <p>
             {t(TRANSLATIONS.footer.text)}{" "}
-            <a href="https://github.com/Liknox/rentread" target="_blank" rel="noreferrer" className="text-primary">
+            <a
+               href="https://github.com/Liknox/rentread"
+               target="_blank"
+               rel="noreferrer"
+               className="text-primary"
+               aria-label="GitHub Repository">
                {t(TRANSLATIONS.footer.name)}
             </a>
          </p>
-         <Select defaultValue={savedLanguage} className="w-[60px] ml-1" onChange={value => i18n.changeLanguage(value)}>
+         <Select
+            defaultValue={savedLanguage}
+            className="w-[60px] ml-1"
+            onChange={value => i18n.changeLanguage(value)}
+            aria-label="Language Selector">
             {langs.map(lang => (
-               <Option key={lang.value} value={lang.value}>
+               <Option key={lang.value} value={lang.value} aria-label={`Switch language to ${lang.label}`}>
                   {lang.label}
                </Option>
             ))}
