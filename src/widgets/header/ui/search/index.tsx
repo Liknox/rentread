@@ -55,13 +55,17 @@ const useSearch = () => {
       updateReset((indexReset + 1) % 10)
    }
 
+   const getSearchRoute = (search: string) => ({
+      to: routes.CATALOG,
+      search: { q: String(search) },
+   })
+
    const handleSubmit = (search: string) => {
       if (isCatalogPage) {
          return params.setSearch(search)
       }
 
-      // FIXME: hardcoded
-      router.navigate({ to: routes.CATALOG, search: { q: String(search) } })
+      router.navigate(getSearchRoute(search))
    }
 
    return {
