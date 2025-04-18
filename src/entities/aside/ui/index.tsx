@@ -3,7 +3,7 @@ import { Avatar, Divider, Layout, Typography } from "antd"
 import { useTranslation } from "react-i18next"
 
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { isMobile } from "@shared/lib/browser"
+import { useMobileDetection } from "@shared/lib/browser"
 import Tile from "@shared/ui/tile"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
@@ -11,6 +11,7 @@ import * as lib from "../index"
 
 export const Aside = () => {
    const viewer = viewerModel.useViewer()
+   const isMobile = useMobileDetection()
 
    /* FIXME: move to entities */
    return (

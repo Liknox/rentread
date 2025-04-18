@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next"
 
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { isMobile } from "@shared/lib/browser"
+import { useMobileDetection } from "@shared/lib/browser"
 import { orderModel } from "entities/order"
 import { viewerModel } from "entities/viewer"
 import { Wallet } from "features/wallet"
@@ -66,6 +66,7 @@ const Header = () => {
    const orderTotal = orderModel.useOrderBooks().length
    const favTotal = viewerModel.useFavBooks().length
    const { t, i18n } = useTranslation()
+   const isMobile = useMobileDetection()
 
    const count: Record<ActionId, number> = {
       cart: orderTotal,

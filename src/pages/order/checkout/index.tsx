@@ -11,7 +11,7 @@ import { v4 as uuid } from "uuid"
 import { MAP_ANCHORS, routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { fakeApi } from "@shared/api"
-import { isMobile } from "@shared/lib/browser"
+import { isMobile, useMobileDetection } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
 import { orderLib, orderModel } from "entities/order"
 import { walletModel } from "entities/wallet"
@@ -49,6 +49,7 @@ function Checkout() {
 
 const Content = () => {
    const { t } = useTranslation()
+   const isMobile = useMobileDetection()
    return (
       <Layout className={cn({ "!w-full": isMobile })}>
          <Link to={routes.ORDER} className="text-primary">
@@ -113,7 +114,7 @@ const Sidebar = () => {
    }
 
    return (
-      <Layout.Sider width={isMobile ? "100%" : 400} className="mt-8 md:mt-0">
+      <Layout.Sider width={useMobileDetection() ? "100%" : 400} className="mt-8 md:mt-0">
          <Cart.TotalInfo.Card>
             {validation.isTotallyAllowed ? (
                <Button
@@ -159,10 +160,10 @@ const DeliveryForm = () => {
       <Row
          className={cn(
             "md:min-h-[500px] overflow-hidden bg-[var(--color-accent)] border border-[var(--color-accent)] rounded-[25px]",
-            { "flex-col": isMobile },
+            { "flex-col": useMobileDetection() },
          )}
          justify="space-between">
-         <Col span={isMobile ? "full" : 10} className="p-10">
+         <Col span={useMobileDetection() ? "full" : 10} className="p-10">
             <Typography.Title level={4}>{t(TRANSLATIONS.order.checkout.deliveryMethod)}</Typography.Title>
             <Checkbox
                onChange={e => {
@@ -209,7 +210,7 @@ const DeliveryForm = () => {
                />
             )}
          </Col>
-         <Col span={isMobile ? "full" : 12} className={cn({ "h-[400px]": isMobile })}>
+         <Col span={useMobileDetection() ? "full" : 12} className={cn({ "h-[400px]": useMobileDetection() })}>
             <PMap
                defaultCenter={MAP_ANCHORS.DEFAULT} // Lviv Coordinates
                dprs={[1, 2]}

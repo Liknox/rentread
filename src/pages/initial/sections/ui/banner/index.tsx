@@ -3,11 +3,12 @@ import { Carousel, Typography } from "antd"
 import { useTranslation } from "react-i18next"
 
 import { CAROUSEL_TIMER } from "@app/configs/constants"
-import { isMobile } from "@shared/lib/browser"
+import { useMobileDetection } from "@shared/lib/browser"
 import { bannerScreen } from "./model"
 
 const Banner = () => {
    const { t } = useTranslation()
+   const isMobile = useMobileDetection()
 
    return (
       <Carousel autoplay arrows={!isMobile} infinite autoplaySpeed={3 * CAROUSEL_TIMER}>

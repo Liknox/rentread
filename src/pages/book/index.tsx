@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next"
 import { CAROUSEL_TIMER, routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
-import { isMobile } from "@shared/lib/browser"
+import { useMobileDetection } from "@shared/lib/browser"
 import { BookCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
 import { TariffRadio } from "entities/tariff"
@@ -19,6 +19,7 @@ function BookPage() {
    // FIXME: add skeleton template
    const { t } = useTranslation()
    const { params } = useMatch({ from: "/book/$bookId" }) as { params: { bookId: string } }
+   const isMobile = useMobileDetection()
 
    const bookId = Number(params?.bookId)
    const book = fakeApi.library.books.getById(bookId)

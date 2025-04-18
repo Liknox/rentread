@@ -4,11 +4,11 @@ import { Button, Drawer, Pagination, Select } from "antd"
 import cn from "classnames"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import { useMobileDetection } from "@shared/lib/browser"
 
 import { BOOKS_PER_PAGE, SORTINGS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
-import { isMobile } from "@shared/lib/browser"
 import { scrollToTop } from "@shared/lib/dom"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
@@ -74,6 +74,7 @@ function CatalogContent() {
    const { t } = useTranslation()
    const filters = useFilters()
    const obParam = catalogParams.useSorting()
+   const isMobile = useMobileDetection()
 
    const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
    const vtParam = catalogParams.useViewType()
@@ -152,6 +153,7 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
 
    const ribbon = ribbonPropsTypes[rent.status]
    const span = vtParam.isGrid ? 8 : 24
+   const isMobile = useMobileDetection()
 
    return (
       <Col span={span} className="mt-4 md:mt-0 !p-0 md:!p-2">
@@ -208,6 +210,7 @@ type Props = {
 const SortFilterOptions = ({ setOpen }: Props) => {
    const { t } = useTranslation()
    const obParam = catalogParams.useSorting()
+   const isMobile = useMobileDetection()
 
    return (
       <Row className={cn("grow", { "mr-5": !isMobile, "justify-between": isMobile })}>

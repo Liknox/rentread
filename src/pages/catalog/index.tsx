@@ -2,13 +2,14 @@ import { Layout, Typography } from "antd"
 import { useTranslation } from "react-i18next"
 
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { isMobile } from "@shared/lib/browser"
+import { useMobileDetection } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
 import CatalogContent from "./content"
 import Sidebar from "./sidebar"
 
 function CatalogPage() {
    const { t } = useTranslation()
+   const isMobile = useMobileDetection()
    useTitle(t(TRANSLATIONS.pageTitle.catalog))
 
    return (

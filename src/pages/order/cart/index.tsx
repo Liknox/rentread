@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next"
 
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { isMobile } from "@shared/lib/browser"
+import { useMobileDetection } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
@@ -15,6 +15,7 @@ import { Fav } from "features/fav"
 
 function Order() {
    const { t } = useTranslation()
+   const isMobile = useMobileDetection()
    useTitle(t(TRANSLATIONS.pageTitle.cart))
    return (
       <Layout.Content>
@@ -29,6 +30,7 @@ function Order() {
 
 const Content = () => {
    const { t } = useTranslation()
+   const isMobile = useMobileDetection()
    const order = orderModel.useOrder()
    const durations = orderModel.useOrderDurations()
    const cartDurations = orderModel.useDurationsStore()
@@ -130,6 +132,7 @@ const RecommendationsSection = () => {
 
 const Sidebar = () => {
    const { t } = useTranslation()
+   const isMobile = useMobileDetection()
    const { isEmptyCart } = orderModel.useOrderValidation()
 
    return (
