@@ -75,6 +75,7 @@ const Card = ({ book }: BookProps) => {
    const { t } = useTranslation()
    const { authors, publicationYear, publishingHouse } = book
    const author = authors.map(fakeApi.library.authors.getShortname).join(", ")
+   const isMobile = useMobileDetection()
 
    return (
       <Col span={isMobile ? "full" : 16}>
@@ -128,6 +129,7 @@ const Checkout = ({ book }: BookProps) => {
    const price = `${fakeApi.library.books.getPrice(book)} $`
    const durations = orderModel.useOrderDurations()
    const cartDurations = orderModel.useDurationsStore()
+   const isMobile = useMobileDetection()
 
    console.debug("BOOK RENT", book.id, rent)
 
@@ -207,6 +209,7 @@ const Recommendations = ({ book }: BookProps) => {
    const booksQuery = fakeApi.library.books
       .getList({ filters: { authors: book.authors.map(a => a.id) } })
       .filter(b => b.id !== book.id)
+   const isMobile = useMobileDetection()
 
    if (!booksQuery.length) return null
 
