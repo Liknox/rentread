@@ -1,30 +1,56 @@
 import { notification } from "antd"
-import type { IconType } from "antd/es/notification/interface"
+import type { IconType, NotificationPlacement, ArgsProps } from "antd/es/notification/interface"
 import type { ReactNode } from "react"
 
 import { isMobile } from "../browser"
 
-/**
- * NOTE: Moved to a separate module for:
- * - Simplifying the API (more normalized and familiar)
- * - Standardizing a unified placement for all alerts
- */
-const generateOpener = (type: IconType) => (message: string, description?: ReactNode, icon?: ReactNode) => {
+export interface AlertOptions {
+   duration?: number
+   placement?: NotificationPlacement
+   icon?: ReactNode
+   closable?: boolean
+   className?: string
+   onClose?: () => void
+   props?: Partial<ArgsProps>
+}
+
+const defaultOptions: AlertOptions = {
+   duration: isMobile ? 1.5 : 5,
+   placement: isMobile ? "top" : "bottomRight",
+   closable: true,
+}
+
+const createNotification = (type: IconType, message: string, description?: ReactNode, options?: AlertOptions) => {
+   const mergedOptions = { ...defaultOptions, ...options }
+
    notification.open({
-      icon,
       type,
       message,
       description,
-      duration: isMobile ? 1.5 : 5,
-      placement: isMobile ? "top" : "bottomRight",
+      duration: mergedOptions.duration,
+      placement: mergedOptions.placement,
+      icon: mergedOptions.icon,
+      closable: mergedOptions.closable,
+      className: mergedOptions.className,
+      onClose: mergedOptions.onClose,
+      ...(mergedOptions.props || {}),
    })
 }
 
-const error = generateOpener("error")
-const success = generateOpener("success")
-const warn = generateOpener("warning")
-const info = generateOpener("info")
+const alert = {
+   error: (message: string, description?: ReactNode, options?: AlertOptions) =>
+      createNotification("error", message, description, options),
 
-const alert = { error, success, warn, info }
+   success: (message: string, description?: ReactNode, options?: AlertOptions) =>
+      createNotification("success", message, description, options),
+
+   warn: (message: string, description?: ReactNode, options?: AlertOptions) =>
+      createNotification("warning", message, description, options),
+
+   info: (message: string, description?: ReactNode, options?: AlertOptions) =>
+      createNotification("info", message, description, options),
+
+   closeAll: () => notification.destroy(),
+}
 
 export default alert
