@@ -15,22 +15,27 @@ function Footer() {
    const { i18n, t } = useTranslation()
 
    return (
-      <Layout.Footer className="flex justify-center items-center md:flex-row flex-col gap-1" role="contentinfo">
-         Rentread {new Date().getFullYear()}
-         <p>
-            {t(TRANSLATIONS.footer.text)}{" "}
-            <a
-               href="https://github.com/Liknox/rentread"
-               target="_blank"
-               rel="noreferrer"
-               className="text-primary"
-               aria-label="GitHub Repository">
-               {t(TRANSLATIONS.footer.name)}
-            </a>
-         </p>
+      <Layout.Footer
+         className="flex justify-between items-center flex-col md:flex-row py-6 px-4 md:px-[10%] gap-3 md:gap-4 shadow-inner"
+         role="contentinfo">
+         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <span className="font-medium">Rentread {new Date().getFullYear()}</span>
+            <p className="text-center md:text-left mb-0">
+               {t(TRANSLATIONS.footer.text)}{" "}
+               <a
+                  href="https://github.com/Liknox/rentread"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-primary hover:underline"
+                  aria-label="GitHub Repository">
+                  {t(TRANSLATIONS.footer.name)}
+               </a>
+            </p>
+         </div>
          <Select
             defaultValue={savedLanguage}
-            className="w-[60px] ml-1"
+            className="w-[65px]"
+            popupMatchSelectWidth={false}
             onChange={value => i18n.changeLanguage(value)}
             aria-label="Language Selector">
             {langs.map(lang => (
