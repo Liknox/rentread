@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next"
 
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { useMobileDetection, useBreakpoint } from "@shared/lib/browser"
 import { BookRow } from "entities/book"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
@@ -82,6 +83,8 @@ const useSearch = () => {
 const HeaderSearch = () => {
    const { t } = useTranslation()
    const search = useSearch()
+   const isMobile = useMobileDetection()
+   const breakpoint = useBreakpoint()
 
    return (
       <AutoComplete
@@ -94,13 +97,15 @@ const HeaderSearch = () => {
          className="w-full items-center"
          onSelect={search.handleSelect}
          onSearch={search.handleAutocomplete}
-         notFoundContent={search.tooltip}>
+         notFoundContent={search.tooltip}
+         popupMatchSelectWidth={!isMobile}>
          <Input.Search
-            size="large"
+            size={breakpoint.xs ? "middle" : "large"}
             placeholder={t(TRANSLATIONS.header.placeholders.searchPlaceholder)}
-            enterButton
+            enterButton={!breakpoint.xs}
             onSearch={search.handleSubmit}
             allowClear
+            className="rounded-md"
          />
       </AutoComplete>
    )

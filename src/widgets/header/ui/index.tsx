@@ -139,24 +139,40 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
          <div className="flex flex-grow items-center">
             <Search />
          </div>
-         <Button
-            type="text"
-            icon={<MenuOutlined />}
-            onClick={() => setOpen(true)}
-            className="lg:hidden text-[25px] mt-4"
-         />
+         <div className="flex items-center gap-2">
+            <Badge count={count.cart} style={{ backgroundColor: "#108ee9" }}>
+               <Link to="/order">
+                  <ShoppingCartOutlined className="text-[22px]" />
+               </Link>
+            </Badge>
+            <Button
+               type="text"
+               icon={<MenuOutlined className="text-[22px]" />}
+               onClick={() => setOpen(true)}
+               className="flex items-center justify-center p-2 text-[20px]"
+            />
+         </div>
          <Drawer
             title={
-               <div className="flex justify-between w-full text-[30px]">
-                  <Wallet.AddFunds.Popover />
-                  <Button className="text-[30px]" type="text" icon={<CloseOutlined />} onClick={() => setOpen(false)} />
+               <div className="flex justify-between w-full items-center">
+                  <h3 className="text-xl font-medium">Rentread</h3>
+                  <div className="flex items-center gap-3">
+                     <Wallet.AddFunds.Popover />
+                     <Button
+                        className="flex items-center justify-center text-[20px]"
+                        type="text"
+                        icon={<CloseOutlined />}
+                        onClick={() => setOpen(false)}
+                     />
+                  </div>
                </div>
             }
             closable={false}
             placement="top"
+            height="40%"
             onClose={() => setOpen(prev => !prev)}
             open={open}>
-            <div className="flex flex-col gap-7 mt-3">
+            <div className="flex flex-col gap-5 mt-3">
                {actions.map(({ id, label, url, disabled }) => (
                   <Link
                      key={label}
