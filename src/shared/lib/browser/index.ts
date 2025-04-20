@@ -1,2 +1,2 @@
 export * from "./use-local-storage"
-export { isMobile, useMobileDetection } from "./mobile-info"
+export { isMobile, useMobileDetection, useBreakpoint } from "./mobile-info"
