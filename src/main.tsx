@@ -1,5 +1,5 @@
+import { Component, type ErrorInfo, type ReactNode } from "react"
 import ReactDOM from "react-dom/client"
-import { Component, ReactNode, ErrorInfo } from "react"
 
 import "@app/configs/language/i18n.config"
 import "@app/styles/index.css"

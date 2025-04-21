@@ -1,10 +1,10 @@
 import { AppstoreOutlined, BarsOutlined } from "@ant-design/icons"
+import { useMobileDetection } from "@shared/lib/browser"
 import { Badge, Col, Empty, Layout, Radio, Row, Typography } from "antd"
 import { Button, Drawer, Pagination, Select } from "antd"
 import cn from "classnames"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
-import { useMobileDetection } from "@shared/lib/browser"
 
 import { BOOKS_PER_PAGE, SORTINGS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"

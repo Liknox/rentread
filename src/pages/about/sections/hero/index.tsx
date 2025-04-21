@@ -2,9 +2,9 @@ import { useRouter } from "@tanstack/react-router"
 import { Button } from "antd"
 import { useTranslation } from "react-i18next"
 
-import { useMobileDetection } from "@shared/lib/browser"
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
+import { useMobileDetection } from "@shared/lib/browser"
 import Section from "../index"
 
 import bg_hero from "../../assets/bg_hero.jpg"

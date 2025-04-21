@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router"
-import { Button, Col, Empty, Layout, Row, Typography, Divider } from "antd"
+import { Button, Col, Divider, Empty, Layout, Row, Typography } from "antd"
 import cn from "classnames"
 import { useTranslation } from "react-i18next"
 
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { useMobileDetection, useBreakpoint } from "@shared/lib/browser"
+import { useBreakpoint, useMobileDetection } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"

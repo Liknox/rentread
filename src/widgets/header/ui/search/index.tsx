@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next"
 
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { useMobileDetection, useBreakpoint } from "@shared/lib/browser"
+import { useBreakpoint, useMobileDetection } from "@shared/lib/browser"
 import { BookRow } from "entities/book"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"

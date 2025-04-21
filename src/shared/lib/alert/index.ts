@@ -1,5 +1,5 @@
 import { notification } from "antd"
-import type { IconType, NotificationPlacement, ArgsProps } from "antd/es/notification/interface"
+import type { ArgsProps, IconType, NotificationPlacement } from "antd/es/notification/interface"
 import type { ReactNode } from "react"
 
 export interface AlertOptions {

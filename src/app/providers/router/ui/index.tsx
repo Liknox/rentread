@@ -1,6 +1,6 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router"
-import { Spin, Result, Button } from "antd"
-import { Suspense, useState, useEffect } from "react"
+import { Button, Result, Spin } from "antd"
+import { Suspense, useEffect, useState } from "react"
 
 import { routeTree } from "@app/configs/router"
 
