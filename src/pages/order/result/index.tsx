@@ -17,7 +17,7 @@ const ResultPage = () => {
    useTitle(t(TRANSLATIONS.pageTitle.result))
 
    return (
-      <Layout.Content>
+      <Layout.Content className="p-6 md:p-[40px_10%] mb-20 md:mb-0" aria-label="result">
          <Cart.Steps.View current={2} className="mb-10" />
          <Layout>
             <Result

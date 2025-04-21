@@ -37,7 +37,7 @@ function Checkout() {
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.checkout))
    return (
-      <Layout.Content>
+      <Layout.Content className="p-6 md:p-[40px_10%] mb-20 md:mb-0" aria-label="checkout">
          <Cart.Steps.View current={1} className="mb-10" />
          <Layout className="flex !flex-col md:!flex-row">
             <Content />
