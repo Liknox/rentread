@@ -169,10 +169,10 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
             }
             closable={false}
             placement="top"
-            height="40%"
+            height="45%"
             onClose={() => setOpen(prev => !prev)}
             open={open}>
-            <div className="flex flex-col gap-5 mt-3">
+            <div className="flex flex-col gap-5 mt-6">
                {actions.map(({ id, label, url, disabled }) => (
                   <Link
                      key={label}
