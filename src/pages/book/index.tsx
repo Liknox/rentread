@@ -18,7 +18,7 @@ import { Reserve } from "features/reserve"
 
 /**
  * @page Book Page
-*/
+ */
 function BookPage() {
    // FIXME: add skeleton template
    const { t } = useTranslation()

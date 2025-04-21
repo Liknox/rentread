@@ -8,7 +8,7 @@ import { useTitle } from "@shared/lib/dom"
 
 /**
  * @page 404 Page
-*/
+ */
 function NotFoundPage() {
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.notFound))

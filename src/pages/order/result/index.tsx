@@ -11,7 +11,7 @@ import { Cart } from "features/cart"
 
 /**
  * @page Order Confirmation Page
-*/
+ */
 const ResultPage = () => {
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.result))

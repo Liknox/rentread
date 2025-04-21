@@ -9,7 +9,7 @@ import Sidebar from "./sidebar"
 
 /**
  * @page Catalog Page
-*/
+ */
 function CatalogPage() {
    const { t } = useTranslation()
    const isMobile = useMobileDetection()

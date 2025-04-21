@@ -15,7 +15,7 @@ import { Fav } from "features/fav"
 
 /**
  * @page Order Page
-*/
+ */
 function Order() {
    const { t } = useTranslation()
    const isMobile = useMobileDetection()

@@ -12,7 +12,7 @@ import { Sidebar } from "./sidebar"
 
 /**
  * @page Profile Page
-*/
+ */
 function ProfilePage() {
    const { t } = useTranslation()
    const breakpoint = useBreakpoint()

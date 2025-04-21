@@ -10,7 +10,7 @@ import { DemoAlert } from "@shared/ui/location-alert"
 
 /**
  * @page Layout Page
-*/
+ */
 const Layout = () => {
    useResetScrollAtEveryPage()
    const isMobile = useMobileDetection()

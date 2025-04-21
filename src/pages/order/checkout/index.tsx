@@ -35,7 +35,7 @@ const useCheckoutValidation = () => {
 
 /**
  * @page Checkout Page
-*/
+ */
 function Checkout() {
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.checkout))
