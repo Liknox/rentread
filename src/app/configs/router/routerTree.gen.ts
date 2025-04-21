@@ -26,63 +26,53 @@ import {
 const InitialRoute = InitialImport.update({
    path: routes.DEFAULT,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+}) as const satisfies Route
 
 const AboutRoute = AboutImport.update({
    path: routes.ABOUT,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+}) as const satisfies Route
 
 const CatalogRoute = CatalogImport.update({
    path: routes.CATALOG,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+}) as const satisfies Route
 
 const BookRoute = BookImport.update({
    path: routes.BOOKID,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+}) as const satisfies Route
 
 const ProfileRoute = ProfileImport.update({
    path: routes.PROFILE,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+}) as const satisfies Route
 
 const OrderRoute = OrderImport.update({
    path: routes.ORDER,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+}) as const satisfies Route
 
 const CheckoutRoute = CheckoutImport.update({
    path: routes.CHECKOUT,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+} as const satisfies Route)
 
 const ResultRoute = ResultImport.update({
    path: routes.RESULT,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+} as const satisfies Route)
 
 const DebugRoute = DebugImport.update({
    path: routes.DEBUG,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+} as const satisfies Route)
 
 const R404Route = R404Import.update({
    id: routes.NOTFOUND,
    path: routes.ALL,
    getParentRoute: () => LayoutImport,
-   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-} as any)
+} as const satisfies Route)
 
 declare module "@tanstack/react-router" {
    interface FileRoutesByPath {
