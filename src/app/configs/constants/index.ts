@@ -44,10 +44,10 @@ export const TOPIC_FAV = {
    description: TRANSLATIONS.anchors.favorites.description,
 }
 
-export const topics = [TOPIC_OPENED, TOPIC_RESERVED, TOPIC_FAV, TOPIC_HISTORY]
+export const TOPICS = [TOPIC_OPENED, TOPIC_RESERVED, TOPIC_FAV, TOPIC_HISTORY]
 
 /** routes */
-export const routes = {
+export const ROUTES = {
    DEFAULT: "/",
    BOOKID: "/book/$bookId",
    BOOK: "/book",

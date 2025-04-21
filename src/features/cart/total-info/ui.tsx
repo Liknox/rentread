@@ -4,7 +4,7 @@ import { Col, Divider, Row, Typography } from "antd"
 import type { ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { BookCard } from "entities/book"
 import { orderModel } from "entities/order"
@@ -102,7 +102,7 @@ export const CartMini = () => {
          <Row justify="space-between" gutter={[0, 30]} className="mt-4">
             {order.books.map(book => (
                <Col key={book.id} span={11}>
-                  <Link to={`${routes.BOOK}/${book.id}`} title={book.name}>
+                  <Link to={`${ROUTES.BOOK}/${book.id}`} title={book.name}>
                      <BookCard data={book} size="mini" className="cursor-pointer" />
                   </Link>
                </Col>

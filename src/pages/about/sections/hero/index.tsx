@@ -2,7 +2,7 @@ import { useRouter } from "@tanstack/react-router"
 import { Button } from "antd"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useMobileDetection } from "@shared/lib/browser"
 import Section from "../index"
@@ -26,7 +26,7 @@ const HeroSection = () => {
             <Button
                type="default"
                size={isMobile ? "middle" : "large"}
-               onClick={() => router.navigate({ to: routes.CATALOG })}
+               onClick={() => router.navigate({ to: ROUTES.CATALOG })}
                aria-label="explore catalog button">
                {t(TRANSLATIONS.about.sections.hero.button)}
             </Button>

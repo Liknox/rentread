@@ -1,7 +1,7 @@
 import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Typography } from "antd"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
 
 import gaiman from "./assets/gaiman.jpg"
@@ -31,7 +31,7 @@ const Authors = () => {
                key={author.id}
                className="min-w-[200px] m-auto mt-8 sm:mt-0 transition-[0.25s] hover:opacity-80 relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
                span={3}
-               onClick={() => router.navigate({ to: `${routes.CATALOG}?${authors}=${author.id}` })}
+               onClick={() => router.navigate({ to: `${ROUTES.CATALOG}?${authors}=${author.id}` })}
                title="Go to the author's books">
                <Typography.Title
                   className="font-roboto absolute top-1/2 left-1/2 z-10 !text-white !important transform -translate-x-1/2 -translate-y-1/2"

@@ -1,4 +1,4 @@
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import type { BannerScreen } from "@shared/api"
 
@@ -15,7 +15,7 @@ export const bannerScreen: BannerScreen[] = [
       description: TRANSLATIONS.initial.sections.banner.about.description,
       info: TRANSLATIONS.initial.sections.banner.goTo,
       link: true,
-      linkHref: routes.ABOUT,
+      linkHref: ROUTES.ABOUT,
       img: b1,
       imgAlt: "banner-1",
    },
@@ -26,7 +26,7 @@ export const bannerScreen: BannerScreen[] = [
       description: TRANSLATIONS.initial.sections.banner.personal.description,
       info: TRANSLATIONS.initial.sections.banner.goTo,
       link: true,
-      linkHref: routes.PROFILE,
+      linkHref: ROUTES.PROFILE,
       img: b2,
       imgAlt: "banner-2",
    },
@@ -37,7 +37,7 @@ export const bannerScreen: BannerScreen[] = [
       description: TRANSLATIONS.initial.sections.banner.catalog.description,
       info: TRANSLATIONS.initial.sections.banner.goTo,
       link: true,
-      linkHref: routes.CATALOG,
+      linkHref: ROUTES.CATALOG,
       img: b3,
       imgAlt: "banner-3",
    },

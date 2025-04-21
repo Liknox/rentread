@@ -3,7 +3,7 @@ import { Button, Col, Divider, Empty, Layout, Row, Typography } from "antd"
 import cn from "classnames"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useBreakpoint, useMobileDetection } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
@@ -165,7 +165,7 @@ const Sidebar = () => {
    return (
       <Layout.Sider width={isMobile ? "100%" : 400} className="mt-8 md:mt-0" aria-label="cart sidebar">
          <Cart.TotalInfo.Card aria-label="cart total info card">
-            <Link to={routes.CHECKOUT} aria-label="proceed to checkout">
+            <Link to={ROUTES.CHECKOUT} aria-label="proceed to checkout">
                {isEmptyCart ? (
                   <Button block type="default" style={{ height: 50 }} disabled aria-label="proceed">
                      {t(TRANSLATIONS.order.sidebar.proceed)}

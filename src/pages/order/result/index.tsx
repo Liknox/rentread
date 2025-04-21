@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router"
 import { Button, Layout, Result } from "antd"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTitle } from "@shared/lib/dom"
 import { Cart } from "features/cart"
@@ -25,12 +25,12 @@ const ResultPage = () => {
                title={t(TRANSLATIONS.order.result.text)}
                subTitle={t(TRANSLATIONS.order.result.description)}
                extra={[
-                  <Link to={`${routes.PROFILE}#opened`} key="order">
+                  <Link to={`${ROUTES.PROFILE}#opened`} key="order">
                      <Button type="primary" className="mb-2">
                         {t(TRANSLATIONS.order.result.toOrder)}
                      </Button>
                   </Link>,
-                  <Link to={routes.CATALOG} key="catalog">
+                  <Link to={ROUTES.CATALOG} key="catalog">
                      <Button>{t(TRANSLATIONS.order.result.toCatalog)}</Button>
                   </Link>,
                ]}

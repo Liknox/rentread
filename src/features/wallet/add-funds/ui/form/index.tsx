@@ -5,7 +5,7 @@ import cn from "classnames"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { walletModel } from "entities/wallet"
@@ -59,7 +59,7 @@ const AddFundsForm = ({ className, afterAction }: Props) => {
                         alert.info(
                            t(TRANSLATIONS.alert.wallet.title),
                            <p
-                              onClick={() => router.navigate({ to: routes.PROFILE })}
+                              onClick={() => router.navigate({ to: ROUTES.PROFILE })}
                               className="text-primary cursor-pointer">
                               {`${money}$ ${t(TRANSLATIONS.alert.wallet.subtitle)}`}
                            </p>,

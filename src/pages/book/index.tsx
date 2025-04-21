@@ -5,7 +5,7 @@ import cn from "classnames"
 import { Suspense } from "react"
 import { useTranslation } from "react-i18next"
 
-import { CAROUSEL_TIMER, routes } from "@app/configs/constants"
+import { CAROUSEL_TIMER, ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { useMobileDetection } from "@shared/lib/browser"
@@ -46,7 +46,7 @@ function BookPage() {
 
    return (
       <Layout.Content className="md:mb-20" aria-label="book page">
-         <Link to={routes.CATALOG} className="font-roboto text-primary" aria-label="breadcrumbs">
+         <Link to={ROUTES.CATALOG} className="font-roboto text-primary" aria-label="breadcrumbs">
             {t(TRANSLATIONS.book.breadcrumbs)}
          </Link>
          <Typography.Title level={isMobile ? 3 : 2} aria-label="book title">

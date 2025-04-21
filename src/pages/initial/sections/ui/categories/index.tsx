@@ -1,7 +1,7 @@
 import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Typography } from "antd"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { fakeApi } from "shared/api"
 
 import imgCat1 from "./assets/c1.jpg"
@@ -27,7 +27,7 @@ const Categories = () => {
                key={cat.id}
                className="2xl:min-w-[390px] hover:opacity-80 hover:scale-[1.01] transition-[0.25s] relative h-[292px] !important p-10 overflow-hidden text-center cursor-pointer bg-[var(--color-accent)] rounded-[10px] max-w-none mt-3 sm:mt-0 min-h-52"
                span={7}
-               onClick={() => router.navigate({ to: `${routes.CATALOG}?${category}=${cat.id}` })}
+               onClick={() => router.navigate({ to: `${ROUTES.CATALOG}?${category}=${cat.id}` })}
                title="Go to books by category">
                <div className="absolute top-1/2 left-1/2 z-10 text-white !important transform -translate-x-1/2 -translate-y-1/2 min-w-[180px]">
                   <Typography.Title className="font-roboto !text-white" level={3}>

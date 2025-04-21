@@ -12,7 +12,7 @@ import cn from "classnames"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useMobileDetection } from "@shared/lib/browser"
 import { orderModel } from "entities/order"
@@ -90,7 +90,7 @@ const Header = () => {
                <>
                   <Link
                      className="flex flex-grow items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
-                     to={routes.DEFAULT}
+                     to={ROUTES.DEFAULT}
                      aria-label="logo">
                      <h1 className="pb-1 pl-[10px] text-[20px]">Rentread</h1>
                   </Link>
@@ -134,7 +134,7 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
       <>
          <Link
             className="flex items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
-            to={routes.DEFAULT}
+            to={ROUTES.DEFAULT}
             aria-label="logo">
             <h2 className="text-[20px]">R</h2>
          </Link>

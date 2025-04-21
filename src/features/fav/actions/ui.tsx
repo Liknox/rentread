@@ -3,7 +3,7 @@ import { useRouter } from "@tanstack/react-router"
 import { Button } from "antd"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { useMobileDetection } from "@shared/lib/browser"
@@ -26,7 +26,7 @@ const useToggleBook = (bookId: number) => {
 
       alert.info(
          `${book?.name}`,
-         <p onClick={() => router.navigate({ to: routes.PROFILE_FAV })} className="text-primary cursor-pointer">
+         <p onClick={() => router.navigate({ to: ROUTES.PROFILE_FAV })} className="text-primary cursor-pointer">
             {t(action)}
          </p>,
          <HeartOutlined />,

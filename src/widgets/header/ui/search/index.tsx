@@ -3,7 +3,7 @@ import { AutoComplete, Input } from "antd"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useBreakpoint, useMobileDetection } from "@shared/lib/browser"
 import { BookRow } from "entities/book"
@@ -34,7 +34,7 @@ const useSearch = () => {
    const router = useRouter()
 
    // FIXME: Reset input, if not catalog's page
-   const isCatalogPage = location.pathname === routes.CATALOG
+   const isCatalogPage = location.pathname === ROUTES.CATALOG
 
    const handleAutocomplete = (search: string) => {
       // FIXME: set max line (value is too big)
@@ -50,13 +50,13 @@ const useSearch = () => {
    const handleSelect = (value: string) => {
       // FIXME: added manually
       setQuery([])
-      const route = `${routes.BOOK}/${value}`
+      const route = `${ROUTES.BOOK}/${value}`
       router.navigate({ to: route })
       updateReset((indexReset + 1) % 10)
    }
 
    const getSearchRoute = (search: string) => ({
-      to: routes.CATALOG,
+      to: ROUTES.CATALOG,
       search: { q: String(search) },
    })
 

@@ -8,7 +8,7 @@ import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { v4 as uuid } from "uuid"
 
-import { MAP_ANCHORS, routes } from "@app/configs/constants"
+import { MAP_ANCHORS, ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { fakeApi } from "@shared/api"
 import { useMobileDetection } from "@shared/lib/browser"
@@ -55,7 +55,7 @@ const Content = () => {
    const isMobile = useMobileDetection()
    return (
       <Layout className={cn({ "!w-full": isMobile })}>
-         <Link to={routes.ORDER} className="text-primary">
+         <Link to={ROUTES.ORDER} className="text-primary">
             {t(TRANSLATIONS.order.checkout.returnToCart)}
          </Link>
          <Typography.Title level={2}>{t(TRANSLATIONS.order.checkout.title)}</Typography.Title>

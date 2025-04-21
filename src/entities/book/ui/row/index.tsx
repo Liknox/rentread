@@ -4,7 +4,7 @@ import { Card, Col, Row } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
 import { textOverflow } from "@shared/lib/string"
 import type { AbstractBook } from "shared/api"
@@ -80,7 +80,7 @@ const BookRow = (props: Props) => {
             style={styleDetails[size]}
             span={spanDetails}>
             {titleAsLink ? (
-               <Link className="text-primary w-[95%] leading-normal" to={`${routes.BOOK}/${data.id}`}>
+               <Link className="text-primary w-[95%] leading-normal" to={`${ROUTES.BOOK}/${data.id}`}>
                   {isMobile || searchBar ? textOverflow(data.name, 50) : title}
                </Link>
             ) : (

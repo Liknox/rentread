@@ -1,7 +1,7 @@
 import { Anchor, Button, Layout, Space } from "antd"
 import { useTranslation } from "react-i18next"
 
-import { topics } from "@app/configs/constants"
+import { TOPICS as topics } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
 
 type Props = {

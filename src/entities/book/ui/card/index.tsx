@@ -6,7 +6,7 @@ import type { CSSProperties, ReactNode } from "react"
 import { memo } from "react"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useMobileDetection } from "@shared/lib/browser"
 
@@ -79,7 +79,7 @@ const BookCard = (props: BookCardProps) => {
                   )}
                   {!isMini && (
                      <Link
-                        to={`${routes.BOOK}/${book.id}`}
+                        to={`${ROUTES.BOOK}/${book.id}`}
                         title={title}
                         className="text-blue-500 hover:underline whitespace-normal">
                         {string.textOverflow(title, maxTitleLength)}

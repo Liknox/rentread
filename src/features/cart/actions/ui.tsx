@@ -4,7 +4,7 @@ import { Button, Modal } from "antd"
 import type { CSSProperties } from "react"
 import { useTranslation } from "react-i18next"
 
-import { routes } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { bookModel } from "entities/book"
@@ -28,7 +28,7 @@ const useToggleBook = ({ bookId, disabled }: Props) => {
       const action = isBookInCart ? TRANSLATIONS.alert.cart.remove : TRANSLATIONS.alert.cart.add
       alert.info(
          `${book?.name}`,
-         <p onClick={() => router.navigate({ to: routes.ORDER })} className="text-primary cursor-pointer">
+         <p onClick={() => router.navigate({ to: ROUTES.ORDER })} className="text-primary cursor-pointer">
             {t(action)}
          </p>,
          <ShoppingOutlined />,
