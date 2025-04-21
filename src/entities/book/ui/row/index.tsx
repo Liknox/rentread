@@ -72,7 +72,7 @@ const BookRow = (props: Props) => {
             "grid-cols-[50px_2fr]": searchBar,
          })}>
          <Col span={spanIcon[size]} className="col-span-1 mr-2">
-            <BookFilled className="bg-accent" style={styleIcon[size]} />
+            <BookFilled className="bg-accent rounded-md" style={styleIcon[size]} />
          </Col>
          <Col
             className="flex flex-col justify-center max-w-full col-span-1 row-span-1"
@@ -93,12 +93,7 @@ const BookRow = (props: Props) => {
             {!isSmall && <span className="text-[1.4rem] font-medium md:mt-0 mt-1z">{price} $</span>}
          </Col>
          {searchBar || (
-            <Col
-               span={spanActions}
-               className={cn("flex md:block min-w-fit md:min-w-0   col-span-1 row-span-1 mt-4", {
-                  // dirty method, don't write like this
-                  "flex-col": window.innerWidth < 370,
-               })}>
+            <Col span={spanActions} className={cn("flex md:block min-w-fit md:min-w-0 col-span-1 row-span-1 mt-4")}>
                {actions}
             </Col>
          )}
