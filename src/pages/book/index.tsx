@@ -26,7 +26,7 @@ function BookPage() {
 
    if (!book) {
       return (
-         <Layout.Content className="flex justify-center items-center">
+         <Layout.Content className="flex justify-center items-center" aria-busy="true" aria-label="book not found">
             <Result
                status="404"
                title="404"
@@ -38,16 +38,18 @@ function BookPage() {
    }
 
    return (
-      <Layout.Content className="md:mb-20">
-         <Link to={routes.CATALOG} className="font-roboto text-primary">
+      <Layout.Content className="md:mb-20" aria-label="book page aria">
+         <Link to={routes.CATALOG} className="font-roboto text-primary" aria-label="breadcrumbs aria">
             {t(TRANSLATIONS.book.breadcrumbs)}
          </Link>
-         <Typography.Title level={isMobile ? 3 : 2}>{fakeApi.library.books.getBookString(book)}</Typography.Title>
-         <Row className="mt-8 mb-20 flex flex-col md:flex-row">
+         <Typography.Title level={isMobile ? 3 : 2} aria-label="title aria">
+            {fakeApi.library.books.getBookString(book)}
+         </Typography.Title>
+         <Row className="mt-8 mb-20 flex flex-col md:flex-row" aria-label="details section aria">
             <Card book={book} />
             <Checkout book={book} />
          </Row>
-         <Row>
+         <Row aria-label="recommendations">
             <Recommendations book={book} />
          </Row>
       </Layout.Content>
@@ -140,23 +142,28 @@ const Checkout = ({ book }: BookProps) => {
    }
 
    return (
-      <Col span={isMobile ? "full" : 7} offset={1} style={style} className="ml-0 md:ml-12 mt-10 md:mt-0">
+      <Col
+         span={isMobile ? "full" : 7}
+         offset={1}
+         style={style}
+         className="ml-0 md:ml-12 mt-10 md:mt-0"
+         aria-label="checkout section">
          <article className="flex flex-col justify-between min-h-[300px] p-7 shadow-insetDark">
             <div>
-               <h3 className="text-[40px] font-medium md:mt-2">
-                  <Tooltip title={t(TRANSLATIONS.book.tooltip)} trigger="click">
+               <h3 className="text-[40px] font-medium md:mt-2" aria-label="price">
+                  <Tooltip title={t(TRANSLATIONS.book.tooltip)} trigger="click" aria-label="price tooltip">
                      {rent.status === "RENTABLE" && price}
                   </Tooltip>
                   {rent.status === "RESERVABLE" && t(TRANSLATIONS.book.reservable.title)}
                   {rent.status === "OUT_STOCK" && t(TRANSLATIONS.book.outOfStock.title)}
                </h3>
-               <Row className="mt-3">
+               <Row className="mt-3" aria-label="info list">
                   {rent.status === "RENTABLE" && (
-                     <ul className="text-darkGray">
-                        <li className="mt-2">
+                     <ul className="text-darkGray" aria-label="delivery list">
+                        <li className="mt-2" aria-label="delivery by courier">
                            <InboxOutlined /> {t(TRANSLATIONS.book.deliveryByCourier)}
                         </li>
-                        <li className="mt-2">
+                        <li className="mt-2" aria-label="for rent">
                            <HistoryOutlined /> {t(TRANSLATIONS.book.forRent)} {Math.min(30, rent.duration)}{" "}
                            {t(
                               rent.duration > 1
@@ -170,14 +177,14 @@ const Checkout = ({ book }: BookProps) => {
                   )}
                   {rent.status === "RESERVABLE" && (
                      <>
-                        <p>{t(TRANSLATIONS.book.reservable.subtitle)}</p>
-                        <p>{t(TRANSLATIONS.book.reservable.description)}</p>
+                        <p aria-label="reservable subtitle">{t(TRANSLATIONS.book.reservable.subtitle)}</p>
+                        <p aria-label="reservable description">{t(TRANSLATIONS.book.reservable.description)}</p>
                      </>
                   )}
                   {rent.status === "OUT_STOCK" && (
                      <>
-                        <p>{t(TRANSLATIONS.book.outOfStock.subtitle)}</p>
-                        <p>{t(TRANSLATIONS.book.outOfStock.description)}</p>
+                        <p aria-label="out of stock subtitle">{t(TRANSLATIONS.book.outOfStock.subtitle)}</p>
+                        <p aria-label="out of stock description">{t(TRANSLATIONS.book.outOfStock.description)}</p>
                      </>
                   )}
                </Row>
@@ -190,13 +197,18 @@ const Checkout = ({ book }: BookProps) => {
                      value={rent.status === "RENTABLE" ? durations[book.id] || 7 : 0}
                      withTitle={false}
                      __byDuration={rent.status === "RENTABLE" ? rent.duration : undefined}
+                     aria-label="tariff radio"
                   />
                }
                <div className="mt-5">
-                  <Fav.Actions.AddBook bookId={book.id} />
-                  {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={book.id} />}
-                  {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={book.id} />}
-                  {rent.status === "OUT_STOCK" && <Reserve.Actions.ReserveBook bookId={book.id} />}
+                  <Fav.Actions.AddBook bookId={book.id} aria-label="add to fav" />
+                  {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={book.id} aria-label="add to cart" />}
+                  {rent.status === "RESERVABLE" && (
+                     <Reserve.Actions.ReserveBook bookId={book.id} aria-label="reserve book" />
+                  )}
+                  {rent.status === "OUT_STOCK" && (
+                     <Reserve.Actions.ReserveBook bookId={book.id} aria-label="reserve book" />
+                  )}
                </div>
             </div>
          </article>

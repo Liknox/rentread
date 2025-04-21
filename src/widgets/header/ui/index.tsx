@@ -82,22 +82,23 @@ const Header = () => {
             className={cn(
                "relative flex justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset gap-4 md:gap-0",
                { "!fixed top-0 left-0 right-0 z-50 !px-3": isMobile },
-            )}>
+            )}
+            aria-label="header">
             {isMobile ? (
                <MobileHeader count={count} />
             ) : (
                <>
                   <Link
                      className="flex flex-grow items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
-                     to={routes.DEFAULT}>
-                     {/* <Logo width={24} /> */}
+                     to={routes.DEFAULT}
+                     aria-label="logo">
                      <h1 className="pb-1 pl-[10px] text-[20px]">Rentread</h1>
                   </Link>
                   <div className="flex flex-grow-[2] items-center mr-[2%]">
                      <Search />
                   </div>
                   <div className="flex items-center gap-3">
-                     <Wallet.AddFunds.Popover />
+                     <Wallet.AddFunds.Popover aria-label="add funds" />
                      {actions.map(({ id, label, Icon, url, disabled }) => (
                         <Link
                            key={label}
@@ -107,11 +108,11 @@ const Header = () => {
                               "mx-[10px]": i18n.language === "en",
                               "mx-[4px]": i18n.language === "ua",
                            })}
-                           title={disabled ? t(NOT_AVAILABLE) : ""}>
-                           {/* for centering badge */}
+                           title={disabled ? t(NOT_AVAILABLE) : ""}
+                           aria-label={label}>
                            <span className="text-center">
-                              <Badge count={count[id]} style={{ backgroundColor: "#108ee9" }}>
-                                 <Icon className="text-[24px]" />
+                              <Badge count={count[id]} style={{ backgroundColor: "#108ee9" }} aria-label="badge">
+                                 <Icon className="text-[24px]" aria-label={label} />
                               </Badge>
                            </span>
                            <span>{t(label)}</span>
@@ -133,15 +134,16 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
       <>
          <Link
             className="flex items-center transition duration-250 font-medium hover:opacity-70 active:opacity-50 hover:text-black"
-            to={routes.DEFAULT}>
+            to={routes.DEFAULT}
+            aria-label="logo">
             <h2 className="text-[20px]">R</h2>
          </Link>
          <div className="flex flex-grow items-center">
             <Search />
          </div>
          <div className="flex items-center gap-2">
-            <Badge count={count.cart} style={{ backgroundColor: "#108ee9" }}>
-               <Link to="/order">
+            <Badge count={count.cart} style={{ backgroundColor: "#108ee9" }} aria-label="badge">
+               <Link to="/order" aria-label="cart">
                   <ShoppingCartOutlined className="text-[22px]" />
                </Link>
             </Badge>
@@ -150,6 +152,7 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
                icon={<MenuOutlined className="text-[22px]" />}
                onClick={() => setOpen(true)}
                className="flex items-center justify-center p-2 text-[20px]"
+               aria-label="menu"
             />
          </div>
          <Drawer
@@ -157,12 +160,13 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
                <div className="flex justify-between w-full items-center">
                   <h3 className="text-xl font-medium">Rentread</h3>
                   <div className="flex items-center gap-3">
-                     <Wallet.AddFunds.Popover />
+                     <Wallet.AddFunds.Popover aria-label="add funds" />
                      <Button
                         className="flex items-center justify-center text-[20px]"
                         type="text"
                         icon={<CloseOutlined />}
                         onClick={() => setOpen(false)}
+                        aria-label="close drawer"
                      />
                   </div>
                </div>
@@ -171,7 +175,8 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
             placement="top"
             height="45%"
             onClose={() => setOpen(prev => !prev)}
-            open={open}>
+            open={open}
+            aria-label="drawer">
             <div className="flex flex-col gap-5 mt-6">
                {actions.map(({ id, label, url, disabled }) => (
                   <Link
@@ -181,14 +186,19 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
                         "pointer-events-none opacity-50": disabled,
                      })}
                      onClick={() => setOpen(false)}
-                     title={disabled ? NOT_AVAILABLE : ""}>
-                     {/* for centering badge */}
+                     title={disabled ? NOT_AVAILABLE : ""}
+                     aria-label={t(label)}>
                      <span className="text-left relative flex">
                         <div>
                            <span className="text-[26px] font-extralight">{t(label)}</span>
                            <span className="block w-full bg-primary h-[1px]" />
                         </div>
-                        <Badge className="ml-3" count={count[id]} style={{ backgroundColor: "#108ee9" }} />
+                        <Badge
+                           className="ml-3"
+                           count={count[id]}
+                           style={{ backgroundColor: "#108ee9" }}
+                           aria-label="badge"
+                        />
                      </span>
                   </Link>
                ))}

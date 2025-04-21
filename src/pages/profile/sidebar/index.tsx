@@ -5,7 +5,7 @@ import { topics } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
 
 type Props = {
-   forceUpdate: () => void
+   forceUpdate?: () => void
    className?: string
    isMobileView?: boolean
 }
@@ -24,7 +24,8 @@ export const Sidebar = (props: Props) => {
                   type="text"
                   href={`#${topic.id}`}
                   onClick={props.forceUpdate}
-                  className="text-xs py-1 px-2">
+                  className="text-xs py-1 px-2"
+                  aria-label={t(topic.title)}>
                   {t(topic.title)}
                </Button>
             ))}
@@ -38,6 +39,7 @@ export const Sidebar = (props: Props) => {
             className="mt-5 text-[12px]"
             items={topics.map(topic => ({ key: topic.id, title: t(topic.title), href: `#${topic.id}` }))}
             onClick={props.forceUpdate}
+            aria-label="Profile navigation anchor"
          />
       </Layout.Sider>
    )

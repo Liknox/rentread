@@ -95,8 +95,8 @@ function CatalogContent() {
 
    return (
       <>
-         <Layout>
-            <section className="flex md:mr-10 mb-2 text-xl">
+         <Layout aria-label="catalog layout">
+            <section className="flex md:mr-10 mb-2 text-xl" aria-label="sort filter options">
                <SortFilterOptions setOpen={setOpen} />
                {isMobile || (
                   <Radio.Group
@@ -105,23 +105,32 @@ function CatalogContent() {
                         console.debug("[DEBUG] reachGoal: CHANGE_CATALOG_VIEW_TYPE")
                         vtParam.setViewType(e.target.value)
                      }}
-                     buttonStyle="solid">
+                     buttonStyle="solid"
+                     aria-label="view type">
                      {viewTypes.map(vt => (
-                        <Radio.Button key={vt.key} value={vt.key} className="h-[30px] text-lightGray">
+                        <Radio.Button
+                           key={vt.key}
+                           value={vt.key}
+                           className="h-[30px] text-lightGray"
+                           aria-label={vt.key === "grid" ? "grid template" : "list template"}>
                            <vt.Icon className="text-[20px] pt-1" />
                         </Radio.Button>
                      ))}
                   </Radio.Group>
                )}
             </section>
-            <section className="mr-0 md:mr-10">
-               <Row justify="start" className="!gap-1 md:!gap-0" gutter={[20, 20]}>
+            <section className="mr-0 md:mr-10" aria-label="books section">
+               <Row justify="start" className="!gap-1 md:!gap-0" gutter={[20, 20]} aria-label="books row">
                   {paginatedData.map(b => (
                      <BookItem key={b.id} data={b} />
                   ))}
                </Row>
                {!booksQuery.length && (
-                  <Empty className="my-[100px]" description={t(TRANSLATIONS.catalog.foundNothing)} />
+                  <Empty
+                     className="my-[100px]"
+                     description={t(TRANSLATIONS.catalog.foundNothing)}
+                     aria-label="empty catalog"
+                  />
                )}
                {isMobile || (
                   <Pagination
@@ -133,6 +142,7 @@ function CatalogContent() {
                      onShowSizeChange={handlePageChange}
                      align="center"
                      responsive
+                     aria-label="pagination"
                   />
                )}
             </section>
@@ -144,7 +154,8 @@ function CatalogContent() {
             onClose={() => setOpen(prev => !prev)}
             open={open}
             height={isMobile ? "90%" : undefined}
-            title={t(TRANSLATIONS.catalog.filters.title)}>
+            title={t(TRANSLATIONS.catalog.filters.title)}
+            aria-label="filters drawer">
             <Sidebar />
          </Drawer>
       </>
@@ -155,28 +166,29 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
    const { t } = useTranslation()
    const vtParam = catalogParams.useViewType()
    const rent = orderLib.getRentInfo(data.id)
-   // const viewerNrml = viewerModel.useViewerNormalized();
-   // const hasUserBook = viewerABooksIds.includes(data.id);
-   // if (rent.status === "OUT_STOCK") return null;
-
    const ribbon = ribbonPropsTypes[rent.status]
    const span = vtParam.isGrid ? 8 : 24
    const isMobile = useMobileDetection()
 
    return (
-      <Col span={span} className="mt-4 md:mt-0 !p-0 md:!p-2">
+      <Col span={span} className="mt-4 md:mt-0 !p-0 md:!p-2" aria-label="book column">
          <Badge.Ribbon
             text={t(ribbon.text)}
             color={ribbon.color}
-            style={ribbon.isVisible ? undefined : { display: "none" }}>
+            style={ribbon.isVisible ? undefined : { display: "none" }}
+            aria-label="ribbon">
             {vtParam.isGrid && (
                <BookCard
                   data={data}
                   asSecondary={rent.status === "RESERVABLE"}
                   actions={[
-                     <Fav.Actions.AddBookMini key="fav" bookId={data.id} />,
-                     rent.status === "RENTABLE" && <Cart.Actions.AddBookMini key="order" bookId={data.id} />,
-                     rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBookMini key="reserve" bookId={data.id} />,
+                     <Fav.Actions.AddBookMini key="fav" bookId={data.id} aria-label="add to favorites" />,
+                     rent.status === "RENTABLE" && (
+                        <Cart.Actions.AddBookMini key="order" bookId={data.id} aria-label="add to cart" />
+                     ),
+                     rent.status === "RESERVABLE" && (
+                        <Reserve.Actions.ReserveBookMini key="reserve" bookId={data.id} aria-label="reserve" />
+                     ),
                   ].filter(Boolean)}>
                   <br />
                   <Typography.Text type="secondary">
@@ -196,11 +208,15 @@ const BookItem = ({ data }: { data: AbstractBook }) => {
                   size={isMobile ? "default" : "large"}
                   actions={
                      <>
-                        <Fav.Actions.AddBook bookId={data.id} />
-                        {rent.status === "RENTABLE" && <Cart.Actions.AddBook bookId={data.id} />}
-                        {rent.status === "RESERVABLE" && <Reserve.Actions.ReserveBook bookId={data.id} />}
+                        <Fav.Actions.AddBook bookId={data.id} aria-label="add to favorites" />
+                        {rent.status === "RENTABLE" && (
+                           <Cart.Actions.AddBook bookId={data.id} aria-label="add to cart" />
+                        )}
+                        {rent.status === "RESERVABLE" && (
+                           <Reserve.Actions.ReserveBook bookId={data.id} aria-label="reserve" />
+                        )}
                         {rent.status !== "RESERVABLE" && !isMobile ? (
-                           <TariffRadio __byDuration={rent.duration} disabled />
+                           <TariffRadio __byDuration={rent.duration} disabled aria-label="tariff radio" />
                         ) : null}
                      </>
                   }
@@ -221,16 +237,19 @@ const SortFilterOptions = ({ setOpen }: Props) => {
    const isMobile = useMobileDetection()
 
    return (
-      <Row className={cn("grow", { "mr-5": !isMobile, "justify-between": isMobile })}>
+      <Row className={cn("grow", { "mr-5": !isMobile, "justify-between": isMobile })} aria-label="sort filter options">
          {isMobile ? (
-            <Button onClick={() => setOpen(true)}>{t(TRANSLATIONS.catalog.filters.title)}</Button>
+            <Button onClick={() => setOpen(true)} aria-label="open filters">
+               {t(TRANSLATIONS.catalog.filters.title)}
+            </Button>
          ) : (
             <b className="mr-5 text-xl">{t(TRANSLATIONS.catalog.sortBy.title)}:</b>
          )}
          <Select
             placeholder={t(TRANSLATIONS.catalog.sortBy.options.novelty)}
             className="md:!w-[200px] w-[180px]"
-            onChange={value => obParam.setSorting(value)}>
+            onChange={value => obParam.setSorting(value)}
+            aria-label="sort select">
             {Object.entries(SORTINGS).map(([sId, sName]) => (
                <Option key={sId} value={Number(sId)}>
                   {t(sName)}

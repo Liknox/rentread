@@ -18,39 +18,42 @@ function Sidebar({ className = "" }: SidebarProps) {
    const isMobile = useMobileDetection()
 
    return (
-      <Layout.Sider width={isMobile ? "100%" : 380} className={className}>
+      <Layout.Sider width={isMobile ? "100%" : 380} className={className} aria-label="filters sidebar">
          <div className="p-3 md:p-5 rounded-lg shadow-insetDark">
-            <Typography.Title level={4} className="font-roboto text-center mb-4">
+            <Typography.Title level={4} className="font-roboto text-center mb-4" aria-label="filters title">
                {t(TRANSLATIONS.catalog.filters.title)}
             </Typography.Title>
 
             {isMobile ? (
-               <Collapse defaultActiveKey={["1", "2", "3", "4"]} ghost>
+               <Collapse defaultActiveKey={["1", "2", "3", "4"]} ghost aria-label="filters collapse">
                   <Panel
                      style={{ backgroundColor: "#f1f1ff" }}
                      header={t(TRANSLATIONS.catalog.filters.sections.exists.title)}
-                     key="1">
+                     key="1"
+                     aria-label="exists only">
                      <ExistsOnlySection />
                   </Panel>
-                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.rentPrice)} key="2">
+                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.rentPrice)} key="2" aria-label="rent price">
                      <PriceSection />
                   </Panel>
                   <Panel
                      style={{ backgroundColor: "#f1f1ff" }}
                      header={t(TRANSLATIONS.catalog.filters.sections.rentTerms)}
-                     key="3">
+                     key="3"
+                     aria-label="rent terms">
                      <TimeSection />
                   </Panel>
-                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.categories)} key="4">
+                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.categories)} key="4" aria-label="categories">
                      <CategorySection />
                   </Panel>
                   <Panel
                      style={{ backgroundColor: "#f1f1ff" }}
                      header={t(TRANSLATIONS.catalog.filters.sections.authors)}
-                     key="5">
+                     key="5"
+                     aria-label="authors">
                      <AuthorSection />
                   </Panel>
-                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.publishers)} key="6">
+                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.publishers)} key="6" aria-label="publishers">
                      <PublisherSection />
                   </Panel>
                </Collapse>
@@ -75,13 +78,16 @@ const ExistsOnlySection = () => {
    const isMobile = useMobileDetection()
 
    return (
-      <section className="p-2 md:p-3">
+      <section className="p-2 md:p-3" aria-label="exists only">
          {!isMobile && (
-            <Divider plain className="font-roboto">
+            <Divider plain className="font-roboto" aria-label="exists only divider">
                {t(TRANSLATIONS.catalog.filters.sections.exists.title)}
             </Divider>
          )}
-         <Checkbox defaultChecked={params.existsOnly} onChange={e => params.setExistsOnly(e.target.checked)}>
+         <Checkbox
+            defaultChecked={params.existsOnly}
+            onChange={e => params.setExistsOnly(e.target.checked)}
+            aria-label="exists only">
             {t(TRANSLATIONS.catalog.filters.sections.exists.option)}
          </Checkbox>
       </section>
@@ -94,9 +100,9 @@ const PriceSection = () => {
    const isMobile = useMobileDetection()
 
    return (
-      <section className="p-2 md:p-3">
+      <section className="p-2 md:p-3" aria-label="rent price">
          {!isMobile && (
-            <Divider plain className="font-roboto">
+            <Divider plain className="font-roboto" aria-label="rent price divider">
                {t(TRANSLATIONS.catalog.filters.sections.rentPrice)}
             </Divider>
          )}
@@ -111,6 +117,7 @@ const PriceSection = () => {
             min={PRICES.MIN}
             max={PRICES.MAX}
             onChange={([from, to]) => params.setPrice(from, to)}
+            aria-label="rent price slider"
          />
       </section>
    )
@@ -130,9 +137,9 @@ const TimeSection = () => {
    }
 
    return (
-      <section className="p-2 md:p-3">
+      <section className="p-2 md:p-3" aria-label="rent terms">
          {!isMobile && (
-            <Divider plain className="font-roboto">
+            <Divider plain className="font-roboto" aria-label="rent terms divider">
                {t(TRANSLATIONS.catalog.filters.sections.rentTerms)}
             </Divider>
          )}
@@ -143,7 +150,7 @@ const TimeSection = () => {
             min={TARIFFS.T7}
             max={TARIFFS.T30}
             step={null}
-            // tipFormatter={(value) => value && Object.values(TARIFFS)[value - 1]}
+            aria-label="rent terms slider"
          />
       </section>
    )
@@ -160,9 +167,9 @@ const CategorySection = () => {
    }))
 
    return (
-      <section className="p-2 md:p-3">
+      <section className="p-2 md:p-3" aria-label="categories">
          {!isMobile && (
-            <Divider plain className="font-roboto">
+            <Divider plain className="font-roboto" aria-label="categories divider">
                {t(TRANSLATIONS.catalog.filters.sections.categories)}
             </Divider>
          )}
@@ -170,7 +177,7 @@ const CategorySection = () => {
             options={options}
             value={params.categories || []}
             onChange={params.setCategories}
-            aria-label="checkboxes-group"
+            aria-label="categories checkbox group"
             className="flex flex-col"
          />
       </section>
@@ -187,9 +194,9 @@ const AuthorSection = () => {
    }))
 
    return (
-      <section className="p-2 md:p-3">
+      <section className="p-2 md:p-3" aria-label="authors">
          {!isMobile && (
-            <Divider plain className="font-roboto">
+            <Divider plain className="font-roboto" aria-label="authors divider">
                {t(TRANSLATIONS.catalog.filters.sections.authors)}
             </Divider>
          )}
@@ -197,7 +204,7 @@ const AuthorSection = () => {
             options={options}
             value={params.authors}
             onChange={params.setAuthors}
-            aria-label="checkboxes-group"
+            aria-label="authors checkbox group"
             className="flex flex-col"
          />
       </section>
@@ -214,9 +221,9 @@ const PublisherSection = () => {
    }))
 
    return (
-      <section className="p-2 md:p-3">
+      <section className="p-2 md:p-3" aria-label="publishers">
          {!isMobile && (
-            <Divider plain className="font-roboto">
+            <Divider plain className="font-roboto" aria-label="publishers divider">
                {t(TRANSLATIONS.catalog.filters.sections.publishers)}
             </Divider>
          )}
@@ -224,7 +231,7 @@ const PublisherSection = () => {
             options={options}
             value={params.publishers || []}
             onChange={params.setPublishers}
-            aria-label="checkboxes-group"
+            aria-label="publishers checkbox group"
             className="flex flex-col"
          />
       </section>
