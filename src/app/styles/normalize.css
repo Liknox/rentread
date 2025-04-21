@@ -132,3 +132,11 @@ body {
 .ant-drawer-content-wrapper {
    width: 100% !important;
 }
+
+@media (max-width: 576px) {
+   .slick-list {
+      position: relative;
+      width: 100vw;
+      left: -10vw;
+   }
+}
