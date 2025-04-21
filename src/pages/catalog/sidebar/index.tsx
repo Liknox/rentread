@@ -1,4 +1,4 @@
-import { Checkbox, Divider, Layout, Slider, Typography } from "antd"
+import { Checkbox, Collapse, Divider, Layout, Slider, Typography } from "antd"
 import { useTranslation } from "react-i18next"
 
 import { PRICES, TARIFFS } from "@app/configs/constants"
@@ -7,22 +7,63 @@ import { fakeApi } from "@shared/api"
 import { useMobileDetection } from "@shared/lib/browser"
 import * as catalogParams from "../params"
 
-function Sidebar() {
+const { Panel } = Collapse
+
+type SidebarProps = {
+   className?: string
+}
+
+function Sidebar({ className = "" }: SidebarProps) {
    const { t } = useTranslation()
    const isMobile = useMobileDetection()
 
    return (
-      <Layout.Sider width={isMobile ? "100%" : 400}>
-         <div className="p-5 shadow-insetDark">
-            <Typography.Title level={4} className="font-roboto text-center">
+      <Layout.Sider width={isMobile ? "100%" : 380} className={className}>
+         <div className="p-3 md:p-5 rounded-lg shadow-insetDark">
+            <Typography.Title level={4} className="font-roboto text-center mb-4">
                {t(TRANSLATIONS.catalog.filters.title)}
             </Typography.Title>
-            <ExistsOnlySection />
-            <PriceSection />
-            <TimeSection />
-            <CategorySection />
-            <AuthorSection />
-            <PublisherSection />
+
+            {isMobile ? (
+               <Collapse defaultActiveKey={["1", "2", "3", "4"]} ghost>
+                  <Panel
+                     style={{ backgroundColor: "#f1f1ff" }}
+                     header={t(TRANSLATIONS.catalog.filters.sections.exists.title)}
+                     key="1">
+                     <ExistsOnlySection />
+                  </Panel>
+                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.rentPrice)} key="2">
+                     <PriceSection />
+                  </Panel>
+                  <Panel
+                     style={{ backgroundColor: "#f1f1ff" }}
+                     header={t(TRANSLATIONS.catalog.filters.sections.rentTerms)}
+                     key="3">
+                     <TimeSection />
+                  </Panel>
+                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.categories)} key="4">
+                     <CategorySection />
+                  </Panel>
+                  <Panel
+                     style={{ backgroundColor: "#f1f1ff" }}
+                     header={t(TRANSLATIONS.catalog.filters.sections.authors)}
+                     key="5">
+                     <AuthorSection />
+                  </Panel>
+                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.publishers)} key="6">
+                     <PublisherSection />
+                  </Panel>
+               </Collapse>
+            ) : (
+               <>
+                  <ExistsOnlySection />
+                  <PriceSection />
+                  <TimeSection />
+                  <CategorySection />
+                  <AuthorSection />
+                  <PublisherSection />
+               </>
+            )}
          </div>
       </Layout.Sider>
    )
@@ -31,12 +72,15 @@ function Sidebar() {
 const ExistsOnlySection = () => {
    const { t } = useTranslation()
    const params = catalogParams.useExistsOnly()
+   const isMobile = useMobileDetection()
 
    return (
-      <section className="p-3">
-         <Divider plain className="font-roboto">
-            {t(TRANSLATIONS.catalog.filters.sections.exists.title)}
-         </Divider>
+      <section className="p-2 md:p-3">
+         {!isMobile && (
+            <Divider plain className="font-roboto">
+               {t(TRANSLATIONS.catalog.filters.sections.exists.title)}
+            </Divider>
+         )}
          <Checkbox defaultChecked={params.existsOnly} onChange={e => params.setExistsOnly(e.target.checked)}>
             {t(TRANSLATIONS.catalog.filters.sections.exists.option)}
          </Checkbox>
@@ -47,12 +91,15 @@ const ExistsOnlySection = () => {
 const PriceSection = () => {
    const { t } = useTranslation()
    const params = catalogParams.usePrices()
+   const isMobile = useMobileDetection()
 
    return (
-      <section className="p-3">
-         <Divider plain className="font-roboto">
-            {t(TRANSLATIONS.catalog.filters.sections.rentPrice)}
-         </Divider>
+      <section className="p-2 md:p-3">
+         {!isMobile && (
+            <Divider plain className="font-roboto">
+               {t(TRANSLATIONS.catalog.filters.sections.rentPrice)}
+            </Divider>
+         )}
          <Slider
             range
             marks={{
@@ -74,6 +121,7 @@ const PriceSection = () => {
 const TimeSection = () => {
    const { t } = useTranslation()
    const params = catalogParams.useTariff()
+   const isMobile = useMobileDetection()
 
    const marks = {
       [TARIFFS.T7]: `${TARIFFS.T7}${t(TRANSLATIONS.catalog.filters.sections.days)}+`,
@@ -82,10 +130,12 @@ const TimeSection = () => {
    }
 
    return (
-      <section className="p-3">
-         <Divider plain className="font-roboto">
-            {t(TRANSLATIONS.catalog.filters.sections.rentTerms)}
-         </Divider>
+      <section className="p-2 md:p-3">
+         {!isMobile && (
+            <Divider plain className="font-roboto">
+               {t(TRANSLATIONS.catalog.filters.sections.rentTerms)}
+            </Divider>
+         )}
          <Slider
             marks={marks}
             defaultValue={params.tariff}
@@ -102,6 +152,7 @@ const TimeSection = () => {
 const CategorySection = () => {
    const { t } = useTranslation()
    const params = catalogParams.useFilterByCategory()
+   const isMobile = useMobileDetection()
    // Some options could be disabled
    const options = fakeApi.library.categories.getAll().map(a => ({
       label: a.name,
@@ -109,15 +160,18 @@ const CategorySection = () => {
    }))
 
    return (
-      <section className="p-3">
-         <Divider plain className="font-roboto">
-            {t(TRANSLATIONS.catalog.filters.sections.categories)}
-         </Divider>
+      <section className="p-2 md:p-3">
+         {!isMobile && (
+            <Divider plain className="font-roboto">
+               {t(TRANSLATIONS.catalog.filters.sections.categories)}
+            </Divider>
+         )}
          <Checkbox.Group
             options={options}
             value={params.categories || []}
             onChange={params.setCategories}
             aria-label="checkboxes-group"
+            className="flex flex-col"
          />
       </section>
    )
@@ -126,21 +180,25 @@ const CategorySection = () => {
 const AuthorSection = () => {
    const { t } = useTranslation()
    const params = catalogParams.useFilterByAuthor()
+   const isMobile = useMobileDetection()
    const options = fakeApi.library.authors.getAll().map(a => ({
       label: fakeApi.library.authors.getShortname(a),
       value: a.id,
    }))
 
    return (
-      <section className="p-3">
-         <Divider plain className="font-roboto">
-            {t(TRANSLATIONS.catalog.filters.sections.authors)}
-         </Divider>
+      <section className="p-2 md:p-3">
+         {!isMobile && (
+            <Divider plain className="font-roboto">
+               {t(TRANSLATIONS.catalog.filters.sections.authors)}
+            </Divider>
+         )}
          <Checkbox.Group
             options={options}
             value={params.authors}
             onChange={params.setAuthors}
             aria-label="checkboxes-group"
+            className="flex flex-col"
          />
       </section>
    )
@@ -149,21 +207,25 @@ const AuthorSection = () => {
 const PublisherSection = () => {
    const { t } = useTranslation()
    const params = catalogParams.useFilterByPublisher()
+   const isMobile = useMobileDetection()
    const options = fakeApi.library.publishers.getAll().map(a => ({
       label: `${a.name} (${a.city})`,
       value: a.id,
    }))
 
    return (
-      <section className="p-3">
-         <Divider plain className="font-roboto">
-            {t(TRANSLATIONS.catalog.filters.sections.publishers)}
-         </Divider>
+      <section className="p-2 md:p-3">
+         {!isMobile && (
+            <Divider plain className="font-roboto">
+               {t(TRANSLATIONS.catalog.filters.sections.publishers)}
+            </Divider>
+         )}
          <Checkbox.Group
             options={options}
             value={params.publishers || []}
             onChange={params.setPublishers}
             aria-label="checkboxes-group"
+            className="flex flex-col"
          />
       </section>
    )
