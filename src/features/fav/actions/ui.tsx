@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next"
 import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
-import { isMobile } from "@shared/lib/browser"
+import { useMobileDetection } from "@shared/lib/browser"
 import { bookModel } from "entities/book"
 import { viewerModel } from "entities/viewer"
 
@@ -40,6 +40,7 @@ const useToggleBook = (bookId: number) => {
 export const AddBook = ({ bookId }: Props) => {
    const { t } = useTranslation()
    const { handleToggle, isBookFav } = useToggleBook(bookId)
+   const isMobile = useMobileDetection()
 
    const Icon = isBookFav ? HeartFilled : HeartOutlined
    const text = isBookFav

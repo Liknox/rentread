@@ -11,7 +11,7 @@ import { v4 as uuid } from "uuid"
 import { MAP_ANCHORS, routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { fakeApi } from "@shared/api"
-import { isMobile, useMobileDetection } from "@shared/lib/browser"
+import { useMobileDetection } from "@shared/lib/browser"
 import { useTitle } from "@shared/lib/dom"
 import { orderLib, orderModel } from "entities/order"
 import { walletModel } from "entities/wallet"
@@ -81,13 +81,15 @@ const Content = () => {
 const WalletForm = () => {
    const { t } = useTranslation()
    const validation = useCheckoutValidation()
+   const isMobile = useMobileDetection()
+
    return (
       <Row gutter={[0, 20]} className="p-5 bg-accent rounded-[25px]" justify="center">
          {validation.isEnoughMoney ? (
             <Result status="success" title={t(TRANSLATIONS.order.checkout.sufficientMoney)} />
          ) : (
             <Result
-               className={cn({ "!p-0": isMobile })}
+               className={cn({ "p-6 m-10": isMobile })}
                status="warning"
                title={t(TRANSLATIONS.order.checkout.insufficientMoney)}
                extra={<Wallet.AddFunds.Form />}

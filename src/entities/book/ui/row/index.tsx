@@ -5,7 +5,7 @@ import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
 
 import { routes } from "@app/configs/constants"
-import { isMobile } from "@shared/lib/browser"
+import { useMobileDetection } from "@shared/lib/browser"
 import { textOverflow } from "@shared/lib/string"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
@@ -62,6 +62,7 @@ const BookRow = (props: Props) => {
    const title = fakeApi.library.books.getShortname(data)
    const price = fakeApi.library.books.getPrice(data)
    const isSmall = size === "small"
+   const isMobile = useMobileDetection()
    const spanDetails = MAX_SPAN - spanIcon[size] - spanActions - 1
 
    return (

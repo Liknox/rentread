@@ -56,7 +56,7 @@ const Content = () => {
                {order.books.map(book => {
                   const rent = orderLib.getRentInfo(book.id)
                   return (
-                     <Col key={book.id} span={24} aria-label="cart book col">
+                     <Col key={book.id} span={24} className="mt-2" aria-label="cart book col">
                         <BookRowCard
                            data={book}
                            size={isMobile ? "default" : "large"}
