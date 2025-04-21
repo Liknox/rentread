@@ -13,6 +13,9 @@ import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 
+/**
+ * @page Order Page
+*/
 function Order() {
    const { t } = useTranslation()
    const isMobile = useMobileDetection()

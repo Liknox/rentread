@@ -7,6 +7,9 @@ import { useTitle } from "@shared/lib/dom"
 import CatalogContent from "./content"
 import Sidebar from "./sidebar"
 
+/**
+ * @page Catalog Page
+*/
 function CatalogPage() {
    const { t } = useTranslation()
    const isMobile = useMobileDetection()

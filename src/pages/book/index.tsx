@@ -16,6 +16,9 @@ import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 
+/**
+ * @page Book Page
+*/
 function BookPage() {
    // FIXME: add skeleton template
    const { t } = useTranslation()

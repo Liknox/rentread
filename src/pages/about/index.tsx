@@ -9,6 +9,9 @@ import FeaturesSection from "./sections/features"
 import HeroSection from "./sections/hero"
 import SocialSection from "./sections/socials"
 
+/**
+ * @page About Page
+*/
 function AboutPage() {
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.about))

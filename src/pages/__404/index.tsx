@@ -6,6 +6,9 @@ import { routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useTitle } from "@shared/lib/dom"
 
+/**
+ * @page 404 Page
+*/
 function NotFoundPage() {
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.notFound))

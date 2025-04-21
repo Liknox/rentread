@@ -33,6 +33,9 @@ const useCheckoutValidation = () => {
    return { isEnoughMoney, message, isDeliveryAssigned, isEmptyCart, isTotallyAllowed }
 }
 
+/**
+ * @page Checkout Page
+*/
 function Checkout() {
    const { t } = useTranslation()
    useTitle(t(TRANSLATIONS.pageTitle.checkout))

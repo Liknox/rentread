@@ -10,6 +10,9 @@ import { Aside } from "entities/aside"
 import { Content } from "./content"
 import { Sidebar } from "./sidebar"
 
+/**
+ * @page Profile Page
+*/
 function ProfilePage() {
    const { t } = useTranslation()
    const breakpoint = useBreakpoint()

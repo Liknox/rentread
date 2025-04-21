@@ -8,6 +8,9 @@ import { useResetScrollAtEveryPage } from "@pages/hooks"
 import { useMobileDetection } from "@shared/lib/browser"
 import { DemoAlert } from "@shared/ui/location-alert"
 
+/**
+ * @page Layout Page
+*/
 const Layout = () => {
    useResetScrollAtEveryPage()
    const isMobile = useMobileDetection()
