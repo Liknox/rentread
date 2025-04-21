@@ -125,18 +125,26 @@ function CatalogContent() {
                )}
                {isMobile || (
                   <Pagination
-                     className="mt-8"
+                     className="mt-10 mb-5 text-center"
                      current={pagination.page}
                      pageSize={pageSize}
                      total={booksQuery.length}
                      onChange={handlePageChange}
                      onShowSizeChange={handlePageChange}
                      align="center"
+                     responsive
                   />
                )}
             </section>
          </Layout>
-         <Drawer id="left-drawer" closable={true} placement="left" onClose={() => setOpen(prev => !prev)} open={open}>
+         <Drawer
+            id="left-drawer"
+            closable={true}
+            placement={isMobile ? "bottom" : "left"}
+            onClose={() => setOpen(prev => !prev)}
+            open={open}
+            height={isMobile ? "90%" : undefined}
+            title={t(TRANSLATIONS.catalog.filters.title)}>
             <Sidebar />
          </Drawer>
       </>
