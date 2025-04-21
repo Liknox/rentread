@@ -27,7 +27,6 @@ const TOOLTIP = {
 
 const useSearch = () => {
    const [query, setQuery] = useState<AbstractBook[]>(initialQuery)
-   // FIXME
    const { t } = useTranslation()
    const [indexReset, updateReset] = useState(0)
    const [tooltip, setTooltip] = useState(t(TOOLTIP.MIN_LENGTH))
@@ -98,7 +97,8 @@ const HeaderSearch = () => {
          onSelect={search.handleSelect}
          onSearch={search.handleAutocomplete}
          notFoundContent={search.tooltip}
-         popupMatchSelectWidth={!isMobile}>
+         popupMatchSelectWidth={!isMobile}
+         aria-label="search books">
          <Input.Search
             size={breakpoint.xs ? "middle" : "large"}
             placeholder={t(TRANSLATIONS.header.placeholders.searchPlaceholder)}

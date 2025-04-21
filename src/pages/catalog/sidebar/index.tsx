@@ -167,9 +167,9 @@ const CategorySection = () => {
    }))
 
    return (
-      <section className="p-2 md:p-3" aria-label="categories">
+      <section className="p-2 md:p-3" aria-label="category filter section">
          {!isMobile && (
-            <Divider plain className="font-roboto" aria-label="categories divider">
+            <Divider plain className="font-roboto" aria-label="category divider">
                {t(TRANSLATIONS.catalog.filters.sections.categories)}
             </Divider>
          )}
@@ -177,7 +177,7 @@ const CategorySection = () => {
             options={options}
             value={params.categories || []}
             onChange={params.setCategories}
-            aria-label="categories checkbox group"
+            aria-label="select categories for filtering"
             className="flex flex-col"
          />
       </section>

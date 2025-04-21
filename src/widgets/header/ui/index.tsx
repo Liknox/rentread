@@ -83,7 +83,7 @@ const Header = () => {
                "relative flex justify-between w-full px-[10%] !text-[var(--color-dark)] !bg-white shadow-inset gap-4 md:gap-0",
                { "!fixed top-0 left-0 right-0 z-50 !px-3": isMobile },
             )}
-            aria-label="header">
+            aria-label="header navigation bar">
             {isMobile ? (
                <MobileHeader count={count} />
             ) : (

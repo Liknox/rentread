@@ -3,6 +3,7 @@ import { Link, useMatch } from "@tanstack/react-router"
 import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
 import cn from "classnames"
 import { useTranslation } from "react-i18next"
+import { Suspense } from "react"
 
 import { CAROUSEL_TIMER, routes } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
@@ -26,7 +27,10 @@ function BookPage() {
 
    if (!book) {
       return (
-         <Layout.Content className="flex justify-center items-center" aria-busy="true" aria-label="book not found">
+         <Layout.Content
+            className="flex justify-center items-center"
+            aria-busy="true"
+            aria-label="book not found message">
             <Result
                status="404"
                title="404"
@@ -38,18 +42,18 @@ function BookPage() {
    }
 
    return (
-      <Layout.Content className="md:mb-20" aria-label="book page aria">
-         <Link to={routes.CATALOG} className="font-roboto text-primary" aria-label="breadcrumbs aria">
+      <Layout.Content className="md:mb-20" aria-label="book page">
+         <Link to={routes.CATALOG} className="font-roboto text-primary" aria-label="breadcrumbs">
             {t(TRANSLATIONS.book.breadcrumbs)}
          </Link>
-         <Typography.Title level={isMobile ? 3 : 2} aria-label="title aria">
+         <Typography.Title level={isMobile ? 3 : 2} aria-label="book title">
             {fakeApi.library.books.getBookString(book)}
          </Typography.Title>
-         <Row className="mt-8 mb-20 flex flex-col md:flex-row" aria-label="details section aria">
+         <Row className="mt-8 mb-20 flex flex-col md:flex-row" aria-label="book details section">
             <Card book={book} />
             <Checkout book={book} />
          </Row>
-         <Row aria-label="recommendations">
+         <Row aria-label="recommendations section">
             <Recommendations book={book} />
          </Row>
       </Layout.Content>
@@ -89,8 +93,11 @@ const Card = ({ book }: BookProps) => {
                         key={cover.id}
                         className={cn("h-[640px] text-[300px] text-center select-none bg-[var(--color-accent)]", {
                            "!h-[440px] !text-[270px]": isMobile,
-                        })}>
-                        <BookFilled className="md:mt-40" style={{ color: cover.color }} />
+                        })}
+                        aria-label={`Book cover ${cover.id}`}>
+                        <Suspense fallback={<div>Loading...</div>}>
+                           <BookFilled className="md:mt-40" style={{ color: cover.color }} />
+                        </Suspense>
                      </div>
                   ))}
                </Carousel>
