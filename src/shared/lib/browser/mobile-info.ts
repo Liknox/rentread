@@ -11,7 +11,7 @@ const isMobileViewport = () => {
    return window.innerWidth < 768
 }
 
-export const isMobile = typeof window !== "undefined" ? getMobileInfo() || isMobileViewport() : false
+const isMobile = typeof window !== "undefined" ? getMobileInfo() || isMobileViewport() : false
 
 export const useMobileDetection = () => {
    const [isMobileView, setIsMobileView] = useState(isMobile)

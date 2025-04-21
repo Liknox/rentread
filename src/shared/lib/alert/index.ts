@@ -2,8 +2,6 @@ import { notification } from "antd"
 import type { IconType, NotificationPlacement, ArgsProps } from "antd/es/notification/interface"
 import type { ReactNode } from "react"
 
-import { isMobile } from "../browser"
-
 export interface AlertOptions {
    duration?: number
    placement?: NotificationPlacement
@@ -15,8 +13,8 @@ export interface AlertOptions {
 }
 
 const defaultOptions: AlertOptions = {
-   duration: isMobile ? 1.5 : 5,
-   placement: isMobile ? "top" : "bottomRight",
+   duration: window.innerWidth < 768 ? 1.5 : 5,
+   placement: window.innerWidth < 768 ? "top" : "bottomRight",
    closable: true,
 }
 
