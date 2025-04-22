@@ -54,6 +54,7 @@ export const ROUTES = {
    ABOUT: "/about",
    CATALOG: "/catalog",
    PROFILE: "/profile",
+   PROFILE_OPENED: "/profile#opened",
    PROFILE_FAV: "/profile#fav",
    PROFILE_RESERVED: "/profile#reserved",
    ORDER: "/order",
@@ -102,3 +103,12 @@ export const SORTINGS = {
 }
 
 export const SKELETON_DELAY = 2000
+
+export const SKELETON_KEYS = {
+   AUTHOR: "authors",
+   CATEGORY: "cat",
+   BOOK: "books",
+   BANNER: "banner",
+   BOOK_ROW: "book-row",
+   BOOK_CARD: "book-card",
+}

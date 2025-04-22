@@ -5,7 +5,7 @@ import cn from "classnames"
 import { Suspense } from "react"
 import { useTranslation } from "react-i18next"
 
-import { CAROUSEL_TIMER, ROUTES } from "@app/configs/constants"
+import { CAROUSEL_TIMER, ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { useMobileDetection } from "@shared/lib/browser"
@@ -23,12 +23,12 @@ import { Reserve } from "features/reserve"
  */
 function BookPage() {
    const { t } = useTranslation()
-   const { params } = useMatch({ from: "/book/$bookId" }) as { params: { bookId: string } }
+   const { params } = useMatch({ from: ROUTES.BOOKID }) as { params: { bookId: string } }
    const isMobile = useMobileDetection()
 
    const bookId = Number(params?.bookId)
    const book = fakeApi.library.books.getById(bookId)
-   const isLoading = useSkeleton("book-page")
+   const isLoading = useSkeleton(SKELETON_KEYS.BOOK)
 
    if (!book) {
       return (
@@ -40,7 +40,7 @@ function BookPage() {
                status="404"
                title="404"
                subTitle={t(TRANSLATIONS.book.bookNotFound)}
-               extra={<Button href="/catalog">{t(TRANSLATIONS.order.result.toCatalog)}</Button>}
+               extra={<Button href={ROUTES.CATALOG}>{t(TRANSLATIONS.order.result.toCatalog)}</Button>}
             />
          </Layout.Content>
       )

@@ -4,7 +4,7 @@ import { Card, Col, Row, Skeleton } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
 
-import { ROUTES } from "@app/configs/constants"
+import { ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
 import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
 import { textOverflow } from "@shared/lib/string"
@@ -65,7 +65,7 @@ const BookRow = (props: Props) => {
    const isSmall = size === "small"
    const isMobile = useMobileDetection()
    const spanDetails = MAX_SPAN - spanIcon[size] - spanActions - 1
-   const isLoading = useSkeleton("book-row")
+   const isLoading = useSkeleton(SKELETON_KEYS.BOOK_ROW)
 
    /**
     * @component Skeleton

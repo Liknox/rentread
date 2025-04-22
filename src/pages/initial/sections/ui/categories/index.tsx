@@ -1,7 +1,7 @@
 import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Skeleton, Typography } from "antd"
 
-import { ROUTES } from "@app/configs/constants"
+import { ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
 import { fakeApi } from "shared/api"
 
@@ -16,11 +16,9 @@ const srcCategoriesMap: Record<number, string> = {
 }
 
 const Categories = () => {
-   const isLoading = useSkeleton("categories")
+   const isLoading = useSkeleton(SKELETON_KEYS.CATEGORY)
    const categories = fakeApi.library.categories.getAll()
    const router = useRouter()
-
-   const categoryKey = "cat"
 
    return (
       <Row justify="space-between" className="sm:flex sm:flex-row flex-col">
@@ -45,7 +43,7 @@ const Categories = () => {
                     key={cat.id}
                     className="2xl:min-w-[390px] hover:opacity-80 hover:scale-[1.01] transition-[0.25s] relative h-[292px] p-10 overflow-hidden text-center cursor-pointer bg-[var(--color-accent)] rounded-[10px] max-w-none mt-3 sm:mt-0 min-h-52"
                     span={7}
-                    onClick={() => router.navigate({ to: `${ROUTES.CATALOG}?${categoryKey}=${cat.id}` })}
+                    onClick={() => router.navigate({ to: `${ROUTES.CATALOG}?${SKELETON_KEYS.CATEGORY}=${cat.id}` })}
                     title="Go to books by category">
                     <div className="absolute top-1/2 left-1/2 z-10 text-white !important transform -translate-x-1/2 -translate-y-1/2 min-w-[180px]">
                        <Typography.Title className="font-roboto !text-white" level={3}>

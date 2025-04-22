@@ -5,7 +5,7 @@ import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 
-import { ROUTES } from "@app/configs/constants"
+import { ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useMobileDetection } from "@shared/lib/browser"
 
@@ -43,7 +43,7 @@ const imgStyle: Record<Size, CSSProperties> = {
 const BookCard = (props: BookCardProps) => {
    const { t } = useTranslation()
    const isMobileView = useMobileDetection()
-   const isLoading = useSkeleton("book-card")
+   const isLoading = useSkeleton(SKELETON_KEYS.BOOK_CARD)
 
    /**
     * @component Skeleton

@@ -1,7 +1,7 @@
 import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Skeleton, Typography } from "antd"
 
-import { ROUTES } from "@app/configs/constants"
+import { ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
 import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
 
@@ -21,10 +21,8 @@ const srcAuthorsMap: Record<number, string> = {
 
 const Authors = () => {
    const router = useRouter()
-   const isLoading = useSkeleton("authors")
+   const isLoading = useSkeleton(SKELETON_KEYS.AUTHOR)
    const authors = fakeApi.library.authors.getPopular()
-
-   const authorsKey = "authors"
 
    return (
       <Row justify="space-around" className="sm:flex sm:flex-row flex-col">
@@ -41,7 +39,7 @@ const Authors = () => {
                     key={author.id}
                     className="min-w-[200px] m-auto mt-8 sm:mt-0 transition-[0.25s] hover:opacity-80 relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
                     span={3}
-                    onClick={() => router.navigate({ to: `${ROUTES.CATALOG}?${authorsKey}=${author.id}` })}
+                    onClick={() => router.navigate({ to: `${ROUTES.CATALOG}?${SKELETON_KEYS.AUTHOR}=${author.id}` })}
                     role="button"
                     aria-label={`View books by ${fakeApi.library.authors.getShortname(author)}`}
                     title="Go to the author's books">

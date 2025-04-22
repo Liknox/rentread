@@ -109,7 +109,7 @@ const Sidebar = () => {
    const order = orderModel.useOrder()
    const validation = useCheckoutValidation()
    // const history = useHistory();
-   // hooks.useRedirectOn(isEmptyCart, "/order");
+   // hooks.useRedirectOn(isEmptyCart, ROUTES.ORDER);
 
    const handleButtonClick = () => {
       viewer.payment.applyTransaction(-order.price).then(() => {

@@ -25,35 +25,35 @@ const actions = [
       id: "catalog" as const,
       label: TRANSLATIONS.header.options.catalog,
       Icon: MenuOutlined,
-      url: "/catalog",
+      url: ROUTES.CATALOG,
       disabled: false,
    },
    {
       id: "orders" as const,
       label: TRANSLATIONS.header.options.orders,
       Icon: FolderOpenOutlined,
-      url: "/profile#opened",
+      url: ROUTES.PROFILE_OPENED,
       disabled: false,
    },
    {
       id: "fav" as const,
       label: TRANSLATIONS.header.options.favorites,
       Icon: HeartOutlined,
-      url: "/profile#fav",
+      url: ROUTES.PROFILE_FAV,
       disabled: false,
    },
    {
       id: "cart" as const,
       label: TRANSLATIONS.header.options.cart,
       Icon: ShoppingCartOutlined,
-      url: "/order",
+      url: ROUTES.ORDER,
       disabled: false,
    },
    {
       id: "profile" as const,
       label: TRANSLATIONS.header.options.profile,
       Icon: UserOutlined,
-      url: "/profile",
+      url: ROUTES.PROFILE,
       disabled: false,
    },
 ]
@@ -143,7 +143,7 @@ const MobileHeader = ({ count }: { count: Record<ActionId, number> }) => {
          </div>
          <div className="flex items-center gap-2">
             <Badge count={count.cart} style={{ backgroundColor: "#108ee9" }} aria-label="badge">
-               <Link to="/order" aria-label="cart">
+               <Link to={ROUTES.ORDER} aria-label="cart">
                   <ShoppingCartOutlined className="text-[22px]" />
                </Link>
             </Badge>
