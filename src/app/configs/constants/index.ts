@@ -102,7 +102,7 @@ export const SORTINGS = {
    4: TRANSLATIONS.catalog.sortBy.options.popularity,
 }
 
-export const SKELETON_DELAY = 2000
+export const SKELETON_DELAY = 1.5 * 1e3
 
 export const SKELETON_KEYS = {
    AUTHOR: "authors",
@@ -111,4 +111,5 @@ export const SKELETON_KEYS = {
    BANNER: "banner",
    BOOK_ROW: "book-row",
    BOOK_CARD: "book-card",
+   SECTION: "section",
 }
