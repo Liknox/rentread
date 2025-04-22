@@ -1,11 +1,12 @@
 import { BookFilled, HistoryOutlined, InboxOutlined } from "@ant-design/icons"
 import { Link, useMatch } from "@tanstack/react-router"
-import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Tooltip, Typography } from "antd"
+import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Skeleton, Tooltip, Typography } from "antd"
 import cn from "classnames"
 import { Suspense } from "react"
+import { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 
-import { CAROUSEL_TIMER, ROUTES } from "@app/configs/constants"
+import { CAROUSEL_TIMER, ROUTES, SKELETON_DELAY } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { useMobileDetection } from "@shared/lib/browser"
@@ -15,18 +16,30 @@ import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
+import { loadingState } from "@shared/lib/loadingState"
 
 /**
  * @page Book Page
  */
 function BookPage() {
-   // FIXME: add skeleton template
    const { t } = useTranslation()
    const { params } = useMatch({ from: "/book/$bookId" }) as { params: { bookId: string } }
    const isMobile = useMobileDetection()
 
    const bookId = Number(params?.bookId)
    const book = fakeApi.library.books.getById(bookId)
+
+   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("book-page"))
+
+   useEffect(() => {
+      if (isLoading) {
+         const timer = setTimeout(() => {
+            setIsLoading(false)
+            loadingState.markAsLoaded("book-page")
+         }, SKELETON_DELAY)
+         return () => clearTimeout(timer)
+      }
+   }, [isLoading])
 
    if (!book) {
       return (
@@ -40,6 +53,29 @@ function BookPage() {
                subTitle={t(TRANSLATIONS.book.bookNotFound)}
                extra={<Button href="/catalog">{t(TRANSLATIONS.order.result.toCatalog)}</Button>}
             />
+         </Layout.Content>
+      )
+   }
+
+   if (isLoading) {
+      return (
+         <Layout.Content className="p-6 md:p-[40px_10%] mb-20 md:mb-0" aria-busy="true">
+            <Skeleton active paragraph={{ rows: 1 }} className="w-1/2" />
+            <Row className="mt-8 mb-20 flex flex-col md:flex-row" gutter={[0, 24]}>
+               <Col span={isMobile ? "full" : 16}>
+                  <div className="flex flex-col md:flex-row gap-6">
+                     <Skeleton.Image active className="!h-[400px] !w-[300px] md:!h-[600px] md:!w-[450px]" />
+                     <div className="flex-1">
+                        <Skeleton active paragraph={{ rows: 4 }} />
+                        <Skeleton active paragraph={{ rows: 3 }} className="mt-6" />
+                     </div>
+                  </div>
+               </Col>
+               <Col span={isMobile ? "full" : 8}>
+                  <Skeleton active paragraph={{ rows: 6 }} />
+               </Col>
+            </Row>
+            <Skeleton active paragraph={{ rows: 2 }} />
          </Layout.Content>
       )
    }
