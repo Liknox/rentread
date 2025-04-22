@@ -224,7 +224,6 @@ const Checkout = ({ book }: BookProps) => {
                   )}
                </Row>
             </div>
-            {/* FIXME: action button style */}
             <div className="mt-6 md:mt-10 w-full md:w-[300px] gap-2 m-auto">
                {
                   <TariffRadio

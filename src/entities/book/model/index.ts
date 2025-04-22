@@ -3,7 +3,7 @@ import { create } from "zustand"
 import { fakeApi } from "shared/api"
 import type { AbstractBook } from "shared/api"
 
-// FIXME: fetch effect later
+// fetch effect later
 const initialBooks = fakeApi.library.books.getAll()
 
 interface BookStoreState {

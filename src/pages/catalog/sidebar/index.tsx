@@ -124,7 +124,6 @@ const PriceSection = () => {
 }
 
 /* FIXME: replace to datepicker later */
-// FIXME: hardcode by query-params?
 const TimeSection = () => {
    const { t } = useTranslation()
    const params = catalogParams.useTariff()

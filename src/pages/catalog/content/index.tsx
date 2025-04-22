@@ -70,7 +70,6 @@ const useFilters = () => {
 }
 
 function CatalogContent() {
-   // FIXME: add skeleton template
    const { t } = useTranslation()
    const filters = useFilters()
    const obParam = catalogParams.useSorting()

@@ -85,7 +85,6 @@ export const userBooksMap = Object.entries(USER_ABOOKS).map(([key, aBookIds]) =>
       return {
          id: USERS_UBOOKS[userId][idx],
          abstractBook: abstract,
-         // !!! FIXME: temp
          // costPerDay: price,
          availableBefore: dates[idx % dates.length],
       }

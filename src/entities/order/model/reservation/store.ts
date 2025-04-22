@@ -10,7 +10,7 @@ interface ReserveState {
    toggleBook: (bookId: number) => void
 }
 
-// FIXME: fetch later by API
+// fetch later by API
 const initialState: number[] = viewerLib.getUserNormalized(fakeApi.users.users.getViewer()).reserved.map(r => r.aBookId)
 
 export const useReserveStore = create<ReserveState>(set => {

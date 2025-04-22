@@ -16,7 +16,7 @@ const TariffRadio = (props: Props) => {
    const { t } = useTranslation()
    const { onChange, value = DEFAULT, disabled, __byDuration } = props
 
-   // !!! FIXME: Very bad practice !!!
+   // !!! FIXME: Very bad practice, refine later !!!
    const getTValue = (tarrif: number) => {
       if (!__byDuration) return tarrif
       return tarrif <= __byDuration ? value : -1
@@ -24,7 +24,6 @@ const TariffRadio = (props: Props) => {
 
    return (
       <div className="text-center flex flex-col items-center">
-         {/* {withTitle && <h4>Rent Terms</h4>} */}
          <Radio.Group
             value={value}
             buttonStyle="solid"

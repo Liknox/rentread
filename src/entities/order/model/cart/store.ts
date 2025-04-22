@@ -9,7 +9,7 @@ interface CartBooksState {
    reset: () => void
 }
 
-// FIXME: init later by API
+// fetch later by API
 const booksInitialState: number[] = []
 
 export const useCartBooksStore = create<CartBooksState>(set => {

@@ -90,9 +90,7 @@ const HeaderSearch = () => {
          // For clearing input
          key={search.indexReset}
          defaultValue={search.param}
-         // FIXME: refine later
          options={mapToOptions(search.query)}
-         // FIXME: refine later
          className="w-full items-center"
          onSelect={search.handleSelect}
          onSearch={search.handleAutocomplete}

@@ -422,7 +422,7 @@ type GetListParams = {
       }
       tariff?: number
       existsOnly?: boolean
-      // !!! FIXME: Horrible code! Never show this to backenders!
+      // !!! FIXME: Horrible, fix it later!
       getRentInfoBy?: (book: AbstractBook) => {
          duration: number
          status: "OUT_STOCK" | "RENTABLE" | "RESERVABLE" | "OWN"
