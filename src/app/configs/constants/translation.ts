@@ -143,12 +143,15 @@ export const TRANSLATIONS = {
    actions: {
       favorites: {
          addText: "actions.favorites.addText",
+         addText2: "actions.favorites.addText2",
          removeText: "actions.favorites.removeText",
          removeText2: "actions.favorites.removeText2",
       },
       cart: {
          addText: "actions.cart.addText",
+         addText2: "actions.cart.addText2",
          removeText: "actions.cart.removeText",
+         removeText2: "actions.cart.removeText2",
       },
       reservation: {
          addText: "actions.reservation.addText",

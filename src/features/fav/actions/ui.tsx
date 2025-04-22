@@ -47,7 +47,9 @@ export const AddBook = ({ bookId }: Props) => {
       ? isMobile
          ? TRANSLATIONS.actions.favorites.removeText
          : TRANSLATIONS.actions.favorites.removeText2
-      : TRANSLATIONS.actions.favorites.addText
+      : isMobile
+        ? TRANSLATIONS.actions.favorites.addText2
+        : TRANSLATIONS.actions.favorites.addText
 
    return (
       <Button className="rounded-sm mr-3 md:mr-0" block icon={<Icon />} onClick={handleToggle}>

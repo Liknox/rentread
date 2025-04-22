@@ -145,17 +145,20 @@
    },
    "actions": {
       "favorites": {
-         "addText": "В Улюблені",
-         "removeText": "Вилучити Улюблену",
-         "removeText2": "Вилучити Улюблену"
+         "addText": "Додати в Улюблені",
+         "addText2": "В Улюблені",
+         "removeText": "Вилучити",
+         "removeText2": "Вилучити з Улюблених"
       },
       "cart": {
-         "addText": "В Корзину",
-         "removeText": "Вилучити з Корзини"
+         "addText": "Додати в Корзину",
+         "addText2": "В Корзину",
+         "removeText": "Вилучити",
+         "removeText2": "Вилучити з Корзини"
       },
       "reservation": {
-         "addText": "Резерв",
-         "removeText": "Вилучити резерв"
+         "addText": "Зарезервувати",
+         "removeText": "Вилучити Резерв"
       },
       "modal": {
          "title": "Ви впевнені, що хочете вилучити цю книгу з замовлення?",

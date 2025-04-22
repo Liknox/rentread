@@ -9,6 +9,7 @@ import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
+import { useMobileDetection } from "@shared/lib/browser"
 
 type Props = {
    bookId: number
@@ -44,11 +45,20 @@ export const AddBook = (props: Props) => {
    const { t } = useTranslation()
    const { handleToggle, isBookInCart } = useToggleBook(props)
    const { disabled } = props
+   const isMobile = useMobileDetection()
 
    const Icon = isBookInCart ? ShoppingFilled : ShoppingOutlined
+   const text = isBookInCart
+      ? isMobile
+         ? TRANSLATIONS.actions.cart.removeText
+         : TRANSLATIONS.actions.cart.removeText2
+      : isMobile
+        ? TRANSLATIONS.actions.cart.addText2
+        : TRANSLATIONS.actions.cart.addText
+
    return (
       <Button className="rounded-sm" type="primary" icon={<Icon />} onClick={handleToggle} block disabled={disabled}>
-         {t(isBookInCart ? TRANSLATIONS.actions.cart.removeText : TRANSLATIONS.actions.cart.addText)}
+         {t(text)}
       </Button>
    )
 }

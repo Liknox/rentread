@@ -146,16 +146,19 @@
    "actions": {
       "favorites": {
          "addText": "Add to Favorites",
-         "removeText": "Remove Favorite",
+         "addText2": "Add to Fav",
+         "removeText": "Remove Fav",
          "removeText2": "Remove from Favorites"
       },
       "cart": {
-         "addText": "Add to cart",
-         "removeText": "Remove from cart"
+         "addText": "Add to Cart",
+         "addText2": "Add to Cart",
+         "removeText": "Remove from Cart",
+         "removeText2": "Remove from Cart"
       },
       "reservation": {
          "addText": "Reserve",
-         "removeText": "Cancel reservation"
+         "removeText": "Cancel Reservation"
       },
       "modal": {
          "title": "Are you sure you want to remove the book from the order?",
