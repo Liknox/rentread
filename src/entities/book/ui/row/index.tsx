@@ -77,7 +77,7 @@ const BookRow = (props: Props) => {
                <Skeleton.Avatar
                   active
                   shape="square"
-                  size={isMobile ? 80 : 150}
+                  size={isMobile ? 80 : 130}
                   style={styleIcon[props.size || "default"]}
                />
             </Col>

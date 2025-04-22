@@ -1,4 +1,4 @@
-import { Layout, Typography, Skeleton } from "antd"
+import { Layout, Skeleton, Typography } from "antd"
 import type { FC, ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 
