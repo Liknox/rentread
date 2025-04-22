@@ -32,6 +32,8 @@ const Authors = () => {
                className="min-w-[200px] m-auto mt-8 sm:mt-0 transition-[0.25s] hover:opacity-80 relative w-[180px] p-[30px] px-[40px] overflow-hidden text-center cursor-pointer bg-accent rounded-full aspect-square"
                span={3}
                onClick={() => router.navigate({ to: `${ROUTES.CATALOG}?${authors}=${author.id}` })}
+               role="button"
+               aria-label={`View books by ${fakeApi.library.authors.getShortname(author)}`}
                title="Go to the author's books">
                <Typography.Title
                   className="font-roboto absolute top-1/2 left-1/2 z-10 !text-white !important transform -translate-x-1/2 -translate-y-1/2"
@@ -39,11 +41,10 @@ const Authors = () => {
                   {fakeApi.library.authors.getShortname(author)}
                </Typography.Title>
                <div className="absolute top-0 left-0 z-0">
-                  {/* <UserOutlined {...au.avatar} /> */}
                   <img
                      className="brightness-[0.3] bg-cover max-w-max"
                      src={srcAuthorsMap[author.id]}
-                     alt="Logo"
+                     alt={`${fakeApi.library.authors.getShortname(author)} portrait`}
                      width={200}
                   />
                </div>

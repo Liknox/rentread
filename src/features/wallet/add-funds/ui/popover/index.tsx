@@ -23,8 +23,15 @@ const AddFundsPopover = ({ className, placement = "bottom", buttonStyle }: Props
          className={className}
          placement={placement}
          content={<AddFundsForm afterAction={handleAction} className="w-full sm:w-[350px]" />}
-         onOpenChange={handleOpenChange}>
-         <Button shape="round" type="dashed" style={buttonStyle}>
+         onOpenChange={handleOpenChange}
+         aria-modal="true">
+         <Button
+            shape="round"
+            type="dashed"
+            style={buttonStyle}
+            aria-label={`${viewer.wallet}$ ${open ? "Close" : "Open"} add funds form`}
+            aria-haspopup="dialog"
+            aria-expanded={open}>
             {viewer.wallet} $
          </Button>
       </Popover>
