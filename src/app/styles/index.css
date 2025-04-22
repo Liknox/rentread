@@ -1,5 +1,6 @@
 @import "./vars.css";
 @import "./normalize.css";
+@import "./accessibility.css";
 
 @tailwind base;
 @tailwind components;
