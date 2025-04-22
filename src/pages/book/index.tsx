@@ -16,7 +16,7 @@ import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
-import { loadingState } from "@shared/lib/loadingState"
+import { loadingState } from "@shared/lib/skeleton/loadingState"
 
 /**
  * @page Book Page

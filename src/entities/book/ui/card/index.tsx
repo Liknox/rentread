@@ -14,7 +14,7 @@ import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
 import { string } from "shared/lib"
 
-import { loadingState } from "@shared/lib/loadingState"
+import { loadingState } from "@shared/lib/skeleton/loadingState"
 
 type Size = "default" | "small" | "mini"
 

@@ -10,7 +10,7 @@ import { textOverflow } from "@shared/lib/string"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
 import { useState, useEffect } from "react"
-import { loadingState } from "@shared/lib/loadingState"
+import { loadingState } from "@shared/lib/skeleton/loadingState"
 
 type Size = "large" | "default" | "small"
 type Props = {

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
 import { fakeApi } from "shared/api"
 import type { Category } from "shared/api"
-import { loadingState } from "@shared/lib/loadingState"
+import { loadingState } from "@shared/lib/skeleton/loadingState"
 
 import imgCat1 from "./assets/c1.webp"
 import imgCat2 from "./assets/c2.webp"

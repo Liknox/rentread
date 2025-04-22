@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
 import type { Author } from "@shared/api"
-import { loadingState } from "@shared/lib/loadingState"
+import { loadingState } from "@shared/lib/skeleton/loadingState"
 
 import gaiman from "./assets/gaiman.webp"
 import martin from "./assets/martin.webp"
