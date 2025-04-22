@@ -10,7 +10,7 @@ export interface WalletState {
 }
 
 export const useWalletStore = create<WalletState>(set => {
-   const balance = fakeApi.users.users.getViewer().wallet?.moneyCount
+   const balance = fakeApi.users.users.getViewer().wallet?.moneyCount ?? 0
    const lsItem = initLSItem<number>(PERSIST_STORE_ITEMS.fakeWallet, balance)
    lsItem.setValue(balance)
 

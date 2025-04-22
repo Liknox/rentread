@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router"
-import { Carousel, Typography, Skeleton } from "antd"
+import { Carousel, Skeleton, Typography } from "antd"
 import { useTranslation } from "react-i18next"
 
 import { CAROUSEL_TIMER } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
-import { bannerScreen } from "./model"
 import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
+import { bannerScreen } from "./model"
 
 const Banner = () => {
    const { t } = useTranslation()

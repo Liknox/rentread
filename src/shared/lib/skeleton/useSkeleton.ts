@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react"
-import { loadingState } from "./loadingState"
 import { SKELETON_DELAY } from "@app/configs/constants"
+import { useEffect, useState } from "react"
+import { loadingState } from "./loadingState"
 
 export const useSkeleton = (sectionName: string) => {
    const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded(sectionName))

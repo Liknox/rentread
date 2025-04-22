@@ -1,5 +1,5 @@
 import { useRouter } from "@tanstack/react-router"
-import { Col, Row, Typography, Skeleton } from "antd"
+import { Col, Row, Skeleton, Typography } from "antd"
 
 import { ROUTES } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"

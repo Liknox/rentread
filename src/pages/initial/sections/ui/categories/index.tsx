@@ -1,9 +1,9 @@
 import { useRouter } from "@tanstack/react-router"
-import { Col, Row, Typography, Skeleton } from "antd"
+import { Col, Row, Skeleton, Typography } from "antd"
 
 import { ROUTES } from "@app/configs/constants"
-import { fakeApi } from "shared/api"
 import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
+import { fakeApi } from "shared/api"
 
 import imgCat1 from "./assets/c1.webp"
 import imgCat2 from "./assets/c2.webp"

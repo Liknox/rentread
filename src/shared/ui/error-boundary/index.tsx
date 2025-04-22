@@ -1,6 +1,6 @@
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { Component, ReactNode, ErrorInfo } from "react"
-import { withTranslation, WithTranslation } from "react-i18next"
+import { Component, type ErrorInfo, type ReactNode } from "react"
+import { type WithTranslation, withTranslation } from "react-i18next"
 
 interface ErrorBoundaryState {
    hasError: boolean

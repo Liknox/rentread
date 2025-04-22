@@ -6,10 +6,10 @@ import type { CSSProperties, ReactNode } from "react"
 
 import { ROUTES } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
+import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
 import { textOverflow } from "@shared/lib/string"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
-import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
 
 type Size = "large" | "default" | "small"
 type Props = {
