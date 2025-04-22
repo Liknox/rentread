@@ -74,7 +74,12 @@ const BookRow = (props: Props) => {
       return (
          <Row align="middle" className="grid grid-cols-[120px_2fr] md:flex">
             <Col span={spanIcon[props.size || "default"]} className="col-span-1 mr-2 p-4">
-               <Skeleton.Avatar active shape="square" style={styleIcon[props.size || "default"]} />
+               <Skeleton.Avatar
+                  active
+                  shape="square"
+                  size={isMobile ? 80 : 150}
+                  style={styleIcon[props.size || "default"]}
+               />
             </Col>
             <Col
                className="flex flex-col justify-center max-w-full col-span-1 row-span-1 p-4"
