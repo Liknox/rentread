@@ -307,5 +307,10 @@
       "title": "Page not found",
       "catalog": "To Catalog",
       "main": "Return Back"
+   },
+   "errorBoundary": {
+      "title": "Something went wrong",
+      "description": "Please refresh the page or contact support if the issue persists.",
+      "application": "Application error:"
    }
 }

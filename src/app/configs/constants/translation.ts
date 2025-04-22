@@ -305,4 +305,9 @@ export const TRANSLATIONS = {
       catalog: "notFound.catalog",
       main: "notFound.main",
    },
+   errorBoundary: {
+      title: "errorBoundary.title",
+      description: "errorBoundary.description",
+      application: "errorBoundary.application",
+   },
 } as const
