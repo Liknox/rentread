@@ -1,9 +1,9 @@
 import { BookFilled } from "@ant-design/icons"
 import { Link } from "@tanstack/react-router"
-import { Card } from "antd"
+import { Card, Skeleton } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
-import { memo } from "react"
+import { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 
 import { ROUTES } from "@app/configs/constants"
@@ -13,6 +13,8 @@ import { useMobileDetection } from "@shared/lib/browser"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
 import { string } from "shared/lib"
+
+import { loadingState } from "@shared/lib/loadingState"
 
 type Size = "default" | "small" | "mini"
 
@@ -42,6 +44,34 @@ const imgStyle: Record<Size, CSSProperties> = {
 const BookCard = (props: BookCardProps) => {
    const { t } = useTranslation()
    const isMobileView = useMobileDetection()
+   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("book-card"))
+
+   useEffect(() => {
+      if (isLoading) {
+         const timer = setTimeout(() => {
+            setIsLoading(false)
+            loadingState.markAsLoaded("book-card")
+         }, 2000)
+         return () => clearTimeout(timer)
+      }
+   }, [isLoading])
+
+   /**
+    * @component Skeleton
+    */
+   if (isLoading) {
+      return (
+         <Card
+            className={cn(
+               "relative cursor-default rounded-lg shadow-[2px_2px_22px_var(--color-shadow)] h-[450px]",
+               props.className,
+            )}
+            cover={<Skeleton.Image active style={{ width: "100%", height: 300 }} />}>
+            <Skeleton active paragraph={{ rows: 3 }} />
+         </Card>
+      )
+   }
+
    const { data: book, className, size = "default", children, actions, withPrice = true, asSecondary } = props
 
    const author = book.authors.map(fakeApi.library.authors.getShortname).join(", ")
@@ -98,4 +128,4 @@ const BookCard = (props: BookCardProps) => {
    )
 }
 
-export default memo(BookCard)
+export default BookCard

@@ -1,6 +1,6 @@
 import { BookFilled } from "@ant-design/icons"
 import { Link } from "@tanstack/react-router"
-import { Card, Col, Row } from "antd"
+import { Card, Col, Row, Skeleton } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
 
@@ -9,6 +9,8 @@ import { useMobileDetection } from "@shared/lib/browser"
 import { textOverflow } from "@shared/lib/string"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
+import { useState, useEffect } from "react"
+import { loadingState } from "@shared/lib/loadingState"
 
 type Size = "large" | "default" | "small"
 type Props = {
@@ -64,6 +66,36 @@ const BookRow = (props: Props) => {
    const isSmall = size === "small"
    const isMobile = useMobileDetection()
    const spanDetails = MAX_SPAN - spanIcon[size] - spanActions - 1
+
+   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("book-row"))
+
+   useEffect(() => {
+      if (isLoading) {
+         const timer = setTimeout(() => {
+            setIsLoading(false)
+            loadingState.markAsLoaded("book-row")
+         }, 2000)
+         return () => clearTimeout(timer)
+      }
+   }, [isLoading])
+
+   /**
+    * @component Skeleton
+    */
+   if (isLoading) {
+      return (
+         <Row align="middle" className="grid grid-cols-[120px_2fr] md:flex">
+            <Col span={spanIcon[props.size || "default"]} className="col-span-1 mr-2 p-4">
+               <Skeleton.Avatar active shape="square" style={styleIcon[props.size || "default"]} />
+            </Col>
+            <Col
+               className="flex flex-col justify-center max-w-full col-span-1 row-span-1 p-4"
+               span={MAX_SPAN - spanIcon[props.size || "default"] - spanActions - 1}>
+               <Skeleton active paragraph={{ rows: 3 }} />
+            </Col>
+         </Row>
+      )
+   }
 
    return (
       <Row
