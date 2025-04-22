@@ -1,10 +1,9 @@
 import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Typography, Skeleton } from "antd"
-import { useEffect, useState } from "react"
 
-import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { fakeApi } from "shared/api"
-import { loadingState } from "@shared/lib/skeleton/loadingState"
+import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
 
 import imgCat1 from "./assets/c1.webp"
 import imgCat2 from "./assets/c2.webp"
@@ -17,19 +16,9 @@ const srcCategoriesMap: Record<number, string> = {
 }
 
 const Categories = () => {
-   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("categories"))
+   const isLoading = useSkeleton("categories")
    const categories = fakeApi.library.categories.getAll()
    const router = useRouter()
-
-   useEffect(() => {
-      if (isLoading) {
-         const timer = setTimeout(() => {
-            setIsLoading(false)
-            loadingState.markAsLoaded("categories")
-         }, SKELETON_DELAY)
-         return () => clearTimeout(timer)
-      }
-   }, [isLoading])
 
    const categoryKey = "cat"
 

@@ -3,10 +3,9 @@ import { Link } from "@tanstack/react-router"
 import { Card, Skeleton } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
-import { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 
-import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useMobileDetection } from "@shared/lib/browser"
 
@@ -14,7 +13,7 @@ import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
 import { string } from "shared/lib"
 
-import { loadingState } from "@shared/lib/skeleton/loadingState"
+import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
 
 type Size = "default" | "small" | "mini"
 
@@ -44,17 +43,7 @@ const imgStyle: Record<Size, CSSProperties> = {
 const BookCard = (props: BookCardProps) => {
    const { t } = useTranslation()
    const isMobileView = useMobileDetection()
-   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("book-card"))
-
-   useEffect(() => {
-      if (isLoading) {
-         const timer = setTimeout(() => {
-            setIsLoading(false)
-            loadingState.markAsLoaded("book-card")
-         }, SKELETON_DELAY)
-         return () => clearTimeout(timer)
-      }
-   }, [isLoading])
+   const isLoading = useSkeleton("book-card")
 
    /**
     * @component Skeleton

@@ -1,10 +1,9 @@
 import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Typography, Skeleton } from "antd"
-import { useEffect, useState } from "react"
 
-import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
+import { ROUTES } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
-import { loadingState } from "@shared/lib/skeleton/loadingState"
+import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
 
 import gaiman from "./assets/gaiman.webp"
 import martin from "./assets/martin.webp"
@@ -22,18 +21,8 @@ const srcAuthorsMap: Record<number, string> = {
 
 const Authors = () => {
    const router = useRouter()
-   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("authors"))
+   const isLoading = useSkeleton("authors")
    const authors = fakeApi.library.authors.getPopular()
-
-   useEffect(() => {
-      if (isLoading) {
-         const timer = setTimeout(() => {
-            setIsLoading(false)
-            loadingState.markAsLoaded("authors")
-         }, SKELETON_DELAY)
-         return () => clearTimeout(timer)
-      }
-   }, [isLoading])
 
    const authorsKey = "authors"
 

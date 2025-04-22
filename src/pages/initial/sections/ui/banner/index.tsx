@@ -1,28 +1,16 @@
 import { Link } from "@tanstack/react-router"
 import { Carousel, Typography, Skeleton } from "antd"
 import { useTranslation } from "react-i18next"
-import { useEffect, useState } from "react"
 
-import { CAROUSEL_TIMER, SKELETON_DELAY } from "@app/configs/constants"
+import { CAROUSEL_TIMER } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
 import { bannerScreen } from "./model"
-import { loadingState } from "@shared/lib/skeleton/loadingState"
+import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
 
 const Banner = () => {
    const { t } = useTranslation()
    const isMobile = useMobileDetection()
-   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("banner"))
-
-   useEffect(() => {
-      if (isLoading) {
-         const timer = setTimeout(() => {
-            setIsLoading(false)
-            loadingState.markAsLoaded("banner")
-         }, SKELETON_DELAY)
-
-         return () => clearTimeout(timer)
-      }
-   }, [isLoading])
+   const isLoading = useSkeleton("banner")
 
    return (
       <Carousel autoplay arrows={!isMobile} infinite autoplaySpeed={1.5 * CAROUSEL_TIMER}>
@@ -41,11 +29,13 @@ const Banner = () => {
                         <Link to={banner.linkHref} className="text-lightPrimary">
                            {t(banner.info)}
                         </Link>
-                     ) : (
-                        <i>{t(banner.info)}</i>
-                     )}
+                     ) : null}
                   </Typography.Text>
-                  <img src={banner.img} alt={banner.imgAlt} width="100%" className="object-cover h-full" />
+                  <img
+                     className="absolute top-0 left-0 w-full h-full object-cover"
+                     src={banner.img}
+                     alt={t(banner.title)}
+                  />
                </div>
             ))
          )}

@@ -3,20 +3,20 @@ import { Link, useMatch } from "@tanstack/react-router"
 import { Button, Carousel, Col, Descriptions, Layout, Result, Row, Skeleton, Tooltip, Typography } from "antd"
 import cn from "classnames"
 import { Suspense } from "react"
-import { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 
-import { CAROUSEL_TIMER, ROUTES, SKELETON_DELAY } from "@app/configs/constants"
+import { CAROUSEL_TIMER, ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { useMobileDetection } from "@shared/lib/browser"
+import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
+
 import { BookCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"
 import { TariffRadio } from "entities/tariff"
 import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
-import { loadingState } from "@shared/lib/skeleton/loadingState"
 
 /**
  * @page Book Page
@@ -28,18 +28,7 @@ function BookPage() {
 
    const bookId = Number(params?.bookId)
    const book = fakeApi.library.books.getById(bookId)
-
-   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("book-page"))
-
-   useEffect(() => {
-      if (isLoading) {
-         const timer = setTimeout(() => {
-            setIsLoading(false)
-            loadingState.markAsLoaded("book-page")
-         }, SKELETON_DELAY)
-         return () => clearTimeout(timer)
-      }
-   }, [isLoading])
+   const isLoading = useSkeleton("book-page")
 
    if (!book) {
       return (
