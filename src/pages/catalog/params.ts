@@ -2,6 +2,7 @@ import { useRouter, useSearch } from "@tanstack/react-router"
 import { useRef } from "react"
 
 import { DEFAULT_SORTING, PRICES, TARIFFS, TIMEOUT } from "@app/configs/constants"
+import { useMobileDetection } from "@shared/lib/browser"
 
 interface SearchParams {
    authors?: string | number
@@ -212,10 +213,11 @@ export const defaultViewType = VIEW_TYPE.list
 export const useViewType = () => {
    const search = useSearch({ strict: false }) as SearchParams
    const router = useRouter()
+   const isMobile = useMobileDetection()
    const viewType = search.vt || defaultViewType
 
-   const isGrid = viewType === "grid"
-   const isList = viewType === "list"
+   const isGrid = isMobile ? false : viewType === "grid"
+   const isList = isMobile ? true : viewType === "list"
 
    const setViewType = (value: ViewTypeValue) => {
       const newSearch: SearchParams = { ...search }
