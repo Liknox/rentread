@@ -4,9 +4,9 @@ import { Col, Row, Typography } from "antd"
 import { ROUTES } from "@app/configs/constants"
 import { fakeApi } from "shared/api"
 
-import imgCat1 from "./assets/c1.jpg"
-import imgCat2 from "./assets/c2.jpg"
-import imgCat3 from "./assets/c3.jpg"
+import imgCat1 from "./assets/c1.webp"
+import imgCat2 from "./assets/c2.webp"
+import imgCat3 from "./assets/c3.webp"
 
 const srcCategoriesMap: Record<number, string> = {
    1: imgCat1,

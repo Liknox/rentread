@@ -7,7 +7,7 @@ import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useMobileDetection } from "@shared/lib/browser"
 import Section from "../index"
 
-import bg_hero from "../../assets/bg_hero.jpg"
+import bg_hero from "../../assets/bg_hero.webp"
 
 const HeroSection = () => {
    const router = useRouter()

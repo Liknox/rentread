@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import Section from "../index"
 
-import bg_books from "../../assets/bg_books.png"
+import bg_books from "../../assets/bg_books.webp"
 
 const BenefitsSection = () => {
    const { t } = useTranslation()

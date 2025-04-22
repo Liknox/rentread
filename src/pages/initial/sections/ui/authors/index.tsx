@@ -4,11 +4,11 @@ import { Col, Row, Typography } from "antd"
 import { ROUTES } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
 
-import gaiman from "./assets/gaiman.jpg"
-import martin from "./assets/martin.jpg"
-import orwell from "./assets/orwell.jpg"
-import palahniuk from "./assets/palahniuk.jpg"
-import taleb from "./assets/taleb.jpg"
+import gaiman from "./assets/gaiman.webp"
+import martin from "./assets/martin.webp"
+import orwell from "./assets/orwell.webp"
+import palahniuk from "./assets/palahniuk.webp"
+import taleb from "./assets/taleb.webp"
 
 const srcAuthorsMap: Record<number, string> = {
    2: palahniuk,
