@@ -6,7 +6,7 @@ import type { CSSProperties, ReactNode } from "react"
 import { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 
-import { ROUTES } from "@app/configs/constants"
+import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useMobileDetection } from "@shared/lib/browser"
 
@@ -51,7 +51,7 @@ const BookCard = (props: BookCardProps) => {
          const timer = setTimeout(() => {
             setIsLoading(false)
             loadingState.markAsLoaded("book-card")
-         }, 2000)
+         }, SKELETON_DELAY)
          return () => clearTimeout(timer)
       }
    }, [isLoading])

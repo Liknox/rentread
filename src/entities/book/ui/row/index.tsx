@@ -4,7 +4,7 @@ import { Card, Col, Row, Skeleton } from "antd"
 import cn from "classnames"
 import type { CSSProperties, ReactNode } from "react"
 
-import { ROUTES } from "@app/configs/constants"
+import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
 import { textOverflow } from "@shared/lib/string"
 import type { AbstractBook } from "shared/api"
@@ -74,7 +74,7 @@ const BookRow = (props: Props) => {
          const timer = setTimeout(() => {
             setIsLoading(false)
             loadingState.markAsLoaded("book-row")
-         }, 2000)
+         }, SKELETON_DELAY)
          return () => clearTimeout(timer)
       }
    }, [isLoading])

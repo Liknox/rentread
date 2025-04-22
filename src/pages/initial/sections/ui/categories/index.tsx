@@ -2,7 +2,7 @@ import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Typography, Skeleton } from "antd"
 import { useEffect, useState } from "react"
 
-import { ROUTES } from "@app/configs/constants"
+import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
 import { fakeApi } from "shared/api"
 import type { Category } from "shared/api"
 import { loadingState } from "@shared/lib/loadingState"
@@ -31,7 +31,7 @@ const Categories = () => {
             setCategories(fakeApi.library.categories.getAll())
             setIsLoading(false)
             loadingState.markAsLoaded("categories")
-         }, 2000)
+         }, SKELETON_DELAY)
 
          return () => clearTimeout(timer)
       }

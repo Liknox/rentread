@@ -2,7 +2,7 @@ import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Typography, Skeleton } from "antd"
 import { useEffect, useState } from "react"
 
-import { ROUTES } from "@app/configs/constants"
+import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
 import type { Author } from "@shared/api"
 import { loadingState } from "@shared/lib/loadingState"
@@ -35,7 +35,7 @@ const Authors = () => {
             setAuthors(fakeApi.library.authors.getPopular())
             setIsLoading(false)
             loadingState.markAsLoaded("authors")
-         }, 2000)
+         }, SKELETON_DELAY)
 
          return () => clearTimeout(timer)
       }

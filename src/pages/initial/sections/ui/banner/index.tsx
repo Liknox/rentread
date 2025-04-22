@@ -3,7 +3,7 @@ import { Carousel, Typography, Skeleton } from "antd"
 import { useTranslation } from "react-i18next"
 import { useEffect, useState } from "react"
 
-import { CAROUSEL_TIMER } from "@app/configs/constants"
+import { CAROUSEL_TIMER, SKELETON_DELAY } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
 import { bannerScreen } from "./model"
 import { loadingState } from "@shared/lib/loadingState"
@@ -18,7 +18,7 @@ const Banner = () => {
          const timer = setTimeout(() => {
             setIsLoading(false)
             loadingState.markAsLoaded("banner")
-         }, 2000)
+         }, SKELETON_DELAY)
 
          return () => clearTimeout(timer)
       }

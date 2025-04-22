@@ -100,3 +100,5 @@ export const SORTINGS = {
    3: TRANSLATIONS.catalog.sortBy.options.time,
    4: TRANSLATIONS.catalog.sortBy.options.popularity,
 }
+
+export const SKELETON_DELAY = 2000
