@@ -128,7 +128,7 @@ const BookRow = (props: Props) => {
 }
 
 export const BookRowCard = (props: Props) => (
-   <Card hoverable className="cursor-default md:shadow-[0_1px_2px_var(--color-shadow)]">
+   <Card hoverable className="cursor-default md:shadow-bookRow">
       <BookRow {...props} />
    </Card>
 )

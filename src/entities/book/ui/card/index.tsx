@@ -51,10 +51,7 @@ const BookCard = (props: BookCardProps) => {
    if (isLoading) {
       return (
          <Card
-            className={cn(
-               "relative cursor-default rounded-lg shadow-[2px_2px_22px_var(--color-shadow)] h-[450px]",
-               props.className,
-            )}
+            className={cn("relative cursor-default rounded-lg shadow-bookCard h-[450px]", props.className)}
             cover={<Skeleton.Image active style={{ width: "100%", height: 300 }} />}>
             <Skeleton active paragraph={{ rows: 3 }} />
          </Card>
@@ -80,7 +77,7 @@ const BookCard = (props: BookCardProps) => {
          styles={{ body: bodyStyle[size] }}
          cover={<BookFilled style={imgStyle[size]} />}
          className={cn(
-            "relative cursor-default rounded-lg shadow-[2px_2px_22px_var(--color-shadow)]",
+            "relative cursor-default rounded-lg shadow-bookCard",
             {
                "grayscale opacity-50": asSecondary,
             },

@@ -114,7 +114,7 @@ const Card = ({ book }: BookProps) => {
    return (
       <Col span={isMobile ? "full" : 16}>
          <div className="flex flex-col md:flex-row">
-            <div className="md:w-[450px]">
+            <div className="md:w-[450px] shadow-insetDark">
                <Carousel autoplay autoplaySpeed={CAROUSEL_TIMER} className="dark-slick-dots">
                   {carousel.map(cover => (
                      <div
