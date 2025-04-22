@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { ROUTES } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
 import type { Author } from "@shared/api"
+import { loadingState } from "@shared/lib/loadingState"
 
 import gaiman from "./assets/gaiman.webp"
 import martin from "./assets/martin.webp"
@@ -26,12 +27,18 @@ const Authors = () => {
    const [authors, setAuthors] = useState<Author[]>([])
 
    useEffect(() => {
-      const timer = setTimeout(() => {
+      if (loadingState.hasLoaded("authors")) {
          setAuthors(fakeApi.library.authors.getPopular())
          setIsLoading(false)
-      }, 2000)
+      } else {
+         const timer = setTimeout(() => {
+            setAuthors(fakeApi.library.authors.getPopular())
+            setIsLoading(false)
+            loadingState.markAsLoaded("authors")
+         }, 2000)
 
-      return () => clearTimeout(timer)
+         return () => clearTimeout(timer)
+      }
    }, [])
 
    const authorsKey = "authors"

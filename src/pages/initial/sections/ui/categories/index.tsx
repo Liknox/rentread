@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { ROUTES } from "@app/configs/constants"
 import { fakeApi } from "shared/api"
 import type { Category } from "shared/api"
+import { loadingState } from "@shared/lib/loadingState"
 
 import imgCat1 from "./assets/c1.webp"
 import imgCat2 from "./assets/c2.webp"
@@ -22,12 +23,18 @@ const Categories = () => {
    const router = useRouter()
 
    useEffect(() => {
-      const timer = setTimeout(() => {
+      if (loadingState.hasLoaded("categories")) {
          setCategories(fakeApi.library.categories.getAll())
          setIsLoading(false)
-      }, 2000)
+      } else {
+         const timer = setTimeout(() => {
+            setCategories(fakeApi.library.categories.getAll())
+            setIsLoading(false)
+            loadingState.markAsLoaded("categories")
+         }, 2000)
 
-      return () => clearTimeout(timer)
+         return () => clearTimeout(timer)
+      }
    }, [])
 
    const categoryKey = "cat"
