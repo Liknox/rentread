@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 
 import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
 import { fakeApi } from "shared/api"
-import type { Category } from "shared/api"
 import { loadingState } from "@shared/lib/skeleton/loadingState"
 
 import imgCat1 from "./assets/c1.webp"
@@ -18,24 +17,19 @@ const srcCategoriesMap: Record<number, string> = {
 }
 
 const Categories = () => {
-   const [isLoading, setIsLoading] = useState(true)
-   const [categories, setCategories] = useState<Category[]>([])
+   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("categories"))
+   const categories = fakeApi.library.categories.getAll()
    const router = useRouter()
 
    useEffect(() => {
-      if (loadingState.hasLoaded("categories")) {
-         setCategories(fakeApi.library.categories.getAll())
-         setIsLoading(false)
-      } else {
+      if (isLoading) {
          const timer = setTimeout(() => {
-            setCategories(fakeApi.library.categories.getAll())
             setIsLoading(false)
             loadingState.markAsLoaded("categories")
          }, SKELETON_DELAY)
-
          return () => clearTimeout(timer)
       }
-   }, [])
+   }, [isLoading])
 
    const categoryKey = "cat"
 

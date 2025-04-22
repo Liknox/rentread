@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 
 import { ROUTES, SKELETON_DELAY } from "@app/configs/constants"
 import { fakeApi } from "@shared/api"
-import type { Author } from "@shared/api"
 import { loadingState } from "@shared/lib/skeleton/loadingState"
 
 import gaiman from "./assets/gaiman.webp"
@@ -23,23 +22,18 @@ const srcAuthorsMap: Record<number, string> = {
 
 const Authors = () => {
    const router = useRouter()
-   const [isLoading, setIsLoading] = useState(true)
-   const [authors, setAuthors] = useState<Author[]>([])
+   const [isLoading, setIsLoading] = useState(!loadingState.hasLoaded("authors"))
+   const authors = fakeApi.library.authors.getPopular()
 
    useEffect(() => {
-      if (loadingState.hasLoaded("authors")) {
-         setAuthors(fakeApi.library.authors.getPopular())
-         setIsLoading(false)
-      } else {
+      if (isLoading) {
          const timer = setTimeout(() => {
-            setAuthors(fakeApi.library.authors.getPopular())
             setIsLoading(false)
             loadingState.markAsLoaded("authors")
          }, SKELETON_DELAY)
-
          return () => clearTimeout(timer)
       }
-   }, [])
+   }, [isLoading])
 
    const authorsKey = "authors"
 
