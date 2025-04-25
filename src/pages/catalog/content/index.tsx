@@ -3,14 +3,13 @@ import { useMobileDetection } from "@shared/lib/browser"
 import { Badge, Col, Empty, Layout, Radio, Row, Typography } from "antd"
 import { Button, Drawer, Pagination, Select } from "antd"
 import cn from "classnames"
-import { useState } from "react"
+import { type ForwardedRef, forwardRef, useState } from "react"
 import { useTranslation } from "react-i18next"
 
 import { BOOKS_PER_PAGE, SORTINGS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { scrollToTop } from "@shared/lib/dom"
-import ScrollToTopButton from "@shared/ui/scroll-to-top"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
 import { TariffRadio } from "entities/tariff"
@@ -20,6 +19,7 @@ import { Reserve } from "features/reserve"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 import Sidebar from "../sidebar"
+import { motion } from "framer-motion"
 
 const { Option } = Select
 
@@ -122,7 +122,7 @@ function CatalogContent() {
             <section className="mr-0 md:mr-10" aria-label="books section">
                <Row justify="start" className="!gap-1 md:!gap-0" gutter={[20, 20]} aria-label="books row">
                   {paginatedData.map(b => (
-                     <BookItem key={b.id} data={b} />
+                     <BookItem layout key={b.id} data={b} />
                   ))}
                </Row>
                {!booksQuery.length && (
@@ -162,70 +162,72 @@ function CatalogContent() {
    )
 }
 
-const BookItem = ({ data }: { data: AbstractBook }) => {
-   const { t } = useTranslation()
-   const vtParam = catalogParams.useViewType()
-   const rent = orderLib.getRentInfo(data.id)
-   const ribbon = ribbonPropsTypes[rent.status]
-   const span = vtParam.isGrid ? 8 : 24
-   const isMobile = useMobileDetection()
+const BookItem = motion(
+   forwardRef(({ data }: { data: AbstractBook }, ref: ForwardedRef<HTMLDivElement>) => {
+      const { t } = useTranslation()
+      const vtParam = catalogParams.useViewType()
+      const rent = orderLib.getRentInfo(data.id)
+      const ribbon = ribbonPropsTypes[rent.status]
+      const span = vtParam.isGrid ? 8 : 24
+      const isMobile = useMobileDetection()
 
-   return (
-      <Col span={span} className="mt-4 md:mt-0 !p-0 md:!p-2" aria-label="book column">
-         <Badge.Ribbon
-            text={t(ribbon.text)}
-            color={ribbon.color}
-            style={ribbon.isVisible ? undefined : { display: "none" }}
-            aria-label="ribbon">
-            {vtParam.isGrid && (
-               <BookCard
-                  data={data}
-                  asSecondary={rent.status === "RESERVABLE"}
-                  actions={[
-                     <Fav.Actions.AddBookMini key="fav" bookId={data.id} aria-label="add to favorites" />,
-                     rent.status === "RENTABLE" && (
-                        <Cart.Actions.AddBookMini key="order" bookId={data.id} aria-label="add to cart" />
-                     ),
-                     rent.status === "RESERVABLE" && (
-                        <Reserve.Actions.ReserveBookMini key="reserve" bookId={data.id} aria-label="reserve" />
-                     ),
-                  ].filter(Boolean)}>
-                  <br />
-                  <Typography.Text type="secondary">
-                     {rent.status === "RENTABLE" && (
-                        <span>
-                           {t(TRANSLATIONS.timezone.forRent)} {Math.min(30, rent.duration)}{" "}
-                           {t(TRANSLATIONS.timezone.dayss)}
-                        </span>
-                     )}
-                  </Typography.Text>
-               </BookCard>
-            )}
-            {vtParam.isList && (
-               <BookRowCard
-                  data={data}
-                  asSecondary={rent.status === "RESERVABLE"}
-                  size={isMobile ? "default" : "large"}
-                  actions={
-                     <>
-                        <Fav.Actions.AddBook bookId={data.id} aria-label="add to favorites" />
+      return (
+         <Col span={span} ref={ref} className="mt-4 md:mt-0 !p-0 md:!p-2" aria-label="book column">
+            <Badge.Ribbon
+               text={t(ribbon.text)}
+               color={ribbon.color}
+               style={ribbon.isVisible ? undefined : { display: "none" }}
+               aria-label="ribbon">
+               {vtParam.isGrid && (
+                  <BookCard
+                     data={data}
+                     asSecondary={rent.status === "RESERVABLE"}
+                     actions={[
+                        <Fav.Actions.AddBookMini key="fav" bookId={data.id} aria-label="add to favorites" />,
+                        rent.status === "RENTABLE" && (
+                           <Cart.Actions.AddBookMini key="order" bookId={data.id} aria-label="add to cart" />
+                        ),
+                        rent.status === "RESERVABLE" && (
+                           <Reserve.Actions.ReserveBookMini key="reserve" bookId={data.id} aria-label="reserve" />
+                        ),
+                     ].filter(Boolean)}>
+                     <br />
+                     <Typography.Text type="secondary">
                         {rent.status === "RENTABLE" && (
-                           <Cart.Actions.AddBook bookId={data.id} aria-label="add to cart" />
+                           <span>
+                              {t(TRANSLATIONS.timezone.forRent)} {Math.min(30, rent.duration)}{" "}
+                              {t(TRANSLATIONS.timezone.dayss)}
+                           </span>
                         )}
-                        {rent.status === "RESERVABLE" && (
-                           <Reserve.Actions.ReserveBook bookId={data.id} aria-label="reserve" />
-                        )}
-                        {rent.status !== "RESERVABLE" && !isMobile ? (
-                           <TariffRadio __byDuration={rent.duration} disabled aria-label="tariff radio" />
-                        ) : null}
-                     </>
-                  }
-               />
-            )}
-         </Badge.Ribbon>
-      </Col>
-   )
-}
+                     </Typography.Text>
+                  </BookCard>
+               )}
+               {vtParam.isList && (
+                  <BookRowCard
+                     data={data}
+                     asSecondary={rent.status === "RESERVABLE"}
+                     size={isMobile ? "default" : "large"}
+                     actions={
+                        <>
+                           <Fav.Actions.AddBook bookId={data.id} aria-label="add to favorites" />
+                           {rent.status === "RENTABLE" && (
+                              <Cart.Actions.AddBook bookId={data.id} aria-label="add to cart" />
+                           )}
+                           {rent.status === "RESERVABLE" && (
+                              <Reserve.Actions.ReserveBook bookId={data.id} aria-label="reserve" />
+                           )}
+                           {rent.status !== "RESERVABLE" && !isMobile ? (
+                              <TariffRadio __byDuration={rent.duration} disabled aria-label="tariff radio" />
+                           ) : null}
+                        </>
+                     }
+                  />
+               )}
+            </Badge.Ribbon>
+         </Col>
+      )
+   }),
+)
 
 type Props = {
    setOpen: (e: boolean) => void
