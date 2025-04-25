@@ -68,7 +68,7 @@ const Content = () => {
                               <div
                                  className={cn({
                                     "flex flex-row gap-2": isMobile,
-                                    "flex-col": breakpoint.xl,
+                                    "flex-col": breakpoint.xss,
                                  })}
                                  aria-label="cart actions">
                                  <Cart.Actions.DeleteBook bookId={book.id} aria-label="delete book" />

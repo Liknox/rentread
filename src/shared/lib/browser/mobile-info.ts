@@ -33,9 +33,9 @@ export const useMobileDetection = () => {
    return isMobileView
 }
 
-// Hook to get specific breakpoints for more precise responsive design
 export const useBreakpoint = () => {
    const [breakpoint, setBreakpoint] = useState({
+      xss: false, // < 360px
       xs: false, // < 576px
       sm: false, // >= 576px
       md: false, // >= 768px
@@ -47,6 +47,7 @@ export const useBreakpoint = () => {
       const handleResize = () => {
          const width = window.innerWidth
          setBreakpoint({
+            xss: width < 360,
             xs: width < 576,
             sm: width >= 576 && width < 768,
             md: width >= 768 && width < 992,
