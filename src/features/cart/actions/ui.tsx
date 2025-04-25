@@ -7,9 +7,9 @@ import { useTranslation } from "react-i18next"
 import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { alert } from "@shared/lib"
+import { useMobileDetection } from "@shared/lib/browser"
 import { bookModel } from "entities/book"
 import { orderModel } from "entities/order"
-import { useMobileDetection } from "@shared/lib/browser"
 
 type Props = {
    bookId: number

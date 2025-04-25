@@ -19,6 +19,7 @@ import { Reserve } from "features/reserve"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 import Sidebar from "../sidebar"
+import ScrollToTopButton from "./ScrollToTopButton"
 
 const { Option } = Select
 
@@ -95,6 +96,7 @@ function CatalogContent() {
    return (
       <>
          <Layout aria-label="catalog layout">
+            {isMobile && <ScrollToTopButton />}
             <section className="flex md:mr-10 mb-2 text-xl" aria-label="sort filter options">
                <SortFilterOptions setOpen={setOpen} />
                {isMobile || (
