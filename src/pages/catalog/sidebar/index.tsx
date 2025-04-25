@@ -7,8 +7,6 @@ import { fakeApi } from "@shared/api"
 import { useMobileDetection } from "@shared/lib/browser"
 import * as catalogParams from "../params"
 
-const { Panel } = Collapse
-
 type SidebarProps = {
    className?: string
 }
@@ -25,38 +23,46 @@ function Sidebar({ className = "" }: SidebarProps) {
             </Typography.Title>
 
             {isMobile ? (
-               <Collapse defaultActiveKey={["1", "2", "3", "4"]} ghost aria-label="filters collapse">
-                  <Panel
-                     style={{ backgroundColor: "#f1f1ff" }}
-                     header={t(TRANSLATIONS.catalog.filters.sections.exists.title)}
-                     key="1"
-                     aria-label="exists only">
-                     <ExistsOnlySection />
-                  </Panel>
-                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.rentPrice)} key="2" aria-label="rent price">
-                     <PriceSection />
-                  </Panel>
-                  <Panel
-                     style={{ backgroundColor: "#f1f1ff" }}
-                     header={t(TRANSLATIONS.catalog.filters.sections.rentTerms)}
-                     key="3"
-                     aria-label="rent terms">
-                     <TimeSection />
-                  </Panel>
-                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.categories)} key="4" aria-label="categories">
-                     <CategorySection />
-                  </Panel>
-                  <Panel
-                     style={{ backgroundColor: "#f1f1ff" }}
-                     header={t(TRANSLATIONS.catalog.filters.sections.authors)}
-                     key="5"
-                     aria-label="authors">
-                     <AuthorSection />
-                  </Panel>
-                  <Panel header={t(TRANSLATIONS.catalog.filters.sections.publishers)} key="6" aria-label="publishers">
-                     <PublisherSection />
-                  </Panel>
-               </Collapse>
+               <Collapse
+                  defaultActiveKey={["1", "2", "3", "4"]}
+                  ghost
+                  aria-label="filters collapse"
+                  items={[
+                     {
+                        key: "1",
+                        label: t(TRANSLATIONS.catalog.filters.sections.exists.title),
+                        style: { backgroundColor: "#f1f1ff" },
+                        children: <ExistsOnlySection />,
+                     },
+                     {
+                        key: "2",
+                        label: t(TRANSLATIONS.catalog.filters.sections.rentPrice),
+                        children: <PriceSection />,
+                     },
+                     {
+                        key: "3",
+                        label: t(TRANSLATIONS.catalog.filters.sections.rentTerms),
+                        style: { backgroundColor: "#f1f1ff" },
+                        children: <TimeSection />,
+                     },
+                     {
+                        key: "4",
+                        label: t(TRANSLATIONS.catalog.filters.sections.categories),
+                        children: <CategorySection />,
+                     },
+                     {
+                        key: "5",
+                        label: t(TRANSLATIONS.catalog.filters.sections.authors),
+                        style: { backgroundColor: "#f1f1ff" },
+                        children: <AuthorSection />,
+                     },
+                     {
+                        key: "6",
+                        label: t(TRANSLATIONS.catalog.filters.sections.publishers),
+                        children: <PublisherSection />,
+                     },
+                  ]}
+               />
             ) : (
                <>
                   <ExistsOnlySection />
