@@ -29,7 +29,9 @@ const Banner = () => {
                         <Link to={banner.linkHref} className="text-lightPrimary">
                            {t(banner.info)}
                         </Link>
-                     ) : null}
+                     ) : (
+                        t(banner.info)
+                     )}
                   </Typography.Text>
                   <img
                      className="absolute top-0 left-0 w-full h-full object-cover"
