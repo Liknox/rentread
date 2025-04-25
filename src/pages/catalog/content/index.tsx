@@ -96,7 +96,6 @@ function CatalogContent() {
    return (
       <>
          <Layout aria-label="catalog layout">
-            {isMobile && <ScrollToTopButton />}
             <section className="flex md:mr-10 mb-2 text-xl" aria-label="sort filter options">
                <SortFilterOptions setOpen={setOpen} />
                {isMobile || (
