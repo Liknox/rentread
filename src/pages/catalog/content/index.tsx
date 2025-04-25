@@ -10,6 +10,7 @@ import { BOOKS_PER_PAGE, SORTINGS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { scrollToTop } from "@shared/lib/dom"
+import ScrollToTopButton from "@shared/ui/scroll-to-top"
 import { BookCard, BookRowCard } from "entities/book"
 import { orderLib } from "entities/order"
 import { TariffRadio } from "entities/tariff"
@@ -19,7 +20,6 @@ import { Reserve } from "features/reserve"
 import { headerParams } from "widgets/header"
 import * as catalogParams from "../params"
 import Sidebar from "../sidebar"
-import ScrollToTopButton from "./ScrollToTopButton"
 
 const { Option } = Select
 
