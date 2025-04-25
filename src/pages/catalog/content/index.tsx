@@ -11,7 +11,6 @@ import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { scrollToTop } from "@shared/lib/dom"
 import { orderLib } from "entities/order"
-import { headerParams } from "widgets/header"
 import { catalogParams } from "@shared/lib"
 import Sidebar from "../sidebar"
 import { BookItem } from "entities/bookItem/ui/bookItem"
@@ -24,7 +23,7 @@ const viewTypes = [
 ]
 
 const useFilters = () => {
-   const params = headerParams.useSearchParam()
+   const params = catalogParams.useSearchParam()
    const { authors } = catalogParams.useFilterByAuthor()
    const { publishers } = catalogParams.useFilterByPublisher()
    const { categories } = catalogParams.useFilterByCategory()
