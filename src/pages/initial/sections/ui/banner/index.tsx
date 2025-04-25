@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"
 
 import { CAROUSEL_TIMER, SKELETON_KEYS } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
-import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
+import { useSkeleton } from "@shared/lib"
 import { bannerScreen } from "./model"
 
 const Banner = () => {

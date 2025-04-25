@@ -3,7 +3,7 @@ import type { FC, ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 
 import { SKELETON_KEYS } from "@app/configs/constants"
-import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
+import { useSkeleton } from "@shared/lib"
 import { sections } from "./model"
 
 type SectionWrapperTypes = {

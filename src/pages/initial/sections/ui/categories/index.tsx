@@ -2,7 +2,7 @@ import { useRouter } from "@tanstack/react-router"
 import { Col, Row, Skeleton, Typography } from "antd"
 
 import { ROUTES, SKELETON_KEYS } from "@app/configs/constants"
-import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
+import { useSkeleton } from "@shared/lib"
 import { fakeApi } from "shared/api"
 
 import imgCat1 from "./assets/c1.webp"

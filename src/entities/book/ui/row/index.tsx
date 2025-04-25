@@ -6,7 +6,7 @@ import type { CSSProperties, ReactNode } from "react"
 
 import { ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { useMobileDetection } from "@shared/lib/browser"
-import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
+import { useSkeleton } from "@shared/lib"
 import { textOverflow } from "@shared/lib/string"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"

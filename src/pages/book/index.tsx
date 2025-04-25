@@ -9,7 +9,7 @@ import { CAROUSEL_TIMER, ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
 import { useMobileDetection } from "@shared/lib/browser"
-import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
+import { useSkeleton } from "@shared/lib"
 
 import { BookCard } from "entities/book"
 import { orderLib, orderModel } from "entities/order"

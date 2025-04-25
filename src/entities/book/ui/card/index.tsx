@@ -13,7 +13,7 @@ import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
 import { string } from "shared/lib"
 
-import { useSkeleton } from "@shared/lib/skeleton/useSkeleton"
+import { useSkeleton } from "@shared/lib"
 
 type Size = "default" | "small" | "mini"
 
