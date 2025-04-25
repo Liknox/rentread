@@ -29,7 +29,7 @@ const createNotification = (type: IconType, message: string, description?: React
       placement: mergedOptions.placement,
       icon: mergedOptions.icon,
       closable: mergedOptions.closable,
-      className: mergedOptions.className,
+      className: `alert-notification ${mergedOptions.className || ""}`,
       onClose: mergedOptions.onClose,
       ...(mergedOptions.props || {}),
    })

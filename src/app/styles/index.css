@@ -25,3 +25,13 @@
    align-items: center;
    justify-content: center;
 }
+
+/* alert on mobile screen */
+@media (max-width: 768px) {
+   .alert-notification {
+      padding: 10px 24px !important;
+   }
+   .ant-notification-notice-message {
+      margin-bottom: 4px !important;
+   }
+}
