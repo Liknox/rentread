@@ -18,9 +18,9 @@ export default {
          },
          boxShadow: {
             inset: "0 4px 8px var(--color-shadow)",
-            insetDark: "0 4px 14px var(--color-shadow)",
+            insetDark: "0 6px 18px var(--color-shadow)",
             bookCard: "2px 2px 10px var(--color-shadow)",
-            bookRow: "0 2px 6px var(--color-shadow)",
+            bookRow: "0 1px 3px var(--color-shadow)",
          },
       },
    },

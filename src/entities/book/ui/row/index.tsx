@@ -128,7 +128,7 @@ const BookRow = (props: Props) => {
 }
 
 export const BookRowCard = (props: Props) => (
-   <Card hoverable className="cursor-default md:shadow-bookRow">
+   <Card hoverable className="card-row-shadow cursor-default md:shadow-bookRow">
       <BookRow {...props} />
    </Card>
 )
