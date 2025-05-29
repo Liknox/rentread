@@ -53,7 +53,8 @@ const Authors = () => {
                           className="brightness-[0.3] bg-cover max-w-max"
                           src={srcAuthorsMap[author.id]}
                           alt={`${fakeApi.library.authors.getShortname(author)} portrait`}
-                          width={200}
+                          width={"100%"}
+                          height={"100%"}
                        />
                     </div>
                  </Col>
