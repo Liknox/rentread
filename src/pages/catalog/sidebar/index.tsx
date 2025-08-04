@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next"
 import { PRICES, TARIFFS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { fakeApi } from "@shared/api"
-import { useMobileDetection } from "@shared/lib/browser"
 import { catalogParams } from "@shared/lib"
+import { useMobileDetection } from "@shared/lib/browser"
 
 type SidebarProps = {
    className?: string

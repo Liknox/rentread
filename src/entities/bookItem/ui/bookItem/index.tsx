@@ -1,5 +1,5 @@
 import { TRANSLATIONS } from "@app/configs/constants/translation"
-import { AbstractBook } from "@shared/api"
+import type { AbstractBook } from "@shared/api"
 import { catalogParams } from "@shared/lib"
 import { useMobileDetection } from "@shared/lib/browser"
 import { Badge, Col, Typography } from "antd"
@@ -10,7 +10,7 @@ import { Cart } from "features/cart"
 import { Fav } from "features/fav"
 import { Reserve } from "features/reserve"
 import { motion } from "framer-motion"
-import { ForwardedRef, forwardRef } from "react"
+import { type ForwardedRef, forwardRef } from "react"
 import { useTranslation } from "react-i18next"
 
 const ribbonPropsTypes = {

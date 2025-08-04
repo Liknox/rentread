@@ -6,10 +6,10 @@ import { useTranslation } from "react-i18next"
 import { ROUTES } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useBreakpoint, useMobileDetection } from "@shared/lib/browser"
+import { useSearchParam } from "@shared/lib/url-params"
 import { BookRow } from "entities/book"
 import type { AbstractBook } from "shared/api"
 import { fakeApi } from "shared/api"
-import { useSearchParam } from "@shared/lib/url-params"
 
 // const initialQuery = fakeApi.library.books.getAll();
 const initialQuery: AbstractBook[] = []

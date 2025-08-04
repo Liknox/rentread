@@ -9,11 +9,11 @@ import { useTranslation } from "react-i18next"
 import { BOOKS_PER_PAGE, SORTINGS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { type AbstractBook, fakeApi } from "@shared/api"
-import { scrollToTop } from "@shared/lib/dom"
-import { orderLib } from "entities/order"
 import { catalogParams } from "@shared/lib"
-import Sidebar from "../sidebar"
+import { scrollToTop } from "@shared/lib/dom"
 import { BookItem } from "entities/bookItem/ui/bookItem"
+import { orderLib } from "entities/order"
+import Sidebar from "../sidebar"
 
 const { Option } = Select
 
