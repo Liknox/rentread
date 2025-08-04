@@ -18,7 +18,7 @@ export const Aside = () => {
          <div className="p-10 text-center shadow-insetDark rounded-md">
             <section className="flex flex-col items-center">
                <Avatar size={128} icon={<UserOutlined />} />
-               <Typography.Title level={3} className="mt-10">
+               <Typography.Title level={3} className="mt-10 !text-[2.5rem] !mb-2">
                   {viewer.firstName} {viewer.lastName}
                </Typography.Title>
                <Typography.Text>
