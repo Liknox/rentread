@@ -22,7 +22,11 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
    }
 
    componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-      console.error(this.props.t(TRANSLATIONS.errorBoundary.application), error, errorInfo)
+      console.error("[ErrorBoundary]", this.props.t(TRANSLATIONS.errorBoundary.application), {
+         error: error.message,
+         stack: error.stack,
+         componentStack: errorInfo.componentStack,
+      })
    }
 
    render(): ReactNode {
