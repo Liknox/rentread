@@ -2,7 +2,7 @@ import { create } from "zustand"
 
 import { PERSIST_STORE_ITEMS } from "@app/configs/constants"
 import { initLSItem } from "@shared/lib/browser"
-import { fakeApi } from "shared/api"
+import { fakeApi } from "@shared/api"
 
 interface FavState {
    fav: number[]

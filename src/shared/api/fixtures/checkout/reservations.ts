@@ -1,6 +1,6 @@
 import dayjs from "dayjs"
 
-import type { Reservation } from "shared/api"
+import type { Reservation } from "@shared/api"
 
 // FIXME: hardcoded! dry!
 const VIEWER_ID = 4

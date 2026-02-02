@@ -1,7 +1,7 @@
 import { create } from "zustand"
 
-import { fakeApi } from "shared/api"
-import type { AbstractBook } from "shared/api"
+import { fakeApi } from "@shared/api"
+import type { AbstractBook } from "@shared/api"
 
 // fetch effect later
 const initialBooks = fakeApi.library.books.getAll()

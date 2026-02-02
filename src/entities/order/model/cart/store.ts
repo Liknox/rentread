@@ -88,8 +88,9 @@ export const useDurationsStore = create<DurationsState>(set => {
             return { durations: {} }
          }),
       reset: () => {
-         lsItem.setValue([])
-         set({ durations: [] })
+         console.log("$durations RESET")
+         lsItem.setValue({})
+         set({ durations: {} })
       },
    }
 })

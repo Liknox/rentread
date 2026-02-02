@@ -65,9 +65,7 @@ export const ROUTES = {
    ALL: "/*",
 }
 
-type MapAnchorsType = { [key: string]: [number, number] }
-
-export const MAP_ANCHORS: MapAnchorsType = {
+export const MAP_ANCHORS: Record<string, [number, number]> = {
    DEFAULT: [49.8515, 24.0295],
    OPERA: [49.84403, 24.02625],
    MCDONALDS: [49.8564, 24.0224],

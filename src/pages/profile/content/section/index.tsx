@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next"
 
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { BookCard } from "entities/book"
-import type { AbstractBook, Book } from "shared/api"
+import type { AbstractBook, Book } from "@shared/api"
 
 type Props<T> = {
    id: string
