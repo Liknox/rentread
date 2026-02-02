@@ -18,100 +18,100 @@ import { useSkeleton } from "@shared/lib"
 type Size = "default" | "small" | "mini"
 
 type BookCardProps = {
-   data: AbstractBook
-   children?: ReactNode
-   className?: string
-   size?: Size
-   actions?: ReactNode[]
-   withDescription?: boolean
-   withPrice?: boolean
-   asSecondary?: boolean
+  data: AbstractBook
+  children?: ReactNode
+  className?: string
+  size?: Size
+  actions?: ReactNode[]
+  withDescription?: boolean
+  withPrice?: boolean
+  asSecondary?: boolean
 }
 
 const bodyStyle: Record<Size, CSSProperties> = {
-   default: { height: 176 },
-   small: { height: 176 },
-   mini: { display: "none" },
+  default: { height: 176 },
+  small: { height: 176 },
+  mini: { display: "none" },
 }
 
 const imgStyle: Record<Size, CSSProperties> = {
-   default: { padding: "100px 0", fontSize: 100 },
-   small: { padding: "80px 0", fontSize: 100 },
-   mini: { padding: "40px 0", fontSize: 70 },
+  default: { padding: "100px 0", fontSize: 100 },
+  small: { padding: "80px 0", fontSize: 100 },
+  mini: { padding: "40px 0", fontSize: 70 },
 }
 
 const BookCard = (props: BookCardProps) => {
-   const { t } = useTranslation()
-   const isMobileView = useMobileDetection()
-   const isLoading = useSkeleton(SKELETON_KEYS.BOOK_CARD)
+  const { t } = useTranslation()
+  const isMobileView = useMobileDetection()
+  const isLoading = useSkeleton(SKELETON_KEYS.BOOK_CARD)
 
-   /**
-    * @component Skeleton
-    */
-   if (isLoading) {
-      return (
-         <Card
-            className={cn("relative cursor-default rounded-lg shadow-bookCard h-[450px]", props.className)}
-            cover={<Skeleton.Image active style={{ width: "100%", height: 300 }} />}>
-            <Skeleton active paragraph={{ rows: 3 }} />
-         </Card>
-      )
-   }
-
-   const { data: book, className, size = "default", children, actions, withPrice = true, asSecondary } = props
-
-   const author = book.authors.map(fakeApi.library.authors.getShortname).join(", ")
-   const publisher = `${book.publishingHouse.name}`
-   const title = `${author} — ${book.name}`
-   const description = `${publisher} (${book.publicationYear})`
-
-   const isDefault = size === "default"
-   const isMini = size === "mini"
-   const withDescription = props.withDescription || isDefault
-   const maxTitleLength = isMobileView ? 30 : 50
-
-   return (
+  /**
+   * @component Skeleton
+   */
+  if (isLoading) {
+    return (
       <Card
-         key={book.id}
-         hoverable
-         styles={{ body: bodyStyle[size] }}
-         cover={<BookFilled style={imgStyle[size]} />}
-         className={cn(
-            "relative cursor-default rounded-lg shadow-bookCard",
-            {
-               "grayscale opacity-50": asSecondary,
-            },
-            className,
-         )}
-         actions={isMini || !actions?.length ? undefined : actions}>
-         <Card.Meta
-            className="space-y-2"
-            title={
-               <div className="flex flex-col">
-                  {withPrice && (
-                     <span className="font-semibold text-[20px]">
-                        {t(TRANSLATIONS.book.from)} {fakeApi.library.books.getPrice(book)} $
-                     </span>
-                  )}
-                  {!isMini && (
-                     <Link
-                        to={`${ROUTES.BOOK}/${book.id}`}
-                        title={title}
-                        className="text-blue-500 hover:underline whitespace-normal">
-                        {string.textOverflow(title, maxTitleLength)}
-                     </Link>
-                  )}
-               </div>
-            }
-            description={
-               <div>
-                  {withDescription && <span className="text-gray-600">{description}</span>}
-                  {children}
-               </div>
-            }
-         />
+        className={cn("relative cursor-default rounded-lg shadow-bookCard h-[450px]", props.className)}
+        cover={<Skeleton.Image active style={{ width: "100%", height: 300 }} />}>
+        <Skeleton active paragraph={{ rows: 3 }} />
       </Card>
-   )
+    )
+  }
+
+  const { data: book, className, size = "default", children, actions, withPrice = true, asSecondary } = props
+
+  const author = book.authors.map(fakeApi.library.authors.getShortname).join(", ")
+  const publisher = `${book.publishingHouse.name}`
+  const title = `${author} — ${book.name}`
+  const description = `${publisher} (${book.publicationYear})`
+
+  const isDefault = size === "default"
+  const isMini = size === "mini"
+  const withDescription = props.withDescription || isDefault
+  const maxTitleLength = isMobileView ? 30 : 50
+
+  return (
+    <Card
+      key={book.id}
+      hoverable
+      styles={{ body: bodyStyle[size] }}
+      cover={<BookFilled style={imgStyle[size]} />}
+      className={cn(
+        "relative cursor-default rounded-lg shadow-bookCard",
+        {
+          "grayscale opacity-50": asSecondary,
+        },
+        className,
+      )}
+      actions={isMini || !actions?.length ? undefined : actions}>
+      <Card.Meta
+        className="space-y-2"
+        title={
+          <div className="flex flex-col">
+            {withPrice && (
+              <span className="font-semibold text-[20px]">
+                {t(TRANSLATIONS.book.from)} {fakeApi.library.books.getPrice(book)} $
+              </span>
+            )}
+            {!isMini && (
+              <Link
+                to={`${ROUTES.BOOK}/${book.id}`}
+                title={title}
+                className="text-blue-500 hover:underline whitespace-normal">
+                {string.textOverflow(title, maxTitleLength)}
+              </Link>
+            )}
+          </div>
+        }
+        description={
+          <div>
+            {withDescription && <span className="text-gray-600">{description}</span>}
+            {children}
+          </div>
+        }
+      />
+    </Card>
+  )
 }
 
 export default BookCard

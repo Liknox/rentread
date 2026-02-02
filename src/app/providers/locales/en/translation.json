@@ -1,319 +1,319 @@
 {
-   "initial": {
-      "sections": {
-         "banner": {
-            "about": {
-               "title": "About us",
-               "subtitle": "Our service allows people to exchange books.",
-               "description": "The owner of a book can give it to the service to offer it for rent to those interested."
-            },
-            "personal": {
-               "title": "Personal account",
-               "subtitle": "In your personal account, you can see information about your personal books, books in your possession, reserved books, favorites, as well as your rental history in general.",
-               "description": "There you will also find other details that interest you."
-            },
-            "catalog": {
-               "title": "Catalog",
-               "subtitle": "Flexible search with filters and suitable sorting.",
-               "description": "Adapted to your financial expectations and rental period."
-            },
-            "meetUp": {
-               "title": "Book Meetup #4",
-               "subtitle": "Yellow Place Company (Lviv Coffee House)",
-               "description": "There you can pick up your latest ordered books!"
-            },
-            "street": "Lviv, Pidvalna 5",
-            "goTo": "Go to"
-         },
-         "categories": {
-            "title": "Book Categories"
-         },
-         "authors": {
-            "title": "Popular Authors"
-         },
-         "books": {
-            "title": "Popular Books"
-         }
+  "initial": {
+    "sections": {
+      "banner": {
+        "about": {
+          "title": "About us",
+          "subtitle": "Our service allows people to exchange books.",
+          "description": "The owner of a book can give it to the service to offer it for rent to those interested."
+        },
+        "personal": {
+          "title": "Personal account",
+          "subtitle": "In your personal account, you can see information about your personal books, books in your possession, reserved books, favorites, as well as your rental history in general.",
+          "description": "There you will also find other details that interest you."
+        },
+        "catalog": {
+          "title": "Catalog",
+          "subtitle": "Flexible search with filters and suitable sorting.",
+          "description": "Adapted to your financial expectations and rental period."
+        },
+        "meetUp": {
+          "title": "Book Meetup #4",
+          "subtitle": "Yellow Place Company (Lviv Coffee House)",
+          "description": "There you can pick up your latest ordered books!"
+        },
+        "street": "Lviv, Pidvalna 5",
+        "goTo": "Go to"
+      },
+      "categories": {
+        "title": "Book Categories"
+      },
+      "authors": {
+        "title": "Popular Authors"
+      },
+      "books": {
+        "title": "Popular Books"
       }
-   },
-   "about": {
-      "sections": {
-         "hero": {
-            "text": "Our service allows people to exchange books. The owner of a book can give it to the service to offer it for rent to those interested.",
-            "text2": "The book can be given away permanently or temporarily. Those interested can use the book for a chosen period and pay less for it than the book costs in the store.",
-            "button": "Try it out!"
-         },
-         "benefits": {
-            "title": "Books - New Assets",
-            "text1": "On the other hand, book-sharing allows you to avoid spending a lot of money to explore books you're interested in.",
-            "text2": "will help you get the books you need, for just the right amount of time and without overpaying!",
-            "bold": "Rentread"
-         },
-         "features": {
-            "title": "Features",
-            "text1": "- Convenient database search",
-            "text2": "- Database of all books available to the service",
-            "text3": "- Rental and payment mechanisms",
-            "text4": "- Internal logic for calculating interest",
-            "text5": "- Rating system",
-            "text6": "- Notification system for events",
-            "text7": "- Mechanisms for conducting secure transactions"
-         },
-         "socials": {
-            "title": "Finding Like-Minded People",
-            "text": "Paper books are being reimagined. They are no longer just a source of knowledge but also a foundation for community: from finding like-minded individuals to sharing experiences.",
-            "text2": "Professional communities and groups of friends are built around the same books."
-         }
+    }
+  },
+  "about": {
+    "sections": {
+      "hero": {
+        "text": "Our service allows people to exchange books. The owner of a book can give it to the service to offer it for rent to those interested.",
+        "text2": "The book can be given away permanently or temporarily. Those interested can use the book for a chosen period and pay less for it than the book costs in the store.",
+        "button": "Try it out!"
+      },
+      "benefits": {
+        "title": "Books - New Assets",
+        "text1": "On the other hand, book-sharing allows you to avoid spending a lot of money to explore books you're interested in.",
+        "text2": "will help you get the books you need, for just the right amount of time and without overpaying!",
+        "bold": "Rentread"
+      },
+      "features": {
+        "title": "Features",
+        "text1": "- Convenient database search",
+        "text2": "- Database of all books available to the service",
+        "text3": "- Rental and payment mechanisms",
+        "text4": "- Internal logic for calculating interest",
+        "text5": "- Rating system",
+        "text6": "- Notification system for events",
+        "text7": "- Mechanisms for conducting secure transactions"
+      },
+      "socials": {
+        "title": "Finding Like-Minded People",
+        "text": "Paper books are being reimagined. They are no longer just a source of knowledge but also a foundation for community: from finding like-minded individuals to sharing experiences.",
+        "text2": "Professional communities and groups of friends are built around the same books."
       }
-   },
-   "footer": {
-      "name": "Nazar Koval",
-      "text": "Github"
-   },
-   "demoAlert": {
-      "text": "This is only a demo version of the service client. No real transactions or operations are being conducted!",
-      "close": "Close"
-   },
-   "pageTitle": {
-      "cart": "Cart | Rentread",
-      "about": "About us | RentRead",
-      "catalog": "Catalog | RentRead",
-      "profile": "Profile | RentRead",
-      "checkout": "Checkout | Rentread",
-      "notFound": "Not Found Page | RentRead",
-      "initial": "RentRead | Rent Books Service",
-      "result": "Order Confirmation Page | Rentread"
-   },
-   "features": {
-      "wallet": {
-         "title": "Wallet Deposit",
-         "text": "**The payment will be processed on an external service that complies with PCI DSS security standards.**",
-         "button": "Deposit",
-         "placeholder": "Enter the required amount...",
-         "help": {
-            "start": "Minimum payment is",
-            "end": "maximum "
-         }
+    }
+  },
+  "footer": {
+    "name": "Nazar Koval",
+    "text": "Github"
+  },
+  "demoAlert": {
+    "text": "This is only a demo version of the service client. No real transactions or operations are being conducted!",
+    "close": "Close"
+  },
+  "pageTitle": {
+    "cart": "Cart | Rentread",
+    "about": "About us | RentRead",
+    "catalog": "Catalog | RentRead",
+    "profile": "Profile | RentRead",
+    "checkout": "Checkout | Rentread",
+    "notFound": "Not Found Page | RentRead",
+    "initial": "RentRead | Rent Books Service",
+    "result": "Order Confirmation Page | Rentread"
+  },
+  "features": {
+    "wallet": {
+      "title": "Wallet Deposit",
+      "text": "**The payment will be processed on an external service that complies with PCI DSS security standards.**",
+      "button": "Deposit",
+      "placeholder": "Enter the required amount...",
+      "help": {
+        "start": "Minimum payment is",
+        "end": "maximum "
       }
-   },
-   "header": {
+    }
+  },
+  "header": {
+    "options": {
+      "catalog": "Catalog",
+      "orders": "Orders",
+      "favorites": "Favorites",
+      "cart": "Cart",
+      "profile": "Profile"
+    },
+    "placeholders": {
+      "searchPlaceholder": "Search books",
+      "notAvailable": "So far, this function is not available",
+      "minLength": "Clarify the request (minimum 3 characters)",
+      "notFound": "Nothing found - try an advanced search."
+    }
+  },
+  "catalog": {
+    "title": "Books Catalog",
+    "foundNothing": "Couldn't find anything matching your request.",
+    "sortBy": {
+      "title": "Sort by",
       "options": {
-         "catalog": "Catalog",
-         "orders": "Orders",
-         "favorites": "Favorites",
-         "cart": "Cart",
-         "profile": "Profile"
-      },
-      "placeholders": {
-         "searchPlaceholder": "Search books",
-         "notAvailable": "So far, this function is not available",
-         "minLength": "Clarify the request (minimum 3 characters)",
-         "notFound": "Nothing found - try an advanced search."
+        "popularity": "popularity",
+        "price": "price",
+        "time": "time",
+        "novelty": "novelty"
       }
-   },
-   "catalog": {
-      "title": "Books Catalog",
-      "foundNothing": "Couldn't find anything matching your request.",
-      "sortBy": {
-         "title": "Sort by",
-         "options": {
-            "popularity": "popularity",
-            "price": "price",
-            "time": "time",
-            "novelty": "novelty"
-         }
-      },
-      "filters": {
-         "title": "Filters",
-         "sections": {
-            "exists": {
-               "title": "General",
-               "option": "Only Available"
-            },
-            "rentPrice": "Rent Price",
-            "rentTerms": "Rent Terms",
-            "days": "d",
-            "categories": "Categories",
-            "authors": "Authors",
-            "publishers": "Publishers"
-         }
-      },
-      "ribbon": {
-         "popular": "Popular",
-         "notAvailable": "Not Available"
+    },
+    "filters": {
+      "title": "Filters",
+      "sections": {
+        "exists": {
+          "title": "General",
+          "option": "Only Available"
+        },
+        "rentPrice": "Rent Price",
+        "rentTerms": "Rent Terms",
+        "days": "d",
+        "categories": "Categories",
+        "authors": "Authors",
+        "publishers": "Publishers"
       }
-   },
-   "actions": {
-      "favorites": {
-         "addText": "Add to Favorites",
-         "addText2": "Add to Fav",
-         "removeText": "Remove Fav",
-         "removeText2": "Remove from Favorites"
-      },
-      "cart": {
-         "addText": "Add to Cart",
-         "addText2": "Add to Cart",
-         "removeText": "Remove from Cart",
-         "removeText2": "Remove from Cart"
-      },
-      "reservation": {
-         "addText": "Reserve",
-         "removeText": "Cancel Reservation"
-      },
-      "modal": {
-         "title": "Are you sure you want to remove the book from the order?",
-         "description": "This action cannot be undone.",
-         "yes": "Yes",
-         "no": "No"
-      },
-      "remove": "Remove",
-      "tarrifButton": "d"
-   },
-   "tooltip": {
-      "confirmationAwaiting": "Confirmation awaiting",
-      "emailVerified": "Email verified"
-   },
-   "tiles": {
-      "text1": "Service user since",
-      "text2": "Saved"
-   },
-   "anchors": {
-      "rented": {
-         "title": "Rented",
-         "fullTitle": "Rented books",
-         "description": "Books on hands"
-      },
-      "reserved": {
-         "title": "Reserved",
-         "fullTitle": "Reserved books",
-         "description": "Added to a rent queue"
-      },
-      "favorites": {
-         "title": "Favorites",
-         "fullTitle": "Favorite books",
-         "description": "Books in Favorites"
-      },
-      "history": {
-         "title": "History",
-         "fullTitle": "Recently rented books",
-         "description": "Recent orders books"
-      }
-   },
-   "timezone": {
-      "day": "day",
-      "days": "days",
-      "dayss": "days",
-      "willBe": "Will be delivered in",
-      "remained": "Remained:",
-      "forRent": "For rent up to",
-      "couldBeRent": "Place your order within two days to keep your spot in the queue.",
-      "waitingTime": "Waiting time: ~",
-      "yourTurn": "It's your turn!",
-      "yourQueue": "Your number in queue:"
-   },
-   "order": {
-      "steps": {
-         "cartTitle": "Cart",
-         "checkoutTitle": "Checkout",
-         "deliveryTitle": "Delivery",
-         "cartDescription": "Check your choice",
-         "checkoutDescription": "Payment and delivery selection",
-         "deliveryDescription": "Order pickup"
-      },
-      "cart": {
-         "title": "Cart",
-         "subtitle": "Order contents",
-         "description": "Check selected books before checkout",
-         "empty": "Order is empty",
-         "commTitle": "Take a closer look as well",
-         "commDescr": "A selection of recommended books based on your order"
-      },
-      "sidebar": {
-         "book": "book",
-         "books": "books",
-         "bookss": "books",
-         "for": "For",
-         "duration": "d.",
-         "total": "Total",
-         "empty": "Order is empty",
-         "proceed": "Proceed to checkout",
-         "fee": "Service fee (7%)"
-      },
-      "checkout": {
-         "returnToCart": "Return to cart",
-         "title": "Order processing",
-         "subtitle": "Payment",
-         "description": "Funds will be deducted from your internal wallet",
-         "deliveryTitle": "Delivery",
-         "deliveryDescription": "Specify and verify the delivery method and address.",
-         "sufficientMoney": "Sufficient funds on the account",
-         "insufficientMoney": "Insufficient funds on the account",
-         "deliveryMethod": "Select a delivery method",
-         "nearestMeetUp": "Pick up at the nearest meetup in a coffee shop",
-         "deliveryAddress": "Chose delivery address...",
-         "deliveryTime": "Chose delivery time...",
-         "deliveryCoffee": "Chose coffee shop...",
-         "payOrder": "Pay for the order",
-         "yourOrder": "Your order"
-      },
-      "result": {
-         "text": "The order has been successfully paid and completed!",
-         "description": "Please wait for delivery within the timeframe specified in your order.",
-         "toOrder": "To your order",
-         "toCatalog": "To Catalog"
-      }
-   },
-   "book": {
-      "empty": "Empty",
-      "from": "from",
-      "breadcrumbs": "Catalog",
-      "bookNotFound": "Book not found",
-      "about": "About Book",
-      "author": "Author",
-      "year": "Year",
-      "publisher": "Publisher",
-      "sameAuthor": "By the same author",
-      "deliveryByCourier": "Delivery by courier service within 2 days.",
-      "tooltip": "The price is very volatile, so it may change at any time.",
-      "descrTooltip": "Translation is temporarily unavailable",
-      "forRent": "For rent until",
-      "reservable": {
-         "title": "You can reserve",
-         "subtitle": "At the moment, all copies of this book are taken.",
-         "description": "You can place a reservation on it to rent it once it becomes available and your turn comes."
-      },
-      "outOfStock": {
-         "title": "Out of stock",
-         "subtitle": "At the moment, there are no copies of this book from users in the service.",
-         "description": "You can place a reservation on it to rent it once it becomes available and your turn comes, or add it to your favorites."
-      }
-   },
-   "alert": {
-      "cart": {
-         "add": "Added to cart!",
-         "remove": "Removed from cart"
-      },
-      "favorites": {
-         "add": "Added to favorites!",
-         "remove": "Removed from favorites"
-      },
-      "reserve": {
-         "add": "Successfully reserved!",
-         "remove": "Reservation canceled"
-      },
-      "wallet": {
-         "title": "Deposited Successfully!",
-         "subtitle": "has been added to your wallet"
-      }
-   },
-   "notFound": {
-      "title": "Page not found",
-      "catalog": "To Catalog",
-      "main": "Return Back"
-   },
-   "errorBoundary": {
-      "title": "Something went wrong",
-      "description": "Please refresh the page or contact support if the issue persists.",
-      "application": "Application error:"
-   }
+    },
+    "ribbon": {
+      "popular": "Popular",
+      "notAvailable": "Not Available"
+    }
+  },
+  "actions": {
+    "favorites": {
+      "addText": "Add to Favorites",
+      "addText2": "Add to Fav",
+      "removeText": "Remove Fav",
+      "removeText2": "Remove from Favorites"
+    },
+    "cart": {
+      "addText": "Add to Cart",
+      "addText2": "Add to Cart",
+      "removeText": "Remove from Cart",
+      "removeText2": "Remove from Cart"
+    },
+    "reservation": {
+      "addText": "Reserve",
+      "removeText": "Cancel Reservation"
+    },
+    "modal": {
+      "title": "Are you sure you want to remove the book from the order?",
+      "description": "This action cannot be undone.",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "remove": "Remove",
+    "tarrifButton": "d"
+  },
+  "tooltip": {
+    "confirmationAwaiting": "Confirmation awaiting",
+    "emailVerified": "Email verified"
+  },
+  "tiles": {
+    "text1": "Service user since",
+    "text2": "Saved"
+  },
+  "anchors": {
+    "rented": {
+      "title": "Rented",
+      "fullTitle": "Rented books",
+      "description": "Books on hands"
+    },
+    "reserved": {
+      "title": "Reserved",
+      "fullTitle": "Reserved books",
+      "description": "Added to a rent queue"
+    },
+    "favorites": {
+      "title": "Favorites",
+      "fullTitle": "Favorite books",
+      "description": "Books in Favorites"
+    },
+    "history": {
+      "title": "History",
+      "fullTitle": "Recently rented books",
+      "description": "Recent orders books"
+    }
+  },
+  "timezone": {
+    "day": "day",
+    "days": "days",
+    "dayss": "days",
+    "willBe": "Will be delivered in",
+    "remained": "Remained:",
+    "forRent": "For rent up to",
+    "couldBeRent": "Place your order within two days to keep your spot in the queue.",
+    "waitingTime": "Waiting time: ~",
+    "yourTurn": "It's your turn!",
+    "yourQueue": "Your number in queue:"
+  },
+  "order": {
+    "steps": {
+      "cartTitle": "Cart",
+      "checkoutTitle": "Checkout",
+      "deliveryTitle": "Delivery",
+      "cartDescription": "Check your choice",
+      "checkoutDescription": "Payment and delivery selection",
+      "deliveryDescription": "Order pickup"
+    },
+    "cart": {
+      "title": "Cart",
+      "subtitle": "Order contents",
+      "description": "Check selected books before checkout",
+      "empty": "Order is empty",
+      "commTitle": "Take a closer look as well",
+      "commDescr": "A selection of recommended books based on your order"
+    },
+    "sidebar": {
+      "book": "book",
+      "books": "books",
+      "bookss": "books",
+      "for": "For",
+      "duration": "d.",
+      "total": "Total",
+      "empty": "Order is empty",
+      "proceed": "Proceed to checkout",
+      "fee": "Service fee (7%)"
+    },
+    "checkout": {
+      "returnToCart": "Return to cart",
+      "title": "Order processing",
+      "subtitle": "Payment",
+      "description": "Funds will be deducted from your internal wallet",
+      "deliveryTitle": "Delivery",
+      "deliveryDescription": "Specify and verify the delivery method and address.",
+      "sufficientMoney": "Sufficient funds on the account",
+      "insufficientMoney": "Insufficient funds on the account",
+      "deliveryMethod": "Select a delivery method",
+      "nearestMeetUp": "Pick up at the nearest meetup in a coffee shop",
+      "deliveryAddress": "Chose delivery address...",
+      "deliveryTime": "Chose delivery time...",
+      "deliveryCoffee": "Chose coffee shop...",
+      "payOrder": "Pay for the order",
+      "yourOrder": "Your order"
+    },
+    "result": {
+      "text": "The order has been successfully paid and completed!",
+      "description": "Please wait for delivery within the timeframe specified in your order.",
+      "toOrder": "To your order",
+      "toCatalog": "To Catalog"
+    }
+  },
+  "book": {
+    "empty": "Empty",
+    "from": "from",
+    "breadcrumbs": "Catalog",
+    "bookNotFound": "Book not found",
+    "about": "About Book",
+    "author": "Author",
+    "year": "Year",
+    "publisher": "Publisher",
+    "sameAuthor": "By the same author",
+    "deliveryByCourier": "Delivery by courier service within 2 days.",
+    "tooltip": "The price is very volatile, so it may change at any time.",
+    "descrTooltip": "Translation is temporarily unavailable",
+    "forRent": "For rent until",
+    "reservable": {
+      "title": "You can reserve",
+      "subtitle": "At the moment, all copies of this book are taken.",
+      "description": "You can place a reservation on it to rent it once it becomes available and your turn comes."
+    },
+    "outOfStock": {
+      "title": "Out of stock",
+      "subtitle": "At the moment, there are no copies of this book from users in the service.",
+      "description": "You can place a reservation on it to rent it once it becomes available and your turn comes, or add it to your favorites."
+    }
+  },
+  "alert": {
+    "cart": {
+      "add": "Added to cart!",
+      "remove": "Removed from cart"
+    },
+    "favorites": {
+      "add": "Added to favorites!",
+      "remove": "Removed from favorites"
+    },
+    "reserve": {
+      "add": "Successfully reserved!",
+      "remove": "Reservation canceled"
+    },
+    "wallet": {
+      "title": "Deposited Successfully!",
+      "subtitle": "has been added to your wallet"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "catalog": "To Catalog",
+    "main": "Return Back"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "Please refresh the page or contact support if the issue persists.",
+    "application": "Application error:"
+  }
 }

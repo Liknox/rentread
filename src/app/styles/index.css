@@ -7,36 +7,36 @@
 @tailwind utilities;
 
 .overlay-container {
-   position: fixed;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background-color: rgba(255, 255, 255, 0.5);
-   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
 }
 
 .overlay {
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* alert on mobile screen */
 @media (max-width: 768px) {
-   .alert-notification {
-      padding: 10px 24px !important;
-   }
-   .ant-notification-notice-message {
-      margin-bottom: 4px !important;
-   }
+  .alert-notification {
+    padding: 10px 24px !important;
+  }
+  .ant-notification-notice-message {
+    margin-bottom: 4px !important;
+  }
 }
 
 .card-row-shadow:hover {
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-   border: 1px var(--color-shadow) solid;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px var(--color-shadow) solid;
 }

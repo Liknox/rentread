@@ -18,124 +18,124 @@ import Sidebar from "../sidebar"
 const { Option } = Select
 
 const viewTypes = [
-   { key: "grid", Icon: AppstoreOutlined },
-   { key: "list", Icon: BarsOutlined },
+  { key: "grid", Icon: AppstoreOutlined },
+  { key: "list", Icon: BarsOutlined },
 ]
 
 const useFilters = () => {
-   const params = catalogParams.useSearchParam()
-   const { authors } = catalogParams.useFilterByAuthor()
-   const { publishers } = catalogParams.useFilterByPublisher()
-   const { categories } = catalogParams.useFilterByCategory()
-   const prices = catalogParams.usePrices()
-   const { tariff } = catalogParams.useTariff()
-   const { existsOnly } = catalogParams.useExistsOnly()
+  const params = catalogParams.useSearchParam()
+  const { authors } = catalogParams.useFilterByAuthor()
+  const { publishers } = catalogParams.useFilterByPublisher()
+  const { categories } = catalogParams.useFilterByCategory()
+  const prices = catalogParams.usePrices()
+  const { tariff } = catalogParams.useTariff()
+  const { existsOnly } = catalogParams.useExistsOnly()
 
-   return {
-      authors,
-      publishers,
-      categories,
-      prices,
-      search: params.search,
-      tariff,
-      existsOnly,
-      // !!! FIXME: simplify!!!
-      getRentInfoBy: (b: AbstractBook) => orderLib.getRentInfo(b.id),
-      // exclude: viewerABooksIds,
-      // exclude: [],
-   }
+  return {
+    authors,
+    publishers,
+    categories,
+    prices,
+    search: params.search,
+    tariff,
+    existsOnly,
+    // !!! FIXME: simplify!!!
+    getRentInfoBy: (b: AbstractBook) => orderLib.getRentInfo(b.id),
+    // exclude: viewerABooksIds,
+    // exclude: [],
+  }
 }
 
 function CatalogContent() {
-   const { t } = useTranslation()
-   const filters = useFilters()
-   const obParam = catalogParams.useSorting()
-   const isMobile = useMobileDetection()
+  const { t } = useTranslation()
+  const filters = useFilters()
+  const obParam = catalogParams.useSorting()
+  const isMobile = useMobileDetection()
 
-   const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
-   const vtParam = catalogParams.useViewType()
+  const booksQuery = fakeApi.library.books.getList({ filters, orderby: obParam.sorting })
+  const vtParam = catalogParams.useViewType()
 
-   const pagination = catalogParams.usePagination()
-   const [pageSize, setPageSize] = useState(BOOKS_PER_PAGE)
-   const [open, setOpen] = useState(false)
+  const pagination = catalogParams.usePagination()
+  const [pageSize, setPageSize] = useState(BOOKS_PER_PAGE)
+  const [open, setOpen] = useState(false)
 
-   const handlePageChange = (page: number, size: number) => {
-      scrollToTop()
-      pagination.setPage(page)
-      setPageSize(size)
-   }
+  const handlePageChange = (page: number, size: number) => {
+    scrollToTop()
+    pagination.setPage(page)
+    setPageSize(size)
+  }
 
-   const paginatedData = isMobile
-      ? booksQuery
-      : booksQuery.slice((pagination.page - 1) * pageSize, pagination.page * pageSize)
+  const paginatedData = isMobile
+    ? booksQuery
+    : booksQuery.slice((pagination.page - 1) * pageSize, pagination.page * pageSize)
 
-   return (
-      <>
-         <Layout aria-label="catalog layout">
-            <section className="flex md:mr-10 mb-2 text-xl" aria-label="sort filter options">
-               <SortFilterOptions setOpen={setOpen} />
-               {isMobile || (
-                  <Radio.Group
-                     value={vtParam.viewType}
-                     onChange={e => {
-                        console.debug("[DEBUG] reachGoal: CHANGE_CATALOG_VIEW_TYPE")
-                        vtParam.setViewType(e.target.value)
-                     }}
-                     buttonStyle="solid"
-                     aria-label="view type">
-                     {viewTypes.map(vt => (
-                        <Radio.Button
-                           key={vt.key}
-                           value={vt.key}
-                           className="h-[30px] text-lightGray"
-                           aria-label={vt.key === "grid" ? "grid template" : "list template"}>
-                           <vt.Icon className="text-[20px] pt-1" />
-                        </Radio.Button>
-                     ))}
-                  </Radio.Group>
-               )}
-            </section>
-            <section className="mr-0 md:mr-10" aria-label="books section">
-               <Row justify="start" className="!gap-1 md:!gap-0" gutter={[20, 20]} aria-label="books row">
-                  {paginatedData.map(b => (
-                     <BookItem layout key={b.id} data={b} />
-                  ))}
-               </Row>
-               {!booksQuery.length && (
-                  <Empty
-                     className="my-[100px]"
-                     description={t(TRANSLATIONS.catalog.foundNothing)}
-                     aria-label="empty catalog"
-                  />
-               )}
-               {isMobile || (
-                  <Pagination
-                     className="mt-10 mb-5 text-center"
-                     current={pagination.page}
-                     pageSize={pageSize}
-                     total={booksQuery.length}
-                     onChange={handlePageChange}
-                     onShowSizeChange={handlePageChange}
-                     align="center"
-                     responsive
-                     aria-label="pagination"
-                  />
-               )}
-            </section>
-         </Layout>
-         <Drawer
-            id="left-drawer"
-            closable={true}
-            placement={isMobile ? "bottom" : "left"}
-            onClose={() => setOpen(prev => !prev)}
-            open={open}
-            height={isMobile ? "90%" : undefined}
-            title={t(TRANSLATIONS.catalog.filters.title)}
-            aria-label="filters drawer">
-            <Sidebar />
-         </Drawer>
-      </>
-   )
+  return (
+    <>
+      <Layout aria-label="catalog layout">
+        <section className="flex md:mr-10 mb-2 text-xl" aria-label="sort filter options">
+          <SortFilterOptions setOpen={setOpen} />
+          {isMobile || (
+            <Radio.Group
+              value={vtParam.viewType}
+              onChange={e => {
+                console.debug("[DEBUG] reachGoal: CHANGE_CATALOG_VIEW_TYPE")
+                vtParam.setViewType(e.target.value)
+              }}
+              buttonStyle="solid"
+              aria-label="view type">
+              {viewTypes.map(vt => (
+                <Radio.Button
+                  key={vt.key}
+                  value={vt.key}
+                  className="h-[30px] text-lightGray"
+                  aria-label={vt.key === "grid" ? "grid template" : "list template"}>
+                  <vt.Icon className="text-[20px] pt-1" />
+                </Radio.Button>
+              ))}
+            </Radio.Group>
+          )}
+        </section>
+        <section className="mr-0 md:mr-10" aria-label="books section">
+          <Row justify="start" className="!gap-1 md:!gap-0" gutter={[20, 20]} aria-label="books row">
+            {paginatedData.map(b => (
+              <BookItem layout key={b.id} data={b} />
+            ))}
+          </Row>
+          {!booksQuery.length && (
+            <Empty
+              className="my-[100px]"
+              description={t(TRANSLATIONS.catalog.foundNothing)}
+              aria-label="empty catalog"
+            />
+          )}
+          {isMobile || (
+            <Pagination
+              className="mt-10 mb-5 text-center"
+              current={pagination.page}
+              pageSize={pageSize}
+              total={booksQuery.length}
+              onChange={handlePageChange}
+              onShowSizeChange={handlePageChange}
+              align="center"
+              responsive
+              aria-label="pagination"
+            />
+          )}
+        </section>
+      </Layout>
+      <Drawer
+        id="left-drawer"
+        closable={true}
+        placement={isMobile ? "bottom" : "left"}
+        onClose={() => setOpen(prev => !prev)}
+        open={open}
+        height={isMobile ? "90%" : undefined}
+        title={t(TRANSLATIONS.catalog.filters.title)}
+        aria-label="filters drawer">
+        <Sidebar />
+      </Drawer>
+    </>
+  )
 }
 
 // const BookItem = motion(
@@ -206,36 +206,36 @@ function CatalogContent() {
 // )
 
 type Props = {
-   setOpen: (e: boolean) => void
+  setOpen: (e: boolean) => void
 }
 
 const SortFilterOptions = ({ setOpen }: Props) => {
-   const { t } = useTranslation()
-   const obParam = catalogParams.useSorting()
-   const isMobile = useMobileDetection()
+  const { t } = useTranslation()
+  const obParam = catalogParams.useSorting()
+  const isMobile = useMobileDetection()
 
-   return (
-      <Row className={cn("grow", { "mr-5": !isMobile, "justify-between": isMobile })} aria-label="sort filter options">
-         {isMobile ? (
-            <Button onClick={() => setOpen(true)} aria-label="open filters">
-               {t(TRANSLATIONS.catalog.filters.title)}
-            </Button>
-         ) : (
-            <b className="mr-5 text-xl">{t(TRANSLATIONS.catalog.sortBy.title)}:</b>
-         )}
-         <Select
-            placeholder={t(TRANSLATIONS.catalog.sortBy.options.novelty)}
-            className="md:!w-[200px] w-[180px]"
-            onChange={value => obParam.setSorting(value)}
-            aria-label="sort select">
-            {Object.entries(SORTINGS).map(([sId, sName]) => (
-               <Option key={sId} value={Number(sId)}>
-                  {t(sName)}
-               </Option>
-            ))}
-         </Select>
-      </Row>
-   )
+  return (
+    <Row className={cn("grow", { "mr-5": !isMobile, "justify-between": isMobile })} aria-label="sort filter options">
+      {isMobile ? (
+        <Button onClick={() => setOpen(true)} aria-label="open filters">
+          {t(TRANSLATIONS.catalog.filters.title)}
+        </Button>
+      ) : (
+        <b className="mr-5 text-xl">{t(TRANSLATIONS.catalog.sortBy.title)}:</b>
+      )}
+      <Select
+        placeholder={t(TRANSLATIONS.catalog.sortBy.options.novelty)}
+        className="md:!w-[200px] w-[180px]"
+        onChange={value => obParam.setSorting(value)}
+        aria-label="sort select">
+        {Object.entries(SORTINGS).map(([sId, sName]) => (
+          <Option key={sId} value={Number(sId)}>
+            {t(sName)}
+          </Option>
+        ))}
+      </Select>
+    </Row>
+  )
 }
 
 export default CatalogContent

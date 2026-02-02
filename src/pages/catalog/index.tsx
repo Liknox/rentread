@@ -11,21 +11,21 @@ import Sidebar from "./sidebar"
  * @page Catalog Page
  */
 function CatalogPage() {
-   const { t } = useTranslation()
-   const isMobile = useMobileDetection()
-   useTitle(t(TRANSLATIONS.pageTitle.catalog))
+  const { t } = useTranslation()
+  const isMobile = useMobileDetection()
+  useTitle(t(TRANSLATIONS.pageTitle.catalog))
 
-   return (
-      <Layout.Content className="p-5 md:p-[40px_10%] mb-20 md:mb-0">
-         <Typography.Title className="font-roboto text-center md:mt-10 mt-4" level={2}>
-            {t(TRANSLATIONS.catalog.title)}
-         </Typography.Title>
-         <Layout className="md:mt-16 mt-8">
-            <CatalogContent />
-            {isMobile || <Sidebar />}
-         </Layout>
-      </Layout.Content>
-   )
+  return (
+    <Layout.Content className="p-5 md:p-[40px_10%] mb-20 md:mb-0">
+      <Typography.Title className="font-roboto text-center md:mt-10 mt-4" level={2}>
+        {t(TRANSLATIONS.catalog.title)}
+      </Typography.Title>
+      <Layout className="md:mt-16 mt-8">
+        <CatalogContent />
+        {isMobile || <Sidebar />}
+      </Layout>
+    </Layout.Content>
+  )
 }
 
 export default CatalogPage

@@ -12,19 +12,19 @@ import { DemoAlert } from "@shared/ui/location-alert"
  * @page Layout Page
  */
 const Layout = () => {
-   useResetScrollAtEveryPage()
-   const isMobile = useMobileDetection()
+  useResetScrollAtEveryPage()
+  const isMobile = useMobileDetection()
 
-   return (
-      <AntLayout className="min-h-screen flex flex-col">
-         <DemoAlert />
-         <Header />
-         <div className={`flex-grow ${isMobile ? "mt-16 pt-2" : "mt-0"}`}>
-            <Outlet />
-         </div>
-         <Footer />
-      </AntLayout>
-   )
+  return (
+    <AntLayout className="min-h-screen flex flex-col">
+      <DemoAlert />
+      <Header />
+      <div className={`flex-grow ${isMobile ? "mt-16 pt-2" : "mt-0"}`}>
+        <Outlet />
+      </div>
+      <Footer />
+    </AntLayout>
+  )
 }
 
 export default Layout

@@ -3,48 +3,48 @@ import { Component, type ErrorInfo, type ReactNode } from "react"
 import { type WithTranslation, withTranslation } from "react-i18next"
 
 interface ErrorBoundaryState {
-   hasError: boolean
-   error: Error | null
+  hasError: boolean
+  error: Error | null
 }
 
 interface ErrorBoundaryProps extends WithTranslation {
-   children: ReactNode
+  children: ReactNode
 }
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-   constructor(props: ErrorBoundaryProps) {
-      super(props)
-      this.state = { hasError: false, error: null }
-   }
+  constructor(props: ErrorBoundaryProps) {
+    super(props)
+    this.state = { hasError: false, error: null }
+  }
 
-   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
-      return { hasError: true, error }
-   }
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return { hasError: true, error }
+  }
 
-   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-      console.error("[ErrorBoundary]", this.props.t(TRANSLATIONS.errorBoundary.application), {
-         error: error.message,
-         stack: error.stack,
-         componentStack: errorInfo.componentStack,
-      })
-   }
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+    console.error("[ErrorBoundary]", this.props.t(TRANSLATIONS.errorBoundary.application), {
+      error: error.message,
+      stack: error.stack,
+      componentStack: errorInfo.componentStack,
+    })
+  }
 
-   render(): ReactNode {
-      const { t } = this.props
+  render(): ReactNode {
+    const { t } = this.props
 
-      if (this.state.hasError) {
-         return (
-            <div className="error-container">
-               <h1>{t(TRANSLATIONS.errorBoundary.title)}</h1>
-               <p>{t(TRANSLATIONS.errorBoundary.description)}</p>
-            </div>
-         )
-      }
+    if (this.state.hasError) {
+      return (
+        <div className="error-container">
+          <h1>{t(TRANSLATIONS.errorBoundary.title)}</h1>
+          <p>{t(TRANSLATIONS.errorBoundary.description)}</p>
+        </div>
+      )
+    }
 
-      return this.props.children
-   }
+    return this.props.children
+  }
 }
 
 const TranslatedErrorBoundary: React.ComponentType<Omit<ErrorBoundaryProps, keyof WithTranslation>> =
-   withTranslation()(ErrorBoundary)
+  withTranslation()(ErrorBoundary)
 export { TranslatedErrorBoundary }

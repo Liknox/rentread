@@ -10,126 +10,126 @@
 
 import { ROUTES } from "../constants"
 import {
-   AboutImport,
-   BookImport,
-   CatalogImport,
-   CheckoutImport,
-   DebugImport,
-   InitialImport,
-   LayoutImport,
-   OrderImport,
-   ProfileImport,
-   R404Import,
-   ResultImport,
+  AboutImport,
+  BookImport,
+  CatalogImport,
+  CheckoutImport,
+  DebugImport,
+  InitialImport,
+  LayoutImport,
+  OrderImport,
+  ProfileImport,
+  R404Import,
+  ResultImport,
 } from "./../../../pages/router"
 
 const InitialRoute = InitialImport.update({
-   path: ROUTES.DEFAULT,
-   getParentRoute: () => LayoutImport,
+  path: ROUTES.DEFAULT,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 const AboutRoute = AboutImport.update({
-   path: ROUTES.ABOUT,
-   getParentRoute: () => LayoutImport,
+  path: ROUTES.ABOUT,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 const CatalogRoute = CatalogImport.update({
-   path: ROUTES.CATALOG,
-   getParentRoute: () => LayoutImport,
+  path: ROUTES.CATALOG,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 const BookRoute = BookImport.update({
-   path: ROUTES.BOOKID,
-   getParentRoute: () => LayoutImport,
+  path: ROUTES.BOOKID,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 const ProfileRoute = ProfileImport.update({
-   path: ROUTES.PROFILE,
-   getParentRoute: () => LayoutImport,
+  path: ROUTES.PROFILE,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 const OrderRoute = OrderImport.update({
-   path: ROUTES.ORDER,
-   getParentRoute: () => LayoutImport,
+  path: ROUTES.ORDER,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 const CheckoutRoute = CheckoutImport.update({
-   path: ROUTES.CHECKOUT,
-   getParentRoute: () => LayoutImport,
+  path: ROUTES.CHECKOUT,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 const ResultRoute = ResultImport.update({
-   path: ROUTES.RESULT,
-   getParentRoute: () => LayoutImport,
+  path: ROUTES.RESULT,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 const DebugRoute = DebugImport.update({
-   path: ROUTES.DEBUG,
-   getParentRoute: () => LayoutImport,
+  path: ROUTES.DEBUG,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 const R404Route = R404Import.update({
-   id: ROUTES.NOTFOUND,
-   path: ROUTES.ALL,
-   getParentRoute: () => LayoutImport,
+  id: ROUTES.NOTFOUND,
+  path: ROUTES.ALL,
+  getParentRoute: () => LayoutImport,
 }) as const satisfies Route
 
 declare module "@tanstack/react-router" {
-   interface FileRoutesByPath {
-      "/": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-      "/about": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-      "/catalog": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-      "/book/$bookId": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-      "/profile": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-      "/order": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-      "/order/checkout": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-      "/order/result/$result": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-      "/__404": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-      "/debug": {
-         preLoaderRoute: typeof String
-         parentRoute: typeof LayoutImport
-      }
-   }
+  interface FileRoutesByPath {
+    "/": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+    "/about": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+    "/catalog": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+    "/book/$bookId": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+    "/profile": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+    "/order": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+    "/order/checkout": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+    "/order/result/$result": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+    "/__404": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+    "/debug": {
+      preLoaderRoute: typeof String
+      parentRoute: typeof LayoutImport
+    }
+  }
 }
 
 export const routeTree = LayoutImport.addChildren([
-   InitialRoute,
-   AboutRoute,
-   CatalogRoute,
-   BookRoute,
-   ProfileRoute,
-   OrderRoute,
-   CheckoutRoute,
-   ResultRoute,
-   R404Route,
-   DebugRoute,
+  InitialRoute,
+  AboutRoute,
+  CatalogRoute,
+  BookRoute,
+  ProfileRoute,
+  OrderRoute,
+  CheckoutRoute,
+  ResultRoute,
+  R404Route,
+  DebugRoute,
 ])
 
 /* prettier-ignore-end */

@@ -15,45 +15,45 @@ const Profile = lazy(() => import("./profile"))
 const Initial = lazy(() => import("./initial"))
 
 export const InitialImport = createFileRoute("/")({
-   component: Initial,
+  component: Initial,
 })
 
 export const LayoutImport = createRootRoute({
-   component: Layout,
+  component: Layout,
 })
 
 export const BookImport = createFileRoute("/book/$bookId")({
-   component: Book,
+  component: Book,
 })
 
 export const AboutImport = createFileRoute("/about")({
-   component: About,
+  component: About,
 })
 
 export const CatalogImport = createFileRoute("/catalog")({
-   component: Catalog,
+  component: Catalog,
 })
 
 export const ProfileImport = createFileRoute("/profile")({
-   component: Profile,
+  component: Profile,
 })
 
 export const OrderImport = createFileRoute("/order")({
-   component: Order,
+  component: Order,
 })
 
 export const CheckoutImport = createFileRoute("/order/checkout")({
-   component: Checkout,
+  component: Checkout,
 })
 
 export const ResultImport = createFileRoute("/order/result/$result")({
-   component: Result,
+  component: Result,
 })
 
 export const R404Import = createFileRoute("/__404")({
-   component: NotFound,
+  component: NotFound,
 })
 
 export const DebugImport = createFileRoute("/debug")({
-   component: Debug,
+  component: Debug,
 })

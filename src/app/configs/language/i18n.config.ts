@@ -8,22 +8,22 @@ import uaTranslations from "../../providers/locales/ua/translation.json"
 export const savedLanguage = localStorage.getItem("i18nextLng") || "en"
 
 i18n
-   .use(LanguageDetector)
-   .use(initReactI18next)
-   .init({
-      resources: {
-         en: {
-            translation: enTranslations,
-         },
-         ua: {
-            translation: uaTranslations,
-         },
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: {
+        translation: enTranslations,
       },
-      lng: savedLanguage,
-      fallbackLng: "en",
-      interpolation: {
-         escapeValue: false,
+      ua: {
+        translation: uaTranslations,
       },
-   })
+    },
+    lng: savedLanguage,
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+    },
+  })
 
 export default i18n

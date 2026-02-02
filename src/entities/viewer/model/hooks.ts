@@ -4,24 +4,24 @@ import * as lib from "../lib"
 import { useFavStore } from "./store"
 
 export const useBookFavStatus = (bookId: number) => {
-   const isBookFav = useFavStore(state => state.fav.includes(bookId))
+  const isBookFav = useFavStore(state => state.fav.includes(bookId))
 
-   return { isBookFav }
+  return { isBookFav }
 }
 
 export const useFavBooks = () => {
-   const books = bookModel.useBooks()
-   const favIds = useFavStore()
+  const books = bookModel.useBooks()
+  const favIds = useFavStore()
 
-   return books.filter(b => favIds.fav.includes(b.id))
+  return books.filter(b => favIds.fav.includes(b.id))
 }
 
 export const useViewer = () => {
-   return fakeApi.users.users.getViewer()
+  return fakeApi.users.users.getViewer()
 }
 
 export const useViewerNormalized = () => {
-   const viewer = useViewer()
+  const viewer = useViewer()
 
-   return lib.getUserNormalized(viewer)
+  return lib.getUserNormalized(viewer)
 }

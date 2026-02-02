@@ -8,9 +8,9 @@ import { Sections } from "./sections"
  * @page Initial Page
  */
 function IndexPage() {
-   const { t } = useTranslation()
-   useTitle(t(TRANSLATIONS.pageTitle.initial))
-   return <Sections />
+  const { t } = useTranslation()
+  useTitle(t(TRANSLATIONS.pageTitle.initial))
+  return <Sections />
 }
 
 export default IndexPage

@@ -1,12 +1,12 @@
 /* Focus styles for keyboard navigation */
 *:focus {
-   outline: 2px solid #3b82f6;
-   outline-offset: 2px;
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }
 
 /* Remove focus styles for mouse users */
 body:not(.user-is-tabbing) *:focus {
-   outline: none;
+  outline: none;
 }
 
 /* Add focus styles for interactive elements */
@@ -16,6 +16,6 @@ input:focus,
 select:focus,
 textarea:focus,
 [tabIndex="0"]:focus {
-   outline: 2px solid #3b82f6;
-   outline-offset: 2px;
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }

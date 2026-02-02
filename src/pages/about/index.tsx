@@ -9,18 +9,18 @@ import sections from "./sections/model"
  * @page About Page
  */
 function AboutPage() {
-   const { t } = useTranslation()
-   useTitle(t(TRANSLATIONS.pageTitle.about))
+  const { t } = useTranslation()
+  useTitle(t(TRANSLATIONS.pageTitle.about))
 
-   return (
-      <>
-         <Layout.Content className="p-0">
-            {sections.map(({ id, Section }) => (
-               <Section key={id} />
-            ))}
-         </Layout.Content>
-      </>
-   )
+  return (
+    <>
+      <Layout.Content className="p-0">
+        {sections.map(({ id, Section }) => (
+          <Section key={id} />
+        ))}
+      </Layout.Content>
+    </>
+  )
 }
 
 export default AboutPage
