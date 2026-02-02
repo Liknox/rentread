@@ -56,64 +56,64 @@ const OrderRoute = OrderImport.update({
 const CheckoutRoute = CheckoutImport.update({
    path: ROUTES.CHECKOUT,
    getParentRoute: () => LayoutImport,
-} as const satisfies Route)
+}) as const satisfies Route
 
 const ResultRoute = ResultImport.update({
    path: ROUTES.RESULT,
    getParentRoute: () => LayoutImport,
-} as const satisfies Route)
+}) as const satisfies Route
 
 const DebugRoute = DebugImport.update({
    path: ROUTES.DEBUG,
    getParentRoute: () => LayoutImport,
-} as const satisfies Route)
+}) as const satisfies Route
 
 const R404Route = R404Import.update({
    id: ROUTES.NOTFOUND,
    path: ROUTES.ALL,
    getParentRoute: () => LayoutImport,
-} as const satisfies Route)
+}) as const satisfies Route
 
 declare module "@tanstack/react-router" {
    interface FileRoutesByPath {
       "/": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
       "/about": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
       "/catalog": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
       "/book/$bookId": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
       "/profile": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
       "/order": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
       "/order/checkout": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
       "/order/result/$result": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
       "/__404": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
       "/debug": {
-         preLoaderRoute: typeof string
+         preLoaderRoute: typeof String
          parentRoute: typeof LayoutImport
       }
    }
