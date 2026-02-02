@@ -8,8 +8,8 @@ import { ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { useSkeleton } from "@shared/lib"
 import { useMobileDetection } from "@shared/lib/browser"
 import { textOverflow } from "@shared/lib/string"
-import type { AbstractBook } from "shared/api"
-import { fakeApi } from "shared/api"
+import type { AbstractBook } from "@shared/api"
+import { fakeApi } from "@shared/api"
 
 type Size = "large" | "default" | "small"
 type Props = {

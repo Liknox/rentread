@@ -9,9 +9,9 @@ import { ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { TRANSLATIONS } from "@app/configs/constants/translation"
 import { useMobileDetection } from "@shared/lib/browser"
 
-import type { AbstractBook } from "shared/api"
-import { fakeApi } from "shared/api"
-import { string } from "shared/lib"
+import type { AbstractBook } from "@shared/api"
+import { fakeApi } from "@shared/api"
+import { string } from "@shared/lib"
 
 import { useSkeleton } from "@shared/lib"
 

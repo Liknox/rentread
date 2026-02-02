@@ -1,6 +1,6 @@
 import faker from "faker"
 
-import { browser } from "shared/lib"
+import { browser } from "@shared/lib"
 import type { User } from "../../types"
 import * as roles from "./roles"
 import { USERS_UBOOKS } from "./user-books"

@@ -3,7 +3,7 @@ import { Col, Row, Skeleton, Typography } from "antd"
 
 import { ROUTES, SKELETON_KEYS } from "@app/configs/constants"
 import { useSkeleton } from "@shared/lib"
-import { fakeApi } from "shared/api"
+import { fakeApi } from "@shared/api"
 
 import imgCat1 from "./assets/c1.webp"
 import imgCat2 from "./assets/c2.webp"
