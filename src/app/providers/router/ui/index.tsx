@@ -4,11 +4,31 @@ import { Suspense, useEffect, useState } from "react"
 
 import { routeTree } from "@app/configs/router"
 
-const LoadingSpinner = ({ delay = 300 }) => (
+interface LoadingSpinnerProps {
+   delay?: number
+}
+
+const LoadingSpinner = ({ delay = 300 }: LoadingSpinnerProps) => (
    <div className="overlay-container">
       <Spin delay={delay} className="overlay" size="large" />
    </div>
 )
+
+const DefaultErrorFallback = ({ error }: { error: Error | unknown }) => {
+   const message = error instanceof Error ? error.message : "An unexpected error occurred"
+   return (
+      <Result
+         status="error"
+         title="Navigation Error"
+         subTitle={message}
+         extra={[
+            <Button type="primary" key="retry" onClick={() => window.location.reload()}>
+               Retry
+            </Button>,
+         ]}
+      />
+   )
+}
 
 const router = createRouter({
    routeTree,
@@ -18,18 +38,7 @@ const router = createRouter({
    defaultPreload: "intent",
    defaultPreloadStaleTime: 0,
    defaultPendingComponent: () => <LoadingSpinner />,
-   defaultErrorComponent: ({ error }) => (
-      <Result
-         status="error"
-         title="Navigation Error"
-         subTitle={error?.message || "An unexpected error occurred"}
-         extra={[
-            <Button type="primary" key="retry" onClick={() => window.location.reload()}>
-               Retry
-            </Button>,
-         ]}
-      />
-   ),
+   defaultErrorComponent: DefaultErrorFallback,
 })
 
 declare module "@tanstack/react-router" {
@@ -44,11 +53,9 @@ const Router = () => {
    useEffect(() => {
       router
          .load()
-         .then(() => {
-            setIsRouterReady(true)
-         })
-         .catch(error => {
-            console.error("Router initialization error:", error)
+         .then(() => setIsRouterReady(true))
+         .catch((error: unknown) => {
+            console.error("[Router] Initialization failed:", error)
             setIsRouterReady(true)
          })
    }, [])
