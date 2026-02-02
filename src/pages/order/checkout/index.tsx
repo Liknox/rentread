@@ -1,8 +1,7 @@
 import { Link, useNavigate } from "@tanstack/react-router"
 import { Button, Checkbox, Col, DatePicker, Input, Layout, Result, Row, Select, Typography } from "antd"
 import cn from "classnames"
-import dayjs from "dayjs"
-import moment from "moment"
+import dayjs, { type Dayjs } from "dayjs"
 import { Marker, Map as PMap } from "pigeon-maps"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -192,8 +191,8 @@ const DeliveryForm = () => {
                   <DatePicker
                      placeholder={t(TRANSLATIONS.order.checkout.deliveryTime)}
                      style={{ width: "100%", marginTop: 20 }}
-                     value={date ? moment(date) : undefined}
-                     onChange={value => {
+                     value={date ? dayjs(date) : undefined}
+                     onChange={(value: Dayjs | null) => {
                         cartDelivery.setDelivery({ date: value?.toISOString() })
                      }}
                   />
